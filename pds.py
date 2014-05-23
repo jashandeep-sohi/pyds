@@ -17,7 +17,6 @@
 
 from weakref import WeakValueDictionary as _WeakValueDict, proxy as _weak_proxy
 from re import compile as _re_compile
-import abc
 
 ################
 # Constants
@@ -186,22 +185,16 @@ for token_name, token_re, token_groups in ODL_LEX_TOK_SPEC
 ################
 
 class _DoubleLinkNode(object):
-  """
-  """
+
   __slots__ = ("prev", "next", "value", "__weakref__")
   
   def __init__(self, value = None):
-    """
-    """
     self.value = value
 
 class Statements(object):
-  """
-  """
+
   
-  def __init__(self):
-    """
-    """
+  def __init__(self, statements=list()):
     self._root_node_hard = _DoubleLinkNode()
     self._root_node = _weak_proxy(self._root_node_hard)
     self._root_node.next = self._root_node
@@ -209,10 +202,11 @@ class Statements(object):
     self._length = 0
     
     self._dict = _WeakValueDict()
+    
+    for statement in statements:
+      self.append(statement)
       
-  def _insert_node(self, node, index):
-    """
-    """    
+  def _insert_node(self, node, index): 
     node_after = self._get_node(index)
     node_before = node_after.prev
     
@@ -226,8 +220,6 @@ class Statements(object):
     return node
   
   def _get_node(self, index):
-    """
-    """
     if index > len(self)/2:
       node = self._root_node
       for _ in range(len(self)-index):
@@ -239,8 +231,6 @@ class Statements(object):
     return node
   
   def _remove_node(self, node):
-    """
-    """
     node_before, node_after = node.prev, node.next
     
     node_before.next = node_after
@@ -248,40 +238,36 @@ class Statements(object):
     
     self._length -= 1
     return node  
-    
+  
   def _insert(self, statement, index):
-    """
-    """
     index = max(0, len(self) + index) if index < 0 else min(len(self), index)
     new_node = self._insert_node(_DoubleLinkNode(statement), index)
     self._dict[statement.identifier] = new_node
   
+  def _append(self, statement):
+    self._insert(statement, len(self))
+  
   def insert(self, statement, index):
-    """
-    """
-    if isinstance(statement, Statement):
+    try:
+      self._dict[statement.identifier]
+    except KeyError:
       self._insert(statement, index)
     else:
-      raise TypeError()
+      raise ValueError(
+        "statement identifier already exists".format(statement.identifier)
+      )
     
   def append(self, statement):
-    """
-    """
     self.insert(statement, len(self))
   
   def get(self, index):
-    """
-    """
     index = len(self) + index if index < 0 else index
     if index >= len(self) or index < 0:
       raise IndexError("index out of range")
     else:
       return self._get_node(index).value
-      
-  
+       
   def pop(self, index):
-    """
-    """
     index = len(self) + index if index < 0 else index
     if index >= len(self) or index < 0:
       raise IndexError("index out of range")
@@ -289,34 +275,29 @@ class Statements(object):
       return self._remove_node(self._get_node(index)).value
   
   def __setitem__(self, key, value):
-    """
-    """
-    if isinstance(value, Value):
-      self._insert(Attribute(key, value), len(self))
-      
-    elif isinstance(value, GroupStatements):
-      self._insert(Group(key, value), len(self))
-      
-    elif isinstance(value, ObjectStatements):
-      self._insert(Object(key, value), len(self))
-      
-    else:
-      raise TypeError()
+    for cls in [Attribute, Group, Object]:
+      try:
+        stmt = cls(key, value)
+      except TypeError:
+        pass
+      else:
+        try:
+          old_node = self._dict[stmt.identifier]
+        except KeyError:
+          self._append(stmt)
+        else:
+          old_node.value = stmt
+          return None
+    raise TypeError("value type error")
   
   def __getitem__(self, key):
-    """
-    """
     return self._dict[key.upper()].value.value
     
   def __delitem__(self, key):
-    """
-    """
     node = self._remove_node(self._dict[key.upper()])
     del node
   
   def __contains__(self, key):
-    """
-    """
     try:
       self[key]
     except KeyError:
@@ -325,67 +306,218 @@ class Statements(object):
       return True
     
   def __iter__(self):
-    """
-    """
     current_node = self._root_node.next
     while current_node is not self._root_node:
       yield current_node.value
       current_node = current_node.next
   
   def __reversed__(self):
-    """
-    """
     current_node = self._root_node.prev
     while current_node is not self._root_node:
       yield current_node.value
       current_node = current_node.prev
     
   def __len__(self):
-    """
-    """
     return self._length
-    
-  def __repr__(self):
-    """
-    """
-    return "<{}.{}>".format(
-      self.__module__,
-      type(self).__name__
+  
+  def __str__(self):
+    return self._format("")
+  
+  def _format(self, indent):
+    width = str(max(
+      10,
+      max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
+    ))
+    return "\r\n".join(
+      stmt._format(indent, width) for stmt in iter(self)
     )
     
-  def __str__(self):
-    return "\r\n".join(str(statement) for statement in iter(self))
-    
+  def __bytes__(self):
+    return str(self).encode("ascii")
 
+class Label(Statements):
+  
+  def __str__(self):
+    return "{}\r\nEND ".format(
+      self._format(""),
+    )
+       
 class GroupStatements(Statements):
-  pass
+  
+  def insert(self, statement, index):
+    if isinstance(statement, (Group, Object)):
+      raise TypeError(
+        "PDS doesn't allow nested Group & Object statements in Group statements"
+      )
+    super().insert(statement, index)
+  
+  def _format(self, indent):
+    width = str(
+      max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
+    )
+    return "\r\n".join(
+      stmt._format(indent, width) for stmt in iter(self)
+    )
   
 class ObjectStatements(Statements):
   pass
 
+
 class Statement(object):
+  
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+  
+  @property
+  def identifier(self):
+    return self._identifier
+  
+  @identifier.setter
+  def identifier(self, identifier):
+    if not self.valid_identifier_re.fullmatch(identifier):
+      raise ValueError("invalid identifier '{}'".format(identifier))
+    self._identifier = identifier.upper()
+        
+  def __str__(self):
+    return self._format("", "")  
+
+class Attribute(Statement):
+  
+  valid_identifier_re = _re_compile("""(?xi)
+    (?:
+      (?:
+        (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+        (?:[a-z](?:_?[a-z0-9])*)
+      )
+      :
+      |
+      \^
+    )?
+    (?:
+      (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+      (?:[a-z](?:_?[a-z0-9])*)
+    )
+  """)
   
   def __init__(self, identifier, value):
     self.identifier = identifier
     self.value = value
-
-class Attribute(Statement):
-  
-  def __init__(self, identifier, value):
-    super().__init__(identifier, value)
-  
+      
+  def _format(self, indent, width):
+    return "{}{} = {}".format(
+      indent,
+      format(self.identifier, width),
+      self.value
+    )
+    
+      
 class Group(Statement):
-
+  
+  valid_identifier_re = _re_compile(r"""(?xi)
+    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+    (?:[a-z](?:_?[a-z0-9])*)
+  """)
+  
   def __init__(self, identifier, group_statements):
-    super().__init__(identifier, group_statements)
+    self.identifier = identifier
+    self.value = self.statements = group_statements
+    
+  def _format(self, indent, width):
+    return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
+      indent,
+      format("GROUP", width),
+      self.identifier,
+      self.statements._format(indent + " "),
+      indent,
+      format("END_GROUP", width),
+      self.identifier
+    )
+    
   
 class Object(Statement):
 
-  def __init__(self, identifier, object_statements):
-    super().__init__(identifier, object_statements)
+  valid_identifier_re = _re_compile(r"""(?xi)
+    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+    (?:[a-z](?:_?[a-z0-9])*)
+  """)
   
+  def __init__(self, identifier, object_statements):
+    self.identifier = identifier
+    self.value = self.statements = object_statements
+    
+  def _format(self, indent, width):
+    return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
+      indent,
+      format("OBJECT", width),
+      self.identifier,
+      self.statments._format(indent + " "),
+      indent,
+      format("END_OBJECT", width),
+      self.identifier
+    )
+  
+
 class Value(object):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+
+class Scalar(Value):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+  
+class Sequence(Value):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+  
+class Set(Value):
   pass
+  
+class Numeric(Scalar):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+  
+class Temporal(Scalar):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+    
+class Symbolic(Scalar):
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
+
+class Text(Scalar):
+  pass
+
+class Sequence1D(Sequence):
+  pass
+  
+class Sequence2D(Sequence):
+  pass
+  
+class Integer(Numeric):
+  pass
+  
+class BasedInteger(Numeric):
+  pass
+  
+class Real(Numeric):
+  pass
+  
+class Date(Temporal):
+  pass
+  
+class Time(Temporal):
+  pass
+  
+class DateTime(Temporal):
+  pass
+  
+class Identifier(Symbolic):
+  pass
+  
+class Symbol(Symbolic):
+  pass
+  
+
 
 ################
 # Functions
