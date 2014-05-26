@@ -17,6 +17,10 @@
 
 from weakref import WeakValueDictionary as _WeakValueDict, proxy as _weak_proxy
 from re import compile as _re_compile
+from collections.abc import MutableSet as _MutableSet
+from collections.abc import MutableSequence as _MutableSequence
+from datetime import date as _date, time as _time, datetime as _datetime
+import abc
 
 ################
 # Constants
@@ -191,23 +195,17 @@ class _DoubleLinkNode(object):
   def __init__(self, value = None):
     self.value = value
 
-class Statements(object):
-
+class _DoubleLinkedNodes(object):
   
-  def __init__(self, statements=list()):
-    self._root_node_hard = _DoubleLinkNode()
-    self._root_node = _weak_proxy(self._root_node_hard)
-    self._root_node.next = self._root_node
-    self._root_node.prev = self._root_node
-    self._length = 0
-    
-    self._dict = _WeakValueDict()
-    
-    for statement in statements:
-      self.append(statement)
-      
-  def _insert_node(self, node, index): 
-    node_after = self._get_node(index)
+  def __init__(self):
+    self.root_hard = _DoubleLinkNode()
+    self.root = _weak_proxy(self.root_hard)
+    self.root.next = self.root
+    self.root.prev = self.root
+    self.length = 0
+
+  def insert_node(self, node, index): 
+    node_after = self.get_node(index)
     node_before = node_after.prev
     
     node.next = node_after
@@ -216,32 +214,55 @@ class Statements(object):
     node_before.next = node
     node_after.prev = _weak_proxy(node)
     
-    self._length += 1
+    self.length += 1
     return node
   
-  def _get_node(self, index):
+  def get_node(self, index):
     if index > len(self)/2:
-      node = self._root_node
+      node = self.root
       for _ in range(len(self)-index):
         node = node.prev
     else:
-      node = self._root_node.next
+      node = self.root.next
       for _ in range(index):
         node = node.next
     return node
   
-  def _remove_node(self, node):
+  def remove_node(self, node):
     node_before, node_after = node.prev, node.next
     
     node_before.next = node_after
     node_after.prev = node_before
     
-    self._length -= 1
-    return node  
+    self.length -= 1
+    return node
   
+  def __len__(self):
+    return self.length 
+  
+class Statements(object):
+  
+  @property
+  def max_identifier_width(self):
+    return max(
+      10,
+      max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
+    )
+  
+  def __init__(self):
+    self._nodes = _DoubleLinkedNodes()
+    self._dict = _WeakValueDict()
+  
+  @classmethod
+  def from_iterable(cls, iterable):
+    instance = cls()
+    for statement in iterable:
+      instance.append(statement)
+    return instance
+               
   def _insert(self, statement, index):
     index = max(0, len(self) + index) if index < 0 else min(len(self), index)
-    new_node = self._insert_node(_DoubleLinkNode(statement), index)
+    new_node = self._nodes.insert_node(_DoubleLinkNode(statement), index)
     self._dict[statement.identifier] = new_node
   
   def _append(self, statement):
@@ -252,9 +273,13 @@ class Statements(object):
       self._dict[statement.identifier]
     except KeyError:
       self._insert(statement, index)
+    except AttributeError:
+      raise TypeError("expected a Statement object")
     else:
       raise ValueError(
-        "statement identifier already exists".format(statement.identifier)
+        "statement with identifier '{}' already exists".format(
+          statement.identifier
+        )
       )
     
   def append(self, statement):
@@ -265,36 +290,38 @@ class Statements(object):
     if index >= len(self) or index < 0:
       raise IndexError("index out of range")
     else:
-      return self._get_node(index).value
+      return self._nodes.get_node(index).value
        
   def pop(self, index):
     index = len(self) + index if index < 0 else index
     if index >= len(self) or index < 0:
       raise IndexError("index out of range")
     else:
-      return self._remove_node(self._get_node(index)).value
+      node = self._nodes.get_node(index)
+      return self._nodes.remove_node(node).value
   
-  def __setitem__(self, key, value):
-    for cls in [Attribute, Group, Object]:
-      try:
-        stmt = cls(key, value)
-      except TypeError:
-        pass
+  def __setitem__(self, key, value):    
+    try:
+      stmt = Attribute(key, value)
+    except TypeError:
+      if isinstance(value, GroupStatements):
+        stmt = Group(key, value)
+      elif isinstance(value, ObjectStatements):
+        stmt = Object(key, value)
       else:
-        try:
-          old_node = self._dict[stmt.identifier]
-        except KeyError:
-          self._append(stmt)
-        else:
-          old_node.value = stmt
-          return None
-    raise TypeError("value type error")
+        raise TypeError("invalid value type")
+    try:
+      old_node = self._dict[stmt.identifier]
+    except KeyError:
+      self._append(stmt)
+    else:
+      old_node.value = stmt
   
   def __getitem__(self, key):
     return self._dict[key.upper()].value.value
     
   def __delitem__(self, key):
-    node = self._remove_node(self._dict[key.upper()])
+    node = self._nodes.remove_node(self._dict[key.upper()])
     del node
   
   def __contains__(self, key):
@@ -306,84 +333,84 @@ class Statements(object):
       return True
     
   def __iter__(self):
-    current_node = self._root_node.next
-    while current_node is not self._root_node:
+    current_node = self._nodes.root.next
+    while current_node is not self._nodes.root:
       yield current_node.value
       current_node = current_node.next
   
   def __reversed__(self):
-    current_node = self._root_node.prev
-    while current_node is not self._root_node:
+    current_node = self._nodes.root.prev
+    while current_node is not self._nodes.root:
       yield current_node.value
       current_node = current_node.prev
     
   def __len__(self):
-    return self._length
+    return len(self._nodes)
   
   def __str__(self):
-    return self._format("")
-  
-  def _format(self, indent):
-    width = str(max(
-      10,
-      max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
-    ))
+    width = str(self.max_identifier_width)
     return "\r\n".join(
-      stmt._format(indent, width) for stmt in iter(self)
+      stmt._format("", width) for stmt in iter(self)
     )
-    
+      
   def __bytes__(self):
     return str(self).encode("ascii")
 
 class Label(Statements):
   
   def __str__(self):
-    return "{}\r\nEND ".format(
-      self._format(""),
-    )
+    return "{}\r\nEND ".format(super().__str__())
        
 class GroupStatements(Statements):
   
-  def insert(self, statement, index):
+  @Statements.max_identifier_width.getter
+  def max_identifier_width(self):
+    return max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
+  
+  def _insert(self, statement, index):
     if isinstance(statement, (Group, Object)):
       raise TypeError(
-        "PDS doesn't allow nested Group & Object statements in Group statements"
+        "cannot have Group or Object statements in Group statements"
       )
-    super().insert(statement, index)
-  
-  def _format(self, indent):
-    width = str(
-      max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
-    )
-    return "\r\n".join(
-      stmt._format(indent, width) for stmt in iter(self)
-    )
-  
+    super()._insert(statement, index)
+    
 class ObjectStatements(Statements):
   pass
 
-
 class Statement(object):
   
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
+  VALID_IDENT_RE = _re_compile(r"""(?xi)
+    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+    (?:[a-z](?:_?[a-z0-9])*)
+  """)
   
   @property
   def identifier(self):
     return self._identifier
   
   @identifier.setter
-  def identifier(self, identifier):
-    if not self.valid_identifier_re.fullmatch(identifier):
-      raise ValueError("invalid identifier '{}'".format(identifier))
-    self._identifier = identifier.upper()
+  def identifier(self, value):
+    if not self.VALID_IDENT_RE.fullmatch(value):
+      raise ValueError("invalid identifier '{}'".format(value))
+    self._identifier = value.upper()
+    
+  @property
+  def value(self):
+    return self._value
+    
+  @value.setter
+  def value(self, value):
+    self._value = value
+  
+  def __init__(self, *args, **kwargs):
+    raise NotImplementedError("base class may not be instantiated")
         
   def __str__(self):
     return self._format("", "")  
 
 class Attribute(Statement):
   
-  valid_identifier_re = _re_compile("""(?xi)
+  VALID_IDENT_RE = _re_compile("""(?xi)
     (?:
       (?:
         (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
@@ -399,6 +426,13 @@ class Attribute(Statement):
     )
   """)
   
+  @Statement.value.setter
+  def value(self, value):
+    if isinstance(value, str):
+      self._value = value
+    else:
+      raise TypeError()
+  
   def __init__(self, identifier, value):
     self.identifier = identifier
     self.value = value
@@ -409,123 +443,257 @@ class Attribute(Statement):
       format(self.identifier, width),
       self.value
     )
-    
-      
+          
 class Group(Statement):
-  
-  valid_identifier_re = _re_compile(r"""(?xi)
-    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
-    (?:[a-z](?:_?[a-z0-9])*)
-  """)
-  
-  def __init__(self, identifier, group_statements):
+    
+  @Statement.value.setter
+  def value(self, value):
+    if isinstance(value, GroupStatements):
+      self._value = value
+    else:
+      self._value = GroupStatements.from_iterable(value)
+    
+  def __init__(self, identifier, group_statements):      
     self.identifier = identifier
-    self.value = self.statements = group_statements
+    self.value = group_statements
+    self.statements = self.value
     
   def _format(self, indent, width):
+    sub_width = str(self.statements.max_identifier_width)
+    sub_indent = indent + " "
     return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
       indent,
       format("GROUP", width),
       self.identifier,
-      self.statements._format(indent + " "),
+      "\r\n".join(
+        stmt._format(sub_indent, sub_width) for stmt in iter(self.statements)
+      ),
       indent,
       format("END_GROUP", width),
       self.identifier
     )
-    
-  
+     
 class Object(Statement):
-
-  valid_identifier_re = _re_compile(r"""(?xi)
-    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
-    (?:[a-z](?:_?[a-z0-9])*)
-  """)
+  
+  @Statement.value.setter
+  def value(self, value):
+    if isinstance(value, ObjectStatements):
+      self._value = value
+    else:
+      self._value = ObjectStatements.from_iterable(value)
   
   def __init__(self, identifier, object_statements):
     self.identifier = identifier
-    self.value = self.statements = object_statements
+    self.value = object_statements
+    self.statements = self.value
     
   def _format(self, indent, width):
+    sub_width = str(self.statements.max_identifier_width)
+    sub_indent = indent + " "
     return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
       indent,
       format("OBJECT", width),
       self.identifier,
-      self.statments._format(indent + " "),
+      "\r\n".join(
+        stmt._format(sub_indent, sub_width) for stmt in iter(self.statements)
+      ),
       indent,
       format("END_OBJECT", width),
       self.identifier
     )
   
-
-class Value(object):
+class Value(object, metaclass=abc.ABCMeta):
+  @abc.abstractmethod
   def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
+    pass
 
 class Scalar(Value):
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
-  
-class Sequence(Value):
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
-  
-class Set(Value):
   pass
-  
-class Numeric(Scalar):
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
-  
-class Temporal(Scalar):
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
     
-class Symbolic(Scalar):
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
+class Units(object):
+  VALID_RE = _re_compile(r"""(?xi)
+    (?:
+    (?:
+    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+    (?:[a-z](?:_?[a-z0-9])*)
+    )
+    (?:\*\*[+-]?[0-9]+)?
+    )
+    (?:
+      [*/]
+      (?:
+      (?:
+      (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+      (?:[a-z](?:_?[a-z0-9])*)
+      )
+      (?:\*\*[+-]?[0-9]+)?
+      )
+    )*
+  """)
+    
+  def __init__(self, expression, validate = True):
+    if validate and not self.VALID_RE.fullmatch(expression):
+      raise ValueError("invalid units expression {!r}".format(expression))
+    
+    self.expression = expression.upper()
+  
+  def __str__(self):
+    return "<{}>".format(self.expression)
+
+class Numeric(Scalar):
+  
+  @abc.abstractmethod
+  def __init__(self, value, units):
+    self.value = value
+    self.units = units if not units or isinstance(units, Units) else Units(units)
+    
+  def __int__(self):
+    return int(self.value)
+    
+  def __float__(self):
+    return float(self.value)
+    
+  def __str__(self):
+    return "{}{}".format(
+      self.value,
+      " {}".format(self.units) if self.units else ""
+    )
+    
+class Integer(Numeric):
+  
+  def __init__(self, value, units = ""):
+    super().__init__(int(value), units)
+    
+class BasedInteger(Numeric):
+    
+  def __init__(self, radix, digits, units = ""):
+    if radix < 2 or radix > 12:
+      raise ValueError("radix must be between 2 and 12")
+      
+    super().__init__(int(digits, radix), units)
+    self.radix = radix
+    self.digits = digits
+    
+  def __str__(self):
+    return "{}#{}#{}".format(
+      self.radix,
+      self.digits,
+      " {}".format(self.units) if self.units else ""
+    )
+
+class Real(Numeric):
+
+  def __init__(self, value, units = ""):
+    super().__init__(float(value), units)
+    
 
 class Text(Scalar):
-  pass
+  VALID_RE = _re_compile(r'[\x00-\x21\x23-\x7f]*')
+    
+  def __init__(self, value, validate = True):
+    if validate and not self.VALID_RE.fullmatch(value):
+      raise ValueError("invalid text value {!r}".format(value))
+      
+    self.value = value
+    
+  def __str__(self):
+    return '"{}"'.format(self.value)
+    
 
-class Sequence1D(Sequence):
-  pass
+class Symbol(Scalar):
+  VALID_RE = _re_compile(r'[\x20-\x26\x28-\x7e]+')
   
-class Sequence2D(Sequence):
-  pass
-  
-class Integer(Numeric):
-  pass
-  
-class BasedInteger(Numeric):
-  pass
-  
-class Real(Numeric):
-  pass
-  
-class Date(Temporal):
-  pass
-  
-class Time(Temporal):
-  pass
-  
-class DateTime(Temporal):
-  pass
-  
-class Identifier(Symbolic):
-  pass
-  
-class Symbol(Symbolic):
-  pass
-  
+  def __init__(self, value, validate = True):
+    if validate and not self.VALID_RE.fullmatch(value):
+      raise ValueError("invalid symbol value {!r}".format(value))
+    
+    self.value = value.upper()
+    
+  def __str__(self):
+    return "'{}'".format(self.value)
 
 
+class Identifier(Scalar):
+  VALID_RE = _re_compile("""(?xi)
+    (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
+    (?:[a-z](?:_?[a-z0-9])*)
+  """)
+  
+  def __init__(self, value, validate = True):
+    if validate and not self.VALID_RE.fullmatch(value):
+      raise ValueError("invalid identifier value {!r}".format(value))
+    
+    self.value = value.upper()
+    
+  def __str__(self):
+    return "{}".format(self.value)
+
+
+class Time(Scalar):
+  
+  def __init__(self, hour, minute, second = None):
+    hour, minute = int(hour), int(minute)
+    if hour < 0 or hour > 23:
+      raise ValueError("hour must be between 0 and 23")
+    
+    if minute < 0 or minute > 59:
+      raise ValueError("minute must be between 0 and 59")
+      
+    if second is not None:
+      second = float(second)
+      if second < 0 or second > 59:
+        raise ValueError("second must be between 0 and 59")
+    
+    self.hour = hour
+    self.minute = hour
+    self.second = second
+
+  def __str__(self):
+    return "{:02d}:{:02d}{}".format(
+      self.hour,
+      self.minute,
+      ":{:015.12f}".format(self.second).rstrip("0").rstrip(".") 
+        if self.second is not None else ""
+    )
+    
+class UTCTime(Time):
+  
+  def __str__(self):
+    return "{}Z".format(super().__str__())
+  
+class ZonedTime(Time):
+  
+  def __init__(self, hour, minute, second = None, zone_hour = 0, zone_minute = None):
+    super().__init__(hour, minute, second)
+    
+    zone_hour = int(zone_hour)
+    if zone_hour < -12 or zone_hour > 12:
+      raise ValueError("zone hour must be between -12 and 12")
+      
+    if zone_minute is not None:
+      zone_minute = int(zone_minute)
+      if zone_minute < 0 or zone_minute > 59:
+        raise ValueError("zone minute must be between 0 and 59")
+      
+    self.zone_hour = zone_hour
+    self.zone_minute = zone_minute
+  
+  def __str__(self):
+    return "{}{}".format(
+      super().__str__(),
+      "{:+03d}{}".format(
+        self.zone_hour,
+        ":{:02d}".format(self.zone_minute)
+          if self.zone_minute is not None else ""
+      )
+    )
+    
+    
 ################
 # Functions
 ################
 
 def _generate_tokens(byte_str):
-  """
-  """
   line_no = 1
   line_pos = -1
   for match in ODL_LEX_TOK_RE.finditer(byte_str):
@@ -534,7 +702,6 @@ def _generate_tokens(byte_str):
       line_no += 1
       line_pos = match.end("newline") - 1
       continue
-    value = match.group(name)
     yield {
       "name": name,
       "groups": {
@@ -545,7 +712,6 @@ def _generate_tokens(byte_str):
       "column": match.start(name) - line_pos
     }
 
-  
     
   
   
