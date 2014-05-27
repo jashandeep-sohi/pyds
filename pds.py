@@ -767,7 +767,7 @@ class Set(Value, _MutableSet):
     if isinstance(item, (Symbol, Integer)):
       self._set.add(item)
     else:
-      raise TypeError("item must be a symbol or an integer type")
+      raise TypeError("item must be a symbol or an integer")
   
   def discard(self, item):
     self._set.discard(item)
@@ -800,8 +800,15 @@ class Sequence1D(Value, _MutableSequence):
     if isinstance(value, Scalar):
       self._list.insert(index, value)
     else:
-      raise TypeError("value must be a scalar type")
-  
+      raise TypeError("value must be a scalar")
+
+class Sequence2D(Sequence1D):
+
+  def insert(self, index, value):
+    if isinstance(value, Sequence1D):
+      self._list.insert(index, value)
+    else:
+      raise TypeError("value must be a 1d sequence")
   
   
 
