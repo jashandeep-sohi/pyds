@@ -740,7 +740,7 @@ class Date(Scalar):
         else "{:02d}-{:02d}".format(self.month, self.day)
     )
      
-class DateTime(Date, Time):
+class DateTime(Scalar):
   
   def __init__(
     self,
@@ -754,14 +754,16 @@ class DateTime(Date, Time):
     zone_hour = None,
     zone_minute = None
   ):
-    Date.__init__(self, year, month, day)
-    Time.__init__(self, hour, minute, second, utc, zone_hour, zone_minute)
+    self.date = Date(year, month, day)
+    self.time = Time(hour, minute, second, utc, zone_hour, zone_minute)
   
   def __str__(self):
     return "{}T{}".format(
-      Date.__str__(self),
-      Time.__str__(self)
+      self.date,
+      self.time
     )
+
+
 
 ################
 # Functions
