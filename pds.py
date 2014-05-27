@@ -633,19 +633,7 @@ class Identifier(Scalar):
 
 
 class Time(Scalar):
-  
-  @classmethod
-  def local(cls, hour, minute, second = None):
-    return cls(hour, minute, second, False)
     
-  @classmethod
-  def utc(cls, hour, minute, second = None):
-    return cls(hour, minute, second, True)
-    
-  @classmethod
-  def zoned(cls, hour, minute, second = None, zone_hour = 0, zone_min = None):
-    return cls(hour, minute, second, False, zone_hour, zone_min)
-  
   def __init__(self,
     hour,
     minute, 
@@ -709,10 +697,6 @@ class Time(Scalar):
 class Date(Scalar):
   
   MONTH_DAYS = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
-
-  @classmethod
-  def doy(cls, year, day):
-    return cls(year, None, day)
   
   def __init__(self, year, month, day):
     year = int(year)
@@ -741,7 +725,7 @@ class Date(Scalar):
     )
      
 class DateTime(Scalar):
-  
+    
   def __init__(
     self,
     year, 
