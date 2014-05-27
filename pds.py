@@ -545,7 +545,10 @@ class Numeric(Scalar):
   @abc.abstractmethod
   def __init__(self, value, units):
     self.value = value
-    self.units = units if not units or isinstance(units, Units) else Units(units)
+    if not units or isinstance(units, Units):
+      self.units = units
+    else:
+      self.units = Units(units)
     
   def __int__(self):
     return int(self.value)
@@ -631,8 +634,29 @@ class Identifier(Scalar):
 
 class Time(Scalar):
   
-  def __init__(self, hour, minute, second = None):
-    hour, minute = int(hour), int(minute)
+  @classmethod
+  def local(cls, hour, minute, second = None):
+    return cls(hour, minute, second, False)
+    
+  @classmethod
+  def utc(cls, hour, minute, second = None):
+    return cls(hour, minute, second, True)
+    
+  @classmethod
+  def zoned(cls, hour, minute, second = None, zone_hour = 0, zone_min = None):
+    return cls(hour, minute, second, False, zone_hour, zone_min)
+  
+  def __init__(self,
+    hour,
+    minute, 
+    second = None,
+    utc = False,
+    zone_hour = None,
+    zone_minute = None
+  ):
+    hour = int(hour)
+    minute = int(minute)
+    
     if hour < 0 or hour > 23:
       raise ValueError("hour must be between 0 and 23")
     
@@ -644,51 +668,101 @@ class Time(Scalar):
       if second < 0 or second > 59:
         raise ValueError("second must be between 0 and 59")
     
+    if zone_hour is not None:
+      zone_hour = int(zone_hour)
+      if zone_hour < -12 or zone_hour > 12:
+        raise ValueError("zone hour must be between -12 and 12")
+      
+      if zone_minute is not None:
+        zone_minute = int(zone_minute)
+        if zone_minute < 0 or zone_minute > 59:
+          raise ValueError("zone minute must be between 0 and 59")
+    
     self.hour = hour
     self.minute = hour
     self.second = second
+    self.utc = utc
+    self.zone_hour = zone_hour
+    self.zone_minute = zone_minute
 
   def __str__(self):
-    return "{:02d}:{:02d}{}".format(
+    h_m_s = "{:02d}:{:02d}{}".format(
       self.hour,
       self.minute,
       ":{:015.12f}".format(self.second).rstrip("0").rstrip(".") 
         if self.second is not None else ""
     )
-    
-class UTCTime(Time):
-  
-  def __str__(self):
-    return "{}Z".format(super().__str__())
-  
-class ZonedTime(Time):
-  
-  def __init__(self, hour, minute, second = None, zone_hour = 0, zone_minute = None):
-    super().__init__(hour, minute, second)
-    
-    zone_hour = int(zone_hour)
-    if zone_hour < -12 or zone_hour > 12:
-      raise ValueError("zone hour must be between -12 and 12")
-      
-    if zone_minute is not None:
-      zone_minute = int(zone_minute)
-      if zone_minute < 0 or zone_minute > 59:
-        raise ValueError("zone minute must be between 0 and 59")
-      
-    self.zone_hour = zone_hour
-    self.zone_minute = zone_minute
-  
-  def __str__(self):
-    return "{}{}".format(
-      super().__str__(),
-      "{:+03d}{}".format(
-        self.zone_hour,
-        ":{:02d}".format(self.zone_minute)
-          if self.zone_minute is not None else ""
+    if self.utc:
+      return "{}Z".format(h_m_s)
+    elif self.zone_hour is not None:
+      return "{}{}".format(
+        h_m_s,
+        "{:+03d}{}".format(
+          self.zone_hour,
+          ":{:02d}".format(self.zone_minute)
+            if self.zone_minute is not None else ""
+        )
       )
+    else:
+      return h_m_s
+    
+class Date(Scalar):
+  
+  MONTH_DAYS = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+
+  @classmethod
+  def doy(cls, year, day):
+    return cls(year, None, day)
+  
+  def __init__(self, year, month, day):
+    year = int(year)
+    leap_year = year % 4 and (year % 100 != 0 or year % 400 == 0)
+    
+    if month is None:  
+      max_day = 365 + leap_year
+    else:
+      month = int(month)
+      if month < 1 or month > 12:
+        raise ValueError("month must be between 1 and 12")
+      max_day = self.MONTH_DAYS[month] + (month == 3 and leap_year)
+      
+    if day < 1 or day > max_day:
+      raise ValueError("day must be between 1 and {}".format(max_day))
+    
+    self.year = year
+    self.month = month
+    self.day = day
+    
+  def __str__(self):
+    return "{}-{}".format(
+      self.year,
+      "{:02d}".format(self.day) if self.month is None
+        else "{:02d}-{:02d}".format(self.month, self.day)
     )
-    
-    
+     
+class DateTime(Date, Time):
+  
+  def __init__(
+    self,
+    year, 
+    month, 
+    day, 
+    hour, 
+    minute, 
+    second = None,
+    utc = False,
+    zone_hour = None,
+    zone_minute = None
+  ):
+    Date.__init__(self, year, month, day)
+    Time.__init__(self, hour, minute, second, utc, zone_hour, zone_minute)
+  
+  def __str__(self):
+    return "{}T{}".format(
+      Date.__str__(self),
+      Time.__str__(self)
+    )
+
 ################
 # Functions
 ################
@@ -712,7 +786,10 @@ def _generate_tokens(byte_str):
       "column": match.start(name) - line_pos
     }
 
-    
+
+def parse(byte_string):
+  tokens = _generate_tokens(byte_string)
+      
   
   
 # vim: tabstop=2 expandtab
