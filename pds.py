@@ -747,7 +747,39 @@ class DateTime(Scalar):
       self.time
     )
 
+class Set(Value, _MutableSet):
 
+  def __init__(self, iterable = list()):
+    self._set = set()
+    self |= iterable
+    
+  def __contains__(self, item):
+    return item in self._set
+    
+  def __iter__(self):
+    return iter(self._set)
+    
+  def __len__(self):
+    return len(self._set)
+    
+  def add(self, item):
+    if isinstance(item, (Symbol, Integer)):
+      self._set.add(item)
+    else:
+      raise TypeError("item must be a symbol or an integer")
+  
+  def discard(self, item):
+    self._set.discard(item)
+    
+  def __str__(self):
+    return "{{{}}}".format(
+      ", ".join(str(value) for value in iter(self))
+    )
+
+ 
+  
+  
+  
 
 ################
 # Functions
