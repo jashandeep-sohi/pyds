@@ -751,7 +751,8 @@ class Set(Value, _MutableSet):
 
   def __init__(self, iterable = list()):
     self._set = set()
-    self |= iterable
+    for item in iterable:
+      self.add(item)
     
   def __contains__(self, item):
     return item in self._set
@@ -766,7 +767,7 @@ class Set(Value, _MutableSet):
     if isinstance(item, (Symbol, Integer)):
       self._set.add(item)
     else:
-      raise TypeError("item must be a symbol or an integer")
+      raise TypeError("item must be a symbol or an integer type")
   
   def discard(self, item):
     self._set.discard(item)
@@ -776,7 +777,30 @@ class Set(Value, _MutableSet):
       ", ".join(str(value) for value in iter(self))
     )
 
- 
+class Sequence1D(Value, _MutableSequence):
+  
+  def __init__(self, iterable = list()):
+    self._list = list()
+    for item in iterable:
+      self.append(item)
+    
+  def __getitem__(self, index):
+    return self._list[index]
+    
+  def __setitem__(self, index, value):
+    self.insert(index, value)
+    
+  def __delitem__(self, index):
+    del self._list[index]
+  
+  def __len__(self):
+    return len(self._list)
+    
+  def insert(self, index, value):
+    if isinstance(value, Scalar):
+      self._list.insert(index, value)
+    else:
+      raise TypeError("value must be a scalar type")
   
   
   
