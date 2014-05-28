@@ -140,9 +140,10 @@ ODL_LEX_TOK_SPEC = (
     ("string",)
   ),
   (
-    "reserved_identifier",
-    "end|group|begin_group|end_group|object|begin_object|end_object",
+    "end",
+    "end",
     ()
+  ),
   (
     "identifier",
     "[a-zA-Z](?:[_]?[0-9a-zA-Z])*",
@@ -801,7 +802,7 @@ class Sequence2D(Sequence1D):
     if isinstance(value, Sequence1D):
       self._list.insert(index, value)
     else:
-      raise TypeError("value is not an Instance of Sequence1D")
+      raise TypeError("value is not an instance of Sequence1D")
       
 
   
@@ -831,8 +832,17 @@ def _generate_tokens(byte_str):
 
 def parse(byte_string):
   tokens = _generate_tokens(byte_string)
+  
+  try:
+    tok = next(tokens)
+    while True:
+      groups = tok["groups"]
+      if "end" in groups:
+        break
 
-    
+      tok = next(tokens)
+  except StopIteration:
+    raise RuntimeError("unexpected end")
       
     
       
