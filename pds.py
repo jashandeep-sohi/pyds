@@ -240,7 +240,7 @@ class _DoubleLinkedNodes(object):
   def __len__(self):
     return self.length 
   
-class Statements(object):
+class Statements(object, metaclass = abc.ABCMeta):
   
   @property
   def max_identifier_width(self):
@@ -249,41 +249,36 @@ class Statements(object):
       max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
     )
   
-  def __init__(self):
+  @abc.abstractmethod
+  def __init__(self, *statements):
     self._nodes = _DoubleLinkedNodes()
     self._dict = _WeakValueDict()
-  
-  @classmethod
-  def from_iterable(cls, iterable):
-    instance = cls()
-    for statement in iterable:
-      instance.append(statement)
-    return instance
+    
+    for statement in statements:
+      self.append(statement)
                
-  def _insert(self, statement, index):
+  def _insert(self, index, statement):
     index = max(0, len(self) + index) if index < 0 else min(len(self), index)
     new_node = self._nodes.insert_node(_DoubleLinkNode(statement), index)
     self._dict[statement.identifier] = new_node
   
   def _append(self, statement):
-    self._insert(statement, len(self))
+    self._insert(len(self), statement)
   
-  def insert(self, statement, index):
-    try:
-      self._dict[statement.identifier]
-    except KeyError:
-      self._insert(statement, index)
-    except AttributeError:
-      raise TypeError("expected a Statement object")
-    else:
+  def insert(self, index, statement):
+    if not isinstance(statement, Statement):
+      raise TypeError("statement is not an instance of Statement")
+    
+    if statement.identifier in self:
       raise ValueError(
-        "statement with identifier '{}' already exists".format(
+        "statement with identifier {!r} already exists".format(
           statement.identifier
         )
       )
+    self._insert(index, statement)
     
   def append(self, statement):
-    self.insert(statement, len(self))
+    self.insert(len(self), statement)
   
   def get(self, index):
     index = len(self) + index if index < 0 else index
@@ -304,12 +299,13 @@ class Statements(object):
     try:
       stmt = Attribute(key, value)
     except TypeError:
-      if isinstance(value, GroupStatements):
+      try:
         stmt = Group(key, value)
-      elif isinstance(value, ObjectStatements):
-        stmt = Object(key, value)
-      else:
-        raise TypeError("invalid value type")
+      except TypeError:
+        try:
+          stmt = Object(key, value)
+        except TypeError:
+          raise TypeError()
     try:
       old_node = self._dict[stmt.identifier]
     except KeyError:
@@ -358,53 +354,48 @@ class Statements(object):
 
 class Label(Statements):
   
+  def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
+  
   def __str__(self):
     return "{}\r\nEND ".format(super().__str__())
        
 class GroupStatements(Statements):
   
+  def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)  
+  
   @Statements.max_identifier_width.getter
   def max_identifier_width(self):
     return max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
   
-  def _insert(self, statement, index):
+  def _insert(self, index, statement):
     if isinstance(statement, (Group, Object)):
       raise TypeError(
-        "cannot have Group or Object statements in Group statements"
+        "statement is an instance of Object or Group"
       )
-    super()._insert(statement, index)
+    super()._insert(index, statement)
     
 class ObjectStatements(Statements):
-  pass
+  
+  def __init__(self, *args, **kwargs):
+    super().__init__(*args, **kwargs)
 
-class Statement(object):
+class Statement(object, metaclass = abc.ABCMeta):
   
   VALID_IDENT_RE = _re_compile(r"""(?xi)
     (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
     (?:[a-z](?:_?[a-z0-9])*)
   """)
-  
-  @property
-  def identifier(self):
-    return self._identifier
-  
-  @identifier.setter
-  def identifier(self, value):
-    if not self.VALID_IDENT_RE.fullmatch(value):
-      raise ValueError("invalid identifier '{}'".format(value))
-    self._identifier = value.upper()
     
-  @property
-  def value(self):
-    return self._value
+  @abc.abstractmethod
+  def __init__(self, identifier, value):
+    if not self.VALID_IDENT_RE.fullmatch(identifier):
+      raise ValueError("invalid identifier {!r}".format(identifier))
     
-  @value.setter
-  def value(self, value):
-    self._value = value
-  
-  def __init__(self, *args, **kwargs):
-    raise NotImplementedError("base class may not be instantiated")
-        
+    self.identifier = identifier.upper()
+    self.value = value
+          
   def __str__(self):
     return self._format("", "")  
 
@@ -425,17 +416,11 @@ class Attribute(Statement):
       (?:[a-z](?:_?[a-z0-9])*)
     )
   """)
-  
-  @Statement.value.setter
-  def value(self, value):
-    if isinstance(value, str):
-      self._value = value
-    else:
-      raise TypeError()
-  
+    
   def __init__(self, identifier, value):
-    self.identifier = identifier
-    self.value = value
+    if not isinstance(value, Value):
+      raise TypeError("value is not an instance of Value")
+    super().__init__(identifier, value)
       
   def _format(self, indent, width):
     return "{}{} = {}".format(
@@ -445,18 +430,13 @@ class Attribute(Statement):
     )
           
 class Group(Statement):
-    
-  @Statement.value.setter
-  def value(self, value):
-    if isinstance(value, GroupStatements):
-      self._value = value
-    else:
-      self._value = GroupStatements.from_iterable(value)
-    
-  def __init__(self, identifier, group_statements):      
-    self.identifier = identifier
-    self.value = group_statements
-    self.statements = self.value
+        
+  def __init__(self, identifier, group_statements):
+    if not isinstance(group_statements, GroupStatements):
+      raise TypeError("group_statements is not an instance of GroupStatements")
+      
+    self.statements = group_statements
+    super().__init__(identifier, self.statements)
     
   def _format(self, indent, width):
     sub_width = str(self.statements.max_identifier_width)
@@ -475,17 +455,14 @@ class Group(Statement):
      
 class Object(Statement):
   
-  @Statement.value.setter
-  def value(self, value):
-    if isinstance(value, ObjectStatements):
-      self._value = value
-    else:
-      self._value = ObjectStatements.from_iterable(value)
-  
   def __init__(self, identifier, object_statements):
-    self.identifier = identifier
-    self.value = object_statements
-    self.statements = self.value
+    if not isinstance(object_statements, ObjectStatements):
+      raise TypeError(
+        "object_statements is not an instance of ObjectStatements"
+      )
+      
+    self.statements = object_statements
+    super().__init__(identifier, self.statements)
     
   def _format(self, indent, width):
     sub_width = str(self.statements.max_identifier_width)
@@ -502,7 +479,7 @@ class Object(Statement):
       self.identifier
     )
   
-class Value(object, metaclass=abc.ABCMeta):
+class Value(object, metaclass = abc.ABCMeta):
   @abc.abstractmethod
   def __init__(self, *args, **kwargs):
     pass
@@ -533,7 +510,7 @@ class Units(object):
     
   def __init__(self, expression, validate = True):
     if validate and not self.VALID_RE.fullmatch(expression):
-      raise ValueError("invalid units expression {!r}".format(expression))
+      raise ValueError("invalid expression {!r}".format(expression))
     
     self.expression = expression.upper()
   
@@ -571,7 +548,7 @@ class BasedInteger(Numeric):
     
   def __init__(self, radix, digits, units = ""):
     if radix < 2 or radix > 12:
-      raise ValueError("radix must be between 2 and 12")
+      raise ValueError("radix is not between 2 and 12")
       
     super().__init__(int(digits, radix), units)
     self.radix = radix
@@ -595,7 +572,7 @@ class Text(Scalar):
     
   def __init__(self, value, validate = True):
     if validate and not self.VALID_RE.fullmatch(value):
-      raise ValueError("invalid text value {!r}".format(value))
+      raise ValueError("invalid value {!r}".format(value))
       
     self.value = value
     
@@ -608,7 +585,7 @@ class Symbol(Scalar):
   
   def __init__(self, value, validate = True):
     if validate and not self.VALID_RE.fullmatch(value):
-      raise ValueError("invalid symbol value {!r}".format(value))
+      raise ValueError("invalid value {!r}".format(value))
     
     self.value = value.upper()
     
@@ -624,7 +601,7 @@ class Identifier(Scalar):
   
   def __init__(self, value, validate = True):
     if validate and not self.VALID_RE.fullmatch(value):
-      raise ValueError("invalid identifier value {!r}".format(value))
+      raise ValueError("invalid value {!r}".format(value))
     
     self.value = value.upper()
     
@@ -646,25 +623,25 @@ class Time(Scalar):
     minute = int(minute)
     
     if hour < 0 or hour > 23:
-      raise ValueError("hour must be between 0 and 23")
+      raise ValueError("hour is not between 0 and 23")
     
     if minute < 0 or minute > 59:
-      raise ValueError("minute must be between 0 and 59")
+      raise ValueError("minute is not between 0 and 59")
       
     if second is not None:
       second = float(second)
       if second < 0 or second > 59:
-        raise ValueError("second must be between 0 and 59")
+        raise ValueError("second is not between 0 and 59")
     
     if zone_hour is not None:
       zone_hour = int(zone_hour)
       if zone_hour < -12 or zone_hour > 12:
-        raise ValueError("zone hour must be between -12 and 12")
+        raise ValueError("zone hour is not between -12 and 12")
       
       if zone_minute is not None:
         zone_minute = int(zone_minute)
         if zone_minute < 0 or zone_minute > 59:
-          raise ValueError("zone minute must be between 0 and 59")
+          raise ValueError("zone minute is not between 0 and 59")
     
     self.hour = hour
     self.minute = hour
@@ -707,11 +684,11 @@ class Date(Scalar):
     else:
       month = int(month)
       if month < 1 or month > 12:
-        raise ValueError("month must be between 1 and 12")
+        raise ValueError("month is not between 1 and 12")
       max_day = self.MONTH_DAYS[month] + (month == 3 and leap_year)
       
     if day < 1 or day > max_day:
-      raise ValueError("day must be between 1 and {}".format(max_day))
+      raise ValueError("day is not between 1 and {}".format(max_day))
     
     self.year = year
     self.month = month
@@ -749,13 +726,13 @@ class DateTime(Scalar):
 
 class Set(Value, _MutableSet):
 
-  def __init__(self, iterable = list()):
+  def __init__(self, *values):
     self._set = set()
-    for item in iterable:
-      self.add(item)
+    for value in values:
+      self.add(value)
     
-  def __contains__(self, item):
-    return item in self._set
+  def __contains__(self, value):
+    return value in self._set
     
   def __iter__(self):
     return iter(self._set)
@@ -763,26 +740,27 @@ class Set(Value, _MutableSet):
   def __len__(self):
     return len(self._set)
     
-  def add(self, item):
-    if isinstance(item, (Symbol, Integer)):
-      self._set.add(item)
+  def add(self, value):
+    if isinstance(value, (Symbol, Integer)):
+      self._set.add(value)
     else:
-      raise TypeError("item must be a symbol or an integer")
+      raise TypeError("value is not an instance of Symbol or Integer")
   
-  def discard(self, item):
-    self._set.discard(item)
+  def discard(self, value):
+    self._set.discard(value)
     
   def __str__(self):
     return "{{{}}}".format(
-      ", ".join(str(value) for value in iter(self))
+      ", ".join(str(value) for value in self)
     )
 
 class Sequence1D(Value, _MutableSequence):
   
-  def __init__(self, iterable = list()):
+  def __init__(self, value, *values):
     self._list = list()
-    for item in iterable:
-      self.append(item)
+    self.append(value)
+    for v in values:
+      self.append(v)
     
   def __getitem__(self, index):
     return self._list[index]
@@ -796,11 +774,22 @@ class Sequence1D(Value, _MutableSequence):
   def __len__(self):
     return len(self._list)
     
+  def __iter__(self):
+    return iter(self._list)
+    
   def insert(self, index, value):
     if isinstance(value, Scalar):
       self._list.insert(index, value)
     else:
-      raise TypeError("value must be a scalar")
+      raise TypeError("value is not an instance of Scalar")
+      
+  def __str__(self):
+    if len(self) < 1:
+      raise RuntimeError("sequence does not contain at least 1 value")
+      
+    return "({})".format(
+      ", ".join(str(value) for value in self)
+    )
 
 class Sequence2D(Sequence1D):
 
@@ -808,10 +797,10 @@ class Sequence2D(Sequence1D):
     if isinstance(value, Sequence1D):
       self._list.insert(index, value)
     else:
-      raise TypeError("value must be a 1d sequence")
-  
-  
+      raise TypeError("value is not an Instance of Sequence1D")
+      
 
+  
 ################
 # Functions
 ################
