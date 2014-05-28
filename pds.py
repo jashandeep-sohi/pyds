@@ -140,6 +140,10 @@ ODL_LEX_TOK_SPEC = (
     ("string",)
   ),
   (
+    "reserved_identifier",
+    "end|group|begin_group|end_group|object|begin_object|end_object",
+    ()
+  (
     "identifier",
     "[a-zA-Z](?:[_]?[0-9a-zA-Z])*",
     ()
@@ -162,7 +166,7 @@ ODL_LEX_TOK_SPEC = (
 )
 
 ODL_LEX_TOK_RE = _re_compile(
-  r"""(?xs)
+  r"""(?xi)
   [ \t\v\f]*
   (?:
     {}
@@ -827,6 +831,10 @@ def _generate_tokens(byte_str):
 
 def parse(byte_string):
   tokens = _generate_tokens(byte_string)
+
+    
+      
+    
       
   
   
