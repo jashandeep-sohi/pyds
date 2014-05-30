@@ -1,5 +1,7 @@
 pds
 ===
+A Python module to parse, manipulate and write PDS (Planetary Data System)
+labels.
 
 Contents:
 
