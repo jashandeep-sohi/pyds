@@ -1,1 +1,1 @@
-Search.setIndex({envversion:43,objtypes:{},titleterms:{welcom:0,document:0,indic:0,tabl:0},titles:["Welcome to pds&#8217;s documentation!"],objects:{},terms:{index:0,page:0,content:0,search:0,modul:0},objnames:{},filenames:["index"]})
+Search.setIndex({objects:{},objnames:{},objtypes:{},terms:{index:0,content:0,page:0,modul:0,search:0},titleterms:{welcom:0,document:0,tabl:0,indic:0},filenames:["index"],envversion:43,titles:["Welcome to pds&#8217;s documentation!"]})
