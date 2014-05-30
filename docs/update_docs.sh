@@ -11,4 +11,5 @@ mv ./_build/html/* ../. &&
 git add -A :/ &&
 git reset -- :/docs &&
 git commit -m "Updated documentation" &&
+git push origin gh-pages &&
 git checkout master
