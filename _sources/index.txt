@@ -17,3 +17,4 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
+.. vim: tabstop=1 expandtab
