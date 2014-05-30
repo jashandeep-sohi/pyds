@@ -56,9 +56,14 @@ import abc
 
 ODL_LEX_TOK_SPEC = (
   (
+    "comment",
+    r"/\*([^\r\n\f\v]*)\*/.*?[\r\n\f\v]+",
+    ("string",)
+  ),
+  (
     "date_time",
     r"""
-    ([0-9]+)[-]([0-9]+)(?:[-]([0-9]+))?
+    ([0-9]+)(?:[-]([0-9]+))?[-]([0-9]+)
     T
     ([0-9]+)[:]([0-9]+)
     (?:
@@ -76,8 +81,8 @@ ODL_LEX_TOK_SPEC = (
     )?
     """,
     (
-      "year", "doy_month", "day", "hour", "min",
-      "sec", "zulu", "zone_hour", "zone_min"
+      "year", "month", "day", "hour", "minute",
+      "second", "utc", "zone_hour", "zone_minute"
     )
   ),
   (
@@ -98,12 +103,12 @@ ODL_LEX_TOK_SPEC = (
       ([+-][0-9]+)(?:[:][0-9]+)?
     )?
     """,
-    ("hour", "min", "sec", "zulu", "zone_hour", "zone_min")
+    ("hour", "minute", "second", "utc", "zone_hour", "zone_minute")
   ),
   (
     "date",
-    "([0-9]+)[-]([0-9]+)(?:[-]([0-9]+))?",
-    ("year", "doy_month", "day")
+    "([0-9]+)(?:[-]([0-9]+))?[-]([0-9]+)",
+    ("year", "month", "day")
   ),
   (
     "based_integer",
@@ -132,7 +137,7 @@ ODL_LEX_TOK_SPEC = (
   (
     "text",
     '"([^"]*)"',
-    ("string")
+    ("string",)
   ),
   (
     "symbol",
@@ -140,30 +145,75 @@ ODL_LEX_TOK_SPEC = (
     ("string",)
   ),
   (
-    "end",
-    "end",
-    ()
-  ),
-  (
     "identifier",
     "[a-zA-Z](?:[_]?[0-9a-zA-Z])*",
     ()
   ),
   (
-    "comment",
-    r"/\*([^\r\n\f\v]*)\*/.*?[\r\n\f\v]+",
-    ("string",)
-  ),
-  (
-    "newline",
-    r"(?:\r\n|\r|\n)",
+    "equal",
+    "=",
     ()
   ),
   (
-    "special_char",
-    "(\*\*|[:=,*/^<>(){}])",
+    "comma",
+    ",",
     ()
-  ) 
+  ),
+  (
+    "two_asterisk",
+    "\*\*",
+    ()
+  ),
+  (
+    "asterisk",
+    "\*",
+    ()
+  ),
+  (
+    "slant",
+    "/",
+    ()
+  ),
+  (
+    "circumflex",
+    "\^",
+    ()
+  ),
+  (
+    "open_bracket",
+    "<",
+    ()
+  ),
+  (
+    "close_bracket",
+    ">",
+    ()
+  ),
+  (
+    "open_paren",
+    "[(]",
+    ()
+  ),
+  (
+    "close_paren",
+    "[)]",
+    ()
+  ),
+  (
+    "open_brace",
+    "{",
+    ()
+  ),
+  (
+    "close_brace",
+    "}",
+    ()
+  ),
+  (
+    "colon",
+    ":",
+    ()
+  )
 )
 
 ODL_LEX_TOK_RE = _re_compile(
@@ -394,8 +444,8 @@ class Statement(object, metaclass = abc.ABCMeta):
   """)
     
   @abc.abstractmethod
-  def __init__(self, identifier, value):
-    if not self.VALID_IDENT_RE.fullmatch(identifier):
+  def __init__(self, identifier, value, validate_identifier = True):    
+    if validate_identifier and not self.VALID_IDENT_RE.fullmatch(identifier):
       raise ValueError("invalid identifier {!r}".format(identifier))
     
     self.identifier = identifier.upper()
@@ -422,10 +472,10 @@ class Attribute(Statement):
     )
   """)
     
-  def __init__(self, identifier, value):
+  def __init__(self, identifier, value, validate_identifier = True):
     if not isinstance(value, Value):
       raise TypeError("value is not an instance of Value")
-    super().__init__(identifier, value)
+    super().__init__(identifier, value, validate_identifier)
       
   def _format(self, indent, width):
     return "{}{} = {}".format(
@@ -436,12 +486,12 @@ class Attribute(Statement):
           
 class Group(Statement):
         
-  def __init__(self, identifier, group_statements):
+  def __init__(self, identifier, group_statements, validate_identifier = True):
     if not isinstance(group_statements, GroupStatements):
       raise TypeError("group_statements is not an instance of GroupStatements")
       
     self.statements = group_statements
-    super().__init__(identifier, self.statements)
+    super().__init__(identifier, self.statements, validate_identifier)
     
   def _format(self, indent, width):
     sub_width = str(self.statements.max_identifier_width)
@@ -460,14 +510,14 @@ class Group(Statement):
      
 class Object(Statement):
   
-  def __init__(self, identifier, object_statements):
+  def __init__(self, identifier, object_statements, validate_identifier = True):
     if not isinstance(object_statements, ObjectStatements):
       raise TypeError(
         "object_statements is not an instance of ObjectStatements"
       )
       
     self.statements = object_statements
-    super().__init__(identifier, self.statements)
+    super().__init__(identifier, self.statements, validate_identifier)
     
   def _format(self, indent, width):
     sub_width = str(self.statements.max_identifier_width)
@@ -517,7 +567,7 @@ class Units(object):
     if validate and not self.VALID_RE.fullmatch(expression):
       raise ValueError("invalid expression {!r}".format(expression))
     
-    self.expression = expression.upper()
+    self.expression = expression
   
   def __str__(self):
     return "<{}>".format(self.expression)
@@ -552,9 +602,10 @@ class Integer(Numeric):
 class BasedInteger(Numeric):
     
   def __init__(self, radix, digits, units = ""):
+    radix = int(radix)
     if radix < 2 or radix > 12:
       raise ValueError("radix is not between 2 and 12")
-      
+    
     super().__init__(int(digits, radix), units)
     self.radix = radix
     self.digits = digits
@@ -682,6 +733,7 @@ class Date(Scalar):
   
   def __init__(self, year, month, day):
     year = int(year)
+    day = int(day)
     leap_year = year % 4 and (year % 100 != 0 or year % 400 == 0)
     
     if month is None:  
@@ -805,44 +857,271 @@ class Sequence2D(Sequence1D):
       raise TypeError("value is not an instance of Sequence1D")
       
 
+class _Token(dict):
+  
+  __slots__ = ("name",)  
+  
+  def __init__(self, name, *args, **kwargs):
+    self.name = name
+    super().__init__(*args, **kwargs)
+    
+  def __repr__(self):
+    return repr(self[self.name].decode("utf-8"))
+    
+
+class ParsingError(Exception):
+  pass
+  
   
 ################
 # Functions
 ################
 
 def _generate_tokens(byte_str):
-  line_no = 1
-  line_pos = -1
+  reserved_identifiers = {
+    b"end": "end",
+    b"group": "begin_group",
+    b"begin_group": "begin_group",
+    b"end_group": "end_group",
+    b"object": "begin_object",
+    b"begin_object": "begin_object", 
+    b"end_object": "end_object"
+  }
   for match in ODL_LEX_TOK_RE.finditer(byte_str):
     name = match.lastgroup
-    if name == "newline":
-      line_no += 1
-      line_pos = match.end("newline") - 1
+    val = match.group(name).lower()
+    if "identifier" == name and val in reserved_identifiers:
+      token_name = reserved_identifiers[val]
+      token = _Token(token_name, ((token_name, match.group(name)),))
+    elif "comment" == name:
       continue
-    yield {
-      "name": name,
-      "groups": {
-        group_name: match.group(group_index)
-      for group_name, group_index in ODL_LEX_TOK_GROUPS_INDEX[name].items()
-      },
-      "line": line_no,
-      "column": match.start(name) - line_pos
-    }
+    else:
+      token = _Token(
+        name,
+        (
+          (group_name, match.group(group_index))
+          for group_name, group_index in ODL_LEX_TOK_GROUPS_INDEX[name].items()
+        )
+      )
+    sent_token = yield token
+    if sent_token is not None:
+      yield None
+      yield sent_token
+
+def _parse_units(tokens):
+  tok1 = next(tokens)
+  if "open_bracket" in tok1:
+    tok2 = next(tokens)
+    units = b""
+    while "close_bracket" not in tok2:
+      units += tok2[tok2.name]
+      tok2 = next(tokens)
+    units = Units(units.decode("utf-8"))
+  else:
+    tokens.send(tok1)
+    units = ""
+  return units
+
+def _parse_value(tok1, tokens):
+  if "open_paren" in tok1:
+    tok2 = next(tokens)
+    if "open_paren" in tok2:
+      def gen_values():
+        yield _parse_value(tok2, tokens)
+        tok3 = next(tokens)
+        while "close_paren" not in tok3:
+          if "comma" not in tok3:
+            raise ParsingError(
+              "expected comma instead of {!r}".format(tok3)
+            )
+          yield _parse_value(next(tokens), tokens)
+          tok3 = next(tokens)
+      return Sequence2D(*gen_values())
+    else:
+      def gen_values():
+        yield _parse_value(tok2, tokens)
+        tok3 = next(tokens)
+        while "close_paren" not in tok3:
+          if "comma" not in tok3:
+            raise ParsingError(
+              "expected comma instead of {!r}".format(tok3)
+            )
+          yield _parse_value(next(tokens), tokens)
+          tok3 = next(tokens)
+      return Sequence1D(*gen_values())
+  elif "open_brace" in tok1:
+    def gen_values():
+      tok2 = next(tokens)
+      if "close_brace" not in tok2:
+        yield _parse_value(tok2, tokens)        
+        tok2 = next(tokens)
+        while "close_brace" not in tok2:
+          if "comma" not in tok2:
+            raise ParsingError(
+              "expected comma instead of {!r}".format(tok2)
+            )
+          yield _parse_value(next(tokens), tokens)
+          tok2 = next(tokens)
+    return Set(*gen_values())
+  elif "identifier" in tok1:
+    return Identifier(tok1["identifier"].decode("utf-8"), False)
+  elif "symbol" in tok1:
+    return Symbol(tok1["string"].decode("utf-8"), False)
+  elif "text" in tok1:
+    return Text(tok1["string"].decode("utf-8"), False)
+  elif "date" in tok1:
+    return Date(tok1["year"], tok1["month"], tok1["day"])
+  elif "time" in tok1:
+    return Time(
+      tok1["hour"],
+      tok1["minute"],
+      tok1["second"],
+      bool(tok1["utc"]),
+      tok1["zone_hour"],
+      tok1["zone_minute"]
+    )
+  elif "date_time" in tok1:
+    return DateTime(
+      tok1["year"],
+      tok1["month"],
+      tok1["day"],
+      tok1["hour"],
+      tok1["minute"],
+      tok1["second"],
+      bool(tok1["utc"]),
+      tok1["zone_hour"],
+      tok1["zone_minute"]
+    )
+  elif "integer" in tok1:
+    units = _parse_units(tokens)
+    return Integer(tok1["integer"], units) 
+  elif "based_integer" in tok1:
+    units = _parse_units(tokens)
+    return BasedInteger(tok1["radix"], tok1["digits"].decode("utf-8"), units)
+  elif "real" in tok1:
+    units = _parse_units(tokens)
+    return Real(tok1["real"], units)
+  else:
+    raise ParsingError("unexpected {!r}".format(tok1))
+
+def _parse_stmt(tok1, tokens):
+  if "identifier" in tok1:
+    tok2 = next(tokens)
+    if "colon" in tok2:
+      tok3 = next(tokens)
+      if "identifier" not in tok3:
+        raise ParsingError(
+          "expected namespace identifier instead of {!r}".format(tok3)
+        )
+      identifier = tok1["identifier"] + b":" + tok3["identifier"]  
+      tok2 = next(tokens)
+    else:
+      identifier = tok1["identifier"]
+    
+    if not "equal" in tok2:
+      raise ParsingError(
+        "expected equal sign instead of {!r}".format(tok2)
+      )
+    value = _parse_value(next(tokens), tokens)
+    return Attribute(identifier.decode("utf-8"), value, False)  
+  elif "circumflex" in tok1:
+    tok2 = next(tokens)
+    if "identifier" not in tok2:
+      raise ParsingError(
+        "expected identifier instead of {!r}".format(tok2)
+      )
+    tok3 = next(tokens)
+    if "equal" not in tok3:
+      raise ParsingError(
+        "expected equal sign instead of {!r}".format(tok3)
+      )
+    identifier = b"^" + tok2["identifier"]
+    value = _parse_value(next(tokens), tokens)
+    return Attribute(identifier.decode("utf-8"), value, False)
+  elif "begin_object" in tok1:
+    tok2 = next(tokens)
+    if "equal" not in tok2:
+      raise ParsingError(
+        "expected equal sign instead of {!r}".format(tok2)
+      )
+    tok3 = next(tokens)
+    if "identifier" not in tok3:
+      raise ParsingError(
+        "expected object identifier instead of {!r}".format(tok3)
+      )
+    identifier = tok3["identifier"]
+    object_statements = ObjectStatements()
+    tok4 = next(tokens)
+    while "end_object" not in tok4:
+      object_statements.append(_parse_stmt(tok4, tokens))
+      tok4 = next(tokens)
+    tok5 = next(tokens)
+    if "equal" in tok5:
+      tok6 = next(tokens)
+      if "identifier" not in tok6:
+        raise ParsingError(
+          "expected object identifier instead of {!r}".format(tok6)
+        )
+      if tok6["identifier"] != identifier:
+        raise ParsingError(
+          "object identifier {!r} does not match end object \
+           identifier {!r}".format(tok3, tok6)
+        )
+    else:
+      tokens.send(tok5)
+    return Object(identifier.decode("utf-8"), object_statements, False)
+  elif "begin_group" in tok1:
+    tok2 = next(tokens)
+    if "equal" not in tok2:
+      raise ParsingError(
+        "expected equal sign instead of {!r}".format(tok2)
+      )
+    tok3 = next(tokens)
+    if "identifier" not in tok3:
+      raise ParsingError(
+        "expected group identifier instead of {!r}".format(tok3)
+      )
+    identifier = tok3["identifier"]
+    group_statements = GroupStatements()
+    tok4 = next(tokens)
+    while "end_group" not in tok4:
+      group_statements.append(_parse_stmt(tok4, tokens))
+      tok4 = next(tokens)
+    tok5 = next(tokens)
+    if "equal" in tok5:
+      tok6 = next(tokens)
+      if "identifier" not in tok6:
+        raise ParsingError(
+          "expected group identifier instead of {!r}".format(tok6)
+        )
+      if tok6["identifier"] != identifier:
+        raise ParsingError(
+          "group identifier {!r} does not match end group \
+           identifier {!r}".format(tok3, tok6)
+        )
+    else:
+      tokens.send(tok5)
+    return Group(identifier.decode("utf-8"), group_statements, False)
+  else:
+    raise ParsingError("unexpected {!r}".format(tok1))
+
+def _parse_label(tokens):
+  label = Label()
+  while True:
+    try:
+      tok = next(tokens)
+      if "end" in tok:
+        break
+      stmt = _parse_stmt(tok, tokens)
+      label.append(stmt)
+    except StopIteration:
+      raise ParsingError("unexpected end")
+  return label
 
 
 def parse(byte_string):
   tokens = _generate_tokens(byte_string)
-  
-  try:
-    tok = next(tokens)
-    while True:
-      groups = tok["groups"]
-      if "end" in groups:
-        break
-
-      tok = next(tokens)
-  except StopIteration:
-    raise RuntimeError("unexpected end")
+  return _parse_label(tokens)
       
     
       
