@@ -25,14 +25,20 @@ installing from there:
 
 Pip
 --- 
-Installing with pip is as simple as::
- $ pip install pds
+Installing with pip is as simple as:
+ 
+.. code-block:: sh
+   
+   $ pip install pds
 
 
 Pip + Git
 ---------
-You can also get the latest development version using pip::
- $ pip install 'git+https://github.com/jashandeep-sohi/pds.git'
+You can also get the latest development version using pip:
+ 
+.. code-block:: sh
+ 
+   $ pip install 'git+https://github.com/jashandeep-sohi/pds.git'
 
 
 Without Installing
