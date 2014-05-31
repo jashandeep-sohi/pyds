@@ -12,8 +12,7 @@ This module simply parses PDS labels into Python objects which can then be used
 to further process and analyze the labels. The reverse is also possible: it can
 serialize those Python objects into a valid PDS label string.
 
-.. _Panetary Data System:
-   http://pds.jpl.nasa.gov/
+.. _Planetary Data System: http://pds.jpl.nasa.gov/
 
 .. _Object Description Lanuage:
    https://pds.jpl.nasa.gov/documents/sr/Chapter12.pdf
