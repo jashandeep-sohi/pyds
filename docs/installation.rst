@@ -20,7 +20,7 @@ Source
 ------
 To install the latest release from source, grab the latest release archive
 from https://github.com/jashandeep-sohi/pds/releases and then use the included
-distuitls setup script to install:
+distuitls setup script to install. For example:
 
 .. code-block:: sh
 
