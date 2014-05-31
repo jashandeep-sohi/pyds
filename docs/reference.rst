@@ -1,6 +1,5 @@
 Reference
 =========
 
-.. autoexception:: pds.ParsingError
+.. autoclass:: pds.Label
    
-   test
