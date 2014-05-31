@@ -1,5 +1,5 @@
 Reference
 =========
 
-.. autoclass:: pds.Label
+.. autoclass:: pds.Statements
    
