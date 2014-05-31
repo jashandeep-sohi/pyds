@@ -12,6 +12,6 @@ Git
 todo
 
  
-Pip+Git
+Pip + Git
 -------
 todo
