@@ -4,6 +4,8 @@ Reference
 -----------------
 .. autofunction:: pds.parse
 
+:class:`pds.Label`
+------------------
 .. autoclass:: pds.Label
 
 .. autoclass:: pds.Attribute
