@@ -5,9 +5,11 @@ Dependencies
 ------------
 * Python 3000 (3.4+)
  
+
 Source
 ------
 todo
+
 
 Git
 ---
@@ -17,15 +19,18 @@ installing from there::
  $ cd pds
  $ python setup.py install
 
+
 Pip
 --- 
 Installing with pip is as simple as::
  $ pip install pds
 
+
 Pip + Git
 ---------
 You can also get the latest development version using pip::
  $ pip install 'git+https://github.com/jashandeep-sohi/pds.git'
+
 
 Without Installing
 ------
