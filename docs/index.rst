@@ -11,13 +11,7 @@ documented in the `PDS Standards Reference v3.8`_.
 .. toctree::
    :maxdepth: 2
    
+   installation
 
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
 
 .. vim: tabstop=1 expandtab
