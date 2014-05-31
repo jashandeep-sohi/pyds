@@ -8,7 +8,8 @@ make html &&
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
-git reset -- :/CNAME :/.nojekyll && git checkout -- :/CNAME :/.nojekyll &&
+git reset -- :/CNAME :/.nojekyll :/.gitignore && 
+git checkout -- :/CNAME :/.nojekyll :/.gitignore &&
 mv ./_build/html/* ../. &&
 git add -A :/ &&
 git reset -- :/docs &&
