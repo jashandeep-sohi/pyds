@@ -7,7 +7,16 @@ Dependencies
  
 Source
 ------
-todo
+To install the latest release from source, grab the latest release archive
+from https://github.com/jashandeep-sohi/pds/releases and then use the included
+``distuitls`` setup script to install:
+
+.. code-block:: sh
+
+   $ wget 'https://github.com/jashandeep-sohi/pds/releases/download/v0.2.0/pds-0.2.0.tar.bz2'
+   $ tar xfj pds-0.2.0.tar.bz2
+   $ cd pds-0.2.0
+   $ python setup.py install
 
 Git
 ---
@@ -20,15 +29,15 @@ installing from there:
    $ cd pds
    $ python setup.py install
 
-Pip
+pip
 --- 
-Installing with pip is as simple as:
+Installing the latest release with pip is as simple as:
  
 .. code-block:: sh
    
    $ pip install pds
 
-Pip + Git
+pip + Git
 ---------
 You can also get the latest development version using pip:
  
