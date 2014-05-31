@@ -1,11 +1,11 @@
 Installation
-------------
+============
 
- Pip
- ---
+Pip
+---
  
- Git
- ---
+Git
+---
  
- Pip+Git
- -------
+Pip+Git
+-------
