@@ -1,5 +1,9 @@
 Values
 ======
+.. toctree::
+   
+   scalars
+   
 :class:`pds.Set`
 ----------------
 .. autoclass:: pds.Set
@@ -12,7 +16,4 @@ Values
 -----------------------
 .. autoclass:: pds.Sequence2D
 
-.. toctree::
-   :hidden:
-   
-   scalars
+
