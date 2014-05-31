@@ -4,7 +4,16 @@ Installation
 Dependencies
 ------------
 * Python 3000 (3.4+)
+* pip (optional)
  
+pip
+--- 
+Installing the latest release with pip is as simple as:
+ 
+.. code-block:: sh
+   
+   $ pip install pds
+
 Source
 ------
 To install the latest release from source, grab the latest release archive
@@ -28,14 +37,6 @@ installing from there:
    $ git clone 'https://github.com/jashandeep-sohi/pds.git'
    $ cd pds
    $ python setup.py install
-
-pip
---- 
-Installing the latest release with pip is as simple as:
- 
-.. code-block:: sh
-   
-   $ pip install pds
 
 pip + Git
 ---------
