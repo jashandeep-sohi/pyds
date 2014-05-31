@@ -14,7 +14,7 @@ serialize those Python objects into a valid PDS label string.
 
 .. _Planetary Data System: http://pds.jpl.nasa.gov/
 
-.. _Object Description Lanuage:
+.. _Object Description Language:
    https://pds.jpl.nasa.gov/documents/sr/Chapter12.pdf
    
 .. _PDS Standards Reference v3.8: 
