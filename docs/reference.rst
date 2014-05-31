@@ -1,6 +1,6 @@
 Reference
 =========
 
-.. autoexception:: ParsingError
+.. autoexception:: pds.ParsingError
    
    test
