@@ -1,5 +1,11 @@
 Reference
 ====================
+
+.. toctree::
+   
+   values
+
+
 :func:`pds.parse`
 -----------------
 .. autofunction:: pds.parse
@@ -32,7 +38,3 @@ Reference
 ------------------
 .. autoclass:: pds.Units
 
-
-.. toctree::
-   
-   values
