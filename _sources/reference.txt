@@ -34,6 +34,5 @@ Reference
 
 
 .. toctree::
-   :hidden:
    
    values
