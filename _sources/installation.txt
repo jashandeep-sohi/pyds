@@ -1,6 +1,10 @@
 Installation
 ============
-todo
+
+Dependencies
+------------
+* Python 3000 (3.4+)
+
 
 Pip
 ---
