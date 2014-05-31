@@ -6,7 +6,7 @@ labels.
 .. _PDS: http://pds.jpl.nasa.gov/
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    
    introduction
    installation
