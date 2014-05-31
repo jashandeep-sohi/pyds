@@ -110,7 +110,21 @@
 <dl class="function">
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Parse a PDS label.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>byte_string</strong> (<em>bytes or mmap.mmap</em>) &#8211; PDS label string.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a label</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">:class:<a href="#id1"><span class="problematic" id="id2">`</span></a>pds.Label&#8217;</td>
+</tr>
+</tbody>
+</table>
+<p>:raises <tt class="xref py py-exc docutils literal"><span class="pre">pds.ParsingError</span></tt>: if bytes_string is not a valid PDS label.</p>
+</dd></dl>
 
 <dl class="class">
 <dt id="pds.Label">
