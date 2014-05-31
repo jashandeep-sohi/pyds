@@ -1,6 +1,6 @@
 Installation
 ============
-There are number of ways to install pds, the easiest of which is using `pip`_
+There are numerous of ways to install pds, the easiest of which is using `pip`_
 (or `pip + git`_ for the development version).
 
 Dependencies
