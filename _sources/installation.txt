@@ -1,5 +1,7 @@
 Installation
 ============
+There are number of ways to install pds, the easiest of which is using `pip`_ or
+`pip + git`_.
 
 Dependencies
 ------------
@@ -18,7 +20,7 @@ Source
 ------
 To install the latest release from source, grab the latest release archive
 from https://github.com/jashandeep-sohi/pds/releases and then use the included
-``distuitls`` setup script to install:
+distuitls setup script to install:
 
 .. code-block:: sh
 
