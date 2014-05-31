@@ -15,6 +15,7 @@ Git
 ---
 You can get the latest development version by clonning the development repo and
 installing from there:
+
 .. code-block:: sh 
    
    $ git clone 'https://github.com/jashandeep-sohi/pds.git'
