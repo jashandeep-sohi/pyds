@@ -244,13 +244,19 @@ for token_name, token_re, token_groups in ODL_LEX_TOK_SPEC
 ################
 
 class _DoubleLinkNode(object):
-
+  """
+    Used internally as the nodes of doubly linked list.
+  """
+  
   __slots__ = ("prev", "next", "value", "__weakref__")
   
   def __init__(self, value = None):
     self.value = value
 
 class _DoubleLinkedNodes(object):
+  """
+    A simple double linked list used internally.
+  """
   
   def __init__(self):
     self.root_hard = _DoubleLinkNode()
@@ -296,6 +302,9 @@ class _DoubleLinkedNodes(object):
     return self.length 
   
 class Statements(object, metaclass = abc.ABCMeta):
+  """
+  
+  """
   
   @property
   def max_identifier_width(self):
@@ -408,17 +417,23 @@ class Statements(object, metaclass = abc.ABCMeta):
     return str(self).encode("ascii")
 
 class Label(Statements):
+  """
   
-  def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
+  """
+  
+  def __init__(self, *statements):
+    super().__init__(*statements)
   
   def __str__(self):
     return "{}\r\nEND ".format(super().__str__())
        
 class GroupStatements(Statements):
+  """
   
-  def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)  
+  """
+  
+  def __init__(self, *statements):
+    super().__init__(*statements)  
   
   @Statements.max_identifier_width.getter
   def max_identifier_width(self):
@@ -432,11 +447,15 @@ class GroupStatements(Statements):
     super()._insert(index, statement)
     
 class ObjectStatements(Statements):
+  """
+  """
   
-  def __init__(self, *args, **kwargs):
-    super().__init__(*args, **kwargs)
+  def __init__(self, *statements):
+    super().__init__(*statements)
 
 class Statement(object, metaclass = abc.ABCMeta):
+  """
+  """
   
   VALID_IDENT_RE = _re_compile(r"""(?xi)
     (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
@@ -455,6 +474,8 @@ class Statement(object, metaclass = abc.ABCMeta):
     return self._format("", "")  
 
 class Attribute(Statement):
+  """
+  """
   
   VALID_IDENT_RE = _re_compile("""(?xi)
     (?:
@@ -485,6 +506,8 @@ class Attribute(Statement):
     )
           
 class Group(Statement):
+  """
+  """
         
   def __init__(self, identifier, group_statements, validate_identifier = True):
     if not isinstance(group_statements, GroupStatements):
@@ -509,6 +532,8 @@ class Group(Statement):
     )
      
 class Object(Statement):
+  """
+  """
   
   def __init__(self, identifier, object_statements, validate_identifier = True):
     if not isinstance(object_statements, ObjectStatements):
@@ -535,14 +560,23 @@ class Object(Statement):
     )
   
 class Value(object, metaclass = abc.ABCMeta):
+  """
+  """
+  
   @abc.abstractmethod
   def __init__(self, *args, **kwargs):
     pass
 
 class Scalar(Value):
+  """
+  """
+  
   pass
     
 class Units(object):
+  """
+  """
+  
   VALID_RE = _re_compile(r"""(?xi)
     (?:
     (?:
@@ -573,6 +607,8 @@ class Units(object):
     return "<{}>".format(self.expression)
 
 class Numeric(Scalar):
+  """
+  """
   
   @abc.abstractmethod
   def __init__(self, value, units):
@@ -595,11 +631,15 @@ class Numeric(Scalar):
     )
     
 class Integer(Numeric):
+  """
+  """
   
   def __init__(self, value, units = ""):
     super().__init__(int(value), units)
     
 class BasedInteger(Numeric):
+  """
+  """
     
   def __init__(self, radix, digits, units = ""):
     radix = int(radix)
@@ -618,12 +658,17 @@ class BasedInteger(Numeric):
     )
 
 class Real(Numeric):
-
+  """
+  """
+  
   def __init__(self, value, units = ""):
     super().__init__(float(value), units)
     
 
 class Text(Scalar):
+  """
+  """
+  
   VALID_RE = _re_compile(r'[\x00-\x21\x23-\x7f]*')
     
   def __init__(self, value, validate = True):
@@ -637,6 +682,9 @@ class Text(Scalar):
     
 
 class Symbol(Scalar):
+  """
+  """
+  
   VALID_RE = _re_compile(r'[\x20-\x26\x28-\x7e]+')
   
   def __init__(self, value, validate = True):
@@ -650,6 +698,9 @@ class Symbol(Scalar):
 
 
 class Identifier(Scalar):
+  """
+  """
+  
   VALID_RE = _re_compile("""(?xi)
     (?!(?:end|group|begin_group|end_group|object|begin_object|end_object)$)
     (?:[a-z](?:_?[a-z0-9])*)
@@ -666,6 +717,8 @@ class Identifier(Scalar):
 
 
 class Time(Scalar):
+  """
+  """
     
   def __init__(self,
     hour,
@@ -728,6 +781,8 @@ class Time(Scalar):
       return h_m_s
     
 class Date(Scalar):
+  """
+  """
   
   MONTH_DAYS = [0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
   
@@ -759,6 +814,8 @@ class Date(Scalar):
     )
      
 class DateTime(Scalar):
+  """
+  """
     
   def __init__(
     self,
@@ -782,7 +839,9 @@ class DateTime(Scalar):
     )
 
 class Set(Value, _MutableSet):
-
+  """
+  """
+  
   def __init__(self, *values):
     self._set = set()
     for value in values:
@@ -812,6 +871,8 @@ class Set(Value, _MutableSet):
     )
 
 class Sequence1D(Value, _MutableSequence):
+  """
+  """
   
   def __init__(self, value, *values):
     self._list = list()
@@ -849,7 +910,9 @@ class Sequence1D(Value, _MutableSequence):
     )
 
 class Sequence2D(Sequence1D):
-
+  """
+  """
+  
   def insert(self, index, value):
     if isinstance(value, Sequence1D):
       self._list.insert(index, value)
@@ -858,6 +921,9 @@ class Sequence2D(Sequence1D):
       
 
 class _Token(dict):
+  """
+    Used internally to represent tokens.
+  """
   
   __slots__ = ("name",)  
   
@@ -870,6 +936,9 @@ class _Token(dict):
     
 
 class ParsingError(Exception):
+  """
+  
+  """
   pass
   
   
@@ -1120,11 +1189,9 @@ def _parse_label(tokens):
 
 
 def parse(byte_string):
+  """
+  """
   tokens = _generate_tokens(byte_string)
   return _parse_label(tokens)
-      
-    
-      
-  
-  
+        
 # vim: tabstop=2 expandtab
