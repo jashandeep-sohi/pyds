@@ -1,2 +1,6 @@
 Reference
 =========
+
+.. autoexception:: ParsingError
+   
+   test
