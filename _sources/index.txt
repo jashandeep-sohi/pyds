@@ -11,6 +11,7 @@ documented in the `PDS Standards Reference v3.8`_.
 .. toctree::
    :maxdepth: 2
    
+   introduction
    installation
 
 
