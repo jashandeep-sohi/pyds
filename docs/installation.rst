@@ -4,14 +4,14 @@ Installation
 
 Pip
 ===
-blha
+todo
 
  
 Git
 ===
-blha
+todo
 
  
 Pip+Git
 =======
-blha
+todo
