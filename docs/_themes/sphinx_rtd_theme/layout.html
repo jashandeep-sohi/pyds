@@ -87,7 +87,7 @@
       </div>
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-        {% set toctree = toctree(collapse=False, includehidden=True) %}
+        {% set toctree = toctree(collapse=True, includehidden=True) %}
         {% if toctree %}
             {{ toctree }}
         {% else %}
