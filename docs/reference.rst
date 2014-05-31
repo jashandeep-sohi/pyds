@@ -1,5 +1,5 @@
-Reference
-=========
+:mod:`pds` Reference
+====================
 :func:`pds.parse`
 -----------------
 .. autofunction:: pds.parse
