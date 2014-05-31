@@ -1,7 +1,8 @@
 #!/bin/sh
 
 git add -A . &&
-git commit -m "Updated documentation"
+git commit -m "Updated documentation" &&
+git push origin master
 
 make html &&
 git stash &&
