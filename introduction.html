@@ -101,8 +101,16 @@
             
   <div class="section" id="introduction">
 <h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>This module is capabale of reading and writing version 3 PDS labels as
-documented in the <a class="reference external" href="http://pds.jpl.nasa.gov/documents/sr/StdRef_20090227_v3.8.pdf">PDS Standards Reference v3.8</a>.</p>
+<p>PDS labels are used by the <a href="#id1"><span class="problematic" id="id2">`Planetary Data System`_</span></a> and other NASA data systems
+to describe the contents and format of data products. This module is capable of
+handling version 3 PDS labels as documented in the
+<a class="reference external" href="http://pds.jpl.nasa.gov/documents/sr/StdRef_20090227_v3.8.pdf">PDS Standards Reference v3.8</a>. PDS labels are written in
+<a href="#id3"><span class="problematic" id="id4">`Object Description Language`_</span></a> (ODL). ODL is a relatively simple attribute
+assignment based language, with support for integers, real numbers, sequences,
+text and other various types.</p>
+<p>This module simply parses PDS labels into Python objects which can then be used
+to further process and analyze the labels. The reverse is also possible: it can
+serialize those Python objects into a valid PDS label string.</p>
 </div>
 
 
