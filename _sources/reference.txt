@@ -2,7 +2,7 @@ Reference
 ====================
 .. autofunction:: pds.parse
 
-.. autoclass:: Label
+.. autoclass:: pds.Label
 
 .. autoclass:: pds.Attribute
 
