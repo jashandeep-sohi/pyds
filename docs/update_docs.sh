@@ -4,7 +4,7 @@ git add -A . &&
 git commit -m "Updated documentation" &&
 git push origin master
 
-make singlehtml &&
+make html &&
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
