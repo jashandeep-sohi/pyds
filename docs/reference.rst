@@ -4,6 +4,13 @@ Reference
 .. autosummary::
    
    pds.parse
+   pds.Label
+   pds.GroupStatments
+   pds.ObjectStatements
+   pds.Attribute
+   pds.Group
+   pds.Object
+   pds.Units
 
 .. autofunction:: pds.parse
 
