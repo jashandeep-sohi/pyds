@@ -1,5 +1,7 @@
 :mod:`pds` Reference
 ====================
+.. currentmodule:: pds
+
 Functions
 ---------
 .. autosummary::
