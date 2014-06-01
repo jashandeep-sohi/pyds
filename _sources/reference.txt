@@ -1,5 +1,6 @@
 Reference
 ====================
+.. contents::
 
 Functions
 ---------
