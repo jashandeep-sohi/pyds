@@ -1,5 +1,7 @@
 Reference
 ====================
+.. contents::
+
 .. autofunction:: pds.parse
 
 .. autoclass:: pds.Label
