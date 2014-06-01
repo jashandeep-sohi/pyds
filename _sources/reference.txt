@@ -1,5 +1,6 @@
 Reference
 =========
+.. currentmodule:: pds
 .. rubric:: Functions
 .. autosummary::
    :toctree: stubs
