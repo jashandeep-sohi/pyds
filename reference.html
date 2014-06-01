@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds Reference &mdash; pds v0.2.0 documentation</title>
+  <title>Reference &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -29,6 +29,7 @@
 
   
     <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
+        <link rel="next" title="pds.parse" href="stubs/pds.parse.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -66,7 +67,10 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">pds Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="stubs/pds.parse.html">pds.parse</a></li>
+</ul>
+</li>
 </ul>
 
         
@@ -90,7 +94,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>pds Reference</li>
+    <li>Reference</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/reference.txt" rel="nofollow"> View page source</a>
@@ -101,152 +105,19 @@
 </div>
           <div role="main">
             
-  <div class="section" id="module-pds">
-<span id="pds-reference"></span><h1>pds Reference<a class="headerlink" href="#module-pds" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
-<dt id="pds.Attribute">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Attribute</tt><big>(</big><em>identifier</em>, <em>value</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Attribute" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.BasedInteger">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">BasedInteger</tt><big>(</big><em>radix</em>, <em>digits</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.BasedInteger" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Date">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Date</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#pds.Date" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.DateTime">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">DateTime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.DateTime" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Group">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Group</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.GroupStatements">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">GroupStatements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.GroupStatements" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Identifier">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Identifier</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Identifier" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Integer">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Integer</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Integer" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Label">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Label</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.Label" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Numeric">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Numeric</tt><big>(</big><em>value</em>, <em>units</em><big>)</big><a class="headerlink" href="#pds.Numeric" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Object">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Object</tt><big>(</big><em>identifier</em>, <em>object_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Object" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.ObjectStatements">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">ObjectStatements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="exception">
-<dt id="pds.ParsingError">
-<em class="property">exception </em><tt class="descclassname">pds.</tt><tt class="descname">ParsingError</tt><a class="headerlink" href="#pds.ParsingError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raised by <a class="reference internal" href="#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> whenever it cannot parse a string into <a class="reference internal" href="#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a>.</p>
-</dd></dl>
-
-<dl class="class">
-<dt id="pds.Real">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Real</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Real" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Scalar">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Scalar</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pds.Scalar" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Sequence1D">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence1D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Sequence2D">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence2D" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Set">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Set</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Set" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Statement">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Statement</tt><big>(</big><em>identifier</em>, <em>value</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Statement" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Statements">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Statements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.Statements" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Symbol">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Symbol</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Symbol" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Text">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Text</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Time">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Time</tt><big>(</big><em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.Time" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Units">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Units</tt><big>(</big><em>expression</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Units" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="pds.Value">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Value</tt><big>(</big><em>*args</em>, <em>**kwargs</em><big>)</big><a class="headerlink" href="#pds.Value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="pds.parse">
-<tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse <em>byte_string</em> into a <a class="reference internal" href="#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
+  <div class="section" id="reference">
+<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>byte_string</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>) &#8211; A valid PDS label string.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt></a> if <em>byte_string</em> is not a valid PDS string.</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-obj docutils literal"><span class="pre">pds.parse</span></tt></a>(byte_string)</td>
+<td>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
 </div>
 
 
@@ -254,6 +125,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stubs/pds.parse.html" class="btn btn-neutral float-right" title="pds.parse">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
