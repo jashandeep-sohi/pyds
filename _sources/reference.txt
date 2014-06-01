@@ -17,5 +17,4 @@ Reference
 
 .. autoclass:: pds.Units
 
-.. include:: values.txt
    

@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Introduction &mdash; pds v0.2.0 documentation</title>
+  <title>Scalars &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -28,9 +28,7 @@
   
 
   
-    <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
-        <link rel="next" title="Installation" href="installation.html"/>
-        <link rel="prev" title="pds" href="index.html"/> 
+    <link rel="top" title="pds v0.2.0 documentation" href="index.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -57,8 +55,8 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a></li>
+            <ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip">pip</a></li>
@@ -91,10 +89,10 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Introduction</li>
+    <li>Scalars</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/introduction.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/scalars.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -102,32 +100,58 @@
 </div>
           <div role="main">
             
-  <div class="section" id="introduction">
-<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
-<p>PDS labels are used by the <a class="reference external" href="http://pds.jpl.nasa.gov/">Planetary Data System</a> and other NASA data systems
-to describe the contents and format of data products. This module is capable of
-handling version 3 PDS labels as documented in the
-<a class="reference external" href="http://pds.jpl.nasa.gov/documents/sr/StdRef_20090227_v3.8.pdf">PDS Standards Reference v3.8</a>. PDS labels are written in
-<a class="reference external" href="https://pds.jpl.nasa.gov/documents/sr/Chapter12.pdf">Object Description Language</a> (ODL). ODL is a relatively simple attribute
-assignment based language, with support for integers, real numbers, sequences,
-text and other various types.</p>
-<p>This module simply parses PDS labels into Python objects which can then be used
-to further process and analyze the labels. The reverse is also possible: it can
-serialize those Python objects into a valid PDS label string.</p>
+  <div class="section" id="scalars">
+<h1>Scalars<a class="headerlink" href="#scalars" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pds.Integer">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Integer</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Integer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.BasedInteger">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">BasedInteger</tt><big>(</big><em>radix</em>, <em>digits</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.BasedInteger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Real">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Real</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Real" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Text">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Text</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Symbol">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Symbol</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Identifier">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Identifier</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Time">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Time</tt><big>(</big><em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.Time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Date">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Date</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#pds.Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.DateTime">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">DateTime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </div>
 
 
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="installation.html" class="btn btn-neutral float-right" title="Installation">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="index.html" class="btn btn-neutral" title="pds"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
