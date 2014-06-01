@@ -1,5 +1,7 @@
 Reference
 =========
+.. currentmodule:: pds
+
 .. autosummary::
    :toctree: stubs
    
