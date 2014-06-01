@@ -7,7 +7,7 @@ pds Reference
 
    .. autosummary::
    
-      parse
+      pds.parse
    
    .. rubric:: Classes
 
