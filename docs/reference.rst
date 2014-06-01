@@ -1,4 +1,5 @@
 .. autosummary::
    :toctree: stubs
    
-   pds
+   pds.parse
+   
