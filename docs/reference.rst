@@ -2,7 +2,8 @@ Reference
 ====================
 .. contents::
    :local:
-
+   :backlinks: entry
+   
 Functions
 ---------
 .. autofunction:: pds.parse
