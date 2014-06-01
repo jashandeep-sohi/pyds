@@ -1,8 +1,13 @@
 Reference
 ====================
 
+Functions
+---------
 .. autofunction:: pds.parse
 
+
+Classes
+-------
 .. autoclass:: pds.Label
 
 .. autoclass:: pds.Attribute
@@ -17,4 +22,30 @@ Reference
 
 .. autoclass:: pds.Units
 
-   
+Values
+^^^^^^
+.. autoclass:: pds.Set
+
+.. autoclass:: pds.Sequence1D
+
+.. autoclass:: pds.Sequence2D
+
+Scalars
+#######
+.. autoclass:: pds.Integer
+
+.. autoclass:: pds.BasedInteger
+
+.. autoclass:: pds.Real
+
+.. autoclass:: pds.Text
+
+.. autoclass:: pds.Symbol
+
+.. autoclass:: pds.Identifier
+
+.. autoclass:: pds.Time
+
+.. autoclass:: pds.Date
+
+.. autoclass:: pds.DateTime
