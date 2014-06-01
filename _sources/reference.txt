@@ -2,6 +2,7 @@ Reference
 ====================
 
 .. autosummary::
+   :toctree:
    
    pds.parse
    pds.Label
