@@ -5,16 +5,13 @@ labels.
 
 .. _PDS: http://pds.jpl.nasa.gov/
 
+.. currentmodule:: pds
+
 .. toctree::
    
    introduction
    installation
    reference
-
-.. autosummary::
-   :toctree: stubs
-   
-   pds
    
 
 .. vim: tabstop=1 expandtab
