@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.ParsingError &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Time &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,7 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="prev" title="pds.Sequence2D" href="pds.Sequence2D.html"/> 
+        <link rel="next" title="pds.DateTime" href="pds.DateTime.html"/>
+        <link rel="prev" title="pds.Date" href="pds.Date.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -83,12 +84,12 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.Symbol.html">pds.Symbol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Identifier.html">pds.Identifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Time.html">pds.Time</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.DateTime.html">pds.DateTime</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Set.html">pds.Set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Sequence1D.html">pds.Sequence1D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Sequence2D.html">pds.Sequence2D</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.ParsingError</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.ParsingError.html">pds.ParsingError</a></li>
 </ul>
 </li>
 </ul>
@@ -116,10 +117,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.ParsingError</li>
+    <li>pds.Time</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/stubs/pds.ParsingError.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/stubs/pds.Time.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -127,12 +128,28 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-parsingerror">
-<h1>pds.ParsingError<a class="headerlink" href="#pds-parsingerror" title="Permalink to this headline">¶</a></h1>
-<dl class="exception">
-<dt id="pds.ParsingError">
-<em class="property">exception </em><tt class="descclassname">pds.</tt><tt class="descname">ParsingError</tt><a class="headerlink" href="#pds.ParsingError" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raised by <a class="reference internal" href="pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> whenever it cannot parse a string into <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a>.</p>
+  <div class="section" id="pds-time">
+<h1>pds.Time<a class="headerlink" href="#pds-time" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pds.Time">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Time</tt><big>(</big><em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.Time" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pds.Time.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.Time.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#pds.Time.__init__" title="pds.Time.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(hour,&nbsp;minute[,&nbsp;second,&nbsp;utc,&nbsp;...])</td>
+<td></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </div>
@@ -143,8 +160,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="pds.DateTime.html" class="btn btn-neutral float-right" title="pds.DateTime">Next <span class="fa fa-arrow-circle-right"></span></a>
       
-        <a href="pds.Sequence2D.html" class="btn btn-neutral" title="pds.Sequence2D"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+        <a href="pds.Date.html" class="btn btn-neutral" title="pds.Date"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

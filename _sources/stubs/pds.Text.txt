@@ -1,9 +1,9 @@
-pds.Statement
-=============
+pds.Text
+========
 
 .. currentmodule:: pds
 
-.. autoclass:: Statement
+.. autoclass:: Text
 
    
    .. automethod:: __init__
@@ -13,7 +13,7 @@ pds.Statement
 
    .. autosummary::
    
-      ~Statement.__init__
+      ~Text.__init__
    
    
 
@@ -23,6 +23,6 @@ pds.Statement
 
    .. autosummary::
    
-      ~Statement.VALID_IDENT_RE
+      ~Text.VALID_RE
    
    
