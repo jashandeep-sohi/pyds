@@ -1,8 +1,6 @@
 Reference
 ====================
-.. contents::
-   :local:
-   :backlinks: "entry"
+
    
 Functions
 ---------
@@ -25,16 +23,17 @@ Classes
 
 .. autoclass:: pds.Units
 
-Values
-^^^^^^
+
+.. rubric:: Values
+
 .. autoclass:: pds.Set
 
 .. autoclass:: pds.Sequence1D
 
 .. autoclass:: pds.Sequence2D
 
-Scalars
-#######
+.. rubric:: Sclar Values
+
 .. autoclass:: pds.Integer
 
 .. autoclass:: pds.BasedInteger
