@@ -69,6 +69,7 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="stubs/pds.parse.html">pds.parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="stubs/pds.Statements.html">pds.Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stubs/pds.Label.html">pds.Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stubs/pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="stubs/pds.ObjectStatements.html">pds.ObjectStatements</a></li>
@@ -146,61 +147,64 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Label</span></tt></a>(*statements)</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Statements.html#pds.Statements" title="pds.Statements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Statements</span></tt></a>(*statements)</td>
+<td>An abstract base class which represents zero or more PDS statements.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Label</span></tt></a>(*statements)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.GroupStatements</span></tt></a>(*statements)</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.GroupStatements</span></tt></a>(*statements)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.ObjectStatements</span></tt></a>(*statements)</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.ObjectStatements</span></tt></a>(*statements)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Attribute</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Attribute</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Group</span></tt></a>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Group</span></tt></a>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Object</span></tt></a>(identifier,&nbsp;object_statements[,&nbsp;...])</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Object</span></tt></a>(identifier,&nbsp;object_statements[,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Units</span></tt></a>(expression[,&nbsp;validate])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Units</span></tt></a>(expression[,&nbsp;validate])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Integer</span></tt></a>(value[,&nbsp;units])</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Integer</span></tt></a>(value[,&nbsp;units])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-obj docutils literal"><span class="pre">pds.BasedInteger</span></tt></a>(radix,&nbsp;digits[,&nbsp;units])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-obj docutils literal"><span class="pre">pds.BasedInteger</span></tt></a>(radix,&nbsp;digits[,&nbsp;units])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Real.html#pds.Real" title="pds.Real"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Real</span></tt></a>(value[,&nbsp;units])</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Real.html#pds.Real" title="pds.Real"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Real</span></tt></a>(value[,&nbsp;units])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Text.html#pds.Text" title="pds.Text"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Text</span></tt></a>(value[,&nbsp;validate])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Text.html#pds.Text" title="pds.Text"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Text</span></tt></a>(value[,&nbsp;validate])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Symbol</span></tt></a>(value[,&nbsp;validate])</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Symbol</span></tt></a>(value[,&nbsp;validate])</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Identifier</span></tt></a>(value[,&nbsp;validate])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Identifier</span></tt></a>(value[,&nbsp;validate])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Date</span></tt></a>(year,&nbsp;month,&nbsp;day)</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Date</span></tt></a>(year,&nbsp;month,&nbsp;day)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Time</span></tt></a>(hour,&nbsp;minute[,&nbsp;second,&nbsp;utc,&nbsp;...])</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Time</span></tt></a>(hour,&nbsp;minute[,&nbsp;second,&nbsp;utc,&nbsp;...])</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-obj docutils literal"><span class="pre">pds.DateTime</span></tt></a>(year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute)</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-obj docutils literal"><span class="pre">pds.DateTime</span></tt></a>(year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Set.html#pds.Set" title="pds.Set"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Set</span></tt></a>(*values)</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Set.html#pds.Set" title="pds.Set"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Set</span></tt></a>(*values)</td>
 <td></td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence1D</span></tt></a>(value,&nbsp;*values)</td>
+<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence1D</span></tt></a>(value,&nbsp;*values)</td>
 <td></td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.Sequence2D.html#pds.Sequence2D" title="pds.Sequence2D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence2D</span></tt></a>(value,&nbsp;*values)</td>
+<tr class="row-even"><td><a class="reference internal" href="stubs/pds.Sequence2D.html#pds.Sequence2D" title="pds.Sequence2D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence2D</span></tt></a>(value,&nbsp;*values)</td>
 <td></td>
 </tr>
 </tbody>

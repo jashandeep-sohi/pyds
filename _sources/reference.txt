@@ -12,6 +12,7 @@ Reference
 .. autosummary::
    :toctree: stubs
  
+   pds.Statements
    pds.Label
    pds.GroupStatements
    pds.ObjectStatements
