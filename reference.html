@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Reference &mdash; pds v0.2.0 documentation</title>
+  <title>pds Reference &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -29,7 +29,6 @@
 
   
     <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
-        <link rel="next" title="pds" href="stubs/pds.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -67,10 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="stubs/pds.html">pds</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">pds Reference</a></li>
 </ul>
 
         
@@ -94,7 +90,7 @@
   <ul class="wy-breadcrumbs">
     <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>Reference</li>
+    <li>pds Reference</li>
       <li class="wy-breadcrumbs-aside">
         
           <a href="_sources/reference.txt" rel="nofollow"> View page source</a>
@@ -105,16 +101,110 @@
 </div>
           <div role="main">
             
-  <div class="section" id="reference">
-<h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="module-pds">
+<span id="pds-reference"></span><h1>pds Reference<a class="headerlink" href="#module-pds" title="Permalink to this headline">¶</a></h1>
+<p class="rubric">Functions</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="stubs/pds.html#module-pds" title="pds"><tt class="xref py py-obj docutils literal"><span class="pre">pds</span></tt></a></td>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">parse</span></tt>(byte_string)</td>
+<td>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Attribute</span></tt>(identifier,&nbsp;value[,&nbsp;...])</td>
 <td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">BasedInteger</span></tt>(radix,&nbsp;digits[,&nbsp;units])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Date</span></tt>(year,&nbsp;month,&nbsp;day)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">DateTime</span></tt>(year,&nbsp;month,&nbsp;day,&nbsp;hour,&nbsp;minute[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Group</span></tt>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">GroupStatements</span></tt>(*statements)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Identifier</span></tt>(value[,&nbsp;validate])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Integer</span></tt>(value[,&nbsp;units])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Label</span></tt>(*statements)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Numeric</span></tt>(value,&nbsp;units)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Object</span></tt>(identifier,&nbsp;object_statements[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">ObjectStatements</span></tt>(*statements)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Real</span></tt>(value[,&nbsp;units])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Scalar</span></tt>(*args,&nbsp;**kwargs)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Sequence1D</span></tt>(value,&nbsp;*values)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Sequence2D</span></tt>(value,&nbsp;*values)</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Set</span></tt>(*values)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Statement</span></tt>(identifier,&nbsp;value[,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Statements</span></tt>(*statements)</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Symbol</span></tt>(value[,&nbsp;validate])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Text</span></tt>(value[,&nbsp;validate])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Time</span></tt>(hour,&nbsp;minute[,&nbsp;second,&nbsp;utc,&nbsp;zone_hour,&nbsp;...])</td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">Units</span></tt>(expression[,&nbsp;validate])</td>
+<td></td>
+</tr>
+<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">Value</span></tt>(*args,&nbsp;**kwargs)</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">ParsingError</span></tt></td>
+<td>Raised by <tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt> whenever it cannot parse a string into <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt>.</td>
 </tr>
 </tbody>
 </table>
@@ -125,8 +215,6 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="stubs/pds.html" class="btn btn-neutral float-right" title="pds">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
