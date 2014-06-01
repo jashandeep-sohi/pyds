@@ -1,6 +1,6 @@
 #!/bin/sh
 
-sphinx-build -W -b html . _build/html &&
+sphinx-build -W -b doctest -b html . _build/html &&
 git add -A . &&
 git commit -m "Updated documentation" &&
 git push origin master
