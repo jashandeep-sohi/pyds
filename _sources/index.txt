@@ -12,7 +12,8 @@ labels.
    reference
    
 .. autosummary::
+   :toctree: stubs
    
-   pds   
+   pds
 
 .. vim: tabstop=1 expandtab
