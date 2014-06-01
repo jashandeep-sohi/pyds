@@ -1,7 +1,7 @@
 Reference
 ====================
 
-:func:`Test<pds.parse>`
+:func:`<pds.parse>`
 =======================
 .. autofunction:: pds.parse
 
