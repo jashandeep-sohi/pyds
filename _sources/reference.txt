@@ -4,11 +4,13 @@ Reference
 
 .. rubric:: Functions
 .. autosummary::
-   :toctree: stubs
-   
-   pds.parse
+     :toctree: stubs
+     
+     pds.parse
    
 .. rubric:: Classes
+
+.. rubric:: Statements
 .. autosummary::
    :toctree: stubs
    
@@ -16,7 +18,8 @@ Reference
    pds.Label
    pds.GroupStatements
    pds.ObjectStatements
-   
+
+.. rubric:: Statement
 .. autosummary::
    :toctree: stubs
    
@@ -25,7 +28,7 @@ Reference
    pds.Group
    pds.Object
    
-.. rubric:: Exceptions
+.. rubric:: Exceptions  
 .. autosummary::
    :toctree: stubs
    
