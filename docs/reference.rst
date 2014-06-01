@@ -5,7 +5,7 @@ Reference
    
    pds.parse
    pds.Label
-   pds.GroupStatments
+   pds.GroupStatements
    pds.ObjectStatements
    pds.Attribute
    pds.Group
