@@ -1,14 +1,12 @@
 Reference
 ====================
 
+.. toctree::
    
-Functions
----------
+   :func:`pds.parse`
+   
 .. autofunction:: pds.parse
 
-
-Classes
--------
 .. autoclass:: pds.Label
 
 .. autoclass:: pds.Attribute
@@ -22,7 +20,6 @@ Classes
 .. autoclass:: pds.ObjectStatements
 
 .. autoclass:: pds.Units
-
 
 .. rubric:: Values
 
