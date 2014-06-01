@@ -7,6 +7,4 @@ Values
 
 .. autoclass:: pds.Sequence2D
 
-.. toctree::
-   
-   scalars
+.. include:: scalars.rst

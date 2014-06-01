@@ -29,7 +29,6 @@
 
   
     <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
-        <link rel="next" title="Scalars" href="scalars.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -67,10 +66,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scalars.html">Scalars</a></li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a></li>
 </ul>
 
         
@@ -173,11 +169,51 @@
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence2D" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="scalars.html">Scalars</a></li>
-</ul>
-</div>
+<dl class="class">
+<dt id="pds.Integer">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Integer</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Integer" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.BasedInteger">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">BasedInteger</tt><big>(</big><em>radix</em>, <em>digits</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.BasedInteger" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Real">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Real</tt><big>(</big><em>value</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.Real" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Text">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Text</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Symbol">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Symbol</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Symbol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Identifier">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Identifier</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Identifier" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Time">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Time</tt><big>(</big><em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.Time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Date">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Date</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#pds.Date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.DateTime">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">DateTime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 </div>
@@ -187,8 +223,6 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="scalars.html" class="btn btn-neutral float-right" title="Scalars">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
