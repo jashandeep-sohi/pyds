@@ -13,5 +13,9 @@ labels.
    installation
    reference
 
+.. autosummary::
+   :toctree: stubs
+   
+   *
 
 .. vim: tabstop=1 expandtab
