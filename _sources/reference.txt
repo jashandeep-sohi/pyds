@@ -1,12 +1,12 @@
 Reference
 ====================
-
-.. contents::
    
-   pds.parse
-   
+Functions
+---------
 .. autofunction:: pds.parse
 
+Classes
+-------
 .. autoclass:: pds.Label
 
 .. autoclass:: pds.Attribute
@@ -21,15 +21,11 @@ Reference
 
 .. autoclass:: pds.Units
 
-.. rubric:: Values
-
 .. autoclass:: pds.Set
 
 .. autoclass:: pds.Sequence1D
 
 .. autoclass:: pds.Sequence2D
-
-.. rubric:: Sclar Values
 
 .. autoclass:: pds.Integer
 
