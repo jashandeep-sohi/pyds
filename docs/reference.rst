@@ -3,7 +3,7 @@ Reference
 
 .. toctree::
    
-   :func:`pds.parse`<:func:`pds.parse`>
+   :func:`pds.parse` <:func:`pds.parse`>
    
 .. autofunction:: pds.parse
 
