@@ -3,7 +3,7 @@ Reference
 
 .. toctree::
    
-   Test <:func:`pds.parse`>
+   Test <http://google.com>
    
 .. autofunction:: pds.parse
 
