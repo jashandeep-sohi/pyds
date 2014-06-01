@@ -14,7 +14,7 @@ Reference
    pds.GroupStatements
    pds.ObjectStatements
    
-.. rubric::Exceptions
+.. rubric:: Exceptions
 .. autosummary::
    :toctree: stubs
    
