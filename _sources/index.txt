@@ -9,9 +9,6 @@ labels.
    
    introduction
    installation
-.. toctree::
-   :maxdepth: 1
-   
    reference
 
 .. vim: tabstop=1 expandtab
