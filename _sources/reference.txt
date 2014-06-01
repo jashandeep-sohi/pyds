@@ -1,6 +1,7 @@
 Reference
 ====================
 .. contents::
+   :local:
 
 Functions
 ---------
