@@ -142,17 +142,20 @@
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt></a> if <em>byte_string</em> is not a valid PDS tring.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt></a> if <em>byte_string</em> is not a valid sPDS tring.</td>
 </tr>
 </tbody>
 </table>
 <dl class="docutils">
 <dt>Examples:</dt>
-<dd>To parse a PDS label attached to a file:
-&gt;&gt;&gt; file_object = open(&#8220;data/test.img&#8221;, &#8220;r+b&#8221;)
-&gt;&gt;&gt; file_content = file_object.read()
-&gt;&gt;&gt; pds.parse(file_content)
-&lt;pds.Label object at 0x...&gt;</dd>
+<dd><p class="first">To parse a PDS label attached to a file:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_content</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+<span class="go">&lt;pds.Label object at 0x...&gt;</span>
+</pre></div>
+</div>
+</dd>
 </dl>
 </dd></dl>
 
