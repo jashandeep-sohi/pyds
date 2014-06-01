@@ -1,10 +1,9 @@
 #!/bin/sh
 
+make html &&
 git add -A . &&
 git commit -m "Updated documentation" &&
-git push origin master
-
-make html &&
+git push origin master &&
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
