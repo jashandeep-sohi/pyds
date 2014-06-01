@@ -7,4 +7,3 @@ Values
 
 .. autoclass:: pds.Sequence2D
 
-.. include:: scalars.txt
