@@ -1,10 +1,17 @@
 :mod:`pds` Reference
 ====================
+Functions
+---------
 .. autosummary::
    :toctree: stubs
    
    pds.parse 
-   
+
+Classes
+-------
+.. autosummary::
+   :toctree: stubs
+      
    pds.Label
    pds.GroupStatements
    pds.ObjectStatements
