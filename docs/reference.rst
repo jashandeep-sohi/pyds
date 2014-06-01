@@ -1,6 +1,11 @@
 Reference
 =========
 .. currentmodule:: pds
+.. toctree::
+   :hidden:
+   
+   
+
 .. rubric:: Functions
 .. autosummary::
    :toctree: stubs
