@@ -1,9 +1,9 @@
 Reference
 ====================
 
-.. toctree::
+.. contents::
    
-   Test <:func:`pds.parse`>
+   pds.parse
    
 .. autofunction:: pds.parse
 
