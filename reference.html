@@ -123,12 +123,14 @@
 </tr>
 </tbody>
 </table>
-<p>For example:
-&gt;&gt;&gt; file_obj = open(&#8220;data/test.img&#8221;, &#8220;r+b&#8221;)
-&gt;&gt;&gt; file_bytes = file_obj.read()
-&gt;&gt;&gt; label = pds.parse(file_bytes)
-&gt;&gt;&gt; isinstance(label, pds.Label)
-True</p>
+<p>For example:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_bytes</span> <span class="o">=</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_bytes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">isinstance</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Label</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="class">
