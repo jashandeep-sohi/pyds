@@ -1,18 +1,6 @@
 Reference
 ====================
 
-.. autosummary::
-   :toctree:
-   
-   pds.parse
-   pds.Label
-   pds.GroupStatements
-   pds.ObjectStatements
-   pds.Attribute
-   pds.Group
-   pds.Object
-   pds.Units
-
 .. autofunction:: pds.parse
 
 .. autoclass:: pds.Label
@@ -29,7 +17,5 @@ Reference
 
 .. autoclass:: pds.Units
 
-.. toctree::
-   
-   values
+.. include:: values.rst
    

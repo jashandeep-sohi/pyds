@@ -29,6 +29,7 @@
 
   
     <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
+        <link rel="next" title="Scalars" href="scalars.html"/>
         <link rel="prev" title="Installation" href="installation.html"/> 
 
   
@@ -66,8 +67,9 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="values.html">Values</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#values">Values</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="scalars.html">Scalars</a></li>
 </ul>
 </li>
 </ul>
@@ -106,38 +108,6 @@
             
   <div class="section" id="reference">
 <h1>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h1>
-<table border="1" class="longtable docutils">
-<colgroup>
-<col width="10%" />
-<col width="90%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#pds.parse" title="pds.parse"><tt class="xref py py-obj docutils literal"><span class="pre">pds.parse</span></tt></a>(byte_string)</td>
-<td>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#pds.Label" title="pds.Label"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Label</span></tt></a>(*statements)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.GroupStatements</span></tt></a>(*statements)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.ObjectStatements</span></tt></a>(*statements)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#pds.Attribute" title="pds.Attribute"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Attribute</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#pds.Group" title="pds.Group"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Group</span></tt></a>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="#pds.Object" title="pds.Object"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Object</span></tt></a>(identifier,&nbsp;object_statements[,&nbsp;...])</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="#pds.Units" title="pds.Units"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Units</span></tt></a>(expression[,&nbsp;validate])</td>
-<td></td>
-</tr>
-</tbody>
-</table>
 <dl class="function">
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
@@ -191,12 +161,27 @@
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Units</tt><big>(</big><em>expression</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Units" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+</div>
+<div class="section" id="values">
+<h1>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pds.Set">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Set</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Set" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Sequence1D">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence1D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="pds.Sequence2D">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence2D" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="values.html">Values</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="scalars.html">Scalars</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="scalars.html">Scalars</a></li>
 </ul>
 </div>
 </div>
@@ -206,6 +191,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scalars.html" class="btn btn-neutral float-right" title="Scalars">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
