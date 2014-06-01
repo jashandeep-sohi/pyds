@@ -3,7 +3,8 @@
 sphinx-build -W -b html . _build/html &&
 git add -A . &&
 git commit -m "Updated documentation" &&
-git push origin master &&
+git push origin master
+
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
