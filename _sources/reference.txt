@@ -1,8 +1,10 @@
 Reference
 ====================
 
-:func:`\ <pds.parse>`
-=====================
+.. autosummary::
+   
+   pds.parse
+
 .. autofunction:: pds.parse
 
 .. autoclass:: pds.Label
