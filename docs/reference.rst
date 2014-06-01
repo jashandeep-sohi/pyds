@@ -3,6 +3,7 @@ Reference
 
 ---------------------------
 .. autofunction:: pds.parse
+---------------------------
 
 .. autoclass:: pds.Label
 
