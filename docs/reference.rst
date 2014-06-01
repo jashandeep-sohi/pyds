@@ -9,24 +9,35 @@ Reference
      pds.parse
    
 .. rubric:: Classes
-
-.. rubric:: Statements
 .. autosummary::
    :toctree: stubs
-   
-   pds.Statements
+ 
    pds.Label
    pds.GroupStatements
    pds.ObjectStatements
-
-.. rubric:: Statement
-.. autosummary::
-   :toctree: stubs
    
-   pds.Statement
    pds.Attribute
    pds.Group
    pds.Object
+   
+   pds.Units
+   
+   pds.Integer
+   pds.BasedInteger
+   pds.Real
+   
+   pds.Text
+   pds.Symbol
+   pds.Identifier
+   
+   pds.Date
+   pds.Time
+   pds.DateTime
+   
+   pds.Set
+   pds.Sequence1D
+   pds.Sequence2D
+   
    
 .. rubric:: Exceptions  
 .. autosummary::

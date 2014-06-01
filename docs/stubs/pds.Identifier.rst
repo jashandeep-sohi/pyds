@@ -1,9 +1,9 @@
-pds.Statements
+pds.Identifier
 ==============
 
 .. currentmodule:: pds
 
-.. autoclass:: Statements
+.. autoclass:: Identifier
 
    
    .. automethod:: __init__
@@ -13,11 +13,7 @@ pds.Statements
 
    .. autosummary::
    
-      ~Statements.__init__
-      ~Statements.append
-      ~Statements.get
-      ~Statements.insert
-      ~Statements.pop
+      ~Identifier.__init__
    
    
 
@@ -27,6 +23,6 @@ pds.Statements
 
    .. autosummary::
    
-      ~Statements.max_identifier_width
+      ~Identifier.VALID_RE
    
    
