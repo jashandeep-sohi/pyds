@@ -5,6 +5,8 @@ labels.
 
 .. _PDS: http://pds.jpl.nasa.gov/
 
+.. currentmodule:: pds
+
 .. toctree::
    
    introduction
