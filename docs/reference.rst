@@ -3,7 +3,7 @@ Reference
 .. currentmodule:: pds
 .. toctree::
    :hidden:
-   
+   :maxdepth: 0
    
 
 .. rubric:: Functions
