@@ -2,7 +2,7 @@ Reference
 ====================
 .. contents::
    :local:
-   :backlinks: entry
+   :backlinks: "entry"
    
 Functions
 ---------
