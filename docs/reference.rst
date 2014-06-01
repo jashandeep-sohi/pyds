@@ -12,7 +12,18 @@ Reference
 .. autosummary::
    :toctree: stubs
    
+   pds.Statements
    pds.Label
+   pds.GroupStatements
+   pds.ObjectStatements
+   
+.. autosummary::
+   :toctree: stubs
+   
+   pds.Statement
+   pds.Attribute
+   pds.Group
+   pds.Object
    
 .. rubric:: Exceptions
 .. autosummary::
