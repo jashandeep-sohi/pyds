@@ -36,6 +36,8 @@ extensions = [
     'sphinx.ext.autosummary',
 ]
 
+autosummar_generate = True
+
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.4', None)
 }

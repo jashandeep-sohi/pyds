@@ -1,46 +1,4 @@
-Reference
-====================
+.. autosummary::
+   :toctree: stubs
    
-Functions
----------
-.. autofunction:: pds.parse
-
-Classes
--------
-.. autoclass:: pds.Label
-
-.. autoclass:: pds.Attribute
-
-.. autoclass:: pds.Group
-
-.. autoclass:: pds.Object
-
-.. autoclass:: pds.GroupStatements
-
-.. autoclass:: pds.ObjectStatements
-
-.. autoclass:: pds.Units
-
-.. autoclass:: pds.Set
-
-.. autoclass:: pds.Sequence1D
-
-.. autoclass:: pds.Sequence2D
-
-.. autoclass:: pds.Integer
-
-.. autoclass:: pds.BasedInteger
-
-.. autoclass:: pds.Real
-
-.. autoclass:: pds.Text
-
-.. autoclass:: pds.Symbol
-
-.. autoclass:: pds.Identifier
-
-.. autoclass:: pds.Time
-
-.. autoclass:: pds.Date
-
-.. autoclass:: pds.DateTime
+   pds
