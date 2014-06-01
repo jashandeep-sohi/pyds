@@ -1,6 +1,22 @@
 Reference
 =========
+.. rubric:: Functions
 .. autosummary::
    :toctree: stubs
    
-   pds
+   pds.parse
+
+.. rubric:: Classes
+.. autosummary::
+   :toctree: stubs
+   
+   pds.Label
+   pds.GroupStatements
+   pds.ObjectStatements
+   
+.. rubric::Exceptions
+.. autosummary::
+   :toctree: stubs
+   
+   pds.ParsingError
+   
