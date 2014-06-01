@@ -6,12 +6,14 @@ pds Reference
    .. rubric:: Functions
 
    .. autosummary::
-   
-      pds.parse
+      :toctree: stubs
+      
+      parse
    
    .. rubric:: Classes
 
    .. autosummary::
+      :toctree: stubs
    
       Attribute
       BasedInteger
