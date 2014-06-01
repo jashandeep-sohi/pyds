@@ -1,5 +1,9 @@
-pds Reference
-=============
+Reference
+=========
+.. autosummary::
+   :toctree: stubs
+   
+   .. rubric:: Functions
+   pds.parse
+   
 
-.. automodule:: pds
-   :members:
