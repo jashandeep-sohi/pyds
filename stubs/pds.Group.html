@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.parse &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Group &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.Label" href="pds.Label.html"/>
-        <link rel="prev" title="pds.Sequence2D" href="pds.Sequence2D.html"/> 
+        <link rel="next" title="pds.Object" href="pds.Object.html"/>
+        <link rel="prev" title="pds.Attribute" href="pds.Attribute.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -69,12 +69,12 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.parse.html">pds.parse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Integer.html">pds.Integer</a></li>
@@ -116,10 +116,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.parse</li>
+    <li>pds.Group</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/stubs/pds.parse.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/stubs/pds.Group.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -127,21 +127,37 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-parse">
-<h1>pds.parse<a class="headerlink" href="#pds-parse" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="pds.parse">
-<tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse <em>byte_string</em> into a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
+  <div class="section" id="pds-group">
+<h1>pds.Group<a class="headerlink" href="#pds-group" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pds.Group">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Group</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pds.Group.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group.__init__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<p class="rubric">Methods</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>byte_string</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>) &#8211; A valid PDS label string.</td>
+<tr class="row-odd"><td><a class="reference internal" href="#pds.Group.__init__" title="pds.Group.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
+<td></td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt> if <em>byte_string</em> is not a valid PDS string.</td>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">VALID_IDENT_RE</span></tt></td>
+<td>Compiled regular expression objects</td>
 </tr>
 </tbody>
 </table>
@@ -155,10 +171,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.Label.html" class="btn btn-neutral float-right" title="pds.Label">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Object.html" class="btn btn-neutral float-right" title="pds.Object">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.Sequence2D.html" class="btn btn-neutral" title="pds.Sequence2D"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.Attribute.html" class="btn btn-neutral" title="pds.Attribute"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
