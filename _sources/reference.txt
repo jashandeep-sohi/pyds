@@ -1,12 +1,8 @@
 Reference
 ====================
 
-.. autosummary::
-   :toctree: stubs
-   
-   pds.parse
-
-
+:func:`~pds.parse`
+------------------
 .. autofunction:: pds.parse
 
 .. autoclass:: pds.Label
