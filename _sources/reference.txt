@@ -1,7 +1,5 @@
 Reference
 ====================
-.. contents::
-
 .. autofunction:: pds.parse
 
 .. autoclass:: pds.Label
@@ -21,3 +19,5 @@ Reference
 .. toctree::
    
    values
+   
+.. contents::
