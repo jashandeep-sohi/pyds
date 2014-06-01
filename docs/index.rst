@@ -6,7 +6,6 @@ labels.
 .. _PDS: http://pds.jpl.nasa.gov/
 
 .. toctree::
-   :includehidden:
    
    introduction
    installation
