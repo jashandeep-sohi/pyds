@@ -1,5 +1,8 @@
-# pds - A Python module to read & write Planetary Data System (PDS) labels.
-# v0.1.0 
+"""
+>>> import pds
+>>>
+"""
+# pds - A Python module to read & write Planetary Data System (PDS) labels. 
 # Copyright (C) 2014 Jashandeep Sohi
 #
 # This program is free software: you can redistribute it and/or modify
@@ -937,7 +940,7 @@ class _Token(dict):
 
 class ParsingError(Exception):
   """
-  
+  Raised by :func:`parse` whenever it cannot parse a string into :class:`Label`.
   """
   pass
   
@@ -947,6 +950,11 @@ class ParsingError(Exception):
 ################
 
 def _generate_tokens(byte_str):
+  """
+  Generate _Token objects using the ODL_LEX_TOK_RE sepc.
+  Generator/iterator supports stepping back using the send() method.
+  """
+  
   reserved_identifiers = {
     b"end": "end",
     b"group": "begin_group",
@@ -978,6 +986,11 @@ def _generate_tokens(byte_str):
       yield sent_token
 
 def _parse_units(tokens):
+  """
+  Parse and return the tokens into a Units object if possible.
+  Other wise return an empty string.
+  """
+  
   tok1 = next(tokens)
   if "open_bracket" in tok1:
     tok2 = next(tokens)
@@ -992,6 +1005,8 @@ def _parse_units(tokens):
   return units
 
 def _parse_value(tok1, tokens):
+  "Return a Value subclass depending on what the tokens are."
+  
   if "open_paren" in tok1:
     tok2 = next(tokens)
     if "open_paren" in tok2:
@@ -1074,6 +1089,8 @@ def _parse_value(tok1, tokens):
     raise ParsingError("unexpected {!r}".format(tok1))
 
 def _parse_stmt(tok1, tokens):
+  "Return a subclass of Statement depending what the tokens are."
+  
   if "identifier" in tok1:
     tok2 = next(tokens)
     if "colon" in tok2:
@@ -1175,6 +1192,10 @@ def _parse_stmt(tok1, tokens):
     raise ParsingError("unexpected {!r}".format(tok1))
 
 def _parse_label(tokens):
+  """
+  Build a Label object using the statment objects returned by repeatedly calling
+   _parse_stmt until tokens is an "end" _Token.
+  """
   label = Label()
   while True:
     try:
@@ -1190,6 +1211,51 @@ def _parse_label(tokens):
 
 def parse(byte_string):
   """
+  Parse *byte_string* into a :class:`Label` object.
+  
+  :param byte_string: A valid PDS label string.
+  :type byte_string: :obj:`bytes` or :class:`mmap.mmap`
+  
+  :returns: a :class:`Label` object.
+  
+  :raises: :class:`ParsingError` if *byte_string* is not a valid sPDS tring.
+  
+  Examples:  
+    To parse a PDS label attached to a file:
+    
+    .. doctest::
+        :options: +SKIP
+        
+        >>> import pds
+        >>> file_object = open("./data/test.img", "r+b")
+        >>> file_content = file_object.read()
+        >>> pds.parse(file_content)
+        <pds.Label object at 0x...>
+    
+    
+    Rather than reading the entire contents of the file into a variable and then
+    parsing it, you could use a :class:`mmap.mmap` object. This is especially
+    useful if the file is large:
+    
+    .. doctest::
+        :options: +SKIP
+        
+        >>> import mmap
+        >>> file_mmap = mmap.mmap(file_object.fileno(), 0)
+        >>> pds.parse(file_mmap)
+        <pds.Label object at 0x...>
+    
+    
+    The :obj:`bytes` representation of a :class:`Label` object is a valid PDS
+    string which when parsed leads to an identical :class:`Label`:
+    
+    .. doctest::
+        :options: +SKIP
+        
+        >>> label = pds.parse(file_mmap)
+        >>> bytes(label) == bytes(pds.parse(bytes(label)))
+        True
+
   """
   tokens = _generate_tokens(byte_string)
   return _parse_label(tokens)
