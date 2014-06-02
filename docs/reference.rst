@@ -1,16 +1,14 @@
 Reference
 =========
-.. currentmodule:: pds
-
 .. rubric:: Functions
 .. autosummary::
-     :toctree: stubs
+     :toctree: pds
      
-     ~pds.parse
+     pds.parse
    
 .. rubric:: Classes
 .. autosummary::
-   :toctree: stubs
+   :toctree: pds
  
    pds.Statements
    pds.Label
@@ -42,6 +40,6 @@ Reference
    
 .. rubric:: Exceptions  
 .. autosummary::
-   :toctree: stubs
+   :toctree: pds
    
    pds.ParsingError
