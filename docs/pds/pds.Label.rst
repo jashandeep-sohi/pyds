@@ -2,7 +2,6 @@ pds.Label
 =========
 .. currentmodule:: pds
 .. autoclass:: pds.Label
-   :member-order: groupwise
    :show-inheritance:
    :members: 
    :inherited-members:
