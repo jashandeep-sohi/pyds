@@ -114,7 +114,7 @@
 <dl class="function">
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</p>
+<dd><p>Parse <em>byte_string</em> into a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -126,7 +126,7 @@
 </dl>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object</p>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a></p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><dl class="first last docutils">
@@ -157,8 +157,8 @@ useful if the file is large:</p>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object is a valid PDS
-string which when parsed leads to an identical <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt>:</p>
+<p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is a valid PDS
+string which when parsed leads to an identical <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a>:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)))</span>
 <span class="go">True</span>
