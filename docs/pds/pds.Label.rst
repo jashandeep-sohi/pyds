@@ -3,11 +3,8 @@ pds.Label
 .. currentmodule:: pds
 .. autoclass:: pds.Label
    :show-inheritance:
-   :members:
+   :members: 
    :inherited-members:
-   
-   .. automethod:: __str__
-   .. automethod:: __bytes__
-   
+   :special-members: __str__
    
 .. vim: tabstop=1 expandtab
