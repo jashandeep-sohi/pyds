@@ -13,11 +13,11 @@ pds.ObjectStatements
 
    .. autosummary::
    
-      ObjectStatements.__init__
-      ObjectStatements.append
-      ObjectStatements.get
-      ObjectStatements.insert
-      ObjectStatements.pop
+      ~ObjectStatements.__init__
+      ~ObjectStatements.append
+      ~ObjectStatements.get
+      ~ObjectStatements.insert
+      ~ObjectStatements.pop
    
    
 

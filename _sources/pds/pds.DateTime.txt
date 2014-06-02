@@ -13,7 +13,7 @@ pds.DateTime
 
    .. autosummary::
    
-      DateTime.__init__
+      ~DateTime.__init__
    
    
 

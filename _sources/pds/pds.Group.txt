@@ -13,7 +13,7 @@ pds.Group
 
    .. autosummary::
    
-      Group.__init__
+      ~Group.__init__
    
    
 
