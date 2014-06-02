@@ -6,12 +6,13 @@ pds.Sequence1D
 .. autoclass:: Sequence1D
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Sequence1D.__init__
       ~Sequence1D.append

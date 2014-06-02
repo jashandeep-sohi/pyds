@@ -6,12 +6,13 @@ pds.Label
 .. autoclass:: Label
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Label.__init__
       ~Label.append

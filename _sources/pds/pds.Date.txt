@@ -6,12 +6,13 @@ pds.Date
 .. autoclass:: Date
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Date.__init__
    

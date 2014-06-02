@@ -6,12 +6,13 @@ pds.Object
 .. autoclass:: Object
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Object.__init__
    

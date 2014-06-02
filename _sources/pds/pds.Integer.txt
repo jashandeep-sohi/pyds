@@ -6,12 +6,13 @@ pds.Integer
 .. autoclass:: Integer
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Integer.__init__
    

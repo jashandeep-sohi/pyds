@@ -6,12 +6,13 @@ pds.Symbol
 .. autoclass:: Symbol
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Symbol.__init__
    

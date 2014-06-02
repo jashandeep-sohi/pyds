@@ -6,12 +6,13 @@ pds.Identifier
 .. autoclass:: Identifier
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Identifier.__init__
    

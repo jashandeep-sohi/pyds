@@ -6,12 +6,13 @@ pds.Attribute
 .. autoclass:: Attribute
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Attribute.__init__
    

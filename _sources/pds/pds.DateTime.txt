@@ -6,12 +6,13 @@ pds.DateTime
 .. autoclass:: DateTime
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~DateTime.__init__
    

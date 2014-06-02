@@ -6,12 +6,13 @@ pds.Text
 .. autoclass:: Text
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Text.__init__
    
