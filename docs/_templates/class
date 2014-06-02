@@ -4,15 +4,13 @@
 .. currentmodule:: {{ module }}
 
 .. autoclass:: {{ objname }}
-
+   :members:
+   
    {% block methods %}
-
    {% if methods %}
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    {% for item in methods %}
       ~{{ name }}.{{ item }}
    {%- endfor %}

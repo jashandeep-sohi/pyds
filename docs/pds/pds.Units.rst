@@ -4,15 +4,13 @@ pds.Units
 .. currentmodule:: pds
 
 .. autoclass:: Units
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Units.__init__
    
