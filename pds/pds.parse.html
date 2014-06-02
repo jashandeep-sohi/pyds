@@ -115,14 +115,6 @@
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</p>
-<dl class="docutils">
-<dt>term 1</dt>
-<dd>Definition 1.</dd>
-<dt>term 2</dt>
-<dd><p class="first">Definition 2, paragraph 1.</p>
-<p class="last">Definition 2, paragraph 2.</p>
-</dd>
-</dl>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -142,9 +134,9 @@
 </tr>
 </tbody>
 </table>
-<dl class="docutils">
-<dt>Examples:  </dt>
-<dd><p class="first">To parse a PDS label attached to a file:</p>
+<p>Examples:</p>
+<blockquote>
+<div><p>To parse a PDS label attached to a file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">file_content</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -163,13 +155,12 @@ useful if the file is large:</p>
 </div>
 <p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object is a valid PDS
 string which when parsed leads to an identical <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt>:</p>
-<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)))</span>
 <span class="go">True</span>
 </pre></div>
 </div>
-</dd>
-</dl>
+</div></blockquote>
 </dd></dl>
 
 </div>
