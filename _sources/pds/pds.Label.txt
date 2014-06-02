@@ -1,8 +1,8 @@
 pds.Label
 =========
 .. autoclass:: pds.Label
-   :members:
-   :special-members:
    :show-inheritance:
+   :members:
+   :inherited-members:
    
 .. vim: tabstop=1 expandtab
