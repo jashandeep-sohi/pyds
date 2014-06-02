@@ -1,6 +1,6 @@
 pds.parse
 =========
-
-.. currentmodule:: pds
-
-.. autofunction:: parse
+.. autofunction:: pds.parse
+   
+   
+.. vim: tabstop=1 expandtab

@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.Statements" href="pds.Statements.html"/>
-        <link rel="prev" title="pds.ParsingError" href="pds.ParsingError.html"/> 
+        <link rel="next" title="pds.Label" href="pds.Label.html"/>
+        <link rel="prev" title="pds.Label" href="pds.Label.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -70,27 +70,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">pds.parse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Statements.html">pds.Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Integer.html">pds.Integer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.BasedInteger.html">pds.BasedInteger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Real.html">pds.Real</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Text.html">pds.Text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Symbol.html">pds.Symbol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Identifier.html">pds.Identifier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Time.html">pds.Time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.DateTime.html">pds.DateTime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Set.html">pds.Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Sequence1D.html">pds.Sequence1D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Sequence2D.html">pds.Sequence2D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.ParsingError.html">pds.ParsingError</a></li>
 </ul>
 </li>
 </ul>
@@ -134,16 +114,16 @@
 <dl class="function">
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse <em>byte_string</em> into a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
+<dd><p>Parse <em>byte_string</em> into a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>byte_string</strong> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>) &#8211; A valid PDS label string.</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object.</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt></a> if <em>byte_string</em> is not a valid sPDS tring.</td>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><tt class="xref py py-class docutils literal"><span class="pre">ParsingError</span></tt> if <em>byte_string</em> is not a valid sPDS tring.</td>
 </tr>
 </tbody>
 </table>
@@ -166,8 +146,8 @@ useful if the file is large:</p>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is a valid PDS
-string which when parsed leads to an identical <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a>:</p>
+<p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object is a valid PDS
+string which when parsed leads to an identical <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt>:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)))</span>
 <span class="go">True</span>
@@ -185,10 +165,10 @@ string which when parsed leads to an identical <a class="reference internal" hre
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.Statements.html" class="btn btn-neutral float-right" title="pds.Statements">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Label.html" class="btn btn-neutral float-right" title="pds.Label">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.ParsingError.html" class="btn btn-neutral" title="pds.ParsingError"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.Label.html" class="btn btn-neutral" title="pds.Label"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

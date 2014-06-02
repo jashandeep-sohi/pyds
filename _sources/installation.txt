@@ -6,11 +6,11 @@ There are numerous of ways to install pds, the easiest of which is using `pip`_
 Dependencies
 ------------
 * Python 3000 (3.4+)
-* pip (optional)
+* :mod:`pip` (optional)
  
 pip
 --- 
-Installing the latest release with pip is as simple as:
+Installing the latest release with :mod:`pip` is as simple as:
  
 .. code-block:: sh
    
