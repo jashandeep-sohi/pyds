@@ -4,8 +4,7 @@ pds.Label
    :show-inheritance:
    :members:
    :inherited-members:
-   
-   .. automethod:: pds.Label.__str__
+   :special-members:
    
    
 .. vim: tabstop=1 expandtab
