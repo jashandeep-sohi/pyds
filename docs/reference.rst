@@ -10,7 +10,6 @@ Reference
    
 .. rubric:: Classes
 .. autosummary::
-   :nosignatures:
    :toctree: stubs
  
    pds.Statements
