@@ -4,15 +4,13 @@ pds.Set
 .. currentmodule:: pds
 
 .. autoclass:: Set
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Set.__init__
       ~Set.add

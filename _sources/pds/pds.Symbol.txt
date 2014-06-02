@@ -4,15 +4,13 @@ pds.Symbol
 .. currentmodule:: pds
 
 .. autoclass:: Symbol
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Symbol.__init__
    

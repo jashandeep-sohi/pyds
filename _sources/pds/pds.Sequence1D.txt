@@ -4,15 +4,13 @@ pds.Sequence1D
 .. currentmodule:: pds
 
 .. autoclass:: Sequence1D
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Sequence1D.__init__
       ~Sequence1D.append

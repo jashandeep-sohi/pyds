@@ -4,15 +4,13 @@ pds.Time
 .. currentmodule:: pds
 
 .. autoclass:: Time
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Time.__init__
    

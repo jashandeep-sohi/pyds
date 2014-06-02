@@ -4,15 +4,13 @@ pds.Statements
 .. currentmodule:: pds
 
 .. autoclass:: Statements
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Statements.__init__
       ~Statements.append

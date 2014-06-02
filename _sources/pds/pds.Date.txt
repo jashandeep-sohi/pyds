@@ -4,15 +4,13 @@ pds.Date
 .. currentmodule:: pds
 
 .. autoclass:: Date
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Date.__init__
    

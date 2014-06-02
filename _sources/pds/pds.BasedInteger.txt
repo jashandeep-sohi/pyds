@@ -4,15 +4,13 @@ pds.BasedInteger
 .. currentmodule:: pds
 
 .. autoclass:: BasedInteger
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~BasedInteger.__init__
    

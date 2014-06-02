@@ -4,15 +4,13 @@ pds.Group
 .. currentmodule:: pds
 
 .. autoclass:: Group
-
+   :members:
    
-
+   
    
    .. rubric:: Methods
 
    .. autosummary::
-      :toctree: pds
-      :template: base
    
       ~Group.__init__
    
