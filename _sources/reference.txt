@@ -6,7 +6,7 @@ Reference
 .. autosummary::
      :toctree: stubs
      
-     pds.parse
+     ~pds.parse
    
 .. rubric:: Classes
 .. autosummary::

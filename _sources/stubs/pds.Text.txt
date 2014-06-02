@@ -19,10 +19,4 @@ pds.Text
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Text.VALID_RE
-   
    

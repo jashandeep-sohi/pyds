@@ -19,10 +19,4 @@ pds.Attribute
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Attribute.VALID_IDENT_RE
-   
    
