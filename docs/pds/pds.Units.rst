@@ -13,7 +13,7 @@ pds.Units
 
    .. autosummary::
    
-      ~Units.__init__
+      Units.__init__
    
    
 

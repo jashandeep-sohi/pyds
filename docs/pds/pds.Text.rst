@@ -13,7 +13,7 @@ pds.Text
 
    .. autosummary::
    
-      ~Text.__init__
+      Text.__init__
    
    
 

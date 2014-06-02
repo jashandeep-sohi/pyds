@@ -13,7 +13,7 @@ pds.Real
 
    .. autosummary::
    
-      ~Real.__init__
+      Real.__init__
    
    
 

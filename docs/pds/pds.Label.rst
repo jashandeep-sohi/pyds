@@ -13,11 +13,11 @@ pds.Label
 
    .. autosummary::
    
-      ~Label.__init__
-      ~Label.append
-      ~Label.get
-      ~Label.insert
-      ~Label.pop
+      Label.__init__
+      Label.append
+      Label.get
+      Label.insert
+      Label.pop
    
    
 

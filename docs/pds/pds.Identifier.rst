@@ -13,7 +13,7 @@ pds.Identifier
 
    .. autosummary::
    
-      ~Identifier.__init__
+      Identifier.__init__
    
    
 

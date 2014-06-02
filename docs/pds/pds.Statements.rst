@@ -13,11 +13,11 @@ pds.Statements
 
    .. autosummary::
    
-      ~Statements.__init__
-      ~Statements.append
-      ~Statements.get
-      ~Statements.insert
-      ~Statements.pop
+      Statements.__init__
+      Statements.append
+      Statements.get
+      Statements.insert
+      Statements.pop
    
    
 

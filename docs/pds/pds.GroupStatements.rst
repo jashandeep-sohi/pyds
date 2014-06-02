@@ -13,11 +13,11 @@ pds.GroupStatements
 
    .. autosummary::
    
-      ~GroupStatements.__init__
-      ~GroupStatements.append
-      ~GroupStatements.get
-      ~GroupStatements.insert
-      ~GroupStatements.pop
+      GroupStatements.__init__
+      GroupStatements.append
+      GroupStatements.get
+      GroupStatements.insert
+      GroupStatements.pop
    
    
 
