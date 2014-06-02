@@ -13,7 +13,7 @@ pds.Time
 
    .. autosummary::
    
-      Time.__init__
+      ~Time.__init__
    
    
 

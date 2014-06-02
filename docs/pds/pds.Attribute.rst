@@ -13,7 +13,7 @@ pds.Attribute
 
    .. autosummary::
    
-      Attribute.__init__
+      ~Attribute.__init__
    
    
 

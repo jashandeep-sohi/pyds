@@ -13,13 +13,13 @@ pds.Set
 
    .. autosummary::
    
-      Set.__init__
-      Set.add
-      Set.clear
-      Set.discard
-      Set.isdisjoint
-      Set.pop
-      Set.remove
+      ~Set.__init__
+      ~Set.add
+      ~Set.clear
+      ~Set.discard
+      ~Set.isdisjoint
+      ~Set.pop
+      ~Set.remove
    
    
 

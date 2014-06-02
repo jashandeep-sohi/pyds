@@ -13,7 +13,7 @@ pds.Date
 
    .. autosummary::
    
-      Date.__init__
+      ~Date.__init__
    
    
 

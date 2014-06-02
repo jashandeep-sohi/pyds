@@ -13,7 +13,7 @@ pds.Object
 
    .. autosummary::
    
-      Object.__init__
+      ~Object.__init__
    
    
 
