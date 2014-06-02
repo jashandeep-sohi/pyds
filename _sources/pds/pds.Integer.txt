@@ -13,7 +13,7 @@ pds.Integer
 
    .. autosummary::
    
-      ~Integer.__init__
+      Integer.__init__
    
    
 

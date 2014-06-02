@@ -13,7 +13,7 @@ pds.BasedInteger
 
    .. autosummary::
    
-      ~BasedInteger.__init__
+      BasedInteger.__init__
    
    
 

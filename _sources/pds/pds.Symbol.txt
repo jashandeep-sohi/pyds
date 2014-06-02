@@ -13,7 +13,7 @@ pds.Symbol
 
    .. autosummary::
    
-      ~Symbol.__init__
+      Symbol.__init__
    
    
 
