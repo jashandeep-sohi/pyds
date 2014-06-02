@@ -23,10 +23,4 @@ pds.Statements
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Statements.max_identifier_width
-   
    
