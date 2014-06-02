@@ -6,12 +6,13 @@ pds.Set
 .. autoclass:: Set
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Set.__init__
       ~Set.add

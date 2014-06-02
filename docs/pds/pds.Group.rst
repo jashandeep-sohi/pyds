@@ -6,12 +6,13 @@ pds.Group
 .. autoclass:: Group
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Group.__init__
    

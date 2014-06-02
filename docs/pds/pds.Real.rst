@@ -6,12 +6,13 @@ pds.Real
 .. autoclass:: Real
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Real.__init__
    

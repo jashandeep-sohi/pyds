@@ -6,12 +6,13 @@ pds.Statements
 .. autoclass:: Statements
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Statements.__init__
       ~Statements.append

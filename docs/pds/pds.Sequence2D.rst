@@ -6,12 +6,13 @@ pds.Sequence2D
 .. autoclass:: Sequence2D
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Sequence2D.__init__
       ~Sequence2D.append

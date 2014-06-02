@@ -6,12 +6,13 @@ pds.Units
 .. autoclass:: Units
 
    
-   .. automethod:: __init__
 
    
    .. rubric:: Methods
 
    .. autosummary::
+      :toctree: pds
+      :template: base
    
       ~Units.__init__
    
