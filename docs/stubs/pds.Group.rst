@@ -19,10 +19,4 @@ pds.Group
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Group.VALID_IDENT_RE
-   
    

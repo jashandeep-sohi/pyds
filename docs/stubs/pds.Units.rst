@@ -19,10 +19,4 @@ pds.Units
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Units.VALID_RE
-   
    

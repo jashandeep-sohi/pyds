@@ -19,10 +19,4 @@ pds.Symbol
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Symbol.VALID_RE
-   
    
