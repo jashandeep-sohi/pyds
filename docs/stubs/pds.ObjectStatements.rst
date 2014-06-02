@@ -23,10 +23,4 @@ pds.ObjectStatements
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~ObjectStatements.max_identifier_width
-   
    

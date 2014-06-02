@@ -23,10 +23,4 @@ pds.Label
 
    
    
-   .. rubric:: Attributes
-
-   .. autosummary::
-   
-      ~Label.max_identifier_width
-   
    
