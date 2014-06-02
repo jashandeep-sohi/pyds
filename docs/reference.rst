@@ -3,12 +3,14 @@ Reference
 .. rubric:: Functions
 .. autosummary::
      :toctree: pds
+     :template: base.rst.template
      
      pds.parse
    
 .. rubric:: Classes
 .. autosummary::
    :toctree: pds
+   :template: class.rst.
  
    pds.Statements
    pds.Label
@@ -41,5 +43,6 @@ Reference
 .. rubric:: Exceptions  
 .. autosummary::
    :toctree: pds
+   :template: base.rst.template
    
    pds.ParsingError
