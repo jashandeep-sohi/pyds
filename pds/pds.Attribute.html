@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.Set &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Attribute &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.Sequence1D" href="pds.Sequence1D.html"/>
-        <link rel="prev" title="pds.DateTime" href="pds.DateTime.html"/> 
+        <link rel="next" title="pds.Group" href="pds.Group.html"/>
+        <link rel="prev" title="pds.ObjectStatements" href="pds.ObjectStatements.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -74,7 +74,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
@@ -87,7 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Time.html">pds.Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.DateTime.html">pds.DateTime</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Set.html">pds.Set</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Sequence1D.html">pds.Sequence1D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Sequence2D.html">pds.Sequence2D</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ParsingError.html">pds.ParsingError</a></li>
@@ -118,10 +118,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.Set</li>
+    <li>pds.Attribute</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/stubs/pds.Set.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/pds/pds.Attribute.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -129,14 +129,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-set">
-<h1>pds.Set<a class="headerlink" href="#pds-set" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pds-attribute">
+<h1>pds.Attribute<a class="headerlink" href="#pds-attribute" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pds.Set">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Set</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Set" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Attribute">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Attribute</tt><big>(</big><em>identifier</em>, <em>value</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Attribute" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="pds.Set.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Set.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Attribute.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>identifier</em>, <em>value</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Attribute.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -146,26 +146,8 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#pds.Set.__init__" title="pds.Set.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(*values)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#pds.Attribute.__init__" title="pds.Attribute.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
 <td></td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">add</span></tt>(value)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">clear</span></tt>()</td>
-<td>This is slow (creates N new iterators!) but effective.</td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">discard</span></tt>(value)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">isdisjoint</span></tt>(other)</td>
-<td>Return True if two sets have a null intersection.</td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt>()</td>
-<td>Return the popped value.</td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">remove</span></tt>(value)</td>
-<td>Remove an element.</td>
 </tr>
 </tbody>
 </table>
@@ -179,10 +161,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.Sequence1D.html" class="btn btn-neutral float-right" title="pds.Sequence1D">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Group.html" class="btn btn-neutral float-right" title="pds.Group">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.DateTime.html" class="btn btn-neutral" title="pds.DateTime"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.ObjectStatements.html" class="btn btn-neutral" title="pds.ObjectStatements"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

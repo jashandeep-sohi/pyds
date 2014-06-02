@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.GroupStatements &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Units &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.ObjectStatements" href="pds.ObjectStatements.html"/>
-        <link rel="prev" title="pds.Label" href="pds.Label.html"/> 
+        <link rel="next" title="pds.Integer" href="pds.Integer.html"/>
+        <link rel="prev" title="pds.Object" href="pds.Object.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -72,12 +72,12 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.parse.html">pds.parse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Statements.html">pds.Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.GroupStatements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Integer.html">pds.Integer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.BasedInteger.html">pds.BasedInteger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Real.html">pds.Real</a></li>
@@ -118,10 +118,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.GroupStatements</li>
+    <li>pds.Units</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/stubs/pds.GroupStatements.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/pds/pds.Units.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -129,14 +129,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-groupstatements">
-<h1>pds.GroupStatements<a class="headerlink" href="#pds-groupstatements" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pds-units">
+<h1>pds.Units<a class="headerlink" href="#pds-units" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pds.GroupStatements">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">GroupStatements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.GroupStatements" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Units">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Units</tt><big>(</big><em>expression</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Units" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="pds.GroupStatements.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Units.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>expression</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Units.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -146,19 +146,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#pds.GroupStatements.__init__" title="pds.GroupStatements.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(*statements)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">append</span></tt>(statement)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">get</span></tt>(index)</td>
-<td></td>
-</tr>
-<tr class="row-even"><td><tt class="xref py py-obj docutils literal"><span class="pre">insert</span></tt>(index,&nbsp;statement)</td>
-<td></td>
-</tr>
-<tr class="row-odd"><td><tt class="xref py py-obj docutils literal"><span class="pre">pop</span></tt>(index)</td>
+<tr class="row-odd"><td><a class="reference internal" href="#pds.Units.__init__" title="pds.Units.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(expression[,&nbsp;validate])</td>
 <td></td>
 </tr>
 </tbody>
@@ -173,10 +161,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.ObjectStatements.html" class="btn btn-neutral float-right" title="pds.ObjectStatements">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Integer.html" class="btn btn-neutral float-right" title="pds.Integer">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.Label.html" class="btn btn-neutral" title="pds.Label"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.Object.html" class="btn btn-neutral" title="pds.Object"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

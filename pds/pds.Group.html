@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.Text &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Group &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.Symbol" href="pds.Symbol.html"/>
-        <link rel="prev" title="pds.Real" href="pds.Real.html"/> 
+        <link rel="next" title="pds.Object" href="pds.Object.html"/>
+        <link rel="prev" title="pds.Attribute" href="pds.Attribute.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -75,13 +75,13 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Integer.html">pds.Integer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.BasedInteger.html">pds.BasedInteger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Real.html">pds.Real</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Text.html">pds.Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Symbol.html">pds.Symbol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Identifier.html">pds.Identifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
@@ -118,10 +118,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.Text</li>
+    <li>pds.Group</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/stubs/pds.Text.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/pds/pds.Group.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -129,14 +129,14 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-text">
-<h1>pds.Text<a class="headerlink" href="#pds-text" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pds-group">
+<h1>pds.Group<a class="headerlink" href="#pds-group" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pds.Text">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Text</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Group">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Group</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="method">
-<dt id="pds.Text.__init__">
-<tt class="descname">__init__</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text.__init__" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Group.__init__">
+<tt class="descname">__init__</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group.__init__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <p class="rubric">Methods</p>
@@ -146,7 +146,7 @@
 <col width="90%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td><a class="reference internal" href="#pds.Text.__init__" title="pds.Text.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(value[,&nbsp;validate])</td>
+<tr class="row-odd"><td><a class="reference internal" href="#pds.Group.__init__" title="pds.Group.__init__"><tt class="xref py py-obj docutils literal"><span class="pre">__init__</span></tt></a>(identifier,&nbsp;group_statements[,&nbsp;...])</td>
 <td></td>
 </tr>
 </tbody>
@@ -161,10 +161,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.Symbol.html" class="btn btn-neutral float-right" title="pds.Symbol">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Object.html" class="btn btn-neutral float-right" title="pds.Object">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.Real.html" class="btn btn-neutral" title="pds.Real"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.Attribute.html" class="btn btn-neutral" title="pds.Attribute"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
