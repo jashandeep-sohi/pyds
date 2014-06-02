@@ -1,25 +1,9 @@
 pds.Label
 =========
-
-.. currentmodule:: pds
-
-.. autoclass:: Label
+.. autoclass:: pds.Label
    :members:
+   :special-members:
+   :inherited-members:
+   :show-inheritance:
    
-   
-   
-   .. rubric:: Methods
-
-   .. autosummary::
-   
-      ~Label.__init__
-      ~Label.append
-      ~Label.get
-      ~Label.insert
-      ~Label.pop
-   
-   
-
-   
-   
-   
+.. vim: tabstop=1 expandtab
