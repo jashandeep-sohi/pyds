@@ -138,6 +138,31 @@
 <dt id="pds.BasedInteger">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">BasedInteger</tt><big>(</big><em>radix</em>, <em>digits</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.BasedInteger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pds.Numeric</span></tt></p>
+<p>Represents a PDS based integer value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>radix</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</li>
+<li><cite>digits</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</li>
+<li><cite>units</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
+<p>If <cite>radix</cite> is not between 2 and 12.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p>If <cite>units</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>units</cite> is not an instance of 
+<a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="attribute">
 <dt id="pds.BasedInteger.__class__">
 <tt class="descname">__class__</tt><a class="headerlink" href="#pds.BasedInteger.__class__" title="Permalink to this definition">¶</a></dt>
