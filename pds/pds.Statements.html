@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds.Text &mdash; pds v0.2.0 documentation</title>
+  <title>pds.Statements &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -30,8 +30,8 @@
   
     <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
         <link rel="up" title="Reference" href="../reference.html"/>
-        <link rel="next" title="pds.Symbol" href="pds.Symbol.html"/>
-        <link rel="prev" title="pds.DateTime" href="pds.DateTime.html"/> 
+        <link rel="next" title="pds.Label" href="pds.Label.html"/>
+        <link rel="prev" title="pds.parse" href="pds.parse.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -70,7 +70,7 @@
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="pds.parse.html">pds.parse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds.Statements.html">pds.Statements</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
@@ -87,7 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Time.html">pds.Time</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.DateTime.html">pds.DateTime</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pds.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Text.html">pds.Text</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Symbol.html">pds.Symbol</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Identifier.html">pds.Identifier</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds.Set.html">pds.Set</a></li>
@@ -121,10 +121,10 @@
       
           <li><a href="../reference.html">Reference</a> &raquo;</li>
       
-    <li>pds.Text</li>
+    <li>pds.Statements</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="../_sources/pds/pds.Text.txt" rel="nofollow"> View page source</a>
+          <a href="../_sources/pds/pds.Statements.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -132,140 +132,72 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds-text">
-<h1>pds.Text<a class="headerlink" href="#pds-text" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="pds-statements">
+<h1>pds.Statements<a class="headerlink" href="#pds-statements" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
-<dt id="pds.Text">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Text</tt><big>(</big><em>value</em>, <em>validate=True</em><big>)</big><a class="headerlink" href="#pds.Text" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">pds.Scalar</span></tt></a></p>
-<dl class="attribute">
-<dt id="pds.Text.__class__">
-<tt class="descname">__class__</tt><a class="headerlink" href="#pds.Text.__class__" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></tt></p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__delattr__">
-<tt class="descname">__delattr__</tt><a class="headerlink" href="#pds.Text.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement delattr(self, name).</p>
-</dd></dl>
-
+<dt id="pds.Statements">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Statements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.Statements" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">builtins.object</span></tt></p>
+<p>Represents zero or more PDS statements.</p>
 <dl class="method">
-<dt id="pds.Text.__dir__">
-<tt class="descname">__dir__</tt><big>(</big><big>)</big> &rarr; list<a class="headerlink" href="#pds.Text.__dir__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default dir() implementation</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__eq__">
-<tt class="descname">__eq__</tt><a class="headerlink" href="#pds.Text.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self==value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__format__">
-<tt class="descname">__format__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__ge__">
-<tt class="descname">__ge__</tt><a class="headerlink" href="#pds.Text.__ge__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&gt;=value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__getattribute__">
-<tt class="descname">__getattribute__</tt><a class="headerlink" href="#pds.Text.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return getattr(self, name).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__gt__">
-<tt class="descname">__gt__</tt><a class="headerlink" href="#pds.Text.__gt__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&gt;value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__hash__">
-<tt class="descname">__hash__</tt><a class="headerlink" href="#pds.Text.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return hash(self).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__le__">
-<tt class="descname">__le__</tt><a class="headerlink" href="#pds.Text.__le__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&lt;=value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__lt__">
-<tt class="descname">__lt__</tt><a class="headerlink" href="#pds.Text.__lt__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&lt;value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__ne__">
-<tt class="descname">__ne__</tt><a class="headerlink" href="#pds.Text.__ne__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self!=value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__new__">
-<tt class="descname">__new__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__new__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create and return a new object.  See help(type) for accurate signature.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__reduce__">
-<tt class="descname">__reduce__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__reduce_ex__">
-<tt class="descname">__reduce_ex__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__repr__">
-<tt class="descname">__repr__</tt><a class="headerlink" href="#pds.Text.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return repr(self).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Text.__setattr__">
-<tt class="descname">__setattr__</tt><a class="headerlink" href="#pds.Text.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement setattr(self, name, value).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__sizeof__">
-<tt class="descname">__sizeof__</tt><big>(</big><big>)</big> &rarr; int<a class="headerlink" href="#pds.Text.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Text.__str__">
-<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__str__" title="Permalink to this definition">¶</a></dt>
+<dt id="pds.Statements.__bytes__">
+<tt class="descname">__bytes__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Statements.__bytes__" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
-<dt id="pds.Text.__subclasshook__">
-<tt class="descname">__subclasshook__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Text.__subclasshook__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Abstract classes can override this to customize issubclass().</p>
-<p>This is invoked early on by abc.ABCMeta.__subclasscheck__().
-It should return True, False or NotImplemented.  If it returns
-NotImplemented, the normal algorithm is used.  Otherwise, it
-overrides the normal algorithm (and the outcome is cached).</p>
-</dd></dl>
+<dt id="pds.Statements.__delitem__">
+<tt class="descname">__delitem__</tt><big>(</big><em>statement_identifier</em><big>)</big><a class="headerlink" href="#pds.Statements.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
-<dl class="attribute">
-<dt id="pds.Text.__weakref__">
-<tt class="descname">__weakref__</tt><a class="headerlink" href="#pds.Text.__weakref__" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of weak references to the object (if defined)</p>
-</dd></dl>
+<dl class="method">
+<dt id="pds.Statements.__getitem__">
+<tt class="descname">__getitem__</tt><big>(</big><em>statement_identifier</em><big>)</big><a class="headerlink" href="#pds.Statements.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.__iter__">
+<tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Statements.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.__len__">
+<tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Statements.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.__reversed__">
+<tt class="descname">__reversed__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Statements.__reversed__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.__setitem__">
+<tt class="descname">__setitem__</tt><big>(</big><em>statement_identifier</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Statements.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.__str__">
+<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Statements.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.append">
+<tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.Statements.append" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.get">
+<tt class="descname">get</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Statements.get" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.insert">
+<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.Statements.insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Statements.pop">
+<tt class="descname">pop</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Statements.pop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </dd></dl>
 
@@ -277,10 +209,10 @@ overrides the normal algorithm (and the outcome is cached).</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pds.Symbol.html" class="btn btn-neutral float-right" title="pds.Symbol">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="pds.Label.html" class="btn btn-neutral float-right" title="pds.Label">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="pds.DateTime.html" class="btn btn-neutral" title="pds.DateTime"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="pds.parse.html" class="btn btn-neutral" title="pds.parse"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
