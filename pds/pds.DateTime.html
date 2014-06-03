@@ -1,0 +1,335 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pds.DateTime &mdash; pds v0.2.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="pds v0.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../reference.html"/>
+        <link rel="next" title="pds.Text" href="pds.Text.html"/>
+        <link rel="prev" title="pds.Time" href="pds.Time.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> pds</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#pip-git">pip + Git</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pds.parse.html">pds.parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Label.html">pds.Label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Attribute.html">pds.Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Group.html">pds.Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.GroupStatements.html">pds.GroupStatements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Object.html">pds.Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.ObjectStatements.html">pds.ObjectStatements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Units.html">pds.Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Integer.html">pds.Integer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.BasedInteger.html">pds.BasedInteger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Real.html">pds.Real</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Date.html">pds.Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Time.html">pds.Time</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pds.DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Text.html">pds.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Symbol.html">pds.Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Identifier.html">pds.Identifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Set.html">pds.Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Sequence1D.html">pds.Sequence1D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.Sequence2D.html">pds.Sequence2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds.ParsingError.html">pds.ParsingError</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">pds</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+      
+    <li>pds.DateTime</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/pds/pds.DateTime.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="pds-datetime">
+<h1>pds.DateTime<a class="headerlink" href="#pds-datetime" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pds.DateTime">
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">DateTime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.DateTime" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <tt class="xref py py-class docutils literal"><span class="pre">pds.Scalar</span></tt></p>
+<dl class="attribute">
+<dt id="pds.DateTime.__class__">
+<tt class="descname">__class__</tt><a class="headerlink" href="#pds.DateTime.__class__" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></tt></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__delattr__">
+<tt class="descname">__delattr__</tt><a class="headerlink" href="#pds.DateTime.__delattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement delattr(self, name).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__dir__">
+<tt class="descname">__dir__</tt><big>(</big><big>)</big> &rarr; list<a class="headerlink" href="#pds.DateTime.__dir__" title="Permalink to this definition">¶</a></dt>
+<dd><p>default dir() implementation</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__eq__">
+<tt class="descname">__eq__</tt><a class="headerlink" href="#pds.DateTime.__eq__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self==value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__format__">
+<tt class="descname">__format__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__format__" title="Permalink to this definition">¶</a></dt>
+<dd><p>default object formatter</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__ge__">
+<tt class="descname">__ge__</tt><a class="headerlink" href="#pds.DateTime.__ge__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self&gt;=value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__getattribute__">
+<tt class="descname">__getattribute__</tt><a class="headerlink" href="#pds.DateTime.__getattribute__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return getattr(self, name).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__gt__">
+<tt class="descname">__gt__</tt><a class="headerlink" href="#pds.DateTime.__gt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self&gt;value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__hash__">
+<tt class="descname">__hash__</tt><a class="headerlink" href="#pds.DateTime.__hash__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return hash(self).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__le__">
+<tt class="descname">__le__</tt><a class="headerlink" href="#pds.DateTime.__le__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self&lt;=value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__lt__">
+<tt class="descname">__lt__</tt><a class="headerlink" href="#pds.DateTime.__lt__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self&lt;value.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__ne__">
+<tt class="descname">__ne__</tt><a class="headerlink" href="#pds.DateTime.__ne__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return self!=value.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__new__">
+<tt class="descname">__new__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__new__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create and return a new object.  See help(type) for accurate signature.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__reduce__">
+<tt class="descname">__reduce__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__reduce__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__reduce_ex__">
+<tt class="descname">__reduce_ex__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
+<dd><p>helper for pickle</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__repr__">
+<tt class="descname">__repr__</tt><a class="headerlink" href="#pds.DateTime.__repr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return repr(self).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__setattr__">
+<tt class="descname">__setattr__</tt><a class="headerlink" href="#pds.DateTime.__setattr__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Implement setattr(self, name, value).</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__sizeof__">
+<tt class="descname">__sizeof__</tt><big>(</big><big>)</big> &rarr; int<a class="headerlink" href="#pds.DateTime.__sizeof__" title="Permalink to this definition">¶</a></dt>
+<dd><p>size of object in memory, in bytes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__str__">
+<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.DateTime.__subclasshook__">
+<tt class="descname">__subclasshook__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__subclasshook__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Abstract classes can override this to customize issubclass().</p>
+<p>This is invoked early on by abc.ABCMeta.__subclasscheck__().
+It should return True, False or NotImplemented.  If it returns
+NotImplemented, the normal algorithm is used.  Otherwise, it
+overrides the normal algorithm (and the outcome is cached).</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.DateTime.__weakref__">
+<tt class="descname">__weakref__</tt><a class="headerlink" href="#pds.DateTime.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pds.Text.html" class="btn btn-neutral float-right" title="pds.Text">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pds.Time.html" class="btn btn-neutral" title="pds.Time"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jashandeep Sohi.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'v0.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

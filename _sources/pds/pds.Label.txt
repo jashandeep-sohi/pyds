@@ -1,6 +1,7 @@
 pds.Label
 =========
 .. currentmodule:: pds
+
 .. autoclass:: pds.Label
    :show-inheritance:
    :members: 
