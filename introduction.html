@@ -138,6 +138,9 @@ handling version 3 PDS labels as documented in the
 <a class="reference external" href="https://pds.jpl.nasa.gov/documents/sr/Chapter12.pdf">Object Description Language</a> (ODL). ODL is a relatively simple attribute
 assignment based language, with support for integers, real numbers, sequences,
 text and other various types.</p>
+<pre>
+<strong id="grammar-token-label">label</strong> ::=  [statement]*
+</pre>
 <p>This module simply parses PDS labels into Python objects which can then be used
 to further process and analyze the labels. The reverse is also possible: it can
 serialize those Python objects into a valid PDS label string.</p>
