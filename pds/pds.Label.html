@@ -204,7 +204,7 @@ attribute.</li>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Calling <tt class="docutils literal"><span class="pre">s.append(stmt)</span></tt> is equivalent to calling
-<tt class="docutils literal"><span class="pre">s.insert(stmt,</span> <span class="pre">len(s))</span></tt>. See <a class="reference internal" href="pds.Statements.html#pds.Statements.insert" title="pds.Statements.insert"><tt class="xref py py-meth docutils literal"><span class="pre">Statements.insert()</span></tt></a> for full
+<tt class="docutils literal"><span class="pre">s.insert(len(s),</span> <span class="pre">stmt)</span></tt>. See <a class="reference internal" href="pds.Statements.html#pds.Statements.insert" title="pds.Statements.insert"><tt class="xref py py-meth docutils literal"><span class="pre">Statements.insert()</span></tt></a> for full
 documentation.</p>
 </div>
 </dd></dl>
@@ -246,8 +246,8 @@ attribute <tt class="xref py py-attr docutils literal"><span class="pre">Stateme
 <li><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>) &#8211;
 The index at which to insert <cite>statement</cite>. <cite>index</cite> can be any integer
 (positive or negative). If it&#8217;s negative then it&#8217;s taken to mean
-the index from the end (i.e. <tt class="docutils literal"><span class="pre">s.insert(stmt,</span> <span class="pre">-10)</span></tt> is equivalent to
-<tt class="docutils literal"><span class="pre">s.insert(stmt,</span> <span class="pre">len(s)</span> <span class="pre">-</span> <span class="pre">10)</span></tt>).</li>
+the index from the end (i.e. <tt class="docutils literal"><span class="pre">s.insert(-10,</span> <span class="pre">stmt)</span></tt> is equivalent to
+<tt class="docutils literal"><span class="pre">s.insert(len(s)</span> <span class="pre">-</span> <span class="pre">10,</span> <span class="pre">stmt)</span></tt>).</li>
 </ul>
 </td>
 </tr>
