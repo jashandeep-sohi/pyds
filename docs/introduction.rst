@@ -10,8 +10,7 @@ text and other various types.
 
 .. rubric:: ODL Specification
 .. productionlist::
-   label: [statement]*
-          end
+   label: [statement]* "end"
    
 
 This module simply parses PDS labels into Python objects which can then be used
