@@ -1,7 +1,7 @@
 Installation
 ============
-There are numerous of ways to install pds, the easiest of which is using `pip`_
-(or `pip + git`_ for the development version).
+There are numerous of ways to install :mod:`pds`, the easiest of which is using
+`pip`_ (or `pip + git`_ for the development version).
 
 Dependencies
 ------------
@@ -18,9 +18,9 @@ Installing the latest release with :mod:`pip` is as simple as:
 
 Source
 ------
-To install the latest release from source, grab the latest release archive
+To install the latest release from source, first grab the latest release archive
 from https://github.com/jashandeep-sohi/pds/releases and then use the included
-distuitls setup script to install. For example:
+distuitls setup script to install:
 
 .. code-block:: sh
 
@@ -31,8 +31,8 @@ distuitls setup script to install. For example:
 
 Git
 ---
-You can get the latest development version by clonning the development repo and
-installing from there:
+You can get the latest development version by clonning the development
+repository and installing from there:
 
 .. code-block:: sh 
    
@@ -42,7 +42,7 @@ installing from there:
 
 pip + Git
 ---------
-You can also get the latest development version using pip:
+You can also get the latest development version using :mod:`pip`:
  
 .. code-block:: sh
  

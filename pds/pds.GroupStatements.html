@@ -147,7 +147,7 @@
 <dl class="method">
 <dt id="pds.GroupStatements.insert">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.insert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Insert statement <cite>statement</cite> at index <cite>index</cite>.</p>
+<dd><p>Insert the statement <cite>statement</cite> at index <cite>index</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -174,7 +174,7 @@
 <dl class="method">
 <dt id="pds.GroupStatements.append">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append statement <cite>statement</cite>.</p>
+<dd><p>Append the statement <cite>statement</cite>.</p>
 </dd></dl>
 
 <dl class="method">
@@ -218,20 +218,18 @@
 <dl class="method">
 <dt id="pds.GroupStatements.__setitem__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__setitem__</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Insert the statement</p>
+<dd><p>Create and insert a new statement whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is
+<cite>key</cite> and <tt class="xref py py-attr docutils literal"><span class="pre">Statement.value</span></tt> is <cite>value</cite>.</p>
+<p>If a statement already exits whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>,
+then insert the new statement where the old statement is and remove the old
+statement. Otherwise, simply append the new statement.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first">
-<li><p class="first"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-</li>
-<li><dl class="first docutils">
-<dt><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or </dt>
-<dd><p class="first last"><a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</p>
-</dd>
-</dl>
-</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</li>
+<li><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</li>
 </ul>
 </td>
 </tr>
@@ -248,12 +246,13 @@
 <dl class="method">
 <dt id="pds.GroupStatements.__getitem__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__getitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the value of the statement whose identifier is <cite>identifier</cite>.</p>
+<dd><p>Return <tt class="xref py py-attr docutils literal"><span class="pre">Statement.value</span></tt> of the statement whose 
+<tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
 </td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
@@ -273,12 +272,12 @@
 <dl class="method">
 <dt id="pds.GroupStatements.__delitem__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__delitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.__delitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove the statement whose identifier is <cite>identifier</cite>.</p>
+<dd><p>Remove the statement whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></td>
 </tr>
@@ -291,28 +290,78 @@
 <dl class="method">
 <dt id="pds.GroupStatements.__contains__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__contains__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.__contains__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test if a statement exists whose identifier is <cite>identifier</cite>.</p>
+<dd><p>Test if a statement exists whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bool" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bool</span></tt></a></td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.GroupStatements.__iter__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements. Called by 
+<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#iter" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.GroupStatements.__reversed__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__reversed__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__reversed__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements in reverse
+order. Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#reversed" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.GroupStatements.__len__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__len__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the number of statements. Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.GroupStatements.__str__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return the PDS string (utf-8) representation. Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 </div>
 
