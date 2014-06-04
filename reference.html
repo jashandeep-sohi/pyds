@@ -70,16 +70,17 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.parse.html">pds.parse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Statements.html">pds.Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds/pds.Statement.html">pds.Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds/pds.Value.html">pds.Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds/pds.Scalar.html">pds.Scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pds/pds.Numeric.html">pds.Numeric</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Label.html">pds.Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.GroupStatements.html">pds.GroupStatements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.ObjectStatements.html">pds.ObjectStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Statement.html">pds.Statement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Attribute.html">pds.Attribute</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Group.html">pds.Group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Object.html">pds.Object</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Units.html">pds.Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Value.html">pds.Value</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Scalar.html">pds.Scalar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Integer.html">pds.Integer</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.BasedInteger.html">pds.BasedInteger</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Real.html">pds.Real</a></li>
@@ -143,7 +144,7 @@
 </tr>
 </tbody>
 </table>
-<p class="rubric">Classes</p>
+<p class="rubric">Abstract Base Classes</p>
 <table border="1" class="longtable docutils">
 <colgroup>
 <col width="10%" />
@@ -153,17 +154,35 @@
 <tr class="row-odd"><td><a class="reference internal" href="pds/pds.Statements.html#pds.Statements" title="pds.Statements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Statements</span></tt></a>(*statements)</td>
 <td>Base class for representing a sequence of PDS statements.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Label</span></tt></a>(*statements)</td>
+<tr class="row-even"><td><a class="reference internal" href="pds/pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Statement</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
+<td>Base class for representing PDS statement types.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="pds/pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Value</span></tt></a>(*args,&nbsp;**kwargs)</td>
+<td>Base class for representing PDS value types.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="pds/pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Scalar</span></tt></a>(*args,&nbsp;**kwargs)</td>
+<td>Base class for representing PDS scalar value types.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="pds/pds.Numeric.html#pds.Numeric" title="pds.Numeric"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Numeric</span></tt></a>(value[,&nbsp;units])</td>
+<td>Base class for numeric value types.</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Label</span></tt></a>(*statements)</td>
 <td>Represents a PDS label.</td>
 </tr>
-<tr class="row-odd"><td><a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.GroupStatements</span></tt></a>(*statements)</td>
-<td>Represents a sequence of PDS statments in a PDS group statement.</td>
+<tr class="row-even"><td><a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.GroupStatements</span></tt></a>(*statements)</td>
+<td>Represents statments of a PDS group statement.</td>
 </tr>
-<tr class="row-even"><td><a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.ObjectStatements</span></tt></a>(*statements)</td>
-<td>Represents a sequence of PDS statements in a PDS object statement.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="pds/pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Statement</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
-<td>Base class for representing PDS statement types.</td>
+<tr class="row-odd"><td><a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-obj docutils literal"><span class="pre">pds.ObjectStatements</span></tt></a>(*statements)</td>
+<td>Represents statements of a PDS object statement.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Attribute</span></tt></a>(identifier,&nbsp;value[,&nbsp;...])</td>
 <td>Represents a PDS attribute assingment statement.</td>
@@ -176,12 +195,6 @@
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="pds/pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Units</span></tt></a>(expression[,&nbsp;validate])</td>
 <td>Represents a PDS units expression.</td>
-</tr>
-<tr class="row-even"><td><a class="reference internal" href="pds/pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Value</span></tt></a>(*args,&nbsp;**kwargs)</td>
-<td>Base class for representing PDS value types.</td>
-</tr>
-<tr class="row-odd"><td><a class="reference internal" href="pds/pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Scalar</span></tt></a>(*args,&nbsp;**kwargs)</td>
-<td>Base class for representing PDS scalar value types.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Integer</span></tt></a>(value[,&nbsp;units])</td>
 <td>Represents a PDS integer value.</td>
@@ -211,13 +224,13 @@
 <td>Represents a PDS identifier value.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="pds/pds.Set.html#pds.Set" title="pds.Set"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Set</span></tt></a>(*values)</td>
-<td></td>
+<td>Represents a PDS set value.</td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence1D</span></tt></a>(value,&nbsp;*values)</td>
-<td></td>
+<td>Represents a 1D PDS sequence value.</td>
 </tr>
 <tr class="row-odd"><td><a class="reference internal" href="pds/pds.Sequence2D.html#pds.Sequence2D" title="pds.Sequence2D"><tt class="xref py py-obj docutils literal"><span class="pre">pds.Sequence2D</span></tt></a>(value,&nbsp;*values)</td>
-<td></td>
+<td>Represents a 2D PDS sequence value.</td>
 </tr>
 </tbody>
 </table>
