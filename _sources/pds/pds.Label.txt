@@ -5,15 +5,19 @@ pds.Label
 .. autoclass:: pds.Label
    :show-inheritance:
 
+.. contents::
+   :local:
+   :backlinks: entry
+
 Methods
-=======
+-------
 .. automethod:: pds.Label.insert
 .. automethod:: pds.Label.append
 .. automethod:: pds.Label.get
 .. automethod:: pds.Label.pop
 
 Special Methods
-===============
+---------------
 .. automethod:: pds.Label.__setitem__
 .. automethod:: pds.Label.__getitem__
 .. automethod:: pds.Label.__delitem__
