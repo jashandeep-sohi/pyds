@@ -23,5 +23,6 @@ pds.GroupStatements
 .. automethod:: pds.GroupStatements.__reversed__
 .. automethod:: pds.GroupStatements.__len__
 .. automethod:: pds.GroupStatements.__str__
+.. automethod:: pds.GroupStatements.__bytes__
    
 .. vim: tabstop=1 expandtab
