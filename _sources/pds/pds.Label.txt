@@ -6,14 +6,7 @@ pds.Label
 
 ----
 
-.. contents:: Contents
-   :local:
-   :backlinks: top
-   
-----
-
-Methods
--------
+.. rubric:: Methods
 .. automethod:: pds.Label.insert
 .. automethod:: pds.Label.append
 .. automethod:: pds.Label.get
@@ -21,8 +14,7 @@ Methods
 
 ----
 
-Special Methods
----------------
+.. rubric:: Special Methods
 .. automethod:: pds.Label.__setitem__
 .. automethod:: pds.Label.__getitem__
 .. automethod:: pds.Label.__delitem__

@@ -140,52 +140,84 @@
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">ObjectStatements</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Statements.html#pds.Statements" title="pds.Statements"><tt class="xref py py-class docutils literal"><span class="pre">pds.Statements</span></tt></a></p>
 <p>Container for statements of a PDS object statement.</p>
-<dl class="method">
-<dt id="pds.ObjectStatements.__delitem__">
-<tt class="descname">__delitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__delitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove the statement whose identifier is <cite>identifier</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></td>
-</tr>
-</tbody>
-</table>
 </dd></dl>
 
+<hr class="docutils" />
+<p class="rubric">Methods</p>
 <dl class="method">
-<dt id="pds.ObjectStatements.__getitem__">
-<tt class="descname">__getitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the value of the statement whose identifier is <cite>identifier</cite>.</p>
+<dt id="pds.ObjectStatements.insert">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert statement <cite>statement</cite> at index <cite>index</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a></li>
-<li><a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a></li>
-<li><a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a></li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</li>
+<li><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</li>
 </ul>
 </td>
 </tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></li>
+<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></p>
+</td>
+</tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
+<dt id="pds.ObjectStatements.append">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.append" title="Permalink to this definition">¶</a></dt>
+<dd><p>Append statement <cite>statement</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.get">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">get</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the statement at index <cite>index</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.pop">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">pop</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.pop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove and return the statement at index <cite>index</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a></td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<hr class="docutils" />
+<p class="rubric">Special Methods</p>
+<dl class="method">
 <dt id="pds.ObjectStatements.__setitem__">
-<tt class="descname">__setitem__</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__setitem__" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__setitem__</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__setitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert the statement</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -214,75 +246,73 @@
 </dd></dl>
 
 <dl class="method">
-<dt id="pds.ObjectStatements.append">
-<tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append statement <cite>statement</cite>.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.ObjectStatements.get">
-<tt class="descname">get</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the statement at index <cite>index</cite>.</p>
+<dt id="pds.ObjectStatements.__getitem__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__getitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the value of the statement whose identifier is <cite>identifier</cite>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
+</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a></td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.ObjectStatements.insert">
-<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.insert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Insert statement <cite>statement</cite> at index <cite>index</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</li>
-<li><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</li>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a></li>
+<li><a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a></li>
+<li><a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a></li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
-<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></li>
-<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></li>
-</ul>
-</td>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.__delitem__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__delitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the statement whose identifier is <cite>identifier</cite>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></p>
-</td>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
 <dl class="method">
-<dt id="pds.ObjectStatements.pop">
-<tt class="descname">pop</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.pop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove and return the statement at index <cite>index</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a></td>
-</tr>
-</tbody>
-</table>
+<dt id="pds.ObjectStatements.__contains__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__contains__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test if a statement exists whose identifier is <cite>identifier</cite>.</p>
 </dd></dl>
 
-</dd></dl>
+<dl class="method">
+<dt id="pds.ObjectStatements.__iter__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.__reversed__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__reversed__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__reversed__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.__len__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.ObjectStatements.__str__">
+<tt class="descclassname">ObjectStatements.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__str__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 </div>
 
