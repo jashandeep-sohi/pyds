@@ -1,11 +1,14 @@
 pds.Integer
 ===========
 .. currentmodule:: pds
-
 .. autoclass:: pds.Integer
    :show-inheritance:
-   :members: 
-   :inherited-members:
-   :special-members:
+
+----
+
+.. rubric:: Special Methods
+.. automethod:: pds.Integer.__int__
+.. automethod:: pds.Integer.__float__
+.. automethod:: pds.Integer.__str__
 
 .. vim: tabstop=1 expandtab

@@ -1,11 +1,12 @@
 pds.Units
 =========
 .. currentmodule:: pds
-
 .. autoclass:: pds.Units
    :show-inheritance:
-   :members: 
-   :inherited-members:
-   :special-members:
+
+----
+
+.. rubric:: Special Methods
+.. automethod:: pds.Units.__str__
 
 .. vim: tabstop=1 expandtab

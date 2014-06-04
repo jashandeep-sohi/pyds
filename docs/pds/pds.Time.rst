@@ -1,11 +1,12 @@
 pds.Time
 ========
 .. currentmodule:: pds
-
 .. autoclass:: pds.Time
    :show-inheritance:
-   :members: 
-   :inherited-members:
-   :special-members:
+
+----
+
+.. rubric:: Special Methods
+.. automethod:: pds.Time.__str__
 
 .. vim: tabstop=1 expandtab

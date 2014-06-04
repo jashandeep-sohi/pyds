@@ -1,5 +1,5 @@
 pds.Object
-=============
+==========
 .. currentmodule:: pds
 .. autoclass:: pds.Object
    :show-inheritance:
