@@ -1,5 +1,7 @@
 pds.Label
 =========
+.. contents::
+
 .. currentmodule:: pds
 
 .. autoclass:: pds.Label
