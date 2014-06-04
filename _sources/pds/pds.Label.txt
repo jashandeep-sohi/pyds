@@ -1,13 +1,13 @@
 pds.Label
 =========
+.. contents::
+   :local:
+   :backlinks: entry
+   
 .. currentmodule:: pds
 
 .. autoclass:: pds.Label
    :show-inheritance:
-
-.. contents::
-   :local:
-   :backlinks: entry
 
 Methods
 -------
