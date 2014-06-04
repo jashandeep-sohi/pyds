@@ -1,6 +1,5 @@
 #!/bin/sh
 
-sphinx-build -W -b doctest . _build/doctest &&
 sphinx-build -W -b html . _build/html &&
 git stash &&
 git checkout gh-pages &&
