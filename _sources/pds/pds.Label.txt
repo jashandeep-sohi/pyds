@@ -6,6 +6,6 @@ pds.Label
    :show-inheritance:
    
 .. rubric:: Methods
-.. automethod::pds.Label.append
+.. automethod:: pds.Label.append
    
 .. vim: tabstop=1 expandtab
