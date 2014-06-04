@@ -23,5 +23,6 @@ pds.ObjectStatements
 .. automethod:: pds.ObjectStatements.__reversed__
 .. automethod:: pds.ObjectStatements.__len__
 .. automethod:: pds.ObjectStatements.__str__
+.. automethod:: pds.ObjectStatements.__bytes__
    
 .. vim: tabstop=1 expandtab

@@ -23,5 +23,6 @@ pds.Label
 .. automethod:: pds.Label.__reversed__
 .. automethod:: pds.Label.__len__
 .. automethod:: pds.Label.__str__
+.. automethod:: pds.Label.__bytes__
    
 .. vim: tabstop=1 expandtab
