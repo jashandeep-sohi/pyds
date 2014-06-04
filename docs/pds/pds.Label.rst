@@ -1,21 +1,19 @@
 pds.Label
 =========
-.. contents::
-
 .. currentmodule:: pds
 
 .. autoclass:: pds.Label
    :show-inheritance:
 
 Methods
--------
+=======
 .. automethod:: pds.Label.insert
 .. automethod:: pds.Label.append
 .. automethod:: pds.Label.get
 .. automethod:: pds.Label.pop
 
 Special Methods
----------------
+===============
 .. automethod:: pds.Label.__setitem__
 .. automethod:: pds.Label.__getitem__
 .. automethod:: pds.Label.__delitem__
