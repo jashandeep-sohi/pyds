@@ -7,25 +7,30 @@ Reference
    :toctree: pds
    
    pds.parse
+
+.. rubric:: Abstract Base Classes
+.. autosummary::
+   :toctree: pds
+   
+   pds.Statements
+   pds.Statement
+   pds.Value
+   pds.Scalar
+   pds.Numeric
    
 .. rubric:: Classes
 .. autosummary::
    :toctree: pds
    
-   pds.Statements 
    pds.Label
    pds.GroupStatements
    pds.ObjectStatements
    
-   pds.Statement
    pds.Attribute
    pds.Group
    pds.Object
    
    pds.Units
-   
-   pds.Value
-   pds.Scalar
    
    pds.Integer
    pds.BasedInteger
