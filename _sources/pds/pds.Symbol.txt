@@ -1,11 +1,12 @@
 pds.Symbol
 ==========
 .. currentmodule:: pds
-
 .. autoclass:: pds.Symbol
    :show-inheritance:
-   :members: 
-   :inherited-members:
-   :special-members:
+
+----
+
+.. rubric:: Special Methods
+.. automethod:: pds.Symbol.__str__
 
 .. vim: tabstop=1 expandtab
