@@ -11,6 +11,7 @@ Reference
 .. rubric:: Abstract Base Classes
 .. autosummary::
    :toctree: pds
+   :nosignatures:
    
    pds.Statements
    pds.Statement
