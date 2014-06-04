@@ -5,7 +5,7 @@ pds.Label
 .. autoclass:: pds.Label
    :show-inheritance:
    
-.. rubric:: Methods
-.. automethod:: pds.Label.append
+   .. rubric:: Methods
+   .. automethod:: append
    
 .. vim: tabstop=1 expandtab
