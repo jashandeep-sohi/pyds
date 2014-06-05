@@ -140,6 +140,22 @@
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Label</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.Label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Statements.html#pds.Statements" title="pds.Statements"><tt class="xref py py-class docutils literal"><span class="pre">pds.Statements</span></tt></a></p>
 <p>Represents a PDS label.</p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><p class="first"><cite>*statements</cite> (args of <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</p>
+<p class="last">A list of statement arguments to intialize the <a class="reference internal" href="#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> instance with.</p>
+</dd>
+<dt>Raises</dt>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p>If any of the <cite>*statements</cite> is not an instance of <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
+<p>If any of the <cite>*statements</cite>&#8216; <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is not unique.</p>
+</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <hr class="docutils" />
