@@ -164,7 +164,7 @@ prepended to the begining.</p>
 <p>The statement to insert.</p>
 <p>It must be an instance of <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a> such that 
 <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> must not be the same as any
-other statements previously inserted.</p>
+other statement previously inserted.</p>
 </li>
 </ul>
 </dd>
@@ -188,18 +188,27 @@ other statements previously inserted.</p>
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.append" title="Permalink to this definition">¶</a></dt>
 <dd><p>Append the statement <cite>statement</cite>.</p>
 <dl class="docutils">
-<dt>Parameters:</dt>
-<dd><ul class="first last simple">
-<li><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</li>
+<dt>Parameters</dt>
+<dd><ul class="first last">
+<li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</p>
+<p>The statement to append.</p>
+<p>It must be an instance of <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a> such that 
+<tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> must not be the same as any
+other statement previously inserted.</p>
+</li>
 </ul>
 </dd>
-<dt>Raises:</dt>
-<dd><ul class="first last simple">
-<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></li>
-<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></li>
+<dt>Raises</dt>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p>If <cite>statement</cite> is not an instance of <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
+<p>If <cite>statement</cite>&#8216;s <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is not unique.</p>
+</li>
 </ul>
 </dd>
-<dt>Returns:</dt>
+<dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
 </dd></dl>
