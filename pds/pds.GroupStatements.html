@@ -290,8 +290,10 @@ statement is created.</p>
 </dd>
 <dt>Raises</dt>
 <dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p class="last">If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>
+<p>If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>
 or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>.</p>
+<p><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
+<p class="last">If <cite>key</cite> is not a valid identifier.</p>
 </dd>
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
@@ -305,16 +307,16 @@ or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectState
 <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
-<dd><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</dd>
-<dt>Raises</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></dd>
-<dt>Returns</dt>
-<dd><ul class="first last simple">
-<li><a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a></li>
-<li><a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a></li>
-<li><a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a></li>
-</ul>
+<dd><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+<p class="last">The identifier of the statement. Since all PDS identifiers are
+case-insensitive, <cite>key</cite> is also case-insensitive.</p>
 </dd>
+<dt>Raises</dt>
+<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
+<p class="last">If a statement with an identifier equal to <cite>key</cite> does not exist.</p>
+</dd>
+<dt>Returns</dt>
+<dd><tt class="xref py py-attr docutils literal"><span class="pre">Statement.value</span></tt></dd>
 </dl>
 </dd></dl>
 
@@ -324,9 +326,13 @@ or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectState
 <dd><p>Remove the statement whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
-<dd><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</dd>
+<dd><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+<p class="last">The identifier of the statement. <cite>key</cite> is case-insensitive.</p>
+</dd>
 <dt>Raises</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></dd>
+<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
+<p class="last">If a statement with an identifier equal to <cite>key</cite> does not exist.</p>
+</dd>
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
@@ -339,10 +345,16 @@ or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectState
 <dl class="docutils">
 <dt>Parameters</dt>
 <dd><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</dd>
-<dt>Raises</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></dd>
 <dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a></dd>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a></p>
+<p>If statement with an identifier equal to <cite>key</cite> exists.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a></p>
+<p>If statement with an identifier equal to <cite>key</cite> does not exist.</p>
+</li>
+</ul>
+</dd>
 </dl>
 </dd></dl>
 
