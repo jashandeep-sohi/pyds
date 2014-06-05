@@ -148,11 +148,9 @@
 <dt id="pds.GroupStatements.insert">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.GroupStatements.insert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Insert the statement <cite>statement</cite> at index <cite>index</cite>.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first">
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd><ul class="first last">
 <li><p class="first"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
 <p>The index at which to insert the statement.</p>
 <p><cite>index</cite> can be any integer (positive or negative). If negative, it&#8217;s
@@ -164,25 +162,24 @@ prepended to the begining.</p>
 </li>
 <li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</p>
 <p>The statement to insert.</p>
-<p>It must be an instance of a <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a> and must have a
-unique <tt class="xref py py-attr docutils literal"><span class="pre">identifier</span></tt> attribute that does not match the
+<p>It must be an instance of a <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a> whose
+<tt class="xref py py-attr docutils literal"><span class="pre">identifier</span></tt> must be</p>
+<p>It must be an instance of a <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a> which has 
+<tt class="xref py py-attr docutils literal"><span class="pre">identifier</span></tt> attribute that does not match the
 <tt class="xref py py-attr docutils literal"><span class="pre">identifier</span></tt> attribute of any other statements
 previously inserted.</p>
 </li>
 </ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first simple">
+</dd>
+<dt>Raises:</dt>
+<dd><ul class="first last simple">
 <li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></li>
 <li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></li>
 </ul>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first last"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></p>
-</td>
-</tr>
-</tbody>
-</table>
+</dd>
+<dt>Returns:</dt>
+<dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
+</dl>
 </dd></dl>
 
 <dl class="method">
