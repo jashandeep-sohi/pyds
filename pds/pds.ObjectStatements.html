@@ -260,21 +260,35 @@ taken to mean the index from the end. For example,
 <dl class="method">
 <dt id="pds.ObjectStatements.__setitem__">
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__setitem__</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create and insert a new statement whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is
-<cite>key</cite> and <tt class="xref py py-attr docutils literal"><span class="pre">Statement.value</span></tt> is <cite>value</cite>.</p>
-<p>If a statement already exits whose <tt class="xref py py-attr docutils literal"><span class="pre">Statement.identifier</span></tt> is <cite>key</cite>,
-then insert the new statement where the old statement is and remove the old
-statement. Otherwise, simply append the new statement.</p>
+<dd><p>Create and insert a new statement using <cite>key</cite> and <cite>value</cite>.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
-<dd><ul class="first last simple">
-<li><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</li>
-<li><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or 
-<a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</li>
+<dd><ul class="first last">
+<li><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+<p>The identifier of the new statement.</p>
+<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, then <cite>key</cite> must be a valid
+identifier such that a new <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> can be instantiated as,
+<tt class="docutils literal"><span class="pre">Attribute(key,</span> <span class="pre">value)</span></tt>.</p>
+<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>, then <cite>key</cite> must
+be a valid identifier such that a new <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> can be instantiated
+as, <tt class="docutils literal"><span class="pre">Group(key,</span> <span class="pre">value)</span></tt>.</p>
+<p>If <cite>value</cite> is an instance of <a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>, then <cite>key</cite> must
+be a valid identifier such that a new <tt class="xref py py-class docutils literal"><span class="pre">Object</span> <span class="pre">can</span> <span class="pre">be</span> <span class="pre">instantiated</span>
+<span class="pre">as,</span> <span class="pre">``Object(key,</span> <span class="pre">value)`</span></tt>.</p>
+</li>
+<li><p class="first"><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or 
+<a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</p>
+<p><cite>value</cite> determines the type of statement to create.</p>
+<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, then a <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>
+statement is created.</p>
+</li>
 </ul>
 </dd>
 <dt>Raises</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></dd>
+<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p class="last">If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>
+or <a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>.</p>
+</dd>
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
