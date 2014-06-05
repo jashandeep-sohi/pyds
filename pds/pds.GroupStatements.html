@@ -269,10 +269,11 @@ statement. Otherwise, simply append the new statement.</p>
 <dt>Parameters</dt>
 <dd><ul class="first last simple">
 <li><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</li>
-<li><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</li>
+<li><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or 
+<a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</li>
 </ul>
 </dd>
-<dt>Raises:</dt>
+<dt>Raises</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></dd>
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
@@ -330,8 +331,8 @@ statement. Otherwise, simply append the new statement.</p>
 <dl class="method">
 <dt id="pds.GroupStatements.__iter__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements. Called by 
-<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#iter" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a>.</p>
+<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements.</p>
+<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#iter" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a>.</p>
 <dl class="docutils">
 <dt>Returns</dt>
 <dd><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></dd>
@@ -342,7 +343,8 @@ statement. Otherwise, simply append the new statement.</p>
 <dt id="pds.GroupStatements.__reversed__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__reversed__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__reversed__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements in reverse
-order. Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#reversed" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a>.</p>
+order.</p>
+<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#reversed" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a>.</p>
 <dl class="docutils">
 <dt>Returns</dt>
 <dd><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></dd>
@@ -352,7 +354,8 @@ order. Called by <a class="reference external" href="https://docs.python.org/3.4
 <dl class="method">
 <dt id="pds.GroupStatements.__len__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__len__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of statements. Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
+<dd><p>Return the number of statements.</p>
+<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
 <dl class="docutils">
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></dd>
@@ -362,7 +365,8 @@ order. Called by <a class="reference external" href="https://docs.python.org/3.4
 <dl class="method">
 <dt id="pds.GroupStatements.__str__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (utf-8) representation. Called by <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></a>.</p>
+<dd><p>Return the PDS string (utf-8) representation.</p>
+<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></a>.</p>
 <dl class="docutils">
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></dd>
@@ -372,7 +376,8 @@ order. Called by <a class="reference external" href="https://docs.python.org/3.4
 <dl class="method">
 <dt id="pds.GroupStatements.__bytes__">
 <tt class="descclassname">GroupStatements.</tt><tt class="descname">__bytes__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.GroupStatements.__bytes__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (ascii) representation. Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a>.</p>
+<dd><p>Return the PDS string (ascii) representation.</p>
+<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a>.</p>
 <dl class="docutils">
 <dt>Returns</dt>
 <dd><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a></dd>
