@@ -137,9 +137,17 @@
 <h1>pds.Sequence1D<a class="headerlink" href="#pds-sequence1d" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="pds.Sequence1D">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence1D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence1D</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">pds.Value</span></tt></a>, <a class="reference external" href="https://docs.python.org/3.4/library/collections.abc.html#collections.abc.MutableSequence" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableSequence</span></tt></a></p>
 <p>Represents a 1D PDS sequence value.</p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><cite>*values</cite></dd>
+<dt>Raises</dt>
+<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p class="last">If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">Scalar</span></tt></a>.</p>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="pds.Sequence1D.__class__">
 <tt class="descname">__class__</tt><a class="headerlink" href="#pds.Sequence1D.__class__" title="Permalink to this definition">¶</a></dt>
