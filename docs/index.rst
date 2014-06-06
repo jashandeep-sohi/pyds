@@ -9,6 +9,7 @@ labels.
    
    introduction
    installation
+   userguide
    reference
 
 .. vim: tabstop=1 expandtab
