@@ -137,8 +137,9 @@
 <h1>pds.Sequence2D<a class="headerlink" href="#pds-sequence2d" title="Permalink to this headline">¶</a></h1>
 <dl class="class">
 <dt id="pds.Sequence2D">
-<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>value</em>, <em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence2D" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence2D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">pds.Sequence1D</span></tt></a></p>
+<p>Represents a 2D PDS sequence value.</p>
 <dl class="attribute">
 <dt id="pds.Sequence2D.__class__">
 <tt class="descname">__class__</tt><a class="headerlink" href="#pds.Sequence2D.__class__" title="Permalink to this definition">¶</a></dt>
@@ -150,6 +151,11 @@
 <tt class="descname">__delattr__</tt><a class="headerlink" href="#pds.Sequence2D.__delattr__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Implement delattr(self, name).</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence2D.__delitem__">
+<tt class="descname">__delitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence2D.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Sequence2D.__dir__">
@@ -181,6 +187,11 @@
 <dd><p>Return getattr(self, name).</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="pds.Sequence2D.__getitem__">
+<tt class="descname">__getitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence2D.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="pds.Sequence2D.__gt__">
 <tt class="descname">__gt__</tt><a class="headerlink" href="#pds.Sequence2D.__gt__" title="Permalink to this definition">¶</a></dt>
@@ -193,11 +204,21 @@
 <dd><p>Return hash(self).</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="pds.Sequence2D.__iter__">
+<tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence2D.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
 <dl class="attribute">
 <dt id="pds.Sequence2D.__le__">
 <tt class="descname">__le__</tt><a class="headerlink" href="#pds.Sequence2D.__le__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return self&lt;=value.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence2D.__len__">
+<tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence2D.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="pds.Sequence2D.__lt__">
@@ -242,9 +263,30 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="pds.Sequence2D.__setitem__">
+<tt class="descname">__setitem__</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence2D.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="pds.Sequence2D.__sizeof__">
 <tt class="descname">__sizeof__</tt><big>(</big><big>)</big> &rarr; int<a class="headerlink" href="#pds.Sequence2D.__sizeof__" title="Permalink to this definition">¶</a></dt>
 <dd><p>size of object in memory, in bytes</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence2D.__str__">
+<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence2D.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+<dl class="docutils">
+<dt>Raises</dt>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#RuntimeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></tt></a></p>
+<p>If the sequence does not contain at least 1 value.</p>
+</li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="attribute">
@@ -280,6 +322,11 @@
 <tt class="descname">index</tt><big>(</big><em>value</em><big>)</big> &rarr; integer -- return first index of value.<a class="headerlink" href="#pds.Sequence2D.index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Raises ValueError if the value is not present.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence2D.insert">
+<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence2D.insert" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Sequence2D.pop">

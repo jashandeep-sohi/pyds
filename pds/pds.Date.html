@@ -139,6 +139,58 @@
 <dt id="pds.Date">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Date</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em><big>)</big><a class="headerlink" href="#pds.Date" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">pds.Scalar</span></tt></a></p>
+<p>Represents a PDS date value.</p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><ul class="first last">
+<li><p class="first"><cite>year</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
+</li>
+<li><p class="first"><cite>month</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
+<p>If <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, then <cite>day</cite> is interperated as the day of the year instead
+of as the day of the month, and <a class="reference internal" href="#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> serialized in &#8216;day-of-year&#8217;
+format.</p>
+</li>
+<li><p class="first"><cite>day</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
+<p>The day of the month if <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>. Otherwise it&#8217;s the
+day of the year.</p>
+</li>
+</ul>
+</dd>
+<dt>Raises</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a><ul>
+<li>If <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> not between 1 and 12.</li>
+<li>If <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>day</cite> is not between 1 and the 
+number of days in the month <cite>month</cite>.</li>
+<li>If <cite>month</cite> is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>day</cite> is not between 1 and the number
+of days in the year <cite>year</cite> (365 or 366 depending on if it&#8217;s a leap 
+year).</li>
+</ul>
+</li>
+</ul>
+</dd>
+<dt>Attributes</dt>
+<dd><dl class="first attribute">
+<dt id="pds.Date.year">
+<tt class="descname">year</tt><a class="headerlink" href="#pds.Date.year" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>. Read-only.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.Date.month">
+<tt class="descname">month</tt><a class="headerlink" href="#pds.Date.month" title="Permalink to this definition">¶</a></dt>
+<dd><p><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>. Read-only.</p>
+</dd></dl>
+
+<dl class="last attribute">
+<dt id="pds.Date.day">
+<tt class="descname">day</tt><a class="headerlink" href="#pds.Date.day" title="Permalink to this definition">¶</a></dt>
+<dd><p>Day of year if <a class="reference internal" href="#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a> is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>. Otherwise, day of the month
+of month <a class="reference internal" href="#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">month</span></tt></a>. <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>. Read-only.</p>
+</dd></dl>
+
+</dd>
+</dl>
 </dd></dl>
 
 <hr class="docutils" />
@@ -146,7 +198,9 @@
 <dl class="method">
 <dt id="pds.Date.__str__">
 <tt class="descclassname">Date.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Date.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+</dd></dl>
 
 </div>
 

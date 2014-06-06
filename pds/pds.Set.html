@@ -139,11 +139,25 @@
 <dt id="pds.Set">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Set</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">pds.Value</span></tt></a>, <a class="reference external" href="https://docs.python.org/3.4/library/collections.abc.html#collections.abc.MutableSet" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableSet</span></tt></a></p>
+<p>Represents a PDS set value.</p>
+<dl class="docutils">
+<dt>Parameters</dt>
+<dd><cite>*values</cite></dd>
+<dt>Raises</dt>
+<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p class="last">If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-class docutils literal"><span class="pre">Symbol</span></tt></a> or <a class="reference internal" href="pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>.</p>
+</dd>
+</dl>
 <dl class="attribute">
 <dt id="pds.Set.__class__">
 <tt class="descname">__class__</tt><a class="headerlink" href="#pds.Set.__class__" title="Permalink to this definition">¶</a></dt>
 <dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></tt></p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Set.__contains__">
+<tt class="descname">__contains__</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#pds.Set.__contains__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="attribute">
 <dt id="pds.Set.__delattr__">
@@ -168,6 +182,16 @@
 <tt class="descname">__getattribute__</tt><a class="headerlink" href="#pds.Set.__getattribute__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return getattr(self, name).</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Set.__iter__">
+<tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Set.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="pds.Set.__len__">
+<tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Set.__len__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Set.__new__">
@@ -205,6 +229,13 @@
 <dd><p>size of object in memory, in bytes</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="pds.Set.__str__">
+<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Set.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="pds.Set.__weakref__">
 <tt class="descname">__weakref__</tt><a class="headerlink" href="#pds.Set.__weakref__" title="Permalink to this definition">¶</a></dt>
@@ -212,10 +243,20 @@
 </dd></dl>
 
 <dl class="method">
+<dt id="pds.Set.add">
+<tt class="descname">add</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#pds.Set.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
 <dt id="pds.Set.clear">
 <tt class="descname">clear</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Set.clear" title="Permalink to this definition">¶</a></dt>
 <dd><p>This is slow (creates N new iterators!) but effective.</p>
 </dd></dl>
+
+<dl class="method">
+<dt id="pds.Set.discard">
+<tt class="descname">discard</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#pds.Set.discard" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Set.isdisjoint">

@@ -139,6 +139,73 @@
 <dt id="pds.BasedInteger">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">BasedInteger</tt><big>(</big><em>radix</em>, <em>digits</em>, <em>units=''</em><big>)</big><a class="headerlink" href="#pds.BasedInteger" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Numeric.html#pds.Numeric" title="pds.Numeric"><tt class="xref py py-class docutils literal"><span class="pre">pds.Numeric</span></tt></a></p>
+<p>Represents a PDS based integer value.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first">
+<li><p class="first"><cite>radix</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
+<p>Base of the integer.</p>
+</li>
+<li><p class="first"><cite>digits</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
+<p>The digits of the integer in base <cite>radix</cite>.</p>
+</li>
+<li><p class="first"><cite>units</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>)</p>
+<p>The units associated with the integer.</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
+<p>If <cite>radix</cite> is not between 2 and 12.</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p>If <cite>units</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>units</cite> is not an instance of 
+<a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>.</p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="docutils">
+<dt>Attributes</dt>
+<dd><dl class="first attribute">
+<dt id="pds.BasedInteger.radix">
+<tt class="descname">radix</tt><a class="headerlink" href="#pds.BasedInteger.radix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Base of the integer.
+A <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> instance.
+Read-only.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.BasedInteger.digits">
+<tt class="descname">digits</tt><a class="headerlink" href="#pds.BasedInteger.digits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Digits of the integer.
+A <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> instance.
+Read-only.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="pds.BasedInteger.value">
+<tt class="descname">value</tt><a class="headerlink" href="#pds.BasedInteger.value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Value of the integer in base 10.
+A <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> instnace.
+Read-only.</p>
+</dd></dl>
+
+<dl class="last attribute">
+<dt id="pds.BasedInteger.units">
+<tt class="descname">units</tt><a class="headerlink" href="#pds.BasedInteger.units" title="Permalink to this definition">¶</a></dt>
+<dd><p>Units associated with the integer.
+A <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> instance.
+Read-only.</p>
+</dd></dl>
+
+</dd>
+</dl>
 </dd></dl>
 
 <hr class="docutils" />
@@ -146,17 +213,21 @@
 <dl class="method">
 <dt id="pds.BasedInteger.__int__">
 <tt class="descclassname">BasedInteger.</tt><tt class="descname">__int__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.BasedInteger.__int__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return <a class="reference internal" href="#pds.BasedInteger.value" title="pds.BasedInteger.value"><tt class="xref py py-attr docutils literal"><span class="pre">value</span></tt></a> as an <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.BasedInteger.__float__">
 <tt class="descclassname">BasedInteger.</tt><tt class="descname">__float__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.BasedInteger.__float__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return <a class="reference internal" href="#pds.BasedInteger.value" title="pds.BasedInteger.value"><tt class="xref py py-attr docutils literal"><span class="pre">value</span></tt></a> as a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#float" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.BasedInteger.__str__">
 <tt class="descclassname">BasedInteger.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.BasedInteger.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+</dd></dl>
 
 </div>
 
