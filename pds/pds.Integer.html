@@ -144,13 +144,22 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><p class="first"><cite>value</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)
-<cite>units</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>)</p>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first">
+<li><p class="first"><cite>value</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
+<p>Value of the integer.</p>
+</li>
+<li><p class="first"><cite>units</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>)</p>
+<p>The units associated with the integer.</p>
+</li>
+</ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p class="last">If <cite>units</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>units</cite> is not an instance of 
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
+<p>If <cite>units</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>units</cite> is not an instance of 
 <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a>.</p>
+</li>
+</ul>
 </td>
 </tr>
 </tbody>
@@ -160,12 +169,18 @@
 <dd><dl class="first attribute">
 <dt id="pds.Integer.value">
 <tt class="descname">value</tt><a class="headerlink" href="#pds.Integer.value" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Value of the integer.
+Instance of <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>.
+Read-only.</p>
+</dd></dl>
 
 <dl class="last attribute">
 <dt id="pds.Integer.units">
 <tt class="descname">units</tt><a class="headerlink" href="#pds.Integer.units" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Units associated with the integer.
+<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or a <a class="reference internal" href="pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a> instance.
+Read-only.</p>
+</dd></dl>
 
 </dd>
 </dl>
@@ -176,17 +191,21 @@
 <dl class="method">
 <dt id="pds.Integer.__int__">
 <tt class="descclassname">Integer.</tt><tt class="descname">__int__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Integer.__int__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return <a class="reference internal" href="#pds.Integer.value" title="pds.Integer.value"><tt class="xref py py-attr docutils literal"><span class="pre">value</span></tt></a> as an <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.Integer.__float__">
 <tt class="descclassname">Integer.</tt><tt class="descname">__float__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Integer.__float__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return <a class="reference internal" href="#pds.Integer.value" title="pds.Integer.value"><tt class="xref py py-attr docutils literal"><span class="pre">value</span></tt></a> as a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#float" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>.</p>
+</dd></dl>
 
 <dl class="method">
 <dt id="pds.Integer.__str__">
 <tt class="descclassname">Integer.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Integer.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+</dd></dl>
 
 </div>
 
