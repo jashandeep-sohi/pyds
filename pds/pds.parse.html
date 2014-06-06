@@ -143,14 +143,15 @@
 <dt>Parameters</dt>
 <dd><ul class="first last">
 <li><p class="first"><cite>byte_string</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>)</p>
-<p>A valid PDS label string.</p>
+<p>A string of bytes that contains a valid PDS label. Other data may follow
+the PDS label, but <cite>bytes</cite> must start with a valid PDS label.</p>
 </li>
 </ul>
 </dd>
 <dt>Raises</dt>
 <dd><ul class="first last">
 <li><p class="first"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a></p>
-<p>If <cite>byte_string</cite> is not a valid PDS string.</p>
+<p>If <cite>byte_string</cite> does not start with a valid PDS label.</p>
 </li>
 </ul>
 </dd>
