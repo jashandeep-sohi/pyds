@@ -161,9 +161,8 @@ the end. If it&#8217;s out of range and negative, then <cite>statement</cite> is
 prepended to the begining.</p>
 </li>
 <li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>)</p>
-<p>The statement to insert.</p>
-<p>It must be an instance of either <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> 
-or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
+<p>The statement to insert. It must be an instance of either
+<a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 <p>Also, <cite>statement</cite>&#8216;s identifier must not be the same as any other
 statement previously inserted.</p>
 </li>
@@ -377,14 +376,19 @@ order.</p>
 <dl class="method">
 <dt id="pds.Label.__str__">
 <tt class="descclassname">Label.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (utf-8 <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representation.</p>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
 <p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__bytes__">
 <tt class="descclassname">Label.</tt><tt class="descname">__bytes__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__bytes__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (ascii <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a>) representation.</p>
+<dd><p>Return the object&#8217;s PDS serialization <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> as an ascii <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> 
+string.</p>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<p class="last"><a class="reference internal" href="#pds.Label.__str__" title="pds.Label.__str__"><tt class="xref py py-meth docutils literal"><span class="pre">__str__()</span></tt></a></p>
+</div>
 <p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a>.</p>
 </dd></dl>
 

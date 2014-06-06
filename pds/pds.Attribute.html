@@ -171,11 +171,23 @@ statement.</p>
 <dd><dl class="first attribute">
 <dt id="pds.Attribute.identifier">
 <tt class="descname">identifier</tt><a class="headerlink" href="#pds.Attribute.identifier" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">Identifier of the attribute.</tt></dt>
+<dt>
+<tt class="descname">A :obj:`str` instance.</tt></dt>
+<dt>
+<tt class="descname">Read-only.</tt></dt>
 <dd></dd></dl>
 
 <dl class="last attribute">
 <dt id="pds.Attribute.value">
 <tt class="descname">value</tt><a class="headerlink" href="#pds.Attribute.value" title="Permalink to this definition">¶</a></dt>
+<dt>
+<tt class="descname">Value of the attribute.</tt></dt>
+<dt>
+<tt class="descname">An instance of one of the non-abstract subclasses of :class:`Value`.</tt></dt>
+<dt>
+<tt class="descname">Read-only.</tt></dt>
 <dd></dd></dl>
 
 </dd>
@@ -187,7 +199,9 @@ statement.</p>
 <dl class="method">
 <dt id="pds.Attribute.__str__">
 <tt class="descclassname">Attribute.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Attribute.__str__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+</dd></dl>
 
 </div>
 
