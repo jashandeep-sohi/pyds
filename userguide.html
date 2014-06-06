@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>pds &mdash; pds v0.2.0 documentation</title>
+  <title>User Guide &mdash; pds v0.2.0 documentation</title>
   
 
   
@@ -28,8 +28,9 @@
   
 
   
-    <link rel="top" title="pds v0.2.0 documentation" href="#"/>
-        <link rel="next" title="Introduction" href="introduction.html"/> 
+    <link rel="top" title="pds v0.2.0 documentation" href="index.html"/>
+        <link rel="next" title="Reference" href="reference.html"/>
+        <link rel="prev" title="Installation" href="installation.html"/> 
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
@@ -43,7 +44,7 @@
     
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-nav-search">
-        <a href="#" class="fa fa-home"> pds</a>
+        <a href="index.html" class="fa fa-home"> pds</a>
         <div role="search">
   <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -56,7 +57,7 @@
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         
         
-            <ul>
+            <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
@@ -66,7 +67,7 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="userguide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.parse.html">pds.parse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Statements.html">pds.Statements</a></li>
@@ -108,7 +109,7 @@
       
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="#">pds</a>
+        <a href="index.html">pds</a>
       </nav>
 
 
@@ -117,12 +118,12 @@
         <div class="rst-content">
           <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="#">Docs</a> &raquo;</li>
+    <li><a href="index.html">Docs</a> &raquo;</li>
       
-    <li>pds</li>
+    <li>User Guide</li>
       <li class="wy-breadcrumbs-aside">
         
-          <a href="_sources/index.txt" rel="nofollow"> View page source</a>
+          <a href="_sources/userguide.txt" rel="nofollow"> View page source</a>
         
       </li>
   </ul>
@@ -130,53 +131,8 @@
 </div>
           <div role="main">
             
-  <div class="section" id="pds">
-<h1>pds<a class="headerlink" href="#pds" title="Permalink to this headline">¶</a></h1>
-<p>A Python module to parse, manipulate and write <a class="reference external" href="http://pds.jpl.nasa.gov/">PDS</a> (Planetary Data System)
-labels.</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#dependencies">Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#pip">pip</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#source">Source</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#git">Git</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="userguide.html">User Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.parse.html">pds.parse</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Statements.html">pds.Statements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Statement.html">pds.Statement</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Value.html">pds.Value</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Scalar.html">pds.Scalar</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Numeric.html">pds.Numeric</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Label.html">pds.Label</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.GroupStatements.html">pds.GroupStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.ObjectStatements.html">pds.ObjectStatements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Attribute.html">pds.Attribute</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Group.html">pds.Group</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Object.html">pds.Object</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Units.html">pds.Units</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Integer.html">pds.Integer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.BasedInteger.html">pds.BasedInteger</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Real.html">pds.Real</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Date.html">pds.Date</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Time.html">pds.Time</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.DateTime.html">pds.DateTime</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Text.html">pds.Text</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Symbol.html">pds.Symbol</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Identifier.html">pds.Identifier</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Set.html">pds.Set</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Sequence1D.html">pds.Sequence1D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.Sequence2D.html">pds.Sequence2D</a></li>
-<li class="toctree-l2"><a class="reference internal" href="pds/pds.ParsingError.html">pds.ParsingError</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <div class="section" id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
@@ -185,8 +141,10 @@ labels.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="introduction.html" class="btn btn-neutral float-right" title="Introduction">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="reference.html" class="btn btn-neutral float-right" title="Reference">Next <span class="fa fa-arrow-circle-right"></span></a>
       
+      
+        <a href="installation.html" class="btn btn-neutral" title="Installation"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
