@@ -160,11 +160,11 @@ taken to mean the index from the end. For example,
 the end. If it&#8217;s out of range and negative, then <cite>statement</cite> is
 prepended to the begining.</p>
 </li>
-<li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">Statement</span></tt></a>)</p>
+<li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>)</p>
 <p>The statement to insert.</p>
 <p>It must be an instance of either <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> 
 or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
-<p>Also, <tt class="docutils literal"><span class="pre">statement.identifier</span></tt> must not be the same as any other
+<p>Also, <cite>statement</cite>&#8216;s identifier must not be the same as any other
 statement previously inserted.</p>
 </li>
 </ul>
@@ -176,12 +176,10 @@ statement previously inserted.</p>
 <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 </li>
 <li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
-<p>If <tt class="docutils literal"><span class="pre">statement.identifier</span></tt> is not unique.</p>
+<p>If <cite>statements</cite>&#8216;s identifier is not unique.</p>
 </li>
 </ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
 </dd></dl>
 
@@ -192,7 +190,8 @@ statement previously inserted.</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p class="last">Calling <tt class="docutils literal"><span class="pre">s.append(stmt)</span></tt> is the same as calling
-<tt class="docutils literal"><span class="pre">s.insert(len(s),</span> <span class="pre">stmt)</span></tt>. See <a class="reference internal" href="#pds.ObjectStatements.insert" title="pds.ObjectStatements.insert"><tt class="xref py py-meth docutils literal"><span class="pre">insert()</span></tt></a> for full documentation.</p>
+<tt class="docutils literal"><span class="pre">s.insert(len(s),</span> <span class="pre">stmt)</span></tt>.
+See <a class="reference internal" href="#pds.ObjectStatements.insert" title="pds.ObjectStatements.insert"><tt class="xref py py-meth docutils literal"><span class="pre">insert()</span></tt></a> for further documentation.</p>
 </div>
 </dd></dl>
 
@@ -218,8 +217,6 @@ same as <tt class="docutils literal"><span class="pre">s.get(len(s)-10)</span></
 </li>
 </ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a></dd>
 </dl>
 </dd></dl>
 
@@ -245,8 +242,6 @@ same as <tt class="docutils literal"><span class="pre">s.pop(len(s)-10)</span></
 </li>
 </ul>
 </dd>
-<dt>Returns:</dt>
-<dd><a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a></dd>
 </dl>
 </dd></dl>
 
@@ -271,9 +266,9 @@ as, <tt class="docutils literal"><span class="pre">Group(key,</span> <span class
 be a valid identifier such that a new <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> can be 
 instantiated as, <tt class="docutils literal"><span class="pre">Object(key,</span> <span class="pre">value)</span></tt>.</p>
 </li>
-<li><p class="first"><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a> or <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or 
+<li><p class="first"><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or
 <a class="reference internal" href="#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</p>
-<p><cite>value</cite> determines the type of statement to create.</p>
+<p><cite>value</cite> determines the type of the new statement.</p>
 <p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, then an <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>
 statement is created.</p>
 <p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>, then a
@@ -294,15 +289,13 @@ statement is created.</p>
 </li>
 </ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.ObjectStatements.__getitem__">
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__getitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the <tt class="docutils literal"><span class="pre">value</span></tt> attribute of the statement whose identifier is <cite>key</cite>.</p>
+<dd><p>Return the value of the statement whose identifier is <cite>key</cite>.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
 <dd><ul class="first last">
@@ -318,8 +311,6 @@ statement is created.</p>
 </li>
 </ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference internal" href="pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object.value" title="pds.Object.value"><tt class="xref py py-attr docutils literal"><span class="pre">Object.value</span></tt></a></dd>
 </dl>
 </dd></dl>
 
@@ -342,15 +333,14 @@ statement is created.</p>
 </li>
 </ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a></dd>
 </dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.ObjectStatements.__contains__">
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__contains__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__contains__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test if a statement exists whose identifier is <cite>key</cite>.</p>
+<dd><p>Test if a statement exists whose identifier is <cite>key</cite>.
+Return <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> if it exists, and <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a> otherwise.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
 <dd><ul class="first last">
@@ -358,11 +348,6 @@ statement is created.</p>
 <p>The identifier of the statement. <cite>key</cite> is case-insensitive.</p>
 </li>
 </ul>
-</dd>
-<dt>Returns</dt>
-<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> if a statement with an identifier equal to <cite>key</cite> exists.</p>
-<p class="last"><a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a> if a statement with an identifier equal to <cite>key</cite> does not 
-exist.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -372,10 +357,6 @@ exist.</p>
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__iter__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements.</p>
 <p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#iter" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a>.</p>
-<dl class="docutils">
-<dt>Returns</dt>
-<dd><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -384,10 +365,6 @@ exist.</p>
 <dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements in reverse
 order.</p>
 <p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#reversed" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a>.</p>
-<dl class="docutils">
-<dt>Returns</dt>
-<dd><tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt></dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
@@ -395,32 +372,20 @@ order.</p>
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__len__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return the number of statements.</p>
 <p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
-<dl class="docutils">
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a></dd>
-</dl>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.ObjectStatements.__str__">
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (utf-8) representation.</p>
-<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">str</span></tt></a>.</p>
-<dl class="docutils">
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a></dd>
-</dl>
+<dd><p>Return the PDS string (utf-8 <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representation.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.ObjectStatements.__bytes__">
 <tt class="descclassname">ObjectStatements.</tt><tt class="descname">__bytes__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.ObjectStatements.__bytes__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the PDS string (ascii) representation.</p>
+<dd><p>Return the PDS string (ascii <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a>) representation.</p>
 <p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a>.</p>
-<dl class="docutils">
-<dt>Returns</dt>
-<dd><a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a></dd>
-</dl>
 </dd></dl>
 
 </div>

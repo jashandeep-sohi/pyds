@@ -138,18 +138,22 @@
 <dl class="function">
 <dt id="pds.parse">
 <tt class="descclassname">pds.</tt><tt class="descname">parse</tt><big>(</big><em>byte_string</em><big>)</big><a class="headerlink" href="#pds.parse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Parse <cite>byte_string</cite> into a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
+<dd><p>Return a <a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> parsed from <cite>byte_string</cite>.</p>
 <dl class="docutils">
 <dt>Parameters</dt>
-<dd><p class="first"><cite>byte_string</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>)</p>
-<p class="last">A valid PDS label string.</p>
+<dd><ul class="first last">
+<li><p class="first"><cite>byte_string</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a>)</p>
+<p>A valid PDS label string.</p>
+</li>
+</ul>
 </dd>
 <dt>Raises</dt>
-<dd><p class="first"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a></p>
-<p class="last">If <cite>byte_string</cite> is not a valid PDS string.</p>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference internal" href="pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a></p>
+<p>If <cite>byte_string</cite> is not a valid PDS string.</p>
+</li>
+</ul>
 </dd>
-<dt>Returns</dt>
-<dd><a class="reference internal" href="pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a></dd>
 <dt>Examples</dt>
 <dd><p class="first">To parse a PDS label attached to a file:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
