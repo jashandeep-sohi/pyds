@@ -139,7 +139,6 @@
 <dt id="pds.Label">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Label</tt><big>(</big><em>*statements</em><big>)</big><a class="headerlink" href="#pds.Label" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Statements.html#pds.Statements" title="pds.Statements"><tt class="xref py py-class docutils literal"><span class="pre">pds.Statements</span></tt></a></p>
-<p>Represents a PDS label.</p>
 </dd></dl>
 
 <hr class="docutils" />
@@ -147,250 +146,69 @@
 <dl class="method">
 <dt id="pds.Label.insert">
 <tt class="descclassname">Label.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>statement</em><big>)</big><a class="headerlink" href="#pds.Label.insert" title="Permalink to this definition">¶</a></dt>
-<dd><p>Insert the statement <cite>statement</cite> at index <cite>index</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>The index at which to insert the statement.</p>
-<p><cite>index</cite> can be any integer (positive or negative). If negative, it&#8217;s 
-taken to mean the index from the end. For example, 
-<tt class="docutils literal"><span class="pre">s.insert(-10,</span> <span class="pre">stmt)</span></tt> is the same as <tt class="docutils literal"><span class="pre">s.insert(len(s)-10,</span> <span class="pre">stmt)</span></tt>.</p>
-<p>If <cite>index</cite> is out of range and positive, then <cite>statement</cite> is appended to
-the end. If it&#8217;s out of range and negative, then <cite>statement</cite> is
-prepended to the begining.</p>
-</li>
-<li><p class="first"><cite>statement</cite> (<a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>)</p>
-<p>The statement to insert. It must be an instance of either
-<a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
-<p>Also, <cite>statement</cite>&#8216;s identifier must not be the same as any other
-statement previously inserted.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p>If <cite>statement</cite> is not an instance of either <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>,
-<a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
-<p>If <cite>statements</cite>&#8216;s identifier is not unique.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.append">
 <tt class="descclassname">Label.</tt><tt class="descname">append</tt><big>(</big><em>statement</em><big>)</big><a class="headerlink" href="#pds.Label.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>Append the statement <cite>statement</cite>.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Calling <tt class="docutils literal"><span class="pre">s.append(stmt)</span></tt> is the same as calling
-<tt class="docutils literal"><span class="pre">s.insert(len(s),</span> <span class="pre">stmt)</span></tt>.
-See <a class="reference internal" href="#pds.Label.insert" title="pds.Label.insert"><tt class="xref py py-meth docutils literal"><span class="pre">insert()</span></tt></a> for further documentation.</p>
-</div>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.get">
 <tt class="descclassname">Label.</tt><tt class="descname">get</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Label.get" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the statement at index <cite>index</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>The index from where to return the statement.</p>
-<p><cite>index</cite> can be any integer (positive or negative). If negative, it&#8217;s
-taken to mean the index from the end. For example, <tt class="docutils literal"><span class="pre">s.get(-10)</span></tt> is the
-same as <tt class="docutils literal"><span class="pre">s.get(len(s)-10)</span></tt>.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></p>
-<p>If <cite>index</cite> is out of range.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.pop">
 <tt class="descclassname">Label.</tt><tt class="descname">pop</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Label.pop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove and return the statement at index <cite>index</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>index</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>The index from where to remove and return the statement.</p>
-<p><cite>index</cite> can be any integer (positive or negative). If negative, it&#8217;s 
-taken to mean the index from the end. For example, <tt class="docutils literal"><span class="pre">s.pop(-10)</span></tt> is the
-same as <tt class="docutils literal"><span class="pre">s.pop(len(s)-10)</span></tt>.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#IndexError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">IndexError</span></tt></a></p>
-<p>If <cite>index</cite> is out of range.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <hr class="docutils" />
 <p class="rubric">Special Methods</p>
 <dl class="method">
 <dt id="pds.Label.__setitem__">
 <tt class="descclassname">Label.</tt><tt class="descname">__setitem__</tt><big>(</big><em>key</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Label.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create and insert a new statement using <cite>key</cite> and <cite>value</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-<p>The identifier of the new statement.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, then <cite>key</cite> must be a valid
-identifier such that a new <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> can be instantiated as,
-<tt class="docutils literal"><span class="pre">Attribute(key,</span> <span class="pre">value)</span></tt>.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>, then <cite>key</cite> must
-be a valid identifier such that a new <a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> can be instantiated
-as, <tt class="docutils literal"><span class="pre">Group(key,</span> <span class="pre">value)</span></tt>.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>, then <cite>key</cite> must
-be a valid identifier such that a new <a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> can be 
-instantiated as, <tt class="docutils literal"><span class="pre">Object(key,</span> <span class="pre">value)</span></tt>.</p>
-</li>
-<li><p class="first"><cite>value</cite> (<a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or
-<a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>)</p>
-<p><cite>value</cite> determines the type of the new statement.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>, then an <a class="reference internal" href="pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>
-statement is created.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>, then a
-<a class="reference internal" href="pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> statement is created.</p>
-<p>If <cite>value</cite> is an instance of <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>, then an
-<a class="reference internal" href="pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> statement is created.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p>If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">Value</span></tt></a>,
-<a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> or <a class="reference internal" href="pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
-<p>If <cite>key</cite> is not a valid identifier.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__getitem__">
 <tt class="descclassname">Label.</tt><tt class="descname">__getitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.Label.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the value of the statement whose identifier is <cite>key</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-<p>The identifier of the statement. <cite>key</cite> is case-insensitive.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
-<p>If a statement with an identifier equal to <cite>key</cite> does not exist.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__delitem__">
 <tt class="descclassname">Label.</tt><tt class="descname">__delitem__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.Label.__delitem__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Remove the statement whose identifier is <cite>key</cite>.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-<p>The identifier of the statement. <cite>key</cite> is case-insensitive.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#KeyError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">KeyError</span></tt></a></p>
-<p>If a statement with an identifier equal to <cite>key</cite> does not exist.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__contains__">
 <tt class="descclassname">Label.</tt><tt class="descname">__contains__</tt><big>(</big><em>key</em><big>)</big><a class="headerlink" href="#pds.Label.__contains__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Test if a statement exists whose identifier is <cite>key</cite>.
-Return <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> if it exists, and <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a> otherwise.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>key</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-<p>The identifier of the statement. <cite>key</cite> is case-insensitive.</p>
-</li>
-</ul>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__iter__">
 <tt class="descclassname">Label.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements.</p>
-<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#iter" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">iter()</span></tt></a>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__reversed__">
 <tt class="descclassname">Label.</tt><tt class="descname">__reversed__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__reversed__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the statements in reverse
-order.</p>
-<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#reversed" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">reversed()</span></tt></a>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__len__">
 <tt class="descclassname">Label.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__len__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the number of statements.</p>
-<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#len" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">len()</span></tt></a>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__str__">
 <tt class="descclassname">Label.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
-<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 <dl class="method">
 <dt id="pds.Label.__bytes__">
 <tt class="descclassname">Label.</tt><tt class="descname">__bytes__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Label.__bytes__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return the object&#8217;s PDS serialization <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> as an ascii <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> 
-string.</p>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<p class="last"><a class="reference internal" href="#pds.Label.__str__" title="pds.Label.__str__"><tt class="xref py py-meth docutils literal"><span class="pre">__str__()</span></tt></a></p>
-</div>
-<p>Called by <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </div>
 

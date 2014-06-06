@@ -139,58 +139,6 @@
 <dt id="pds.Group">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Group</tt><big>(</big><em>identifier</em>, <em>group_statements</em>, <em>validate_identifier=True</em><big>)</big><a class="headerlink" href="#pds.Group" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Statement.html#pds.Statement" title="pds.Statement"><tt class="xref py py-class docutils literal"><span class="pre">pds.Statement</span></tt></a></p>
-<p>Represents a PDS group statement.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>)</p>
-<p>Identifier of the group.</p>
-</li>
-<li><p class="first"><cite>group_statements</cite> (<a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>)</p>
-<p>Nested statements of the group.</p>
-</li>
-<li><p class="first"><cite>validate_identifier</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a>)</p>
-<p>Whether <cite>identifier</cite> should be checked to see if it&#8217;s a valid identifer
-for a PDS group statement. Default is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a>.</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><ul class="first last">
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p>If <cite>group_statements</cite> is not a instance of <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>.</p>
-</li>
-<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
-<p>If <cite>validate_identifier</cite> is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> and 
-<cite>identifier</cite> is not a valid identifier for a group statement.</p>
-</li>
-</ul>
-</dd>
-<dt>Attributes</dt>
-<dd><dl class="first attribute">
-<dt id="pds.Group.identifier">
-<tt class="descname">identifier</tt><a class="headerlink" href="#pds.Group.identifier" title="Permalink to this definition">¶</a></dt>
-<dd><p>Identifier of the group statement.
-A <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> instance.
-Read-only.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Group.statements">
-<tt class="descname">statements</tt><a class="headerlink" href="#pds.Group.statements" title="Permalink to this definition">¶</a></dt>
-<dd><p>Nested statements of the group statement.
-A <a class="reference internal" href="pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> instance.
-Read-only.</p>
-</dd></dl>
-
-<dl class="last attribute">
-<dt id="pds.Group.value">
-<tt class="descname">value</tt><a class="headerlink" href="#pds.Group.value" title="Permalink to this definition">¶</a></dt>
-<dd><p>Same as <a class="reference internal" href="#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">statements</span></tt></a>.</p>
-</dd></dl>
-
-</dd>
-</dl>
 </dd></dl>
 
 <hr class="docutils" />
@@ -198,9 +146,7 @@ Read-only.</p>
 <dl class="method">
 <dt id="pds.Group.__str__">
 <tt class="descclassname">Group.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Group.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
-<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </div>
 

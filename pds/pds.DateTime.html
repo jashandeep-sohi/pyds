@@ -139,70 +139,6 @@
 <dt id="pds.DateTime">
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">DateTime</tt><big>(</big><em>year</em>, <em>month</em>, <em>day</em>, <em>hour</em>, <em>minute</em>, <em>second=None</em>, <em>utc=False</em>, <em>zone_hour=None</em>, <em>zone_minute=None</em><big>)</big><a class="headerlink" href="#pds.DateTime" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">pds.Scalar</span></tt></a></p>
-<p>Represents a PDS date-time value.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><ul class="first last">
-<li><p class="first"><cite>year</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-</li>
-<li><p class="first"><cite>month</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>If <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, then <cite>day</cite> is interperated as the day of the year instead
-of as the day of the month, and <a class="reference internal" href="pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> serialized in &#8216;day-of-year&#8217;
-format.</p>
-</li>
-<li><p class="first"><cite>day</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>The day of the month if <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>. Otherwise it&#8217;s the
-day of the year.</p>
-</li>
-<li><p class="first"><cite>hour</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-</li>
-<li><p class="first"><cite>minute</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-</li>
-<li><p class="first"><cite>second</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#float" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a>)</p>
-</li>
-<li><p class="first"><cite>utc</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#False" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">False</span></tt></a>)</p>
-<p>Whether the time is in UTC or not.</p>
-</li>
-<li><p class="first"><cite>zone_hour</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-<p>If <cite>utc</cite> is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#True" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">True</span></tt></a> and <cite>zone_hour</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a>, <cite>zone_hour</cite>
-is stored, but when <a class="reference internal" href="pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> is serialized, it&#8217;s serialized ignoring
-<cite>zone_hour</cite>.</p>
-</li>
-<li><p class="first"><cite>zone_minute</cite> (<a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> or <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a>)</p>
-</li>
-</ul>
-</dd>
-<dt>Raises</dt>
-<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#ValueError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">ValueError</span></tt></a></p>
-<ul class="last simple">
-<li>If <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> not between 1 and 12.</li>
-<li>If <cite>month</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>day</cite> is not between 1 and the 
-number of days in the month <cite>month</cite>.</li>
-<li>If <cite>month</cite> is <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>day</cite> is not between 1 and the number of
-days in the year <cite>year</cite> (365 or 366 depending on if it&#8217;s a leap year).</li>
-<li>If <cite>hour</cite> is not between 0 and 23.</li>
-<li>If <cite>minute</cite> is not between 0 and 59.</li>
-<li>If <cite>second</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> not between 0 and 59.</li>
-<li>If <cite>zone_hour</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> not between -12 and 12.</li>
-<li>If <cite>zone_hour</cite> is not <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> <strong>and</strong> <cite>zone_minute</cite> is not between 0
-and 59.</li>
-</ul>
-</dd>
-<dt>Attributes</dt>
-<dd><dl class="first attribute">
-<dt id="pds.DateTime.date">
-<tt class="descname">date</tt><a class="headerlink" href="#pds.DateTime.date" title="Permalink to this definition">¶</a></dt>
-<dd><p>Instance of <a class="reference internal" href="pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a>. Read-only.</p>
-</dd></dl>
-
-<dl class="last attribute">
-<dt id="pds.DateTime.time">
-<tt class="descname">time</tt><a class="headerlink" href="#pds.DateTime.time" title="Permalink to this definition">¶</a></dt>
-<dd><p>Instance of <a class="reference internal" href="pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a>. Read-only.</p>
-</dd></dl>
-
-</dd>
-</dl>
 </dd></dl>
 
 <hr class="docutils" />
@@ -210,9 +146,7 @@ and 59.</li>
 <dl class="method">
 <dt id="pds.DateTime.__str__">
 <tt class="descclassname">DateTime.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.DateTime.__str__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
-<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
-</dd></dl>
+<dd></dd></dl>
 
 </div>
 
