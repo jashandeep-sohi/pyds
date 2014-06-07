@@ -67,7 +67,12 @@
 <li class="toctree-l2"><a class="reference internal" href="installation.html#pip-git">pip + Git</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="userguide.html">User Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="userguide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="userguide.html#reading">Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userguide.html#manipulating">Manipulating</a></li>
+<li class="toctree-l2"><a class="reference internal" href="userguide.html#writing">Writing</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.parse.html">pds.parse</a></li>
 <li class="toctree-l2"><a class="reference internal" href="pds/pds.Statements.html">pds.Statements</a></li>
@@ -140,7 +145,7 @@ handling version 3 PDS labels as documented in the
 <a class="reference external" href="https://pds.jpl.nasa.gov/documents/sr/Chapter12.pdf">Object Description Language</a> (ODL). ODL is a relatively simple attribute
 assignment based language, with support for integers, real numbers, sequences,
 text and other various types.</p>
-<p>This module simply parses PDS labels into Python objects which can then be used
+<p>This module parses PDS labels into Python objects which can then be used
 to further process and analyze the labels. The reverse is also possible: it can
 serialize those Python objects into a valid PDS label string.</p>
 </div>
