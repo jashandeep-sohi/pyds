@@ -8,7 +8,7 @@ handling version 3 PDS labels as documented in the
 assignment based language, with support for integers, real numbers, sequences,
 text and other various types.
 
-This module simply parses PDS labels into Python objects which can then be used
+This module parses PDS labels into Python objects which can then be used
 to further process and analyze the labels. The reverse is also possible: it can
 serialize those Python objects into a valid PDS label string.
 
