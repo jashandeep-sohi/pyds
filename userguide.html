@@ -143,6 +143,30 @@ go into detail about the PDS labeling system. Read the <a class="reference exter
 that. Also, see <a class="reference internal" href="reference.html"><em>Reference</em></a>.</p>
 <div class="section" id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<p>To parse a PDS label attached to a file:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_object</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_content</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_content</span><span class="p">)</span>
+<span class="go">&lt;pds.Label object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Rather than reading the entire contents of the file into a variable and then
+parsing it, you could use a <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">mmap.mmap</span></tt></a> object. This is especially
+useful if the file is large:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">mmap</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_mmap</span> <span class="o">=</span> <span class="n">mmap</span><span class="o">.</span><span class="n">mmap</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">fileno</span><span class="p">(),</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
+<span class="go">&lt;pds.Label object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>The <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> representation of a <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object is a valid PDS
+string which when parsed leads to an identical <tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_mmap</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">label</span><span class="p">)))</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="manipulating">
 <h2>Manipulating<a class="headerlink" href="#manipulating" title="Permalink to this headline">¶</a></h2>
