@@ -2,7 +2,7 @@ User Guide
 ==========
 This guide covers the basics to get you started with :mod:`pds`. It does not
 go into detail about the PDS labeling system. Read the `PDS documentation`_ for
-that. Also, refer see :doc:`reference` for possibly more details.
+that. Also, see :doc:`reference`.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
