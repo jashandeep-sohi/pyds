@@ -146,150 +146,56 @@
 <em class="property">class </em><tt class="descclassname">pds.</tt><tt class="descname">Sequence1D</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference internal" href="pds.Value.html#pds.Value" title="pds.Value"><tt class="xref py py-class docutils literal"><span class="pre">pds.Value</span></tt></a>, <a class="reference external" href="https://docs.python.org/3.4/library/collections.abc.html#collections.abc.MutableSequence" title="(in Python v3.4)"><tt class="xref py py-class docutils literal"><span class="pre">collections.abc.MutableSequence</span></tt></a></p>
 <p>Represents a 1D PDS sequence value.</p>
-<dl class="docutils">
-<dt>Parameters</dt>
-<dd><cite>*values</cite></dd>
-<dt>Raises</dt>
-<dd><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a></p>
-<p class="last">If <cite>value</cite> is not an instance of <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">Scalar</span></tt></a>.</p>
-</dd>
-</dl>
-<dl class="attribute">
-<dt id="pds.Sequence1D.__class__">
-<tt class="descname">__class__</tt><a class="headerlink" href="#pds.Sequence1D.__class__" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <tt class="xref py py-class docutils literal"><span class="pre">ABCMeta</span></tt></p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="pds.Sequence1D.__delattr__">
-<tt class="descname">__delattr__</tt><a class="headerlink" href="#pds.Sequence1D.__delattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement delattr(self, name).</p>
-</dd></dl>
-
+<hr class="docutils" />
+<p class="rubric">Methods</p>
 <dl class="method">
-<dt id="pds.Sequence1D.__delitem__">
-<tt class="descname">__delitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__delitem__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__dir__">
-<tt class="descname">__dir__</tt><big>(</big><big>)</big> &rarr; list<a class="headerlink" href="#pds.Sequence1D.__dir__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default dir() implementation</p>
+<dt id="pds.Sequence1D.insert">
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert value <cite>value</cite> at index <cite>index</cite>.</p>
+<p><cite>value</cite> must be an instance of <a class="reference internal" href="pds.Scalar.html#pds.Scalar" title="pds.Scalar"><tt class="xref py py-class docutils literal"><span class="pre">Scalar</span></tt></a>, otherwise raise
+<a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a>.</p>
 </dd></dl>
 
-<dl class="attribute">
-<dt id="pds.Sequence1D.__eq__">
-<tt class="descname">__eq__</tt><a class="headerlink" href="#pds.Sequence1D.__eq__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self==value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__format__">
-<tt class="descname">__format__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__format__" title="Permalink to this definition">¶</a></dt>
-<dd><p>default object formatter</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__ge__">
-<tt class="descname">__ge__</tt><a class="headerlink" href="#pds.Sequence1D.__ge__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&gt;=value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__getattribute__">
-<tt class="descname">__getattribute__</tt><a class="headerlink" href="#pds.Sequence1D.__getattribute__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return getattr(self, name).</p>
-</dd></dl>
-
+<hr class="docutils" />
+<p class="rubric">Special Methods</p>
 <dl class="method">
 <dt id="pds.Sequence1D.__getitem__">
-<tt class="descname">__getitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__getitem__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__gt__">
-<tt class="descname">__gt__</tt><a class="headerlink" href="#pds.Sequence1D.__gt__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&gt;value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__hash__">
-<tt class="descname">__hash__</tt><a class="headerlink" href="#pds.Sequence1D.__hash__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return hash(self).</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__iter__">
-<tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__iter__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__le__">
-<tt class="descname">__le__</tt><a class="headerlink" href="#pds.Sequence1D.__le__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&lt;=value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__len__">
-<tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__len__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__lt__">
-<tt class="descname">__lt__</tt><a class="headerlink" href="#pds.Sequence1D.__lt__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self&lt;value.</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__ne__">
-<tt class="descname">__ne__</tt><a class="headerlink" href="#pds.Sequence1D.__ne__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return self!=value.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__new__">
-<tt class="descname">__new__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__new__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create and return a new object.  See help(type) for accurate signature.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__reduce__">
-<tt class="descname">__reduce__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__reduce__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.__reduce_ex__">
-<tt class="descname">__reduce_ex__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__reduce_ex__" title="Permalink to this definition">¶</a></dt>
-<dd><p>helper for pickle</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__repr__">
-<tt class="descname">__repr__</tt><a class="headerlink" href="#pds.Sequence1D.__repr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Return repr(self).</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__setattr__">
-<tt class="descname">__setattr__</tt><a class="headerlink" href="#pds.Sequence1D.__setattr__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Implement setattr(self, name, value).</p>
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__getitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value at index <cite>index</cite>.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.Sequence1D.__setitem__">
-<tt class="descname">__setitem__</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__setitem__" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__setitem__</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="#pds.Sequence1D.insert" title="pds.Sequence1D.insert"><tt class="xref py py-meth docutils literal"><span class="pre">insert()</span></tt></a>.</p>
+</div>
+</dd></dl>
 
 <dl class="method">
-<dt id="pds.Sequence1D.__sizeof__">
-<tt class="descname">__sizeof__</tt><big>(</big><big>)</big> &rarr; int<a class="headerlink" href="#pds.Sequence1D.__sizeof__" title="Permalink to this definition">¶</a></dt>
-<dd><p>size of object in memory, in bytes</p>
+<dt id="pds.Sequence1D.__delitem__">
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__delitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the value at index <cite>index</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence1D.__len__">
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of values in the sequence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pds.Sequence1D.__iter__">
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">interator</span></tt> that iterates over the values in the sequence.</p>
 </dd></dl>
 
 <dl class="method">
 <dt id="pds.Sequence1D.__str__">
-<tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__str__" title="Permalink to this definition">¶</a></dt>
+<tt class="descclassname">Sequence1D.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.__str__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
 <p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
 <dl class="docutils">
@@ -301,66 +207,6 @@
 </ul>
 </dd>
 </dl>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="pds.Sequence1D.__weakref__">
-<tt class="descname">__weakref__</tt><a class="headerlink" href="#pds.Sequence1D.__weakref__" title="Permalink to this definition">¶</a></dt>
-<dd><p>list of weak references to the object (if defined)</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.append">
-<tt class="descname">append</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.append" title="Permalink to this definition">¶</a></dt>
-<dd><p>S.append(value) &#8211; append value to the end of the sequence</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.clear">
-<tt class="descname">clear</tt><big>(</big><big>)</big> &rarr; None -- remove all items from S<a class="headerlink" href="#pds.Sequence1D.clear" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.count">
-<tt class="descname">count</tt><big>(</big><em>value</em><big>)</big> &rarr; integer -- return number of occurrences of value<a class="headerlink" href="#pds.Sequence1D.count" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.extend">
-<tt class="descname">extend</tt><big>(</big><em>values</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.extend" title="Permalink to this definition">¶</a></dt>
-<dd><p>S.extend(iterable) &#8211; extend sequence by appending elements from the iterable</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.index">
-<tt class="descname">index</tt><big>(</big><em>value</em><big>)</big> &rarr; integer -- return first index of value.<a class="headerlink" href="#pds.Sequence1D.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raises ValueError if the value is not present.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.insert">
-<tt class="descname">insert</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.insert" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.pop">
-<tt class="descname">pop</tt><big>(</big><span class="optional">[</span><em>index</em><span class="optional">]</span><big>)</big> &rarr; item -- remove and return item at index (default last).<a class="headerlink" href="#pds.Sequence1D.pop" title="Permalink to this definition">¶</a></dt>
-<dd><p>Raise IndexError if list is empty or index is out of range.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.remove">
-<tt class="descname">remove</tt><big>(</big><em>value</em><big>)</big><a class="headerlink" href="#pds.Sequence1D.remove" title="Permalink to this definition">¶</a></dt>
-<dd><p>S.remove(value) &#8211; remove first occurrence of value.
-Raise ValueError if the value is not present.</p>
-</dd></dl>
-
-<dl class="method">
-<dt id="pds.Sequence1D.reverse">
-<tt class="descname">reverse</tt><big>(</big><big>)</big><a class="headerlink" href="#pds.Sequence1D.reverse" title="Permalink to this definition">¶</a></dt>
-<dd><p>S.reverse() &#8211; reverse <em>IN PLACE</em></p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
