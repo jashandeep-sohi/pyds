@@ -145,12 +145,13 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <p>In order to work with an existing PDS label, we must first parse it into a
 <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
-<span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
-<span class="gp">... </span><span class="s">TEST = 5</span>
-<span class="gp">... </span><span class="s">END</span>
-<span class="gp">... </span><span class="s">&quot;&quot;&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="s"> PDS_VERSION_ID = PDS3</span>
+<span class="gp">... </span><span class="s"> TEST = 5</span>
+<span class="gp">... </span><span class="s"> END</span>
+<span class="gp">... </span><span class="s"> &quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="p">)</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
@@ -168,7 +169,7 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 </pre></div>
 </div>
 <p>Also, <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> cannot operate on <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> objects because PDS labels can
-only have <strong>ascii</strong> characters.
+only have <em>ascii</em> characters.
 Therefore, the PDS label should be given in a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> object, rather than a
 <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> object.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
