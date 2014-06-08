@@ -155,7 +155,7 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a valid PDS label, otherwise it raises a
+<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a valid PDS label, otherwise it will raise a
 <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -168,9 +168,9 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <span class="gr">pds.ParsingError</span>: <span class="n">expected equal sign instead of &#39;blha&#39;</span>
 </pre></div>
 </div>
-<p>Notice, how we have been providing a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> string (i.e <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>) to the
-<a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function. This is because <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> cannot operate on
-<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> strings (PDS labels may only contain <em>ascii</em> characters):</p>
+<p>Notice, how we have been providing a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> string (i.e. <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>) to the
+<a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function. This is because <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> cannot operate on a
+<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> string (PDS labels may only contain <em>ascii</em> characters):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="sd">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="sd"> PDS_VERSION_ID = PDS3</span>
@@ -181,6 +181,15 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
 <span class="gr">TypeError</span>: <span class="n">can&#39;t use a bytes pattern on a string-like object</span>
+</pre></div>
+</div>
+<p>So far, we have been parsing a PDS label provided explicitly in a string.
+However, most of the time the label is stored in a file. A label in a file can
+be parsed similarly:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;../data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">file_bytes</span> <span class="o">=</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_bytes</span><span class="p">)</span>
+<span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
 </div>

@@ -22,7 +22,7 @@ In order to work with an existing PDS label, we must first parse it into a
  ... )
  <pds.Label object at 0x...>
 
-:func:`parse` must be given a valid PDS label, otherwise it raises a
+:func:`parse` must be given a valid PDS label, otherwise it will raise a
 :exc:`ParsingError`::
 
  >>> pds.parse(b"")
@@ -35,9 +35,9 @@ In order to work with an existing PDS label, we must first parse it into a
    ...
  pds.ParsingError: expected equal sign instead of 'blha'
 
-Notice, how we have been providing a :obj:`bytes` string (i.e ``b"..."``) to the
-:func:`parse` function. This is because :func:`parse` cannot operate on
-:obj:`str` strings (PDS labels may only contain *ascii* characters)::
+Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to the
+:func:`parse` function. This is because :func:`parse` cannot operate on a
+:obj:`str` string (PDS labels may only contain *ascii* characters)::
 
  >>> pds.parse(
  ...  """
@@ -51,7 +51,16 @@ Notice, how we have been providing a :obj:`bytes` string (i.e ``b"..."``) to the
  TypeError: can't use a bytes pattern on a string-like object
 
 
- 
+So far, we have been parsing a PDS label provided explicitly in a string. 
+However, most of the time the label is stored in a file. A label in a file can
+be parsed similarly::
+
+ >>> file_obj = open("../data/test.img", "r+b")
+ >>> file_bytes = file_obj.read()
+ >>> pds.parse(file_bytes)
+ <pds.Label object at 0x...>
+
+
 
 
 
