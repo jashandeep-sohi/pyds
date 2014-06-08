@@ -22,6 +22,7 @@ In order to work with an existing PDS label, we must first parse it into a
  ... )
  <pds.Label object at 0x...>
 
+
 :func:`parse` must be given a valid PDS label, otherwise it will raise a
 :exc:`ParsingError`::
 
@@ -35,8 +36,9 @@ In order to work with an existing PDS label, we must first parse it into a
    ...
  pds.ParsingError: expected equal sign instead of 'blha'
 
-Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to the
-:func:`parse` function. This is because :func:`parse` cannot operate on a
+
+Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
+the :func:`parse` function. This is because :func:`parse` cannot operate on a
 :obj:`str` string (PDS labels may only contain *ascii* characters)::
 
  >>> pds.parse(
@@ -51,9 +53,9 @@ Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to th
  TypeError: can't use a bytes pattern on a string-like object
 
 
-So far, we have been parsing a PDS label provided explicitly in a string. 
-However, most of the time the label is stored in a file. A label in a file can
-be parsed similarly::
+In the examples above, we have been parsing PDS labels provided explicitly in a
+string (i.e. ``b"..."``). However, most of the time PDS labels are stored in
+files. We can parse a PDS label in a file similarly::
 
  >>> file_obj = open("../data/test.img", "r+b")
  >>> file_bytes = file_obj.read()
@@ -61,7 +63,16 @@ be parsed similarly::
  <pds.Label object at 0x...>
 
 
+However, this is extremely inefficient and leads to high memory usage because
+the entire file is first read into memory and then parsed. This is especially
+true if the file is large. A more efficient way of parsing a PDS label in a
+file, is to use a :obj:`mmap.mmap` (memory mapped file) object::
 
+ >>> import mmap
+ >>> file_obj = open("../data/test.img", "r+b")
+ >>> mmap_file = mmap.mmap(file_obj.fileno(), 0)
+ >>> pds.parse(mmap_file)
+ <pds.Label object at 0x...>
 
 
 Manipulating
