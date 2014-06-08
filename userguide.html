@@ -184,15 +184,15 @@ the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds
 </pre></div>
 </div>
 <p>In the examples above, we have been parsing PDS labels provided explicitly in a
-string (i.e. <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>). However, most of the time PDS labels are stored in
-files. We can parse a PDS label in a file similarly:</p>
+string (i.e. <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>). However, PDS labels are usually stored in files.
+We can parse a PDS label in a file using the same approach as above:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">file_obj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;../data/test.img&quot;</span><span class="p">,</span> <span class="s">&quot;r+b&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">file_bytes</span> <span class="o">=</span> <span class="n">file_obj</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">file_bytes</span><span class="p">)</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>However, this is extremely inefficient and leads to high memory usage because
+<p>However, this is extremely inefficient and results in high memory usage because
 the entire file is first read into memory and then parsed. This is especially
 true if the file is large. A more efficient way of parsing a PDS label in a
 file, is to use a <a class="reference external" href="https://docs.python.org/3.4/library/mmap.html#mmap.mmap" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">mmap.mmap</span></tt></a> (memory mapped file) object:</p>
