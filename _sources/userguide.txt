@@ -28,6 +28,12 @@ In order to work with an existing PDS label, we must first parse it into a
  Traceback (most recent call last):
    ...
  pds.ParsingError: unexpected end
+ 
+ >>> pds.parse(b"blha blha blha")
+ Traceback (most recent call last):
+   ...
+ pds.ParsingError: expected equal sign instead of 'blha'
+
 
 
 Manipulating
