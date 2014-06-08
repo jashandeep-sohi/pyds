@@ -142,10 +142,17 @@
 go into detail about PDS labels. See the <a class="reference external" href="http://pds.jpl.nasa.gov/tools/standards-reference.shtml">PDS documentation</a> for that.</p>
 <div class="section" id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
-<p>In order to work with existing PDS labels, we first parse them into a
-<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the function <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a>:</p>
+<p>In order to work with an existing PDS label, we must first parse it into a
+<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the function <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a>.
+For example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
-<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label_bytes</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
+<span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
+<span class="gp">... </span><span class="s">TEST = 5</span>
+<span class="gp">... </span><span class="s">END</span>
+<span class="gp">... </span><span class="s">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">label_bytes</span><span class="p">)</span>
+<span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
 </div>
