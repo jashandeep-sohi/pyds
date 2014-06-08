@@ -1,6 +1,6 @@
 #!/bin/sh
 
-python -m doctest -v userguide.rst &&
+../test.py &&
 sphinx-build -W -b html . _build/html &&
 git stash &&
 git checkout gh-pages &&
