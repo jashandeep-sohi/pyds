@@ -143,16 +143,23 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <div class="section" id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
 <p>In order to work with an existing PDS label, we must first parse it into a
-<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the function <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a>.
-For example:</p>
+<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">label_bytes</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">label</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
 <span class="gp">... </span><span class="s">TEST = 5</span>
 <span class="gp">... </span><span class="s">END</span>
 <span class="gp">... </span><span class="s">&quot;&quot;&quot;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">label_bytes</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a valid PDS label, otherwise it raises an
+<a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+  <span class="c">...</span>
+<span class="gr">pds.ParsingError</span>: <span class="n">unexpected end</span>
 </pre></div>
 </div>
 </div>

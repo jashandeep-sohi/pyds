@@ -10,18 +10,24 @@ go into detail about PDS labels. See the `PDS documentation`_ for that.
 Reading
 -------
 In order to work with an existing PDS label, we must first parse it into a
-:class:`Label` object. This is done using the function :func:`parse`.
-For example::
+:class:`Label` object. This is done using the :func:`parse` function::
 
  >>> import pds
- >>> label_bytes = b"""
+ >>> label = b"""
  ... PDS_VERSION_ID = PDS3
  ... TEST = 5
  ... END
  ... """
- >>> pds.parse(label_bytes)
+ >>> pds.parse(label)
  <pds.Label object at 0x...>
 
+:func:`parse` must be given a valid PDS label, otherwise it raises an 
+:exc:`ParsingError`::
+
+ >>> pds.parse(b"")
+ Traceback (most recent call last):
+   ...
+ pds.ParsingError: unexpected end
 
 
 Manipulating
