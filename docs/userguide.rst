@@ -37,7 +37,7 @@ In order to work with an existing PDS label, we must first parse it into a
 
 Notice, how we have been providing a :obj:`bytes` string (i.e ``b"..."``) to the
 :func:`parse` function. This is because :func:`parse` cannot operate on
-:obj:`str` strings, as PDS labels may only contain *ascii* characters::
+:obj:`str` strings (PDS labels may only contain *ascii* characters)::
 
  >>> pds.parse(
  ...  """
