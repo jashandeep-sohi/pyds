@@ -13,12 +13,13 @@ In order to work with an existing PDS label, we must first parse it into a
 :class:`Label` object. This is done using the :func:`parse` function::
 
  >>> import pds
- >>> label = b"""
- ... PDS_VERSION_ID = PDS3
- ... TEST = 5
- ... END
- ... """
- >>> pds.parse(label)
+ >>> pds.parse(
+ ...  b"""
+ ...  PDS_VERSION_ID = PDS3
+ ...  TEST = 5
+ ...  END
+ ...  """
+ ... )
  <pds.Label object at 0x...>
 
 :func:`parse` must be given a valid PDS label, otherwise it raises a
@@ -35,7 +36,7 @@ In order to work with an existing PDS label, we must first parse it into a
  pds.ParsingError: expected equal sign instead of 'blha'
 
 Also, :func:`parse` cannot operate on :obj:`str` objects because PDS labels can
-only have **ascii** characters.
+only have *ascii* characters.
 Therefore, the PDS label should be given in a :obj:`bytes` object, rather than a
 :obj:`str` object.
 
