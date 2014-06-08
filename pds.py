@@ -1951,7 +1951,7 @@ def _parse_units(tokens):
     units = Units(units.decode("utf-8"))
   else:
     tokens.send(tok1)
-    units = ""
+    units = None
   return units
 
 def _parse_value(tok1, tokens):
