@@ -170,7 +170,7 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 </div>
 <p>Notice, how we have been providing a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> string (i.e <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>) to the
 <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function. This is because <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> cannot operate on
-<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> strings, as PDS labels may only contain <em>ascii</em> characters:</p>
+<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> strings (PDS labels may only contain <em>ascii</em> characters):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="sd">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="sd"> PDS_VERSION_ID = PDS3</span>
