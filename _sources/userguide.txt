@@ -34,8 +34,10 @@ In order to work with an existing PDS label, we must first parse it into a
    ...
  pds.ParsingError: expected equal sign instead of 'blha'
 
-Also, :func:`parse` cannot operate on :obj:`str` objects. Therefore, the PDS
-label should be in a :obj:`bytes` object, rather than a :obj:`str` object.
+Also, :func:`parse` cannot operate on :obj:`str` objects because PDS labels can
+only have **ascii** characters.
+Therefore, the PDS label should be given in a :obj:`bytes` object, rather than a
+:obj:`str` object.
 
  >>> pds.parse(
  ...  """
