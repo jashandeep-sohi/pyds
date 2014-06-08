@@ -8,9 +8,10 @@ handling version 3 PDS labels as documented in the
 assignment based language, with support for integers, real numbers, sequences,
 text and other various types.
 
-This module parses PDS labels into Python objects which can then be used
-to further process and analyze the labels. The reverse is also possible: it can
-serialize those Python objects into a valid PDS label string.
+This module is capable of parsing PDS label strings into Python objects which
+can then be used to read and manipulate different properties of the label.
+The reverse is also possible: it can serialize Python objects into a valid PDS
+string.
 
 .. _Planetary Data System: http://pds.jpl.nasa.gov/
 

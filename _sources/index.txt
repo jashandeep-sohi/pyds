@@ -1,9 +1,9 @@
 pds
 ===
-A Python module to parse, manipulate and write PDS_ (Planetary Data System)
+A Python module to read, write and manipulate `PDS (Planetary Data System)`_
 labels.
 
-.. _PDS: http://pds.jpl.nasa.gov/
+.. _PDS (Planetary Data System): http://pds.jpl.nasa.gov/
 
 .. toctree::
    

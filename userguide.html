@@ -139,10 +139,15 @@
   <div class="section" id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 <p>This guide covers the basics to get you started with <tt class="xref py py-mod docutils literal"><span class="pre">pds</span></tt>. It does not
-go into detail about the PDS labeling system. Read the <a class="reference external" href="http://pds.jpl.nasa.gov/tools/standards-reference.shtml">PDS documentation</a> for
-that. Also, see <a class="reference internal" href="reference.html"><em>Reference</em></a> for more details.</p>
+go into detail about PDS labels. See the <a class="reference external" href="http://pds.jpl.nasa.gov/tools/standards-reference.shtml">PDS documentation</a> for that.</p>
 <div class="section" id="reading">
 <h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
+<p>In order to work with existing PDS labels, we first parse them into a
+<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This is done using the function <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
+<span class="go">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="manipulating">
 <h2>Manipulating<a class="headerlink" href="#manipulating" title="Permalink to this headline">¶</a></h2>
