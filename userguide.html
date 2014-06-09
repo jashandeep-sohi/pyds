@@ -68,7 +68,7 @@
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#reading">Reading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#parsing">Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#manipulating">Manipulating</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#writing">Writing</a></li>
 </ul>
@@ -140,9 +140,10 @@
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
 <p>This guide covers the basics to get you started with <tt class="xref py py-mod docutils literal"><span class="pre">pds</span></tt>. It does not
 go into detail about PDS labels. See the <a class="reference external" href="http://pds.jpl.nasa.gov/tools/standards-reference.shtml">PDS documentation</a> for that.</p>
-<div class="section" id="reading">
-<h2>Reading<a class="headerlink" href="#reading" title="Permalink to this headline">¶</a></h2>
-<p>To read an existing PDS label, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function:</p>
+<div class="section" id="parsing">
+<h2>Parsing<a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
+<p>To work with an existing PDS label, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to parse it
+into a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pds</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
@@ -154,9 +155,8 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> takes a string containing a PDS label and parses it into a
-<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object can then be used to access and
-manipulate properties of the label. See the discussion below.</p>
+<p>This <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object can then be used to interface with the label.
+See the discussion below.</p>
 <p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a string which <strong>starts</strong> with a valid PDS label as
 it&#8217;s argument or otherwise it will raise a <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>

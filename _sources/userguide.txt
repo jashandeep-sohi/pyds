@@ -7,9 +7,10 @@ go into detail about PDS labels. See the `PDS documentation`_ for that.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
-Reading
+Parsing
 -------
-To read an existing PDS label, use the :func:`parse` function::
+To work with an existing PDS label, use the :func:`parse` function to parse it
+into a :class:`Label` object::
 
  >>> import pds
  >>> pds.parse(
@@ -21,10 +22,8 @@ To read an existing PDS label, use the :func:`parse` function::
  ... )
  <pds.Label object at 0x...>
 
-
-:func:`parse` takes a string containing a PDS label and parses it into a 
-:class:`Label` object. This :class:`Label` object can then be used to access and
-manipulate properties of the label. See the discussion below.
+This :class:`Label` object can then be used to interface with the label.
+See the discussion below.
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
 it's argument or otherwise it will raise a :exc:`ParsingError`::
