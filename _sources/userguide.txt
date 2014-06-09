@@ -23,8 +23,8 @@ To read an existing PDS label, use the :func:`parse` function::
 
 
 :func:`parse` takes a PDS label as an argument and parses it into a
-:class:`Label` object. :class:`Label` can then be used to access and manipulate
-the properties of the label.
+:class:`Label` object. The :class:`Label` object can then be used to access and 
+manipulate the properties of the label.
 
 :func:`parse` must be given a valid PDS label, otherwise it will raise a
 :exc:`ParsingError`::
@@ -57,8 +57,8 @@ the :func:`parse` function. This is because :func:`parse` cannot operate on a
 
 
 In the examples above, we have been parsing PDS labels provided explicitly in a
-string (i.e. ``b"..."``). However, PDS labels are usually stored in files.
-We can parse a PDS label in a file using the same approach as above::
+string (i.e. ``b"..."``), however PDS labels are usually stored in files.
+We could parse a PDS label in a file using the same approach as above::
 
  >>> file_obj = open("../data/test.img", "r+b")
  >>> file_bytes = file_obj.read()
