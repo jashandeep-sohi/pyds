@@ -96,25 +96,77 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  <pds.Label object at 0x...>
 
 
-Manipulating
-------------
 
-Label
-^^^^^
-
-Statements
-^^^^^^^^^^
-
-Nested Statements
-^^^^^^^^^^^^^^^^^
-
-Values
-^^^^^^
-
-
-Writing
--------
-
+>>> test_label = pds.parse(
+... b"""
+... PDS_VERSION_ID = PDS3
+... 
+... INTEGER_1 = 0
+... INTEGER_2 = 123
+... INTEGER_3 = +440
+... INTEGER_4 = -1500000
+... 
+... GROUP = BASED_INTEGERS
+...  ONE = 2#1001011#
+...  TWO = 8#113#
+...  THREE = 10#75#
+...  FOUR = 16#+4B#
+...  FIVE = 16#-4B#
+... END_GROUP = BASED_INTEGERS
+... 
+... GROUP = REAL_NUMBERS
+...  ONE = 0.0
+...  TWO = 123.
+...  THREE = +1234.56
+...  FOUR = -.9981
+...  FIVE = -1.E-3
+...  SIX = 31459e1
+... END_GROUP = REAL_NUMBERS
+... 
+... OBJECT = DATES_AND_TIMES
+...  GROUP = DATES
+...   ONE = 1990-07-04
+...   TWO = 1990-158
+...   THREE = 2001-001
+...  END_GROUP = DATES
+...  
+...  GROUP = TIMES
+...   ONE = 12:00
+...   TWO = 15:24:12Z
+...   THREE = 01:10:39.4575+07
+...  END_GROUP = TIMES
+...  
+...  GROUP = DATE_TIMES
+...   ONE = 1990-07-04T12:00
+...   TWO = 1990-158T15:24:12Z
+...   THREE = 2001-001T01:10:39.457591+7
+...  END_GROUP = DATE_TIMES
+... END_OBJECT = DATES_AND_TIMES
+... 
+... TEXT1 = "blha blha BLHA BLHA                blha
+...          blha blha blha"
+... 
+... TEXT2 = "blha blha blha. Any character but a quotation mark."
+... 
+... TEXT3 = ""
+... 
+... SYMBOL1 = 'ONE-OR-MORE-CHARS'
+... 
+... GROUP = NUMBERS_WITH_UNITS
+...  INT = 5 <KM/SEC/SEC>
+...  REAL = 5.1100 <M/SEC>
+...  BASED_INTGER = 2#1001011# <APPLES>
+... END_GROUP = NUMBERS_WITH_UNITS
+... 
+... ATTR_IDENTIFIER = ATTR_IDENTIFIER_VALUE
+... 
+... A_1D_SEQUENCE = (0.2056, 0.0068, 0.0167, 0.0934, 0.0483, 0.0560)
+... A_2D_SEQUENCE = ((0, 1008), (1009, 1025), (1026, 1043))
+... A_SET = { 'RED', 'BLUE', 'GREEN', 'HAZEL' }
+... 
+... END
+... """
+... )
 
 
 .. vim: tabstop=1 expandtab
