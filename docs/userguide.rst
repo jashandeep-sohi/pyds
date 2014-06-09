@@ -23,7 +23,7 @@ To read an existing PDS label, use the :func:`parse` function::
 
 
 :func:`parse` takes a PDS label as an argument and parses it into a 
-:class:`Label`object. The :class:`Label` object can then be used to access and
+:class:`Label` object. The :class:`Label` object can then be used to access and
 manipulate properties of the label.
 
 :func:`parse` must be given a valid PDS label, otherwise it will raise a 
@@ -53,6 +53,7 @@ This is useful when parsing PDS labels attached to data products::
  ...  """
  ... )
  <pds.Label object at 0x...>
+
 
 .. note::
    
