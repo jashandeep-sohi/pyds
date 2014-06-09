@@ -40,20 +40,22 @@ manipulate properties of the label.
  pds.ParsingError: expected equal sign instead of 'blha'
 
 
-Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
-the :func:`parse` function. This is because :func:`parse` cannot operate on a
-:obj:`str` string (PDS labels may only contain *ascii* characters)::
+.. note::
+   
+   Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
+   the :func:`parse` function. This is because :func:`parse` cannot operate on a
+   :obj:`str` string (PDS labels may only contain *ascii* characters)::
 
- >>> pds.parse(
- ...  """
- ...  PDS_VERSION_ID = PDS3
- ...  TEST = 5
- ...  END
- ...  """
- ... )
- Traceback (most recent call last):
-   ...
- TypeError: can't use a bytes pattern on a string-like object
+    >>> pds.parse(
+    ...  """
+    ...  PDS_VERSION_ID = PDS3
+    ...  TEST = 5
+    ...  END
+    ...  """
+    ... )
+    Traceback (most recent call last):
+      ...
+    TypeError: can't use a bytes pattern on a string-like object
 
 
 In the examples above, we have been parsing PDS labels provided explicitly in a
@@ -78,6 +80,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  >>> mmap_file = mmap.mmap(file_obj.fileno(), 0)
  >>> pds.parse(mmap_file)
  <pds.Label object at 0x...>
+
+
 
 
 Manipulating
