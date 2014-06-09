@@ -154,11 +154,11 @@ go into detail about PDS labels. See the <a class="reference external" href="htt
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> takes a PDS label as an argument and parses it into a
-<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. The <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object can then be used to access and
-manipulate properties of the label.</p>
-<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a valid PDS label, otherwise it will raise a
-<a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
+<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> takes a string containing a PDS label and parses it into a
+<a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object. This <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object can then be used to access and
+manipulate properties of the label. See the discussion below.</p>
+<p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a string which <strong>starts</strong> with a valid PDS label as
+it&#8217;s argument or otherwise it will raise a <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
   <span class="c">...</span>
@@ -170,15 +170,16 @@ manipulate properties of the label.</p>
 <span class="gr">pds.ParsingError</span>: <span class="n">expected equal sign instead of &#39;blha&#39;</span>
 </pre></div>
 </div>
-<p>The PDS label given to <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> may also be <strong>followed</strong> by other data.
-This is useful when parsing PDS labels attached to data products:</p>
+<p>Additional data may <strong>follow</strong> the PDS label in the string.
+This is useful when PDS labels are prepended to the data products they
+describe:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s"> PDS_VERSION_ID = PDS3</span>
 <span class="gp">... </span><span class="s"> TEST = 5</span>
 <span class="gp">... </span><span class="s"> END</span>
 <span class="gp">... </span><span class="s"> Blha Blha Blha.</span>
-<span class="gp">... </span><span class="s"> All of this is ignored.</span>
+<span class="gp">... </span><span class="s"> All of this is ignored. It could be the data product, etc.</span>
 <span class="gp">... </span><span class="s"> &quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
