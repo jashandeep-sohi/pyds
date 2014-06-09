@@ -167,6 +167,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 ... END
 ... """
 ... )
+>>> test_label
+<pds.Label object at 0x...>
 
 
 .. vim: tabstop=1 expandtab
