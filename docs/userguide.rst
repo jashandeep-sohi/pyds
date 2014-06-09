@@ -22,11 +22,11 @@ To read an existing PDS label, use the :func:`parse` function::
  <pds.Label object at 0x...>
 
 
-:func:`parse` takes a PDS label as an argument and parses it into a
-:class:`Label` object. The :class:`Label` object can then be used to access and 
+:func:`parse` takes a PDS label as an argument and parses it into a 
+:class:`Label`object. The :class:`Label` object can then be used to access and
 manipulate properties of the label.
 
-:func:`parse` must be given a valid PDS label, otherwise it will raise a
+:func:`parse` must be given a valid PDS label, otherwise it will raise a 
 :exc:`ParsingError`::
 
  >>> pds.parse(b"")
@@ -40,9 +40,23 @@ manipulate properties of the label.
  pds.ParsingError: expected equal sign instead of 'blha'
 
 
+The PDS label given to :func:`parse` may also be **followed** by other data.
+This is useful when parsing PDS labels attached to data products::
+
+ >>> pds.parse(
+ ...  b"""
+ ...  PDS_VERSION_ID = PDS3
+ ...  TEST = 5
+ ...  END
+ ...  Blha Blha Blha.
+ ...  All of this is ignored.
+ ...  """
+ ... )
+ <pds.Label object at 0x...>
+
 .. note::
    
-   Notice, how we have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
+   We have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
    the :func:`parse` function. This is because :func:`parse` cannot operate on a
    :obj:`str` string (PDS labels may only contain *ascii* characters)::
 
