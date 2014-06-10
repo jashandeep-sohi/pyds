@@ -106,8 +106,8 @@ Label Objects
 A :class:`Label` object represents a PDS label and it's the main object you'll
 be interacting with.
 You can either instantiate it directly if you want to create a new PDS label
-or, as discussed above, use the :func:`parse` function to parse an existing PDS 
-label string into a :class:`Label` object.
+or, as :ref:`discussed above <parsing>`, use the :func:`parse` function to parse
+an existing PDS label string into a :class:`Label` object.
 
 
 >>> test_label = pds.parse(
