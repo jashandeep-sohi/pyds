@@ -7,6 +7,8 @@ go into detail about PDS labels. See the `PDS documentation`_ for that.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
+.. _parsing:
+
 Parsing
 -------
 To work with an existing PDS label, first parse it into a :class:`Label` object
@@ -23,8 +25,8 @@ using the :func:`parse` function::
  <pds.Label object at 0x...>
 
 
-This :class:`Label` object can then be used to read or manipulate properties of
-the label.
+You can then interact with this :class:`Label` object to read or manipulate
+properties of the label. See the :ref:`discussion <label_objects>` below.
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
 it's argument or otherwise it will raise a :exc:`ParsingError`::
@@ -96,6 +98,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  >>> pds.parse(mmap_file)
  <pds.Label object at 0x...>
 
+
+.. _label_objects:
 
 Label Objects
 -------------
