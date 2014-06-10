@@ -228,19 +228,27 @@ true if the file is large.</p>
 <span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object represents a PDS label and it&#8217;s the main object you&#8217;ll
 be interacting with.
-You can either instantiate it directly if you want to create a new PDS label
-or, as <a class="reference internal" href="#parsing"><em>discussed above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to parse
-an existing PDS label string into a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object.</p>
+You can either instantiate it directly, if you want to create a new PDS label
+or, as <a class="reference internal" href="#parsing"><em>discussed above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
+create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from an existing PDS label.</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span><span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
 <span class="gp">...</span><span class="s"></span>
-<span class="gp">... </span><span class="s">INTEGER_1 = 0</span>
-<span class="gp">... </span><span class="s">INTEGER_2 = 123</span>
-<span class="gp">... </span><span class="s">INTEGER_3 = +440</span>
-<span class="gp">... </span><span class="s">INTEGER_4 = -1500000</span>
+<span class="gp">... </span><span class="s">ATTR_BLHA = 2000</span>
+<span class="gp">... </span><span class="s">NUMBER_OF_DAYS = 2</span>
+<span class="gp">... </span><span class="s">RATIO_OF_X = 2.0</span>
+<span class="gp">... </span><span class="s">ID = &quot;lk32j4kajsdk1asdadd8asd8&quot;</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">^POINT_TO_X = 500</span>
+<span class="gp">... </span><span class="s">^POINT_TO_Y = &quot;blha.txt&quot;</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">GROUP = INTEGERS</span>
+<span class="gp">... </span><span class="s">ONE = 0</span>
+<span class="gp">... </span><span class="s">TWO = 123</span>
+<span class="gp">... </span><span class="s">THREE = +440</span>
+<span class="gp">... </span><span class="s">FOUR = -1500000</span>
+<span class="gp">... </span><span class="s">END_GROUP = INTEGERS</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">GROUP = BASED_INTEGERS</span>
 <span class="gp">... </span><span class="s"> ONE = 2#1001011#</span>
@@ -258,6 +266,12 @@ an existing PDS label string into a <a class="reference internal" href="pds/pds.
 <span class="gp">... </span><span class="s"> FIVE = -1.E-3</span>
 <span class="gp">... </span><span class="s"> SIX = 31459e1</span>
 <span class="gp">... </span><span class="s">END_GROUP = REAL_NUMBERS</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">GROUP = NUMBERS_WITH_UNITS</span>
+<span class="gp">... </span><span class="s"> INT = 5 &lt;KM/SEC/SEC&gt;</span>
+<span class="gp">... </span><span class="s"> REAL = 5.1100 &lt;M/SEC&gt;</span>
+<span class="gp">... </span><span class="s"> BASED_INTEGER = 2#1001011# &lt;APPLES&gt;</span>
+<span class="gp">... </span><span class="s">END_GROUP = NUMBERS_WITH_UNITS</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">OBJECT = DATES_AND_TIMES</span>
 <span class="gp">... </span><span class="s"> GROUP = DATES</span>
@@ -287,12 +301,6 @@ an existing PDS label string into a <a class="reference internal" href="pds/pds.
 <span class="gp">... </span><span class="s">TEXT3 = &quot;&quot;</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">SYMBOL1 = &#39;ONE-OR-MORE-CHARS EXCEPT THE APOSTROPHE ON ONE LINE&#39;</span>
-<span class="gp">...</span><span class="s"></span>
-<span class="gp">... </span><span class="s">GROUP = NUMBERS_WITH_UNITS</span>
-<span class="gp">... </span><span class="s"> INT = 5 &lt;KM/SEC/SEC&gt;</span>
-<span class="gp">... </span><span class="s"> REAL = 5.1100 &lt;M/SEC&gt;</span>
-<span class="gp">... </span><span class="s"> BASED_INTGER = 2#1001011# &lt;APPLES&gt;</span>
-<span class="gp">... </span><span class="s">END_GROUP = NUMBERS_WITH_UNITS</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">ATTR_IDENTIFIER = ATTR_IDENTIFIER_VALUE</span>
 <span class="gp">...</span><span class="s"></span>
