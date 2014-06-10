@@ -454,7 +454,7 @@ class GroupStatements(Statements):
     return max(map(len, (stmt.identifier for stmt in iter(self))), default = 0)
   
   
-  def insert(self, index, statements):
+  def insert(self, index, statement):
     """
     Insert the statement `statement` at index `index`.
     
@@ -994,7 +994,7 @@ class BasedInteger(Numeric):
   Raises
     - :exc:`ValueError`
     
-      If `radix` is not between 2 and 12.
+      If `radix` is not between 2 and 16.
       
     - :exc:`TypeError`
       
@@ -1029,8 +1029,8 @@ class BasedInteger(Numeric):
     
   def __init__(self, radix, digits, units = ""):
     radix = int(radix)
-    if radix < 2 or radix > 12:
-      raise ValueError("radix is not between 2 and 12")
+    if radix < 2 or radix > 16:
+      raise ValueError("radix is not between 2 and 16")
     
     super().__init__(int(digits, radix), units)
     self.radix = radix
