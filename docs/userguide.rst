@@ -9,8 +9,8 @@ go into detail about PDS labels. See the `PDS documentation`_ for that.
 
 Parsing
 -------
-To work with an existing PDS label, use the :func:`parse` function to parse it
-into a :class:`Label` object::
+To work with an existing PDS label, first parse it into a :class:`Label` object
+using the :func:`parse` function::
 
  >>> import pds
  >>> pds.parse(
@@ -22,8 +22,9 @@ into a :class:`Label` object::
  ... )
  <pds.Label object at 0x...>
 
-This :class:`Label` object can then be used to interface with the label.
-See the discussion below.
+
+This :class:`Label` object can then be used to read or manipulate properties of
+the label.
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
 it's argument or otherwise it will raise a :exc:`ParsingError`::
@@ -96,6 +97,14 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  <pds.Label object at 0x...>
 
 
+Label Objects
+-------------
+A :class:`Label` object represents a PDS label and it's the main object you'll
+be interacting with.
+You can either instantiate it directly if you want to create a new PDS label
+or, as discussed above, use the :func:`parse` function to parse an existing PDS 
+label string into a :class:`Label` object.
+
 
 >>> test_label = pds.parse(
 ... b"""
@@ -105,6 +114,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 ... INTEGER_2 = 123
 ... INTEGER_3 = +440
 ... INTEGER_4 = -1500000
+... 
+... ^POINT_TO_X = 500
 ... 
 ... GROUP = BASED_INTEGERS
 ...  ONE = 2#1001011#
@@ -150,7 +161,7 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 ... 
 ... TEXT3 = ""
 ... 
-... SYMBOL1 = 'ONE-OR-MORE-CHARS'
+... SYMBOL1 = 'ONE-OR-MORE-CHARS EXCEPT THE APOSTROPHE ON ONE LINE'
 ... 
 ... GROUP = NUMBERS_WITH_UNITS
 ...  INT = 5 <KM/SEC/SEC>
@@ -169,6 +180,7 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 ... )
 >>> test_label
 <pds.Label object at 0x...>
+
 
 
 .. vim: tabstop=1 expandtab
