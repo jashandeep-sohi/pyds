@@ -105,21 +105,29 @@ Label Objects
 -------------
 A :class:`Label` object represents a PDS label and it's the main object you'll
 be interacting with.
-You can either instantiate it directly if you want to create a new PDS label
-or, as :ref:`discussed above <parsing>`, use the :func:`parse` function to parse
-an existing PDS label string into a :class:`Label` object.
+You can either instantiate it directly, if you want to create a new PDS label
+or, as :ref:`discussed above <parsing>`, use the :func:`parse` function to
+create a :class:`Label` object from an existing PDS label.
 
 
 >>> test_label = pds.parse(
 ... b"""
 ... PDS_VERSION_ID = PDS3
 ... 
-... INTEGER_1 = 0
-... INTEGER_2 = 123
-... INTEGER_3 = +440
-... INTEGER_4 = -1500000
+... ATTR_BLHA = 2000
+... NUMBER_OF_DAYS = 2
+... RATIO_OF_X = 2.0
+... ID = "lk32j4kajsdk1asdadd8asd8"
 ... 
 ... ^POINT_TO_X = 500
+... ^POINT_TO_Y = "blha.txt"
+... 
+... GROUP = INTEGERS
+... ONE = 0
+... TWO = 123
+... THREE = +440
+... FOUR = -1500000
+... END_GROUP = INTEGERS
 ... 
 ... GROUP = BASED_INTEGERS
 ...  ONE = 2#1001011#
@@ -137,6 +145,12 @@ an existing PDS label string into a :class:`Label` object.
 ...  FIVE = -1.E-3
 ...  SIX = 31459e1
 ... END_GROUP = REAL_NUMBERS
+... 
+... GROUP = NUMBERS_WITH_UNITS
+...  INT = 5 <KM/SEC/SEC>
+...  REAL = 5.1100 <M/SEC>
+...  BASED_INTEGER = 2#1001011# <APPLES>
+... END_GROUP = NUMBERS_WITH_UNITS
 ... 
 ... OBJECT = DATES_AND_TIMES
 ...  GROUP = DATES
@@ -166,12 +180,6 @@ an existing PDS label string into a :class:`Label` object.
 ... TEXT3 = ""
 ... 
 ... SYMBOL1 = 'ONE-OR-MORE-CHARS EXCEPT THE APOSTROPHE ON ONE LINE'
-... 
-... GROUP = NUMBERS_WITH_UNITS
-...  INT = 5 <KM/SEC/SEC>
-...  REAL = 5.1100 <M/SEC>
-...  BASED_INTGER = 2#1001011# <APPLES>
-... END_GROUP = NUMBERS_WITH_UNITS
 ... 
 ... ATTR_IDENTIFIER = ATTR_IDENTIFIER_VALUE
 ... 
