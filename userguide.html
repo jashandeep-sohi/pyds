@@ -226,11 +226,12 @@ true if the file is large.</p>
 </div>
 <div class="section" id="label-objects">
 <span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object represents a PDS label and it&#8217;s the main object you&#8217;ll
-be interacting with.
+<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object represents a PDS label.
 You can either instantiate it directly, if you want to create a new PDS label
 or, as <a class="reference internal" href="#parsing"><em>discussed above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
 create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from an existing PDS label.</p>
+<p>Let&#8217;s create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object that we can play around with, which
+contains all of the possible constructs a PDS label can contain:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span><span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
@@ -280,11 +281,11 @@ create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title
 <span class="gp">... </span><span class="s">  THREE = 2001-001</span>
 <span class="gp">... </span><span class="s"> END_GROUP = DATES</span>
 <span class="gp">...</span><span class="s"></span>
-<span class="gp">... </span><span class="s"> GROUP = TIMES</span>
+<span class="gp">... </span><span class="s"> OBJECT = TIMES</span>
 <span class="gp">... </span><span class="s">  ONE = 12:00</span>
 <span class="gp">... </span><span class="s">  TWO = 15:24:12Z</span>
 <span class="gp">... </span><span class="s">  THREE = 01:10:39.4575+07</span>
-<span class="gp">... </span><span class="s"> END_GROUP = TIMES</span>
+<span class="gp">... </span><span class="s"> END_OBJECT = TIMES</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s"> GROUP = DATE_TIMES</span>
 <span class="gp">... </span><span class="s">  ONE = 1990-07-04T12:00</span>
