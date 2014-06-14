@@ -26,7 +26,7 @@ using the :func:`parse` function::
 
 
 You can then interact with this :class:`Label` object to read or manipulate
-properties of the label. See the :ref:`discussion <label_objects>` below.
+properties of the label. See the discussion :ref:`below. <label_objects>`
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
 it's argument or otherwise it will raise a :exc:`ParsingError`::
@@ -103,13 +103,14 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 
 Label Objects
 -------------
-A :class:`Label` object represents a PDS label.
-You can either instantiate it directly, if you want to create a new PDS label
+:class:`Label` objects are used to represent PDS labels.
+They are the main objects you'll be interacting with.
+You can either instantiate one directly, if you want to create a new PDS label
 or, as :ref:`discussed above <parsing>`, use the :func:`parse` function to
-create a :class:`Label` object from an existing PDS label.
+create one from an existing PDS label.
 
-Let's create a :class:`Label` object that we can play around with, which 
-contains all of the possible constructs a PDS label can contain::
+Let's create a :class:`Label` object from a dummy PDS label containing every
+construct a PDS label can contain::
 
  >>> test_label = pds.parse(
  ... b"""
