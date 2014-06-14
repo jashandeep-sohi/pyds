@@ -155,7 +155,7 @@ using the <a class="reference internal" href="pds/pds.parse.html#pds.parse" titl
 </pre></div>
 </div>
 <p>You can then interact with this <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object to read or manipulate
-properties of the label. See the <a class="reference internal" href="#label-objects"><em>discussion</em></a> below.</p>
+properties of the label. See the discussion <a class="reference internal" href="#label-objects"><em>below.</em></a></p>
 <p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a string which <strong>starts</strong> with a valid PDS label as
 it&#8217;s argument or otherwise it will raise a <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>
@@ -226,12 +226,13 @@ true if the file is large.</p>
 </div>
 <div class="section" id="label-objects">
 <span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
-<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object represents a PDS label.
-You can either instantiate it directly, if you want to create a new PDS label
+<p><a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> objects are used to represent PDS labels.
+They are the main objects you&#8217;ll be interacting with.
+You can either instantiate one directly, if you want to create a new PDS label
 or, as <a class="reference internal" href="#parsing"><em>discussed above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
-create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from an existing PDS label.</p>
-<p>Let&#8217;s create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object that we can play around with, which
-contains all of the possible constructs a PDS label can contain:</p>
+create one from an existing PDS label.</p>
+<p>Let&#8217;s create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from a dummy PDS label containing every
+construct a PDS label can contain:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span><span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
