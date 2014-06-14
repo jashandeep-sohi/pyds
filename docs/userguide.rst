@@ -106,11 +106,11 @@ Label Objects
 :class:`Label` objects are used to represent PDS labels.
 They are the main objects you'll be interacting with.
 You can either instantiate one directly, if you want to create a new PDS label
-or, as :ref:`discussed above <parsing>`, use the :func:`parse` function to
+or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
 
 Let's create a :class:`Label` object from a dummy PDS label containing every
-construct a PDS label can contain::
+construct that a PDS label can contain::
 
  >>> test_label = pds.parse(
  ... b"""
@@ -195,5 +195,9 @@ construct a PDS label can contain::
  >>> test_label
  <pds.Label object at 0x...>
 
+A PDS label is made up of a series of statements that can be of three types:
+attribute assignment statements, group statements and object statements.
+Attribute assignment statements, as the name suggests, assign values to
+attributes, while group and object statements group other statements.
 
 .. vim: tabstop=1 expandtab
