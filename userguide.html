@@ -231,8 +231,8 @@ They are the main objects you&#8217;ll be interacting with.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
 create one from an existing PDS label.</p>
-<p>Let&#8217;s create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from a dummy PDS label containing every
-construct that a PDS label can contain:</p>
+<p>Let&#8217;s create a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object that we can play around with from a PDS
+label containing every possible construct that a PDS label can contain:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span><span class="n">b</span><span class="s">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="s">PDS_VERSION_ID = PDS3</span>
@@ -241,6 +241,8 @@ construct that a PDS label can contain:</p>
 <span class="gp">... </span><span class="s">NUMBER_OF_DAYS = 2</span>
 <span class="gp">... </span><span class="s">RATIO_OF_X = 2.0</span>
 <span class="gp">... </span><span class="s">ID = &quot;lk32j4kajsdk1asdadd8asd8&quot;</span>
+<span class="gp">...</span><span class="s"></span>
+<span class="gp">... </span><span class="s">NAMESPACED:ATTR = 200</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">^POINT_TO_X = 500</span>
 <span class="gp">... </span><span class="s">^POINT_TO_Y = &quot;blha.txt&quot;</span>
@@ -308,7 +310,7 @@ construct that a PDS label can contain:</p>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">A_1D_SEQUENCE = (0.2056, 0.0068, 0.0167, 0.0934, 0.0483, 0.0560)</span>
 <span class="gp">... </span><span class="s">A_2D_SEQUENCE = ((0, 1008), (1009, 1025), (1026, 1043))</span>
-<span class="gp">... </span><span class="s">A_SET = { &#39;RED&#39;, &#39;BLUE&#39;, &#39;GREEN&#39;, &#39;HAZEL&#39; }</span>
+<span class="gp">... </span><span class="s">A_SET = {&#39;RED&#39;, &#39;BLUE&#39;, &#39;GREEN&#39;, &#39;HAZEL&#39;}</span>
 <span class="gp">...</span><span class="s"></span>
 <span class="gp">... </span><span class="s">END</span>
 <span class="gp">... </span><span class="s">&quot;&quot;&quot;</span>
@@ -317,10 +319,6 @@ construct that a PDS label can contain:</p>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>A PDS label is made up of a series of statements that can be of three types:
-attribute assignment statements, group statements and object statements.
-Attribute assignment statements, as the name suggests, assign values to
-attributes, while group and object statements group other statements.</p>
 </div>
 </div>
 
