@@ -109,8 +109,8 @@ You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
 
-Let's create a :class:`Label` object from a dummy PDS label containing every
-construct that a PDS label can contain::
+Let's create a :class:`Label` object that we can play around with from a PDS
+label containing every possible construct that a PDS label can contain::
 
  >>> test_label = pds.parse(
  ... b"""
@@ -121,6 +121,8 @@ construct that a PDS label can contain::
  ... RATIO_OF_X = 2.0
  ... ID = "lk32j4kajsdk1asdadd8asd8"
  ... 
+ ... NAMESPACED:ATTR = 200
+ ...
  ... ^POINT_TO_X = 500
  ... ^POINT_TO_Y = "blha.txt"
  ... 
@@ -187,7 +189,7 @@ construct that a PDS label can contain::
  ... 
  ... A_1D_SEQUENCE = (0.2056, 0.0068, 0.0167, 0.0934, 0.0483, 0.0560)
  ... A_2D_SEQUENCE = ((0, 1008), (1009, 1025), (1026, 1043))
- ... A_SET = { 'RED', 'BLUE', 'GREEN', 'HAZEL' }
+ ... A_SET = {'RED', 'BLUE', 'GREEN', 'HAZEL'}
  ... 
  ... END
  ... """
@@ -195,9 +197,8 @@ construct that a PDS label can contain::
  >>> test_label
  <pds.Label object at 0x...>
 
-A PDS label is made up of a series of statements that can be of three types:
-attribute assignment statements, group statements and object statements.
-Attribute assignment statements, as the name suggests, assign values to
-attributes, while group and object statements group other statements.
+ 
+
+
 
 .. vim: tabstop=1 expandtab
