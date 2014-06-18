@@ -219,8 +219,8 @@ And finally remove statements from it::
  True
  >>> test_label.get(0) == test_stmt_1
  False
- >>> test_label.pop(-1)
- <pds.Attribute object at 0x...>
+ >>> test_label.pop(-1) == test_stmt_2
+ True
  >>> test_label.get(-1) == test_stmt_2
  False
 
