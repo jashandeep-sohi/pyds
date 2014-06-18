@@ -180,28 +180,29 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 
 Label Objects
 -------------
-A :class:`Label` is analogous to a PDS label.
-It's a :obj:`list` like container for the statements of a PDS label.
+A :class:`Label` object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
 
-You can add statements to it, using the :meth:`Label.insert`
-and :meth:`Label.append` methods::
+A :class:`Label` is a container for a sequence of statements.
+It implements a list like interface for manipulating the statements it contains.
+For example, you can add statements to it using :meth:`Label.insert`
+and :meth:`Label.append`::
  
  >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
  >>> test_stmt_2 = pds.Attribute("test2", pds.Integer(10))
  >>> test_label.insert(0, test_stmt_1)
  >>> test_label.append(test_stmt_2)
 
-Or retrieve statements from it, using the :meth:`Label.get` method::
+Or retrieve statements from it using :meth:`Label.get`::
 
  >>> test_label.get(0) == test_stmt_1
  True
  >>> test_label.get(-1) == test_stmt_2
  True
  
-And remove statements from it, using the :meth:`Label.pop` method::
+And remove statements from it using :meth:`Label.pop`::
  
  >>> test_label.pop(0) == test_stmt_1
  True
@@ -211,9 +212,6 @@ And remove statements from it, using the :meth:`Label.pop` method::
  True
  >>> test_label.get(-1) == test_stmt_2
  False
-
-
-
 
 
 .. vim: tabstop=1 expandtab
