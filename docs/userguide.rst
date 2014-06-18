@@ -181,12 +181,12 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 Label Objects
 -------------
 A :class:`Label` is analogous to a PDS label.
-It's a :obj:`list`-like container for the statements of a PDS label.
+It's a :obj:`list` like container for the statements of a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
 
-To add statements to it, use the :meth:`Label.insert`
+You can add statements to it, using the :meth:`Label.insert`
 and :meth:`Label.append` methods::
  
  >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
@@ -194,14 +194,14 @@ and :meth:`Label.append` methods::
  >>> test_label.insert(0, test_stmt_1)
  >>> test_label.append(test_stmt_2)
 
-To retrieve statements from it, use the :meth:`Label.get` method::
+Or retrieve statements from it, using the :meth:`Label.get` method::
 
  >>> test_label.get(0) == test_stmt_1
  True
  >>> test_label.get(-1) == test_stmt_2
  True
  
-And to remove statements from it, use the :meth:`Label.pop` method::
+And remove statements from it, using the :meth:`Label.pop` method::
  
  >>> test_label.pop(0) == test_stmt_1
  True
