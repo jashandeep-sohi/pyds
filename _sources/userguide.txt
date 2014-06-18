@@ -214,6 +214,7 @@ Retrieve statements from it::
  True
  
 And finally remove statements from it::
+ 
  >>> test_label.pop(0) == test_stmt_1
  True
  >>> test_label.get(0) == test_stmt_1
