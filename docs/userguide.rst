@@ -15,103 +15,6 @@ To work with an existing PDS label, first parse it into a :class:`Label` object
 using the :func:`parse` function::
 
  >>> import pds
- >>> pds.parse(
- ...  b"""
- ...  PDS_VERSION_ID = PDS3
- ...  TEST = 5
- ...  END
- ...  """
- ... )
- <pds.Label object at 0x...>
-
-
-You can then interact with this :class:`Label` object to read or manipulate
-properties of the label. See the discussion :ref:`below. <label_objects>`
-
-:func:`parse` must be given a string which **starts** with a valid PDS label as 
-it's argument or otherwise it will raise a :exc:`ParsingError`::
-
- >>> pds.parse(b"")
- Traceback (most recent call last):
-   ...
- pds.ParsingError: unexpected end
- 
- >>> pds.parse(b"blha blha blha")
- Traceback (most recent call last):
-   ...
- pds.ParsingError: expected equal sign instead of 'blha'
-
-Additional data may **follow** the PDS label in the string.
-This is useful when PDS labels are prepended to the data products they 
-describe::
-
- >>> pds.parse(
- ...  b"""
- ...  PDS_VERSION_ID = PDS3
- ...  TEST = 5
- ...  END
- ...  Blha Blha Blha.
- ...  All of this is ignored. It could be the data product, etc.
- ...  """
- ... )
- <pds.Label object at 0x...>
-
-
-.. note::
-   
-   We have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
-   the :func:`parse` function. This is because :func:`parse` cannot operate on a
-   :obj:`str` string (PDS labels may only contain *ascii* characters)::
-
-    >>> pds.parse(
-    ...  """
-    ...  PDS_VERSION_ID = PDS3
-    ...  TEST = 5
-    ...  END
-    ...  """
-    ... )
-    Traceback (most recent call last):
-      ...
-    TypeError: can't use a bytes pattern on a string-like object
-
-
-In the examples above, we have been parsing PDS labels provided explicitly in a
-string (i.e. ``b"..."``), however PDS labels are usually stored in files.
-We could parse a PDS label stored in a file using the same approach as above::
-
- >>> file_obj = open("../data/test.img", "r+b")
- >>> file_bytes = file_obj.read()
- >>> pds.parse(file_bytes)
- <pds.Label object at 0x...>
-
-
-However, this is extremely inefficient and results in high memory usage because
-the entire file is first read into memory and then parsed. This is especially
-true if the file is large.
-
-A more efficient way of parsing a PDS label stored in a file, is to use a 
-:obj:`mmap.mmap` (memory mapped file) object::
-
- >>> import mmap
- >>> file_obj = open("../data/test.img", "r+b")
- >>> mmap_file = mmap.mmap(file_obj.fileno(), 0)
- >>> pds.parse(mmap_file)
- <pds.Label object at 0x...>
-
-
-.. _label_objects:
-
-Label Objects
--------------
-A :class:`Label` object represents a PDS label.
-It's the main object you'll be interacting with.
-You can either instantiate one directly, if you want to create a new PDS label
-or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
-create one from an existing PDS label.
-
-Let's create a :class:`Label` object that we can play around with from a PDS
-label containing every possible construct that a PDS label can contain::
-
  >>> test_label = pds.parse(
  ... b"""
  ... PDS_VERSION_ID = PDS3
@@ -198,22 +101,107 @@ label containing every possible construct that a PDS label can contain::
  <pds.Label object at 0x...>
 
 
-A :class:`Label` is a list-like container for the statements of a PDS label.
-You can add statements to it::
+You can then interact with this :class:`Label` object to read or manipulate
+properties of the label. See the discussion :ref:`below<label_objects>` for
+details.
+
+:func:`parse` must be given a string which **starts** with a valid PDS label as 
+it's argument or otherwise it will raise a :exc:`ParsingError`::
+
+ >>> pds.parse(b"")
+ Traceback (most recent call last):
+   ...
+ pds.ParsingError: unexpected end
+ 
+ >>> pds.parse(b"blha blha blha")
+ Traceback (most recent call last):
+   ...
+ pds.ParsingError: expected equal sign instead of 'blha'
+
+Additional data may **follow** the PDS label in the string.
+This is useful when PDS labels are prepended to the data products they 
+describe::
+
+ >>> pds.parse(
+ ...  b"""
+ ...  PDS_VERSION_ID = PDS3
+ ...  TEST = 5
+ ...  END
+ ...  Blha Blha Blha.
+ ...  All of this is ignored. It could be the data product, etc.
+ ...  """
+ ... )
+ <pds.Label object at 0x...>
+
+
+.. note::
+   
+   We have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
+   the :func:`parse` function. This is because :func:`parse` cannot operate on a
+   :obj:`str` string (PDS labels may only contain *ascii* characters)::
+
+    >>> pds.parse(
+    ...  """
+    ...  PDS_VERSION_ID = PDS3
+    ...  TEST = 5
+    ...  END
+    ...  """
+    ... )
+    Traceback (most recent call last):
+      ...
+    TypeError: can't use a bytes pattern on a string-like object
+
+
+In the examples above, we have been parsing PDS labels provided explicitly in a
+string (i.e. ``b"..."``), however PDS labels are usually stored in files.
+We could parse a PDS label stored in a file using the same approach as above::
+
+ >>> file_obj = open("../data/test.img", "r+b")
+ >>> file_bytes = file_obj.read()
+ >>> pds.parse(file_bytes)
+ <pds.Label object at 0x...>
+
+
+However, this is extremely inefficient and results in high memory usage because
+the entire file is first read into memory and then parsed. This is especially
+true if the file is large.
+
+A more efficient way of parsing a PDS label stored in a file, is to use a 
+:obj:`mmap.mmap` (memory mapped file) object::
+
+ >>> import mmap
+ >>> file_obj = open("../data/test.img", "r+b")
+ >>> mmap_file = mmap.mmap(file_obj.fileno(), 0)
+ >>> pds.parse(mmap_file)
+ <pds.Label object at 0x...>
+
+
+.. _label_objects:
+
+Label Objects
+-------------
+A :class:`Label` is analogous to a PDS label.
+It's a :obj:`list`-like container for the statements of a PDS label.
+You can either instantiate one directly, if you want to create a new PDS label
+or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
+create one from an existing PDS label.
+
+To add statements to it, use the :meth:`Label.insert`
+and :meth:`Label.append` methods::
  
  >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
  >>> test_stmt_2 = pds.Attribute("test2", pds.Integer(10))
  >>> test_label.insert(0, test_stmt_1)
  >>> test_label.append(test_stmt_2)
 
-Retrieve statements from it::
+To retrieve statements from it, use the :meth:`Label.get` method::
 
  >>> test_label.get(0) == test_stmt_1
  True
  >>> test_label.get(-1) == test_stmt_2
  True
  
-And finally remove statements from it::
+And to remove statements from it, use the :meth:`Label.pop` method::
  
  >>> test_label.pop(0) == test_stmt_1
  True
@@ -223,5 +211,9 @@ And finally remove statements from it::
  True
  >>> test_label.get(-1) == test_stmt_2
  False
+
+
+
+
 
 .. vim: tabstop=1 expandtab
