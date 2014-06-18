@@ -339,8 +339,8 @@ You can add statements to it:</p>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_1</span>
 <span class="go">False</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_2</span>
+<span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_2</span>
 <span class="go">False</span>
 </pre></div>
