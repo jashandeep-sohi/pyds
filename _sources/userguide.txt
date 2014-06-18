@@ -103,8 +103,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 
 Label Objects
 -------------
-:class:`Label` objects are used to represent PDS labels.
-They are the main objects you'll be interacting with.
+A :class:`Label` object represents a PDS label.
+It's the main object you'll be interacting with.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
@@ -197,8 +197,30 @@ label containing every possible construct that a PDS label can contain::
  >>> test_label
  <pds.Label object at 0x...>
 
+
+A :class:`Label` is a list-like container for the statements of a PDS label.
+You can add statements to it::
  
+ >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
+ >>> test_stmt_2 = pds.Attribute("test2", pds.Integer(10))
+ >>> test_label.insert(0, test_stmt_1)
+ >>> test_label.append(test_stmt_2)
 
+Retrieve statements from it::
 
+ >>> test_label.get(0) == test_stmt_1
+ True
+ >>> test_label.get(-1) == test_stmt_2
+ True
+ 
+And finally remove statements from it::
+ >>> test_label.pop(0) == test_stmt_1
+ True
+ >>> test_label.get(0) == test_stmt_1
+ False
+ >>> test_label.pop(-1)
+ <pds.Attribute object at 0x...>
+ >>> test_label.get(-1) == test_stmt_2
+ False
 
 .. vim: tabstop=1 expandtab

@@ -226,8 +226,8 @@ true if the file is large.</p>
 </div>
 <div class="section" id="label-objects">
 <span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> objects are used to represent PDS labels.
-They are the main objects you&#8217;ll be interacting with.
+<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object represents a PDS label.
+It&#8217;s the main object you&#8217;ll be interacting with.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
 create one from an existing PDS label.</p>
@@ -319,6 +319,35 @@ label containing every possible construct that a PDS label can contain:</p>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 </pre></div>
 </div>
+<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> is a list-like container for the statements of a PDS label.
+You can add statements to it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">test_stmt_1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_stmt_2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Retrieve statements from it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_2</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>And finally remove statements from it::</dt>
+<dd><div class="first last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_1</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_1</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="n">test_stmt_2</span>
+<span class="go">False</span>
+</pre></div>
+</div>
+</dd>
+</dl>
 </div>
 </div>
 
