@@ -14,7 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from weakref import WeakValueDictionary as _WeakValueDict, proxy as _weak_proxy
+from weakref import WeakValueDictionary as _WeakValueDict, ref as _weak_ref
+from weakref import ref as _weak_ref, proxy as _weak_proxy
 from re import compile as _re_compile
 from collections.abc import MutableSet as _MutableSet
 from collections.abc import MutableSequence as _MutableSequence
@@ -44,7 +45,7 @@ class _DoubleLinkedNodes(object):
     self.root_hard = _DoubleLinkNode()
     self.root = _weak_proxy(self.root_hard)
     self.root.next = self.root
-    self.root.prev = self.root
+    self.root.prev = _weak_ref(self.root_hard)
     self.length = 0
 
   def insert_node(self, node, index): 
@@ -54,17 +55,16 @@ class _DoubleLinkedNodes(object):
     node.next = node_after
     node.prev = node_before
     
-    node_before.next = node
-    node_after.prev = _weak_proxy(node)
+    node_before().next = node
+    node_after.prev = _weak_ref(node)
     
     self.length += 1
-    return node
   
   def get_node(self, index):
     if index > len(self)/2:
       node = self.root
       for _ in range(len(self)-index):
-        node = node.prev
+        node = node.prev()
     else:
       node = self.root.next
       for _ in range(index):
@@ -74,11 +74,10 @@ class _DoubleLinkedNodes(object):
   def remove_node(self, node):
     node_before, node_after = node.prev, node.next
     
-    node_before.next = node_after
+    node_before().next = node_after
     node_after.prev = node_before
     
     self.length -= 1
-    return node
   
   def __len__(self):
     return self.length 
@@ -112,7 +111,8 @@ class Statements(object, metaclass = abc.ABCMeta):
                
   def _insert(self, index, statement):
     index = max(0, len(self) + index) if index < 0 else min(len(self), index)
-    new_node = self._nodes.insert_node(_DoubleLinkNode(statement), index)
+    new_node = _DoubleLinkNode(statement)
+    self._nodes.insert_node(new_node, index)
     self._dict[statement.identifier] = new_node
   
   def _append(self, statement):
@@ -224,7 +224,8 @@ class Statements(object, metaclass = abc.ABCMeta):
       raise IndexError("index out of range")
     else:
       node = self._nodes.get_node(index)
-      return self._nodes.remove_node(node).value
+      self._nodes.remove_node(node)
+      return node.value
   
   def __setitem__(self, key, value):
     """
@@ -318,7 +319,8 @@ class Statements(object, metaclass = abc.ABCMeta):
       
         If a statement with an identifier equal to `key` does not exist.
     """
-    node = self._nodes.remove_node(self._dict[key.upper()])
+    node = self._dict[key.upper()]
+    self._nodes.remove_node(node)
     del node
   
   def __contains__(self, key):
@@ -344,7 +346,7 @@ class Statements(object, metaclass = abc.ABCMeta):
     
     Called by :func:`iter`.
     """
-    current_node = self._nodes.root.next
+    current_node = self._nodes.root().next
     while current_node is not self._nodes.root:
       yield current_node.value
       current_node = current_node.next
@@ -356,10 +358,10 @@ class Statements(object, metaclass = abc.ABCMeta):
     
     Called by :func:`reversed`.
     """
-    current_node = self._nodes.root.prev
+    current_node = self._nodes.root().prev()
     while current_node is not self._nodes.root:
       yield current_node.value
-      current_node = current_node.prev
+      current_node = current_node.prev()
     
   def __len__(self):
     """
@@ -578,7 +580,7 @@ class Statement(object, metaclass = abc.ABCMeta):
     
   @abc.abstractmethod
   def __init__(self, identifier, value, validate_identifier = True):    
-    if validate_identifier and not self.VALID_IDENT_RE.fullmatch(identifier):
+    if validate_identifier and not self._VALID_IDENT_RE.fullmatch(identifier):
       raise ValueError("invalid identifier {!r}".format(identifier))
     
     self.identifier = identifier.upper()
@@ -971,7 +973,7 @@ class Integer(Numeric):
         Read-only.
   """
   
-  def __init__(self, value, units = ""):
+  def __init__(self, value, units = None):
     super().__init__(int(value), units)
     
 class BasedInteger(Numeric):
@@ -1027,7 +1029,7 @@ class BasedInteger(Numeric):
         Read-only.
   """
     
-  def __init__(self, radix, digits, units = ""):
+  def __init__(self, radix, digits, units = None):
     radix = int(radix)
     if radix < 2 or radix > 16:
       raise ValueError("radix is not between 2 and 16")
@@ -1081,7 +1083,7 @@ class Real(Numeric):
         Read-only.
   """
   
-  def __init__(self, value, units = ""):
+  def __init__(self, value, units = None):
     super().__init__(float(value), units)
     
 
