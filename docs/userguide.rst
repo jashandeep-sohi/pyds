@@ -161,7 +161,6 @@ We could parse a PDS label stored in a file using the same approach as above::
  >>> pds.parse(file_bytes)
  <pds.Label object at 0x...>
 
-
 However, this is extremely inefficient and results in high memory usage because
 the entire file is first read into memory and then parsed. This is especially
 true if the file is large.
@@ -176,6 +175,59 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  <pds.Label object at 0x...>
 
 
+Statements
+----------
+A PDS label is made up of a series of statements.
+The statements can be of different types and are represented in this module
+by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
+
+.. rubric:: Attribute
+
+An :class:`Attribute` represents an attribute assignment statement.
+As the name suggests, this type of statement assigns a value to an attribute.
+
+Each :class:`Attribute` has an identifier and a value::
+
+ >>> pds.Attribute("test_attr_1", pds.Integer(5))
+ <pds.Attribute object at 0x...>
+
+The value must be an instance of one of the Value objects discussed below::
+
+ >>> pds.Attribute("test_attr_1", 5)
+ Traceback (most recent call last):
+ ...
+ TypeError: value is not an instance of Value
+ 
+The identifier must be a valid PDS identifier
+(i.e. ``letter[letter|digit|_letter|_digit]*``)::
+
+ >>> pds.Attribute("12_not_valid", pds.Integer(5))
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid identifier '12_not_valid'
+
+The identifier can also be *namespaced* by preceding it with another
+identifier and a colon::
+
+ >>> pds.Attribute("namespace_identifier:test_attr_1", pds.Integer(5))
+ <pds.Attribute object at 0x...>
+
+Although the PDS specification distinguishes between a *pointer statement* and
+an attribute assignment statement, this module does not. A pointer statement
+can also be represented with an :class:`Attribute` by preceding the identifier
+with a caret (``^``)::
+
+ >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
+ <pds.Attribute object at 0x...>
+
+.. rubric:: Group
+
+.. rubric:: Object
+
+
+Values
+------
+
 .. _label_objects:
 
 Label Objects
@@ -186,7 +238,9 @@ or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
 create one from an existing PDS label.
 
 A :class:`Label` is a container for a sequence of statements.
-It implements a list like interface for manipulating the statements it contains.
+
+:class:`Label` implements a list like interface for manipulating the statements
+it contains.
 For example, you can add statements to it using :meth:`Label.insert`
 and :meth:`Label.append`::
  

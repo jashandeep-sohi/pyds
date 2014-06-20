@@ -19,7 +19,7 @@ from distutils.core import setup
 if __name__ == "__main__":
   setup(
     name = "pds",
-    version = "0.1.0",
+    version = "0.2.0",
     description = "A Python module to read, write and manipulate PDS labels.",
     author = "Jashandeep Sohi",
     author_email = "jashandeep.s.sohi@gmail.com",
