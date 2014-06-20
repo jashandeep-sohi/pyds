@@ -208,6 +208,8 @@ as such internally::
  Traceback (most recent call last):
   ...
  ValueError: invalid identifier '12_not_valid'
+ >>> pds.Attribute("THIS_is_VaLiD", pds.Integer(5))
+ <pds.Attribute object at 0x...>
 
 The identifier can also be *namespaced* by preceding it with another
 identifier and a colon::
