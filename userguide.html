@@ -69,6 +69,8 @@
 </li>
 <li class="toctree-l1 current"><a class="current reference internal" href="">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#parsing">Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statements">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#values">Values</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#label-objects">Label Objects</a></li>
 </ul>
 </li>
@@ -301,14 +303,63 @@ true if the file is large.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="statements">
+<h2>Statements<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h2>
+<p>A PDS label is made up of a series of statements.
+The statements can be of different types and are represented in this module
+by instances of either an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
+<p class="rubric">Attribute</p>
+<p>An <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> represents an attribute assignment statement.
+As the name suggests, this type of statement assigns a value to an attribute.</p>
+<p>Each <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> has an identifier and a value:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>The value must be an instance of one of the Value objects discussed below:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+<span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">value is not an instance of Value</span>
+</pre></div>
+</div>
+<p>The identifier must be a valid PDS identifier
+(i.e. <tt class="docutils literal"><span class="pre">letter[letter|digit|_letter|_digit]*</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;12_not_valid&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;12_not_valid&#39;</span>
+</pre></div>
+</div>
+<p>The identifier can also be <em>namespaced</em> by preceding it with another
+identifier and a colon:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;namespace_identifier:test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Although the PDS specification distinguishes between a <em>pointer statement</em> and
+an attribute assignment statement, this module does not. A pointer statement
+can also be represented with an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> by preceding the identifier
+with a caret (<tt class="docutils literal"><span class="pre">^</span></tt>):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;^THIS_POINT_TO_SOMETHING&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p class="rubric">Group</p>
+<p class="rubric">Object</p>
+</div>
+<div class="section" id="values">
+<h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="label-objects">
 <span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
 create one from an existing PDS label.</p>
-<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> is a container for a sequence of statements.
-It implements a list like interface for manipulating the statements it contains.
+<p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> is a container for a sequence of statements.</p>
+<p><a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> implements a list like interface for manipulating the statements
+it contains.
 For example, you can add statements to it using <a class="reference internal" href="pds/pds.Label.html#pds.Label.insert" title="pds.Label.insert"><tt class="xref py py-meth docutils literal"><span class="pre">Label.insert()</span></tt></a>
 and <a class="reference internal" href="pds/pds.Label.html#pds.Label.append" title="pds.Label.append"><tt class="xref py py-meth docutils literal"><span class="pre">Label.append()</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
