@@ -342,13 +342,16 @@ identifier and a colon:</p>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>Although the PDS specification distinguishes between a <em>pointer statement</em> and
-an attribute assignment statement, this module does not. A pointer statement
-is also represented with an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> by preceding the identifier
-with a caret (<tt class="docutils literal"><span class="pre">^</span></tt>):</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;^THIS_POINT_TO_SOMETHING&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>Although the PDS specification distinguishes between a <em>pointer statement</em>
+and an attribute assignment statement, this module does not.
+A pointer statement is also represented with an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> by
+preceding the identifier with a caret (<tt class="docutils literal"><span class="pre">^</span></tt>):</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;^THIS_POINT_TO_SOMETHING&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
 </pre></div>
+</div>
 </div>
 <p>The identifier and value of an existing <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> can accessed using
 <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.identifier" title="pds.Attribute.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a>, respectively:</p>

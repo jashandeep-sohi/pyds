@@ -217,13 +217,15 @@ identifier and a colon::
  >>> pds.Attribute("namespace_identifier:test_attr_1", pds.Integer(5))
  <pds.Attribute object at 0x...>
 
-Although the PDS specification distinguishes between a *pointer statement* and
-an attribute assignment statement, this module does not. A pointer statement
-is also represented with an :class:`Attribute` by preceding the identifier
-with a caret (``^``)::
+.. note ::
 
- >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
- <pds.Attribute object at 0x...>
+   Although the PDS specification distinguishes between a *pointer statement*
+   and an attribute assignment statement, this module does not.
+   A pointer statement is also represented with an :class:`Attribute` by
+   preceding the identifier with a caret (``^``)::
+
+    >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
+    <pds.Attribute object at 0x...>
  
 The identifier and value of an existing :class:`Attribute` can accessed using
 :attr:`Attribute.identifier` and :attr:`Attribute.value`, respectively::
