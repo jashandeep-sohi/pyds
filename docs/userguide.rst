@@ -186,9 +186,10 @@ by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
 An :class:`Attribute` represents an attribute assignment statement.
 As the name suggests, this type of statement assigns a value to an attribute.
 
-Each :class:`Attribute` has an identifier and a value::
+Each :class:`Attribute` must be instantiated with an identifier and a value::
 
- >>> pds.Attribute("test_attr_1", pds.Integer(5))
+ >>> test_attr_1 = pds.Attribute("test_attr_1", pds.Integer(5))
+ >>> test_attr_1
  <pds.Attribute object at 0x...>
 
 The value must be an instance of one of the Value objects discussed below::
@@ -199,7 +200,8 @@ The value must be an instance of one of the Value objects discussed below::
  TypeError: value is not an instance of Value
  
 The identifier must be a valid PDS identifier
-(i.e. ``letter[letter|digit|_letter|_digit]*``)::
+(i.e. ``letter[letter|digit|_letter|_digit]*``). It can be a lowercased
+:obj:`str`, but is stored internally as a uppercased :obj:`str`::
 
  >>> pds.Attribute("12_not_valid", pds.Integer(5))
  Traceback (most recent call last):
@@ -214,11 +216,19 @@ identifier and a colon::
 
 Although the PDS specification distinguishes between a *pointer statement* and
 an attribute assignment statement, this module does not. A pointer statement
-can also be represented with an :class:`Attribute` by preceding the identifier
+is also represented with an :class:`Attribute` by preceding the identifier
 with a caret (``^``)::
 
  >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
  <pds.Attribute object at 0x...>
+ 
+The identifier and value of an existing :class:`Attribute` can accessed using
+:attr:`Attribute.identifier` and :attr:`Attribute.value` respectively::
+
+ >>> test_attr_1.identifier == "TEST_ATTR_1"
+ True
+ >>> test_attr_1.value
+ <pds.Integer object at 0x...>
 
 .. rubric:: Group
 
