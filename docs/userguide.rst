@@ -200,8 +200,9 @@ The value must be an instance of one of the Value objects discussed below::
  TypeError: value is not an instance of Value
  
 The identifier must be a valid PDS identifier
-(i.e. ``letter[letter|digit|_letter|_digit]*``). It can be a lowercased
-:obj:`str`, but is stored internally as a uppercased :obj:`str`::
+(i.e. ``letter[letter|digit|_letter|_digit]*``).
+Case does not matter, since it's converted to a upper case string and stored
+as such internally::
 
  >>> pds.Attribute("12_not_valid", pds.Integer(5))
  Traceback (most recent call last):
@@ -223,7 +224,7 @@ with a caret (``^``)::
  <pds.Attribute object at 0x...>
  
 The identifier and value of an existing :class:`Attribute` can accessed using
-:attr:`Attribute.identifier` and :attr:`Attribute.value` respectively::
+:attr:`Attribute.identifier` and :attr:`Attribute.value`, respectively::
 
  >>> test_attr_1.identifier == "TEST_ATTR_1"
  True
