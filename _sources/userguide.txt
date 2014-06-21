@@ -183,8 +183,8 @@ by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
 
 .. rubric:: Attribute
 
-An :class:`Attribute` object represents an attribute assignment statement,
-which assigns some value to an attribute.
+An attribute assignment statement, which assigns some value to an attribute,
+is represented by an :class:`Attribute` object.
 
 It is instantiated with an identifier and a value::
 
@@ -192,7 +192,7 @@ It is instantiated with an identifier and a value::
  >>> test_attr_1
  <pds.Attribute object at 0x...>
 
-The value must be an instance of one of the Value objects discussed below::
+The value must be an instance of one of the value types discussed below::
 
  >>> pds.Attribute("test_attr_1", 5)
  Traceback (most recent call last):
@@ -201,8 +201,7 @@ The value must be an instance of one of the Value objects discussed below::
  
 The identifier must be a valid PDS identifier
 (i.e. ``letter[letter|digit|_letter|_digit]*``).
-Case does not matter, since it's converted to an upper case string and stored
-as such internally::
+It is converted to an upper case string and stored as such internally::
 
  >>> pds.Attribute("12_not_valid", pds.Integer(5))
  Traceback (most recent call last):
@@ -238,8 +237,8 @@ respectively::
 
 .. rubric:: Group
 
-A :class:`Group` object represents a group statement, which groups other
-attribute assignment statements.
+A group statement, which groups other attribute assignment statements,
+is represented by a :class:`Group` object.
 
 It is instantiated with an identifier and a :class:`GroupStatements` object::
 
@@ -265,9 +264,20 @@ only contain :class:`Attribute` objects::
   ...
  TypeError: statement is not an instance of Attribute
 
+The identifier must be a valid PDS identifier
+(i.e. ``letter[letter|digit|_letter|_digit]*``).
+It is converted to an upper case string and stored as such internally:
 
-
-
+ >>> pds.Group(
+ ...  "123 this is not valid",
+ ...  pds.GroupStatements(
+ ...   pds.Attribute("nested_statement_1", pds.Integer(5))
+ ...  )
+ ... )
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid identifier '123 this is not valid'
+ 
 
 .. rubric:: Object
 

@@ -309,15 +309,15 @@ true if the file is large.</p>
 Statements can be of different types and are represented in this module
 by instances of either an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 <p class="rubric">Attribute</p>
-<p>An <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object represents an attribute assignment statement,
-which assigns some value to an attribute.</p>
+<p>An attribute assignment statement, which assigns some value to an attribute,
+is represented by an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object.</p>
 <p>It is instantiated with an identifier and a value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>The value must be an instance of one of the Value objects discussed below:</p>
+<p>The value must be an instance of one of the value types discussed below:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
@@ -326,8 +326,7 @@ which assigns some value to an attribute.</p>
 </div>
 <p>The identifier must be a valid PDS identifier
 (i.e. <tt class="docutils literal"><span class="pre">letter[letter|digit|_letter|_digit]*</span></tt>).
-Case does not matter, since it&#8217;s converted to an upper case string and stored
-as such internally:</p>
+It is converted to an upper case string and stored as such internally:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;12_not_valid&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
@@ -363,8 +362,8 @@ respectively:</p>
 </pre></div>
 </div>
 <p class="rubric">Group</p>
-<p>A <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object represents a group statement, which groups other
-attribute assignment statements.</p>
+<p>A group statement, which groups other attribute assignment statements,
+is represented by a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object.</p>
 <p>It is instantiated with an identifier and a <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
 <span class="gp">... </span> <span class="s">&quot;test_attr_2&quot;</span><span class="p">,</span>
@@ -387,6 +386,20 @@ only contain <a class="reference internal" href="pds/pds.Attribute.html#pds.Attr
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
 <span class="gr">TypeError</span>: <span class="n">statement is not an instance of Attribute</span>
+</pre></div>
+</div>
+<p>The identifier must be a valid PDS identifier
+(i.e. <tt class="docutils literal"><span class="pre">letter[letter|digit|_letter|_digit]*</span></tt>).
+It is converted to an upper case string and stored as such internally:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s">&quot;123 this is not valid&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;123 this is not valid&#39;</span>
 </pre></div>
 </div>
 <p class="rubric">Object</p>
