@@ -334,6 +334,20 @@ There is no limit to the depth to which object statements may be nested::
  ...  )
  ... )
  <pds.ObjectStatements object at 0x...>
+ 
+The identifier must be a valid PDS identifier
+(i.e. ``letter[letter|digit|_letter|_digit]*``).
+It is converted to an upper case string and stored as such internally:
+
+ >>> pds.Object(
+ ...  "123 this is not valid",
+ ...  pds.ObjectStatements(
+ ...   pds.Attribute("nested_attr_1", pds.Integer(5))
+ ...  )
+ ... )
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid identifier '123 this is not valid'
 
 Values
 ------
