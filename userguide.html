@@ -266,8 +266,8 @@ describe:</p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <p>We have been providing a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> object (i.e. <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>) to
-the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function. This is because <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> cannot operate on a
-<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> object (PDS labels may only contain <em>ascii</em> characters):</p>
+the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function because it cannot operate on a <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>
+object.:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="sd">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="sd"> PDS_VERSION_ID = PDS3</span>
@@ -370,7 +370,7 @@ is represented by a <a class="reference internal" href="pds/pds.Group.html#pds.G
 <span class="gp">... </span> <span class="s">&quot;test_attr_2&quot;</span><span class="p">,</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.122</span><span class="p">))</span>
 <span class="gp">... </span> <span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span>
@@ -432,7 +432,7 @@ it contains.
 For example, you can add statements to it using <a class="reference internal" href="pds/pds.Label.html#pds.Label.insert" title="pds.Label.insert"><tt class="xref py py-meth docutils literal"><span class="pre">Label.insert()</span></tt></a>
 and <a class="reference internal" href="pds/pds.Label.html#pds.Label.append" title="pds.Label.append"><tt class="xref py py-meth docutils literal"><span class="pre">Label.append()</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_stmt_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">test_stmt_1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">test_stmt_2</span><span class="p">)</span>
 </pre></div>
