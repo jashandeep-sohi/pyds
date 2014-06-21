@@ -246,14 +246,15 @@ It is instantiated with an identifier and a :class:`GroupStatements` object::
  >>> test_attr_2 = pds.Group(
  ...  "test_attr_2",
  ...  pds.GroupStatements(
- ...   pds.Attribute("nested_statement_1", pds.Integer(5))
+ ...   pds.Attribute("nested_statement_1", pds.Integer(5)),
+ ...   pds.Attribute("nested_statement_2", pds.Integer(5))
  ...  )
  ... )
  >>> test_attr_2
  <pds.Group object at 0x...>
  
-A :class:`GroupStatements` object is a container for the statements belonging
-to a group. It behaves just like a :class:`Label` object, except that it can
+A :class:`GroupStatements` object is a container for the nested statements of
+a group. It behaves just like a :class:`Label` object, except that it can
 only contain :class:`Attribute` objects::
 
  >>> pds.GroupStatements(pds.Group("test", pds.GroupStatements()))
