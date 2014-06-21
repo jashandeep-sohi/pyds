@@ -2,8 +2,6 @@ User Guide
 ==========
 .. currentmodule:: pds
 
-This guide covers the basics of working with a PDS label using the :mod:`pds`
-module.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
@@ -280,7 +278,7 @@ It is converted to an upper case string and stored as such internally:
   ...
  ValueError: invalid identifier '123 this is not valid'
 
-The identifier and statements of an existing :class:`Group` object can be
+The identifier and nested statements of an existing :class:`Group` object can be
 accessed using the :attr:`Group.identifier` and
 :attr:`Group.statements` or :attr:`Group.value` attributes, respectively::
 
@@ -348,6 +346,17 @@ It is converted to an upper case string and stored as such internally:
  Traceback (most recent call last):
   ...
  ValueError: invalid identifier '123 this is not valid'
+ 
+The identifier and nested statements of an existing :class:`Object` object can
+be accessed using the :attr:`Object.identifier` and
+:attr:`Object.statements` or :attr:`Object.value` attributes, respectively::
+
+ >>> test_object.identifier
+ 'TEST_OBJECT'
+ >>> test_object.statements
+ <pds.ObjectStatements object at 0x...>
+ >>> test_group.statements == test_group.value
+ True
 
 Values
 ------
