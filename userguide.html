@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#parsing">Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#statements">Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#values">Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#label-objects">Label Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label-object">Label Object</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="reference.html">Reference</a><ul>
@@ -233,7 +233,7 @@ using the <a class="reference internal" href="pds/pds.parse.html#pds.parse" titl
 </pre></div>
 </div>
 <p>You can then interact with this <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object to read or manipulate
-properties of the label. See the discussion <a class="reference internal" href="#label-objects"><em>below</em></a> for
+properties of the label. See the discussion <a class="reference internal" href="#label-object"><em>below</em></a> for
 details.</p>
 <p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a string which <strong>starts</strong> with a valid PDS label as
 it&#8217;s argument or otherwise it will raise a <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
@@ -306,12 +306,12 @@ true if the file is large.</p>
 <div class="section" id="statements">
 <h2>Statements<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h2>
 <p>A PDS label is made up of a series of statements.
-The statements can be of different types and are represented in this module
+Statements can be of different types and are represented in this module
 by instances of either an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 <p class="rubric">Attribute</p>
 <p>An <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> represents an attribute assignment statement.
 As the name suggests, this type of statement assigns a value to an attribute.</p>
-<p>Each <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> must be instantiated with an identifier and a value:</p>
+<p>It is instantiated with an identifier and a value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
@@ -326,7 +326,7 @@ As the name suggests, this type of statement assigns a value to an attribute.</p
 </div>
 <p>The identifier must be a valid PDS identifier
 (i.e. <tt class="docutils literal"><span class="pre">letter[letter|digit|_letter|_digit]*</span></tt>).
-Case does not matter, since it&#8217;s converted to a upper case string and stored
+Case does not matter, since it&#8217;s converted to an upper case string and stored
 as such internally:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;12_not_valid&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -353,7 +353,7 @@ preceding the identifier with a caret (<tt class="docutils literal"><span class=
 </pre></div>
 </div>
 </div>
-<p>The identifier and value of an existing <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> can accessed using
+<p>The identifier and value of an existing <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> can be accessed using
 <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.identifier" title="pds.Attribute.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a>, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="s">&quot;TEST_ATTR_1&quot;</span>
 <span class="go">True</span>
@@ -362,13 +362,25 @@ preceding the identifier with a caret (<tt class="docutils literal"><span class=
 </pre></div>
 </div>
 <p class="rubric">Group</p>
+<p>A <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> represents a group statement.
+Group statements group other attribute assignment statements.</p>
+<p>It is instantiated with an identifier and an instance of
+<a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s">&quot;test_attr_2&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+</pre></div>
+</div>
 <p class="rubric">Object</p>
 </div>
 <div class="section" id="values">
 <h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="label-objects">
-<span id="id2"></span><h2>Label Objects<a class="headerlink" href="#label-objects" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="label-object">
+<span id="id2"></span><h2>Label Object<a class="headerlink" href="#label-object" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
