@@ -295,6 +295,19 @@ attributes, respectively::
  <pds.GroupStatements object at 0x...>
  >>> test_group.statements == test_group.value
  True
+ 
+To get the formatted string representation of an :class:`Group` object, call the
+:func:`str` function on it::
+
+ >>> print(str(test_group)) # doctest: +NORMALIZE_WHITESPACE
+ <BLANKLINE>
+ GROUP = TEST_GROUP
+  NESTED_ATTR_1 = 5
+  NESTED_ATTR_2 = 10.122
+ END_GROUP = TEST_GROUP
+ <BLANKLINE>
+ 
+
 
 .. rubric:: Object
 
