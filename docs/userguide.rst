@@ -102,7 +102,7 @@ using the :func:`parse` function::
 
 
 You can then interact with this :class:`Label` object to read or manipulate
-properties of the label. See the discussion :ref:`below<label_objects>` for
+properties of the label. See the discussion :ref:`below<label_object>` for
 details.
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
@@ -178,7 +178,7 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 Statements
 ----------
 A PDS label is made up of a series of statements.
-The statements can be of different types and are represented in this module
+Statements can be of different types and are represented in this module
 by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
 
 .. rubric:: Attribute
@@ -186,7 +186,7 @@ by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
 An :class:`Attribute` represents an attribute assignment statement.
 As the name suggests, this type of statement assigns a value to an attribute.
 
-Each :class:`Attribute` must be instantiated with an identifier and a value::
+It is instantiated with an identifier and a value::
 
  >>> test_attr_1 = pds.Attribute("test_attr_1", pds.Integer(5))
  >>> test_attr_1
@@ -201,7 +201,7 @@ The value must be an instance of one of the Value objects discussed below::
  
 The identifier must be a valid PDS identifier
 (i.e. ``letter[letter|digit|_letter|_digit]*``).
-Case does not matter, since it's converted to a upper case string and stored
+Case does not matter, since it's converted to an upper case string and stored
 as such internally::
 
  >>> pds.Attribute("12_not_valid", pds.Integer(5))
@@ -227,7 +227,7 @@ identifier and a colon::
     >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
     <pds.Attribute object at 0x...>
  
-The identifier and value of an existing :class:`Attribute` can accessed using
+The identifier and value of an existing :class:`Attribute` can be accessed using
 :attr:`Attribute.identifier` and :attr:`Attribute.value`, respectively::
 
  >>> test_attr_1.identifier == "TEST_ATTR_1"
@@ -237,15 +237,31 @@ The identifier and value of an existing :class:`Attribute` can accessed using
 
 .. rubric:: Group
 
+A :class:`Group` represents a group statement.
+Group statements group other attribute assignment statements.
+
+It is instantiated with an identifier and an instance of
+:class:`GroupStatements`::
+
+ >>> test_attr_2 = pds.Group(
+ ...  "test_attr_2",
+ ...  pds.GroupStatements(
+ ...   pds.Attribute("nested_statement_1", pds.Integer(5))
+ ...  )
+ ... )
+
+
+
+
 .. rubric:: Object
 
 
 Values
 ------
 
-.. _label_objects:
+.. _label_object:
 
-Label Objects
+Label Object
 -------------
 A :class:`Label` object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
