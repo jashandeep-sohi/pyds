@@ -254,9 +254,11 @@ It is instantiated with an identifier and a :class:`GroupStatements` object::
  <pds.Group object at 0x...>
  
 A :class:`GroupStatements` object is a container for the nested statements of
-a group. It behaves just like a :class:`Label` object, except that it can
-only contain :class:`Attribute` objects::
+a group statement. It behaves just like a :class:`Label` object, except that it
+can only contain :class:`Attribute` objects::
 
+ >>> pds.GroupStatements(pds.Attribute("test", pds.Integer(5)))
+ <pds.GroupStatements object at 0x...>
  >>> pds.GroupStatements(pds.Group("test", pds.GroupStatements()))
  Traceback (most recent call last):
   ...
@@ -310,6 +312,31 @@ It is instantiated with an identifier and a :class:`ObjectStatements` object::
  ... )
  >>> test_object
  <pds.Object object at 0x...>
+ 
+An :class:`ObjectStatements` object is a container for the nested statements of
+an object statement.
+It behaves just like a :class:`Label` object, meaning it can contain all three
+types of statements, including other object statements.
+There is no limit to the depth to which object statements may be nested::
+
+ >>> pds.ObjectStatements(pds.Attribute("test", pds.Integer(5)))
+ <pds.ObjectStatements object at 0x...>
+ >>> pds.ObjectStatements(pds.Group("test", pds.GroupStatements()))
+ <pds.ObjectStatements object at 0x...>
+ >>> pds.ObjectStatements(
+ ...  pds.Object(
+ ...   "test", 
+ ...   pds.ObjectStatements(
+ ...    pds.Object(
+ ...     "test2", 
+ ...     pds.ObjectStatements(
+ ...      pds.Object("test3", pds.ObjectStatements())
+ ...     )
+ ...    )
+ ...   )
+ ...  )
+ ... )
+ <pds.ObjectStatements object at 0x...>
 
 Values
 ------

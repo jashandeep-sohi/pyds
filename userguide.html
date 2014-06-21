@@ -378,9 +378,11 @@ is represented by a <a class="reference internal" href="pds/pds.Group.html#pds.G
 </pre></div>
 </div>
 <p>A <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> object is a container for the nested statements of
-a group. It behaves just like a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object, except that it can
-only contain <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> objects:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()))</span>
+a group statement. It behaves just like a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object, except that it
+can only contain <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> objects:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="go">&lt;pds.GroupStatements object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()))</span>
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
 <span class="gr">TypeError</span>: <span class="n">statement is not an instance of Attribute</span>
@@ -431,6 +433,31 @@ represented by an <a class="reference internal" href="pds/pds.Object.html#pds.Ob
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span>
 <span class="go">&lt;pds.Object object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>An <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> object is a container for the nested statements of
+an object statement.
+It behaves just like a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object, meaning it can contain all three
+types of statements, including other object statements.
+There is no limit to the depth to which object statements may be nested:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="go">&lt;pds.ObjectStatements object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()))</span>
+<span class="go">&lt;pds.ObjectStatements object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="s">&quot;test&quot;</span><span class="p">,</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="s">&quot;test2&quot;</span><span class="p">,</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span>     <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s">&quot;test3&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">())</span>
+<span class="gp">... </span>    <span class="p">)</span>
+<span class="gp">... </span>   <span class="p">)</span>
+<span class="gp">... </span>  <span class="p">)</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="go">&lt;pds.ObjectStatements object at 0x...&gt;</span>
 </pre></div>
 </div>
 </div>
