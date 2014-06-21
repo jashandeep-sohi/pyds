@@ -137,8 +137,8 @@ describe::
 .. note::
    
    We have been providing a :obj:`bytes` object (i.e. ``b"..."``) to 
-   the :func:`parse` function. This is because :func:`parse` cannot operate on a
-   :obj:`str` object (PDS labels may only contain *ascii* characters)::
+   the :func:`parse` function because it cannot operate on a :obj:`str`
+   object.::
 
     >>> pds.parse(
     ...  """
@@ -247,7 +247,7 @@ It is instantiated with an identifier and a :class:`GroupStatements` object::
  ...  "test_attr_2",
  ...  pds.GroupStatements(
  ...   pds.Attribute("nested_statement_1", pds.Integer(5)),
- ...   pds.Attribute("nested_statement_2", pds.Integer(5))
+ ...   pds.Attribute("nested_statement_2", pds.Real(10.122))
  ...  )
  ... )
  >>> test_attr_2
@@ -314,7 +314,7 @@ For example, you can add statements to it using :meth:`Label.insert`
 and :meth:`Label.append`::
  
  >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
- >>> test_stmt_2 = pds.Attribute("test2", pds.Integer(10))
+ >>> test_stmt_2 = pds.Attribute("test2", pds.Real(10))
  >>> test_label.insert(0, test_stmt_1)
  >>> test_label.append(test_stmt_2)
 
