@@ -2,9 +2,8 @@ User Guide
 ==========
 .. currentmodule:: pds
 
-This guide covers the basics of how to work with a PDS label using :mod:`pds`.
-It does not go into the details of PDS labels. Please see the 
-`PDS documentation`_ for more detail.
+This guide covers the basics of working with a PDS label using the :mod:`pds`
+module.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
