@@ -101,7 +101,7 @@ using the :func:`parse` function::
  <pds.Label object at 0x...>
 
 
-You can then interact with this :class:`Label` object to read or manipulate
+You can then interact with the :class:`Label` object to read or manipulate
 properties of the label. See the discussion :ref:`below<label_object>` for
 details.
 
@@ -136,9 +136,9 @@ describe::
 
 .. note::
    
-   We have been providing a :obj:`bytes` string (i.e. ``b"..."``) to 
+   We have been providing a :obj:`bytes` object (i.e. ``b"..."``) to 
    the :func:`parse` function. This is because :func:`parse` cannot operate on a
-   :obj:`str` string (PDS labels may only contain *ascii* characters)::
+   :obj:`str` object (PDS labels may only contain *ascii* characters)::
 
     >>> pds.parse(
     ...  """
@@ -183,8 +183,8 @@ by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
 
 .. rubric:: Attribute
 
-An :class:`Attribute` represents an attribute assignment statement.
-As the name suggests, this type of statement assigns a value to an attribute.
+An :class:`Attribute` object represents an attribute assignment statement,
+which assigns some value to an attribute.
 
 It is instantiated with an identifier and a value::
 
@@ -221,14 +221,15 @@ identifier and a colon::
 
    Although the PDS specification distinguishes between a *pointer statement*
    and an attribute assignment statement, this module does not.
-   A pointer statement is also represented with an :class:`Attribute` by
+   A pointer statement is also represented with an :class:`Attribute` object by
    preceding the identifier with a caret (``^``)::
 
     >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
     <pds.Attribute object at 0x...>
  
-The identifier and value of an existing :class:`Attribute` can be accessed using
-:attr:`Attribute.identifier` and :attr:`Attribute.value`, respectively::
+The identifier and value of an existing :class:`Attribute` object can be
+accessed using :attr:`Attribute.identifier` and :attr:`Attribute.value`,
+respectively::
 
  >>> test_attr_1.identifier == "TEST_ATTR_1"
  True
@@ -237,11 +238,10 @@ The identifier and value of an existing :class:`Attribute` can be accessed using
 
 .. rubric:: Group
 
-A :class:`Group` represents a group statement.
-Group statements group other attribute assignment statements.
+A :class:`Group` object represents a group statement, which groups other
+attribute assignment statements.
 
-It is instantiated with an identifier and an instance of
-:class:`GroupStatements`::
+It is instantiated with an identifier and a :class:`GroupStatements` object::
 
  >>> test_attr_2 = pds.Group(
  ...  "test_attr_2",
@@ -249,6 +249,22 @@ It is instantiated with an identifier and an instance of
  ...   pds.Attribute("nested_statement_1", pds.Integer(5))
  ...  )
  ... )
+ >>> test_attr_2
+ <pds.Group object at 0x...>
+ 
+A :class:`GroupStatements` object is a container for the statements belonging
+to a group. It behaves just like a :class:`Label` object, except that it can
+only contain :class:`Attribute` objects::
+
+ >>> pds.GroupStatements(pds.Group("test", pds.GroupStatements()))
+ Traceback (most recent call last):
+  ...
+ TypeError: statement is not an instance of Attribute
+ >>> pds.GroupStatements(pds.Object("test", pds.ObjectStatements()))
+ Traceback (most recent call last):
+  ...
+ TypeError: statement is not an instance of Attribute
+
 
 
 
