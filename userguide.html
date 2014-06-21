@@ -460,6 +460,20 @@ There is no limit to the depth to which object statements may be nested:</p>
 <span class="go">&lt;pds.ObjectStatements object at 0x...&gt;</span>
 </pre></div>
 </div>
+<p>The identifier must be a valid PDS identifier
+(i.e. <tt class="docutils literal"><span class="pre">letter[letter|digit|_letter|_digit]*</span></tt>).
+It is converted to an upper case string and stored as such internally:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s">&quot;123 this is not valid&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;123 this is not valid&#39;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="values">
 <h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>
