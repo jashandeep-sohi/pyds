@@ -355,7 +355,7 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  'TEST_OBJECT'
  >>> test_object.statements
  <pds.ObjectStatements object at 0x...>
- >>> test_group.statements == test_group.value
+ >>> test_object.statements == test_object.value
  True
 
 Values
