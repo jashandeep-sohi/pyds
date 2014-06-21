@@ -139,6 +139,9 @@
             
   <div class="section" id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide covers the basics of how to work with a PDS label using <tt class="xref py py-mod docutils literal"><span class="pre">pds</span></tt>.
+It does not go into the details of PDS labels. Please see the
+<a class="reference external" href="http://pds.jpl.nasa.gov/tools/standards-reference.shtml">PDS documentation</a> for more detail.</p>
 <div class="section" id="parsing">
 <span id="id1"></span><h2>Parsing<a class="headerlink" href="#parsing" title="Permalink to this headline">¶</a></h2>
 <p>To work with an existing PDS label, first parse it into a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object
@@ -308,16 +311,16 @@ types.
 They are represented in this module by instances of either an
 <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 <p class="rubric">Attribute</p>
-<p>An attribute assignment statement, which assigns some value to an attribute,
+<p>An <em>attribute assignment statement</em>, which assigns some value to an attribute,
 is represented by an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object.</p>
 <p>It is instantiated with an identifier and a value:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attribute&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
 </pre></div>
 </div>
 <p>The value must be an instance of one of the value types discussed below:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attr_1&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;test_attribute&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
 <span class="c">...</span>
 <span class="gr">TypeError</span>: <span class="n">value is not an instance of Value</span>
@@ -336,7 +339,7 @@ It is converted to an upper case string and stored as such internally:</p>
 </div>
 <p>The identifier can also be <em>namespaced</em> by preceding it with another
 identifier and a colon:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;namespace_identifier:test_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;namespace_identifier:test_attribute&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
 </pre></div>
 </div>
@@ -354,24 +357,24 @@ preceding the identifier with a caret (<tt class="docutils literal"><span class=
 <p>The identifier and value of an existing <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object can be
 accessed using the <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.identifier" title="pds.Attribute.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a>
 attributes, respectively:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span><span class="o">.</span><span class="n">identifier</span>
-<span class="go">&#39;TEST_ATTR_1&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_1</span><span class="o">.</span><span class="n">value</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span><span class="o">.</span><span class="n">identifier</span>
+<span class="go">&#39;TEST_ATTRIBUTE&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span><span class="o">.</span><span class="n">value</span>
 <span class="go">&lt;pds.Integer object at 0x...&gt;</span>
 </pre></div>
 </div>
 <p class="rubric">Group</p>
-<p>A group statement, which groups other attribute assignment statements,
+<p>A <em>group statement</em>, which groups other attribute assignment statements,
 is represented by a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object.</p>
 <p>It is instantiated with an identifier and a <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> object:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
-<span class="gp">... </span> <span class="s">&quot;test_attr_2&quot;</span><span class="p">,</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s">&quot;test_group&quot;</span><span class="p">,</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.122</span><span class="p">))</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.122</span><span class="p">))</span>
 <span class="gp">... </span> <span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span>
 <span class="go">&lt;pds.Group object at 0x...&gt;</span>
 </pre></div>
 </div>
@@ -394,7 +397,7 @@ It is converted to an upper case string and stored as such internally:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
 <span class="gp">... </span> <span class="s">&quot;123 this is not valid&quot;</span><span class="p">,</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_statement_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
 <span class="gp">... </span> <span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -403,17 +406,34 @@ It is converted to an upper case string and stored as such internally:</p>
 </pre></div>
 </div>
 <p>The identifier and statements of an existing <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object can be
-accessed using <a class="reference internal" href="pds/pds.Group.html#pds.Group.identifier" title="pds.Group.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Group.identifier</span></tt></a> and
-<a class="reference internal" href="pds/pds.Group.html#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Group.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a>, respectively:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">identifier</span>
-<span class="go">&#39;TEST_ATTR_2&#39;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">statements</span>
+accessed using the <a class="reference internal" href="pds/pds.Group.html#pds.Group.identifier" title="pds.Group.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Group.identifier</span></tt></a> and
+<a class="reference internal" href="pds/pds.Group.html#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Group.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a> attributes, respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span><span class="o">.</span><span class="n">identifier</span>
+<span class="go">&#39;TEST_GROUP&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span><span class="o">.</span><span class="n">statements</span>
 <span class="go">&lt;pds.GroupStatements object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">statements</span> <span class="o">==</span> <span class="n">test_attr_2</span><span class="o">.</span><span class="n">value</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span><span class="o">.</span><span class="n">statements</span> <span class="o">==</span> <span class="n">test_group</span><span class="o">.</span><span class="n">value</span>
 <span class="go">True</span>
 </pre></div>
 </div>
 <p class="rubric">Object</p>
+<p>An <em>object statement</em>, which groups other statements (of all types), is
+represented by an <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object.</p>
+<p>It is instantiated with an identifier and a <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+<span class="gp">... </span> <span class="s">&quot;test_object&quot;</span><span class="p">,</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.</span><span class="p">)),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;nested_group_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;nested_group_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s">&quot;nested_object&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">())</span>
+<span class="gp">... </span> <span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span>
+<span class="go">&lt;pds.Object object at 0x...&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="values">
 <h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>

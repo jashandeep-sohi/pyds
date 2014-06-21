@@ -2,6 +2,9 @@ User Guide
 ==========
 .. currentmodule:: pds
 
+This guide covers the basics of how to work with a PDS label using :mod:`pds`.
+It does not go into the details of PDS labels. Please see the 
+`PDS documentation`_ for more detail.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
@@ -182,18 +185,18 @@ They are represented in this module by instances of either an
 
 .. rubric:: Attribute
 
-An attribute assignment statement, which assigns some value to an attribute,
+An *attribute assignment statement*, which assigns some value to an attribute,
 is represented by an :class:`Attribute` object.
 
 It is instantiated with an identifier and a value::
 
- >>> test_attr_1 = pds.Attribute("test_attr_1", pds.Integer(5))
- >>> test_attr_1
+ >>> test_attr = pds.Attribute("test_attribute", pds.Integer(5))
+ >>> test_attr
  <pds.Attribute object at 0x...>
 
 The value must be an instance of one of the value types discussed below::
 
- >>> pds.Attribute("test_attr_1", 5)
+ >>> pds.Attribute("test_attribute", 5)
  Traceback (most recent call last):
  ...
  TypeError: value is not an instance of Value
@@ -212,7 +215,7 @@ It is converted to an upper case string and stored as such internally::
 The identifier can also be *namespaced* by preceding it with another
 identifier and a colon::
 
- >>> pds.Attribute("namespace_identifier:test_attr_1", pds.Integer(5))
+ >>> pds.Attribute("namespace_identifier:test_attribute", pds.Integer(5))
  <pds.Attribute object at 0x...>
 
 .. note ::
@@ -229,26 +232,26 @@ The identifier and value of an existing :class:`Attribute` object can be
 accessed using the :attr:`Attribute.identifier` and :attr:`Attribute.value`
 attributes, respectively::
 
- >>> test_attr_1.identifier
- 'TEST_ATTR_1'
- >>> test_attr_1.value
+ >>> test_attr.identifier
+ 'TEST_ATTRIBUTE'
+ >>> test_attr.value
  <pds.Integer object at 0x...>
 
 .. rubric:: Group
 
-A group statement, which groups other attribute assignment statements,
+A *group statement*, which groups other attribute assignment statements,
 is represented by a :class:`Group` object.
 
 It is instantiated with an identifier and a :class:`GroupStatements` object::
 
- >>> test_attr_2 = pds.Group(
- ...  "test_attr_2",
+ >>> test_group = pds.Group(
+ ...  "test_group",
  ...  pds.GroupStatements(
- ...   pds.Attribute("nested_statement_1", pds.Integer(5)),
- ...   pds.Attribute("nested_statement_2", pds.Real(10.122))
+ ...   pds.Attribute("nested_attr_1", pds.Integer(5)),
+ ...   pds.Attribute("nested_attr_2", pds.Real(10.122))
  ...  )
  ... )
- >>> test_attr_2
+ >>> test_group
  <pds.Group object at 0x...>
  
 A :class:`GroupStatements` object is a container for the nested statements of
@@ -271,7 +274,7 @@ It is converted to an upper case string and stored as such internally:
  >>> pds.Group(
  ...  "123 this is not valid",
  ...  pds.GroupStatements(
- ...   pds.Attribute("nested_statement_1", pds.Integer(5))
+ ...   pds.Attribute("nested_attr_1", pds.Integer(5))
  ...  )
  ... )
  Traceback (most recent call last):
@@ -279,19 +282,35 @@ It is converted to an upper case string and stored as such internally:
  ValueError: invalid identifier '123 this is not valid'
 
 The identifier and statements of an existing :class:`Group` object can be
-accessed using :attr:`Group.identifier` and
-:attr:`Group.statements` or :attr:`Group.value`, respectively::
+accessed using the :attr:`Group.identifier` and
+:attr:`Group.statements` or :attr:`Group.value` attributes, respectively::
 
- >>> test_attr_2.identifier
- 'TEST_ATTR_2'
- >>> test_attr_2.statements
+ >>> test_group.identifier
+ 'TEST_GROUP'
+ >>> test_group.statements
  <pds.GroupStatements object at 0x...>
- >>> test_attr_2.statements == test_attr_2.value
+ >>> test_group.statements == test_group.value
  True
 
 .. rubric:: Object
 
+An *object statement*, which groups other statements (of all types), is 
+represented by an :class:`Object` object.
 
+It is instantiated with an identifier and a :class:`ObjectStatements` object::
+
+ >>> test_object = pds.Object(
+ ...  "test_object",
+ ...  pds.ObjectStatements(
+ ...   pds.Attribute("nested_attr_1", pds.Integer(5)),
+ ...   pds.Attribute("nested_attr_2", pds.Real(10.)),
+ ...   pds.Group("nested_group_1", pds.GroupStatements()),
+ ...   pds.Group("nested_group_2", pds.GroupStatements()),
+ ...   pds.Object("nested_object", pds.ObjectStatements())
+ ...  )
+ ... )
+ >>> test_object
+ <pds.Object object at 0x...>
 
 Values
 ------
