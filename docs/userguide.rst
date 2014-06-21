@@ -177,9 +177,10 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 
 Statements
 ----------
-A PDS label is made up of a series of statements.
-Statements can be of different types and are represented in this module
-by instances of either an :class:`Attribute`, :class:`Group` or :class:`Object`.
+A PDS label is made up of a series of statements, which can be of different
+types.
+They are represented in this module by instances of either an 
+:class:`Attribute`, :class:`Group` or :class:`Object`.
 
 .. rubric:: Attribute
 
@@ -277,7 +278,17 @@ It is converted to an upper case string and stored as such internally:
  Traceback (most recent call last):
   ...
  ValueError: invalid identifier '123 this is not valid'
- 
+
+The identifier and the statements of an existing :class:`Group` object can be
+accessed using :attr:`Group.identifier` and
+:attr:`Group.statements` or :attr:`Group.value`, respectively::
+
+ >>> test_attr_2.identifier == "TEST_ATTR_2"
+ True
+ >>> test_attr_2.statements
+ <pds.GroupStatements object at 0x...>
+ >>> test_attr_2.statements == test_attr_2.value
+ True
 
 .. rubric:: Object
 
