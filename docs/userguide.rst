@@ -233,6 +233,13 @@ respectively::
  >>> test_attr.value
  <pds.Integer object at 0x...>
 
+To get the string representation of an :class:`Attribute` object, call the
+:func:`str` function on it::
+
+ >>> str(test_attr)
+ 'TEST_ATTRIBUTE = 5'
+
+
 .. rubric:: Group
 
 A *group statement*, which groups other attribute assignment statements,
