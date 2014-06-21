@@ -224,9 +224,9 @@ identifier and a colon::
     >>> pds.Attribute("^THIS_POINT_TO_SOMETHING", pds.Integer(5))
     <pds.Attribute object at 0x...>
  
-The identifier and value of an existing :class:`Attribute` object can be
-accessed using the :attr:`Attribute.identifier` and :attr:`Attribute.value`
-attributes, respectively::
+To access the identifier and value of an :class:`Attribute` object, use the
+:attr:`Attribute.identifier` and :attr:`Attribute.value` attributes,
+respectively::
 
  >>> test_attr.identifier
  'TEST_ATTRIBUTE'
@@ -278,9 +278,9 @@ It is converted to an upper case string and stored as such internally:
   ...
  ValueError: invalid identifier '123 this is not valid'
 
-The identifier and nested statements of an existing :class:`Group` object can be
-accessed using the :attr:`Group.identifier` and
-:attr:`Group.statements` or :attr:`Group.value` attributes, respectively::
+To access the identifier and nested statements of a :class:`Group` object, use
+the :attr:`Group.identifier` and :attr:`Group.statements` or :attr:`Group.value`
+attributes, respectively::
 
  >>> test_group.identifier
  'TEST_GROUP'
@@ -347,9 +347,9 @@ It is converted to an upper case string and stored as such internally:
   ...
  ValueError: invalid identifier '123 this is not valid'
  
-The identifier and nested statements of an existing :class:`Object` object can
-be accessed using the :attr:`Object.identifier` and
-:attr:`Object.statements` or :attr:`Object.value` attributes, respectively::
+To access the identifier and nested statements of a :class:`Object` object, use
+the :attr:`Object.identifier` and :attr:`Object.statements` or 
+:attr:`Object.value` attributes, respectively::
 
  >>> test_object.identifier
  'TEST_OBJECT'

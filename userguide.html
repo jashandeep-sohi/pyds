@@ -351,9 +351,9 @@ preceding the identifier with a caret (<tt class="docutils literal"><span class=
 </pre></div>
 </div>
 </div>
-<p>The identifier and value of an existing <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object can be
-accessed using the <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.identifier" title="pds.Attribute.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a>
-attributes, respectively:</p>
+<p>To access the identifier and value of an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object, use the
+<a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.identifier" title="pds.Attribute.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute.value" title="pds.Attribute.value"><tt class="xref py py-attr docutils literal"><span class="pre">Attribute.value</span></tt></a> attributes,
+respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span><span class="o">.</span><span class="n">identifier</span>
 <span class="go">&#39;TEST_ATTRIBUTE&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr</span><span class="o">.</span><span class="n">value</span>
@@ -404,9 +404,9 @@ It is converted to an upper case string and stored as such internally:</p>
 <span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;123 this is not valid&#39;</span>
 </pre></div>
 </div>
-<p>The identifier and nested statements of an existing <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object can be
-accessed using the <a class="reference internal" href="pds/pds.Group.html#pds.Group.identifier" title="pds.Group.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Group.identifier</span></tt></a> and
-<a class="reference internal" href="pds/pds.Group.html#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Group.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a> attributes, respectively:</p>
+<p>To access the identifier and nested statements of a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object, use
+the <a class="reference internal" href="pds/pds.Group.html#pds.Group.identifier" title="pds.Group.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Group.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Group.html#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Group.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a>
+attributes, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span><span class="o">.</span><span class="n">identifier</span>
 <span class="go">&#39;TEST_GROUP&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_group</span><span class="o">.</span><span class="n">statements</span>
@@ -472,9 +472,9 @@ It is converted to an upper case string and stored as such internally:</p>
 <span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;123 this is not valid&#39;</span>
 </pre></div>
 </div>
-<p>The identifier and nested statements of an existing <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object can
-be accessed using the <a class="reference internal" href="pds/pds.Object.html#pds.Object.identifier" title="pds.Object.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Object.identifier</span></tt></a> and
-<a class="reference internal" href="pds/pds.Object.html#pds.Object.statements" title="pds.Object.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Object.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object.value" title="pds.Object.value"><tt class="xref py py-attr docutils literal"><span class="pre">Object.value</span></tt></a> attributes, respectively:</p>
+<p>To access the identifier and nested statements of a <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object, use
+the <a class="reference internal" href="pds/pds.Object.html#pds.Object.identifier" title="pds.Object.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Object.identifier</span></tt></a> and <a class="reference internal" href="pds/pds.Object.html#pds.Object.statements" title="pds.Object.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Object.statements</span></tt></a> or
+<a class="reference internal" href="pds/pds.Object.html#pds.Object.value" title="pds.Object.value"><tt class="xref py py-attr docutils literal"><span class="pre">Object.value</span></tt></a> attributes, respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span><span class="o">.</span><span class="n">identifier</span>
 <span class="go">&#39;TEST_OBJECT&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span><span class="o">.</span><span class="n">statements</span>
