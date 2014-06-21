@@ -186,7 +186,6 @@ They are represented in this module by instances of either an
 
 An *attribute assignment statement*, which assigns some value to an attribute,
 is represented by an :class:`Attribute` object.
-
 It is instantiated with an identifier and a value::
 
  >>> test_attr = pds.Attribute("test_attribute", pds.Integer(5))
@@ -240,7 +239,6 @@ attributes, respectively::
 
 A *group statement*, which groups other attribute assignment statements,
 is represented by a :class:`Group` object.
-
 It is instantiated with an identifier and a :class:`GroupStatements` object::
 
  >>> test_group = pds.Group(
@@ -297,7 +295,6 @@ accessed using the :attr:`Group.identifier` and
 
 An *object statement*, which groups other statements (of all types), is 
 represented by an :class:`Object` object.
-
 It is instantiated with an identifier and a :class:`ObjectStatements` object::
 
  >>> test_object = pds.Object(
