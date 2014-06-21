@@ -305,9 +305,10 @@ true if the file is large.</p>
 </div>
 <div class="section" id="statements">
 <h2>Statements<a class="headerlink" href="#statements" title="Permalink to this headline">¶</a></h2>
-<p>A PDS label is made up of a series of statements.
-Statements can be of different types and are represented in this module
-by instances of either an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
+<p>A PDS label is made up of a series of statements, which can be of different
+types.
+They are represented in this module by instances of either an
+<a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>, <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> or <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
 <p class="rubric">Attribute</p>
 <p>An attribute assignment statement, which assigns some value to an attribute,
 is represented by an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object.</p>
@@ -400,6 +401,17 @@ It is converted to an upper case string and stored as such internally:</p>
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
 <span class="gr">ValueError</span>: <span class="n">invalid identifier &#39;123 this is not valid&#39;</span>
+</pre></div>
+</div>
+<p>The identifier and the statements of an existing <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object can be
+accessed using <a class="reference internal" href="pds/pds.Group.html#pds.Group.identifier" title="pds.Group.identifier"><tt class="xref py py-attr docutils literal"><span class="pre">Group.identifier</span></tt></a> and
+<a class="reference internal" href="pds/pds.Group.html#pds.Group.statements" title="pds.Group.statements"><tt class="xref py py-attr docutils literal"><span class="pre">Group.statements</span></tt></a> or <a class="reference internal" href="pds/pds.Group.html#pds.Group.value" title="pds.Group.value"><tt class="xref py py-attr docutils literal"><span class="pre">Group.value</span></tt></a>, respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">identifier</span> <span class="o">==</span> <span class="s">&quot;TEST_ATTR_2&quot;</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">statements</span>
+<span class="go">&lt;pds.GroupStatements object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_attr_2</span><span class="o">.</span><span class="n">statements</span> <span class="o">==</span> <span class="n">test_attr_2</span><span class="o">.</span><span class="n">value</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <p class="rubric">Object</p>
