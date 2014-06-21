@@ -2,8 +2,6 @@ User Guide
 ==========
 .. currentmodule:: pds
 
-This guide covers the basics to get you started with :mod:`pds`. It does not
-go into detail about PDS labels. See the `PDS documentation`_ for that.
 
 .. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
 
@@ -228,8 +226,8 @@ identifier and a colon::
     <pds.Attribute object at 0x...>
  
 The identifier and value of an existing :class:`Attribute` object can be
-accessed using :attr:`Attribute.identifier` and :attr:`Attribute.value`,
-respectively::
+accessed using the :attr:`Attribute.identifier` and :attr:`Attribute.value`
+attributes, respectively::
 
  >>> test_attr_1.identifier
  'TEST_ATTR_1'
