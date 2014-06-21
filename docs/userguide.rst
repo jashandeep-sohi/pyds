@@ -231,8 +231,8 @@ The identifier and value of an existing :class:`Attribute` object can be
 accessed using :attr:`Attribute.identifier` and :attr:`Attribute.value`,
 respectively::
 
- >>> test_attr_1.identifier == "TEST_ATTR_1"
- True
+ >>> test_attr_1.identifier
+ 'TEST_ATTR_1'
  >>> test_attr_1.value
  <pds.Integer object at 0x...>
 
@@ -280,18 +280,19 @@ It is converted to an upper case string and stored as such internally:
   ...
  ValueError: invalid identifier '123 this is not valid'
 
-The identifier and the statements of an existing :class:`Group` object can be
+The identifier and statements of an existing :class:`Group` object can be
 accessed using :attr:`Group.identifier` and
 :attr:`Group.statements` or :attr:`Group.value`, respectively::
 
- >>> test_attr_2.identifier == "TEST_ATTR_2"
- True
+ >>> test_attr_2.identifier
+ 'TEST_ATTR_2'
  >>> test_attr_2.statements
  <pds.GroupStatements object at 0x...>
  >>> test_attr_2.statements == test_attr_2.value
  True
 
 .. rubric:: Object
+
 
 
 Values
