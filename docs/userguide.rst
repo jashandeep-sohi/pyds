@@ -334,7 +334,7 @@ It is instantiated with an identifier and a :class:`ObjectStatements` object::
  ...   pds.Object(
  ...    "nested_object",
  ...    pds.ObjectStatements(
- ...     pds.Attribute("nested_object", pds.Integer(5))
+ ...     pds.Attribute("nested_attr", pds.Integer(5))
  ...    )
  ...   )
  ...  )
@@ -408,7 +408,7 @@ To get the formatted string representation of an :class:`Object` object, call th
    NESTED_ATTR_2 = 3.14159
   END_GROUP      = NESTED_GROUP_2
   OBJECT         = NESTED_OBJECT
-   NESTED_OBJECT = 5
+   NESTED_ATTR = 5
   END_OBJECT     = NESTED_OBJECT
  END_OBJECT = TEST_OBJECT
 
