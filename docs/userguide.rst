@@ -392,7 +392,7 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  >>> test_object.statements == test_object.value
  True
 
-To get the formatted string representation of a :class:`Object` object, call the
+To get the formatted string representation of an :class:`Object` object, call the
 :func:`str` function on it::
 
  >>> print(str(test_object)) # doctest: +NORMALIZE_WHITESPACE
