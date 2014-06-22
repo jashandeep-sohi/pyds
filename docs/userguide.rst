@@ -2,9 +2,6 @@ User Guide
 ==========
 .. currentmodule:: pds
 
-
-.. _PDS documentation: http://pds.jpl.nasa.gov/tools/standards-reference.shtml
-
 .. _parsing:
 
 Parsing
@@ -190,7 +187,8 @@ It is instantiated with an identifier and a value::
  >>> test_attr
  <pds.Attribute object at 0x...>
 
-The value must be an instance of one of the value types discussed below::
+The value must be an instance of one of the value types discussed
+:ref:`below<values>`::
 
  >>> pds.Attribute("test_attribute", 5)
  Traceback (most recent call last):
@@ -413,8 +411,25 @@ To get the formatted string representation of an :class:`Object` object, call th
  END_OBJECT = TEST_OBJECT
 
 
+.. _values:
+
 Values
 ------
+
+.. rubric:: Numeric
+
+.. rubric:: Temporal
+
+.. rubric:: Text
+
+.. rubric:: Symbol
+
+.. rubric:: Identifier
+
+.. rubric:: Set
+
+.. rubric:: Sequence
+
 
 .. _label_object:
 
