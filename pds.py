@@ -346,7 +346,7 @@ class Statements(object, metaclass = abc.ABCMeta):
     
     Called by :func:`iter`.
     """
-    current_node = self._nodes.root().next
+    current_node = self._nodes.root.next
     while current_node is not self._nodes.root:
       yield current_node.value
       current_node = current_node.next
@@ -358,7 +358,7 @@ class Statements(object, metaclass = abc.ABCMeta):
     
     Called by :func:`reversed`.
     """
-    current_node = self._nodes.root().prev()
+    current_node = self._nodes.root.prev()
     while current_node is not self._nodes.root:
       yield current_node.value
       current_node = current_node.prev()
@@ -592,7 +592,7 @@ class Statement(object, metaclass = abc.ABCMeta):
     
     Called by :func:`str`.
     """
-    return self._format("", "")  
+    return self._format("")  
 
 class Attribute(Statement):
   """
@@ -659,7 +659,7 @@ class Attribute(Statement):
       raise TypeError("value is not an instance of Value")
     super().__init__(identifier, value, validate_identifier)
       
-  def _format(self, indent, width):
+  def _format(self, indent, width = ""):
     return "{}{} = {}".format(
       indent,
       format(self.identifier, width),
@@ -719,16 +719,16 @@ class Group(Statement):
     self.statements = group_statements
     super().__init__(identifier, self.statements, validate_identifier)
     
-  def _format(self, indent, width):
+  def _format(self, indent, width = "9"):
     sub_width = str(self.statements._max_identifier_width)
     sub_indent = indent + " "
-    return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
+    return "{}{} = {}{}{}{} = {}".format(
       indent,
       format("GROUP", width),
       self.identifier,
-      "\r\n".join(
+      "\r\n{}\r\n".format("\r\n".join(
         stmt._format(sub_indent, sub_width) for stmt in iter(self.statements)
-      ),
+      )) if len(self.statements) else "\r\n",
       indent,
       format("END_GROUP", width),
       self.identifier
@@ -789,16 +789,16 @@ class Object(Statement):
     self.statements = object_statements
     super().__init__(identifier, self.statements, validate_identifier)
     
-  def _format(self, indent, width):
+  def _format(self, indent, width = "10"):
     sub_width = str(self.statements._max_identifier_width)
     sub_indent = indent + " "
-    return "\r\n{}{} = {}\r\n{}\r\n{}{} = {}\r\n".format(
+    return "{}{} = {}{}{}{} = {}".format(
       indent,
       format("OBJECT", width),
       self.identifier,
-      "\r\n".join(
+      "\r\n{}\r\n".format("\r\n".join(
         stmt._format(sub_indent, sub_width) for stmt in iter(self.statements)
-      ),
+      )) if len(self.statements) else "\r\n",
       indent,
       format("END_OBJECT", width),
       self.identifier
