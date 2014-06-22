@@ -7,7 +7,7 @@ git checkout gh-pages &&
 git rm -r :/ &&
 git reset -- :/CNAME :/.nojekyll :/.gitignore && 
 git checkout -- :/CNAME :/.nojekyll :/.gitignore &&
-mv ./_build/html/* ../. &&
+cp -r ./_build/html/* ../. &&
 git add -A :/ &&
 git reset -- :/docs &&
 git commit -m "Updated documentation" &&

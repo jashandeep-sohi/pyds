@@ -97,8 +97,7 @@ using the :func:`parse` function::
 
 
 You can then interact with the :class:`Label` object to read or manipulate
-properties of the label. See the discussion :ref:`below<label_object>` for
-details.
+properties of the label. See the discussion :ref:`below<label>` for details.
 
 :func:`parse` must be given a string which **starts** with a valid PDS label as 
 it's argument or otherwise it will raise a :exc:`ParsingError`::
@@ -431,10 +430,10 @@ Values
 .. rubric:: Sequence
 
 
-.. _label_object:
+.. _label:
 
-Label Object
--------------
+Label
+-----
 A :class:`Label` object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
