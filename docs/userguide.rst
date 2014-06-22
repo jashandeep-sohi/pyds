@@ -236,8 +236,8 @@ respectively::
 To get the string representation of an :class:`Attribute` object, call the
 :func:`str` function on it::
 
- >>> str(test_attr)
- 'TEST_ATTRIBUTE = 5'
+ >>> print(str(test_attr))
+ TEST_ATTRIBUTE = 5
 
 
 .. rubric:: Group
@@ -300,12 +300,10 @@ To get the formatted string representation of an :class:`Group` object, call the
 :func:`str` function on it::
 
  >>> print(str(test_group)) # doctest: +NORMALIZE_WHITESPACE
- <BLANKLINE>
  GROUP = TEST_GROUP
   NESTED_ATTR_1 = 5
   NESTED_ATTR_2 = 10.122
  END_GROUP = TEST_GROUP
- <BLANKLINE>
  
 
 
@@ -377,6 +375,9 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  <pds.ObjectStatements object at 0x...>
  >>> test_object.statements == test_object.value
  True
+
+To get the formatted string representation of an :class:`Group` object, call the
+:func:`str` function on it
 
 Values
 ------
