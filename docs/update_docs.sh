@@ -1,19 +1,13 @@
 #!/bin/sh
 
-<<<<<<< Updated upstream
+#!/bin/sh
+
 ../test.py &&
 sphinx-build -W -b html . _build/html &&
-=======
-sphinx-build -W -b doctest html . _build/html &&
-git add -A . &&
-git commit -m "Updated documentation" &&
-git push origin master
-
->>>>>>> Stashed changes
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
-git reset -- :/CNAME :/.nojekyll :/.gitignore && 
+git reset -- :/CNAME :/.nojekyll :/.gitignore &&
 git checkout -- :/CNAME :/.nojekyll :/.gitignore &&
 cp -r ./_build/html/* ../. &&
 git add -A :/ &&
