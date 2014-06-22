@@ -456,4 +456,7 @@ And remove statements from it using :meth:`Label.pop`::
  False
 
 
+Serializing
+-----------
+
 .. vim: tabstop=1 expandtab
