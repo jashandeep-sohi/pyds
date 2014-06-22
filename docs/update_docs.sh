@@ -1,7 +1,5 @@
 #!/bin/sh
 
-#!/bin/sh
-
 ../test.py &&
 sphinx-build -W -b html . _build/html &&
 git stash &&
