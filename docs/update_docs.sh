@@ -1,7 +1,15 @@
 #!/bin/sh
 
+<<<<<<< Updated upstream
 ../test.py &&
 sphinx-build -W -b html . _build/html &&
+=======
+sphinx-build -W -b doctest html . _build/html &&
+git add -A . &&
+git commit -m "Updated documentation" &&
+git push origin master
+
+>>>>>>> Stashed changes
 git stash &&
 git checkout gh-pages &&
 git rm -r :/ &&
