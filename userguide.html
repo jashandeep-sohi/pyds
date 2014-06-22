@@ -71,7 +71,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#parsing">Parsing</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#statements">Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#values">Values</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#label-object">Label Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#label">Label</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#serializing">Serializing</a></li>
 </ul>
 </li>
@@ -232,8 +232,7 @@ using the <a class="reference internal" href="pds/pds.parse.html#pds.parse" titl
 </pre></div>
 </div>
 <p>You can then interact with the <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object to read or manipulate
-properties of the label. See the discussion <a class="reference internal" href="#label-object"><em>below</em></a> for
-details.</p>
+properties of the label. See the discussion <a class="reference internal" href="#label"><em>below</em></a> for details.</p>
 <p><a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> must be given a string which <strong>starts</strong> with a valid PDS label as
 it&#8217;s argument or otherwise it will raise a <a class="reference internal" href="pds/pds.ParsingError.html#pds.ParsingError" title="pds.ParsingError"><tt class="xref py py-exc docutils literal"><span class="pre">ParsingError</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">b</span><span class="s">&quot;&quot;</span><span class="p">)</span>
@@ -548,8 +547,8 @@ the <a class="reference internal" href="pds/pds.Object.html#pds.Object.identifie
 <p class="rubric">Set</p>
 <p class="rubric">Sequence</p>
 </div>
-<div class="section" id="label-object">
-<span id="id3"></span><h2>Label Object<a class="headerlink" href="#label-object" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="label">
+<span id="id3"></span><h2>Label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
