@@ -421,10 +421,10 @@ attributes, respectively:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>To get the formatted string representation of an <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object, call the
+<p>To get the formatted string representation of a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object, call the
 <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_group</span><span class="p">))</span> 
-<span class="go">GROUP = TEST_GROUP</span>
+<span class="go">GROUP     = TEST_GROUP</span>
 <span class="go"> NESTED_ATTR_1 = 5</span>
 <span class="go"> NESTED_ATTR_2 = 10.122</span>
 <span class="go">END_GROUP = TEST_GROUP</span>
@@ -438,10 +438,27 @@ It is instantiated with an identifier and a <a class="reference internal" href="
 <span class="gp">... </span> <span class="s">&quot;test_object&quot;</span><span class="p">,</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
 <span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.</span><span class="p">)),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;nested_group_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span><span class="s">&quot;nested_group_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()),</span>
-<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span><span class="s">&quot;nested_object&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">())</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.122</span><span class="p">)),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="s">&quot;nested_group_1&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">122</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">22322</span><span class="p">))</span>
+<span class="gp">... </span>   <span class="p">)</span>
+<span class="gp">... </span>  <span class="p">),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Group</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="s">&quot;nested_group_2&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_1&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">5.3322</span><span class="p">)),</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_attr_2&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">3.14159</span><span class="p">)),</span>
+<span class="gp">... </span>   <span class="p">)</span>
+<span class="gp">... </span>  <span class="p">),</span>
+<span class="gp">... </span>  <span class="n">pds</span><span class="o">.</span><span class="n">Object</span><span class="p">(</span>
+<span class="gp">... </span>   <span class="s">&quot;nested_object&quot;</span><span class="p">,</span>
+<span class="gp">... </span>   <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;nested_object&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="gp">... </span>   <span class="p">)</span>
+<span class="gp">... </span>  <span class="p">)</span>
 <span class="gp">... </span> <span class="p">)</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_object</span>
@@ -498,8 +515,26 @@ the <a class="reference internal" href="pds/pds.Object.html#pds.Object.identifie
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>To get the formatted string representation of an <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object, call the
-<tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it</p>
+<p>To get the formatted string representation of a <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object, call the
+<tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_object</span><span class="p">))</span> 
+<span class="go">OBJECT     = TEST_OBJECT</span>
+<span class="go"> NESTED_ATTR_1  = 5</span>
+<span class="go"> NESTED_ATTR_2  = 10.122</span>
+<span class="go"> GROUP          = NESTED_GROUP_1</span>
+<span class="go">  NESTED_ATTR_1 = 122</span>
+<span class="go">  NESTED_ATTR_2 = 22322</span>
+<span class="go"> END_GROUP      = NESTED_GROUP_1</span>
+<span class="go"> GROUP          = NESTED_GROUP_2</span>
+<span class="go">  NESTED_ATTR_1 = 5.3322</span>
+<span class="go">  NESTED_ATTR_2 = 3.14159</span>
+<span class="go"> END_GROUP      = NESTED_GROUP_2</span>
+<span class="go"> OBJECT         = NESTED_OBJECT</span>
+<span class="go">  NESTED_OBJECT = 5</span>
+<span class="go"> END_OBJECT     = NESTED_OBJECT</span>
+<span class="go">END_OBJECT = TEST_OBJECT</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="values">
 <h2>Values<a class="headerlink" href="#values" title="Permalink to this headline">¶</a></h2>

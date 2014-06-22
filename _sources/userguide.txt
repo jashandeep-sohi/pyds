@@ -296,16 +296,15 @@ attributes, respectively::
  >>> test_group.statements == test_group.value
  True
  
-To get the formatted string representation of an :class:`Group` object, call the
+To get the formatted string representation of a :class:`Group` object, call the
 :func:`str` function on it::
 
  >>> print(str(test_group)) # doctest: +NORMALIZE_WHITESPACE
- GROUP = TEST_GROUP
+ GROUP     = TEST_GROUP
   NESTED_ATTR_1 = 5
   NESTED_ATTR_2 = 10.122
  END_GROUP = TEST_GROUP
  
-
 
 .. rubric:: Object
 
@@ -317,10 +316,27 @@ It is instantiated with an identifier and a :class:`ObjectStatements` object::
  ...  "test_object",
  ...  pds.ObjectStatements(
  ...   pds.Attribute("nested_attr_1", pds.Integer(5)),
- ...   pds.Attribute("nested_attr_2", pds.Real(10.)),
- ...   pds.Group("nested_group_1", pds.GroupStatements()),
- ...   pds.Group("nested_group_2", pds.GroupStatements()),
- ...   pds.Object("nested_object", pds.ObjectStatements())
+ ...   pds.Attribute("nested_attr_2", pds.Real(10.122)),
+ ...   pds.Group(
+ ...    "nested_group_1",
+ ...    pds.GroupStatements(
+ ...     pds.Attribute("nested_attr_1", pds.Integer(122)),
+ ...     pds.Attribute("nested_attr_2", pds.Integer(22322))
+ ...    )
+ ...   ),
+ ...   pds.Group(
+ ...    "nested_group_2",
+ ...    pds.GroupStatements(
+ ...     pds.Attribute("nested_attr_1", pds.Real(5.3322)),
+ ...     pds.Attribute("nested_attr_2", pds.Real(3.14159)),
+ ...    )
+ ...   ),
+ ...   pds.Object(
+ ...    "nested_object",
+ ...    pds.ObjectStatements(
+ ...     pds.Attribute("nested_object", pds.Integer(5))
+ ...    )
+ ...   )
  ...  )
  ... )
  >>> test_object
@@ -376,8 +392,26 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  >>> test_object.statements == test_object.value
  True
 
-To get the formatted string representation of an :class:`Group` object, call the
-:func:`str` function on it
+To get the formatted string representation of a :class:`Object` object, call the
+:func:`str` function on it::
+
+ >>> print(str(test_object)) # doctest: +NORMALIZE_WHITESPACE
+ OBJECT     = TEST_OBJECT
+  NESTED_ATTR_1  = 5
+  NESTED_ATTR_2  = 10.122
+  GROUP          = NESTED_GROUP_1
+   NESTED_ATTR_1 = 122
+   NESTED_ATTR_2 = 22322
+  END_GROUP      = NESTED_GROUP_1
+  GROUP          = NESTED_GROUP_2
+   NESTED_ATTR_1 = 5.3322
+   NESTED_ATTR_2 = 3.14159
+  END_GROUP      = NESTED_GROUP_2
+  OBJECT         = NESTED_OBJECT
+   NESTED_OBJECT = 5
+  END_OBJECT     = NESTED_OBJECT
+ END_OBJECT = TEST_OBJECT
+
 
 Values
 ------
