@@ -1036,7 +1036,7 @@ class BasedInteger(Numeric):
     
     super().__init__(int(digits, radix), units)
     self.radix = radix
-    self.digits = digits
+    self.digits = digits.upper()
     
   def __str__(self):
     """
