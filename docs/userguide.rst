@@ -228,8 +228,8 @@ respectively::
  >>> test_attr.value
  <pds.Integer object at 0x...>
 
-To get the string representation of an :class:`Attribute` object, call the
-:func:`str` function on it::
+To get the PDS serialized string representation of an :class:`Attribute` object,
+call the :func:`str` function on it::
 
  >>> print(str(test_attr))
  TEST_ATTRIBUTE = 5
@@ -291,8 +291,8 @@ attributes, respectively::
  >>> test_group.statements == test_group.value
  True
  
-To get the formatted string representation of a :class:`Group` object, call the
-:func:`str` function on it::
+To get the PDS serialized string representation of a :class:`Group` object,
+call the :func:`str` function on it::
 
  >>> print(str(test_group)) # doctest: +NORMALIZE_WHITESPACE
  GROUP     = TEST_GROUP
@@ -387,8 +387,8 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  >>> test_object.statements == test_object.value
  True
 
-To get the formatted string representation of an :class:`Object` object, call 
-the :func:`str` function on it::
+To get the PDS serialized string representation of an :class:`Object` object,
+call the :func:`str` function on it::
 
  >>> print(str(test_object)) # doctest: +NORMALIZE_WHITESPACE
  OBJECT     = TEST_OBJECT
