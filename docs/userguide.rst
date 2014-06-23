@@ -171,8 +171,8 @@ Statements
 ----------
 A PDS label is made up of a series of statements, which can be of different
 types.
-They are represented in this module by instances of either an 
-:class:`Attribute`, :class:`Group` or :class:`Object`.
+They are represented in this module by instances of an :class:`Attribute`,
+a :class:`Group`, or an :class:`Object`.
 
 .. rubric:: Attribute
 
@@ -412,10 +412,13 @@ call the :func:`str` function on it::
 
 Values
 ------
-An attribute assignment statement (i.e. an :class:`Attribute` object) supports
-various types of values.
+An attribute assignment statement (i.e. an :class:`Attribute` object) can
+contain the following types of values.
 
 .. rubric:: Numeric
+
+A numeric value is represented by an :class:`Integer`, a :class:`BasedInteger`,
+or a :class:`Real` object.
 
 .. rubric:: Temporal
 
