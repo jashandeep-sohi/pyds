@@ -580,11 +580,24 @@ an upper case string and set to the <a class="reference internal" href="pds/pds.
 <span class="go">&#39;J/S&#39;</span>
 </pre></div>
 </div>
-<p>When instantiating a numeric value with units, provide a <a class="reference internal" href="pds/pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a> object
+<p>To create a numeric value with units, provide a <a class="reference internal" href="pds/pds.Units.html#pds.Units" title="pds.Units"><tt class="xref py py-class docutils literal"><span class="pre">Units</span></tt></a> object
 as the last argument:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Units</span><span class="p">(</span><span class="s">&quot;KM&quot;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_based_int</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;1111&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Units</span><span class="p">(</span><span class="s">&quot;BYTES&quot;</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_real</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">10.29932232</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Units</span><span class="p">(</span><span class="s">&quot;SEC&quot;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The units of a numeric value can be accessed or changed using the <tt class="docutils literal"><span class="pre">units</span></tt>
+attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">expression</span>
+<span class="go">&#39;KM&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span><span class="o">.</span><span class="n">units</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Units</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">expression</span>
+<span class="go">&#39;M&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_based_int</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">expression</span>
+<span class="go">&#39;BYTES&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_real</span><span class="o">.</span><span class="n">units</span><span class="o">.</span><span class="n">expression</span>
+<span class="go">&#39;SEC&#39;</span>
 </pre></div>
 </div>
 <p class="rubric">Temporal</p>
