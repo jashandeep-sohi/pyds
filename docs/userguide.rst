@@ -428,7 +428,16 @@ or a :class:`Real` object::
  <pds.Real object at 0x...>
  
 A :class:`BasedInteger` object is used to represent an integer specified in a
-particular radix/base (i.e. binary, hexadecimal, etc).
+particular radix/base (i.e. binary, hexadecimal, etc). It is instantiated by
+providing the radix as the first argument and the digits as the second
+argument::
+
+ >>> pds.BasedInteger(2, "1111")
+ <pds.BasedInteger object at 0x...>
+ >>> pds.BasedInteger(16, "f")
+ <pds.BasedInteger object at 0x...>
+ >>> pds.BasedInteger(10, "16")
+ <pds.BasedInteger object at 0x...>
  
 .. rubric:: Temporal
 
