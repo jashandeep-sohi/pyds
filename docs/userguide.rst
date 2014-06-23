@@ -456,13 +456,26 @@ an upper case string and set to the :attr:`Units.expression` attribute::
  >>> pds.Units("J/S").expression
  'J/S'
 
-When instantiating a numeric value with units, provide a :class:`Units` object
+To create a numeric value with units, provide a :class:`Units` object
 as the last argument::
 
  >>> test_int = pds.Integer(1000, pds.Units("KM"))
  >>> test_based_int = pds.BasedInteger(2, "1111", pds.Units("BYTES"))
  >>> test_real = pds.Real(10.29932232, pds.Units("SEC"))
  
+The units of a numeric value can be accessed or changed using the ``units``
+attribute::
+
+ >>> test_int.units.expression
+ 'KM'
+ >>> test_int.units = pds.Units("M")
+ >>> test_int.units.expression
+ 'M'
+ >>> test_based_int.units.expression
+ 'BYTES'
+ >>> test_real.units.expression
+ 'SEC'
+
 .. rubric:: Temporal
 
 .. rubric:: Text
