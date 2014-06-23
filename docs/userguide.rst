@@ -441,7 +441,7 @@ argument::
  
 All three types of numeric values can also have units.
 Units are represented by a :class:`Units` object, which is instantiated
-with an *units expression* describing the units.
+with a *units expression* describing the units.
 Units expressions are discussed in detail in the PDS documentation,
 but basically they must have the form, ``units_factor[[*|/]units_factor]*``,
 where *units_factor* is ``units_identifier[**integer]``. It is converted to
@@ -463,7 +463,7 @@ as the last argument::
  >>> test_based_int = pds.BasedInteger(2, "1111", pds.Units("BYTES"))
  >>> test_real = pds.Real(10.29932232, pds.Units("SEC"))
  
-The :class:`Units` object can be accessed later using the ``units`` attribute::
+This :class:`Units` object can be accessed later using the ``units`` attribute::
 
  >>> test_int.units.expression
  'KM'
@@ -471,8 +471,15 @@ The :class:`Units` object can be accessed later using the ``units`` attribute::
  'BYTES'
  >>> test_real.units.expression
  'SEC'
-
  
+The ``units`` attribute will be :obj:`None` if a numeric value does not have
+units::
+ 
+ >>> pds.Integer(5).units == None
+ True
+ 
+
+
 
 
 .. rubric:: Temporal
