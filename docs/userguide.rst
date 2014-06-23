@@ -220,7 +220,7 @@ identifier and a colon::
     <pds.Attribute object at 0x...>
  
 To access the identifier and value of an :class:`Attribute` object, use the
-:attr:`Attribute.identifier` and :attr:`Attribute.value` attributes,
+:attr:`Attribute.identifier` and :attr:`Attribute.value` attributes
 respectively::
 
  >>> test_attr.identifier
@@ -282,7 +282,7 @@ It is converted to an upper case string and stored as such internally:
 
 To access the identifier and nested statements of a :class:`Group` object, use
 the :attr:`Group.identifier` and :attr:`Group.statements` or :attr:`Group.value`
-attributes, respectively::
+attributes respectively::
 
  >>> test_group.identifier
  'TEST_GROUP'
@@ -378,7 +378,7 @@ It is converted to an upper case string and stored as such internally:
  
 To access the identifier and nested statements of a :class:`Object` object, use
 the :attr:`Object.identifier` and :attr:`Object.statements` or 
-:attr:`Object.value` attributes, respectively::
+:attr:`Object.value` attributes respectively::
 
  >>> test_object.identifier
  'TEST_OBJECT'
@@ -418,8 +418,18 @@ contain the following types of values.
 .. rubric:: Numeric
 
 A numeric value is represented by an :class:`Integer`, a :class:`BasedInteger`,
-or a :class:`Real` object.
+or a :class:`Real` object::
 
+ >>> pds.Integer(1000)
+ <pds.Integer object at 0x...>
+ >>> pds.BasedInteger(2, "1111")
+ <pds.BasedInteger object at 0x...>
+ >>> pds.Real(10.29932232)
+ <pds.Real object at 0x...>
+ 
+A :class:`BasedInteger` object is used to represent an integer specified in a
+particular radix/base (i.e. binary, hexadecimal, etc).
+ 
 .. rubric:: Temporal
 
 .. rubric:: Text
