@@ -463,18 +463,16 @@ as the last argument::
  >>> test_based_int = pds.BasedInteger(2, "1111", pds.Units("BYTES"))
  >>> test_real = pds.Real(10.29932232, pds.Units("SEC"))
  
-The units of a numeric value can be accessed or changed using the ``units``
-attribute::
+The units of a numeric value can be accessed using the ``units`` attribute::
 
  >>> test_int.units.expression
  'KM'
- >>> test_int.units = pds.Units("M")
- >>> test_int.units.expression
- 'M'
  >>> test_based_int.units.expression
  'BYTES'
  >>> test_real.units.expression
  'SEC'
+ 
+
 
 .. rubric:: Temporal
 
