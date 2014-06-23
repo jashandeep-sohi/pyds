@@ -463,7 +463,7 @@ as the last argument::
  >>> test_based_int = pds.BasedInteger(2, "1111", pds.Units("BYTES"))
  >>> test_real = pds.Real(10.29932232, pds.Units("SEC"))
  
-The units of a numeric value can be accessed using the ``units`` attribute::
+The :class:`Units` object can be accessed later using the ``units`` attribute::
 
  >>> test_int.units.expression
  'KM'
@@ -471,6 +471,7 @@ The units of a numeric value can be accessed using the ``units`` attribute::
  'BYTES'
  >>> test_real.units.expression
  'SEC'
+
  
 
 
