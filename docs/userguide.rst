@@ -130,9 +130,8 @@ describe::
 
 .. note::
    
-   We have been providing a :obj:`bytes` object (i.e. ``b"..."``) to 
-   the :func:`parse` function because it cannot operate on a :obj:`str`
-   object.::
+   The :func:`parse` function can only operate on :obj:`bytes` objects.
+   Providing a :obj:`str` will raise an error::
 
     >>> pds.parse(
     ...  """
@@ -389,8 +388,8 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  >>> test_object.statements == test_object.value
  True
 
-To get the formatted string representation of an :class:`Object` object, call the
-:func:`str` function on it::
+To get the formatted string representation of an :class:`Object` object, call 
+the :func:`str` function on it::
 
  >>> print(str(test_object)) # doctest: +NORMALIZE_WHITESPACE
  OBJECT     = TEST_OBJECT
@@ -414,6 +413,7 @@ To get the formatted string representation of an :class:`Object` object, call th
 
 Values
 ------
+
 
 .. rubric:: Numeric
 
