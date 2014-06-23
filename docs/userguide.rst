@@ -131,7 +131,7 @@ describe::
 .. note::
    
    The :func:`parse` function can only operate on :obj:`bytes` objects.
-   Providing a :obj:`str` will raise an error::
+   Providing a :obj:`str` object will raise an error::
 
     >>> pds.parse(
     ...  """
@@ -157,7 +157,6 @@ We could parse a PDS label stored in a file using the same approach as above::
 However, this is extremely inefficient and results in high memory usage because
 the entire file is first read into memory and then parsed. This is especially
 true if the file is large.
-
 A more efficient way of parsing a PDS label stored in a file, is to use a 
 :obj:`mmap.mmap` (memory mapped file) object::
 
@@ -413,7 +412,8 @@ the :func:`str` function on it::
 
 Values
 ------
-
+An attribute assignment statement (i.e. an :class:`Attribute` object) supports
+various types of values.
 
 .. rubric:: Numeric
 
