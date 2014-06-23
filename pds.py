@@ -886,7 +886,7 @@ class Units(object):
     if validate and not self._VALID_RE.fullmatch(expression):
       raise ValueError("invalid expression {!r}".format(expression))
     
-    self.expression = expression
+    self.expression = expression.upper()
   
   def __str__(self):
     """
