@@ -263,9 +263,8 @@ describe:</p>
 </div>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p>We have been providing a <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> object (i.e. <tt class="docutils literal"><span class="pre">b&quot;...&quot;</span></tt>) to
-the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function because it cannot operate on a <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>
-object.:</p>
+<p>The <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function can only operate on <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">bytes</span></tt></a> objects.
+Providing a <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a> will raise an error:</p>
 <div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span>
 <span class="gp">... </span> <span class="sd">&quot;&quot;&quot;</span>
 <span class="gp">... </span><span class="sd"> PDS_VERSION_ID = PDS3</span>
@@ -516,8 +515,8 @@ the <a class="reference internal" href="pds/pds.Object.html#pds.Object.identifie
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>To get the formatted string representation of an <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object, call the
-<tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<p>To get the formatted string representation of an <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object, call
+the <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_object</span><span class="p">))</span> 
 <span class="go">OBJECT     = TEST_OBJECT</span>
 <span class="go"> NESTED_ATTR_1  = 5</span>
