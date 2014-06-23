@@ -439,6 +439,33 @@ argument::
  >>> pds.BasedInteger(10, "16")
  <pds.BasedInteger object at 0x...>
  
+All three types of numeric values can also have units.
+Units are represented by a :class:`Units` object, which is instantiated
+with an *units expression* describing the units.
+Units expressions are discussed in detail in the PDS documentation,
+but basically they must have the form, ``units_factor[[*|/]units_factor]*``,
+where *units_factor* is ``units_identifier[**integer]``. It is converted to
+an upper case string and set to the :attr:`Units.expression` attribute::
+
+ >>> pds.Units("km")
+ <pds.Units object at 0x...>
+ >>> pds.Units("km**2").expression
+ 'KM**2'
+ >>> pds.Units("Km**2*sec**-1").expression
+ 'KM**2*SEC**-1'
+ >>> pds.Units("J/S").expression
+ 'J/S'
+
+When instantiating a numeric value with units, provide a :class:`Units` object
+as the last argument::
+
+ >>> pds.Integer(1000, pds.Units("KM"))
+ <pds.Integer object at 0x...>
+ >>> pds.BasedInteger(2, "1111", pds.Units("BYTES"))
+ <pds.BasedInteger object at 0x...>
+ >>> pds.Real(10.29932232, pds.Units("SEC"))
+ <pds.Real object at 0x...>
+ 
 .. rubric:: Temporal
 
 .. rubric:: Text
