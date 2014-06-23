@@ -268,7 +268,7 @@ can only contain :class:`Attribute` objects::
 
 The identifier must be a valid PDS identifier
 (i.e. ``letter[letter|digit|_letter|_digit]*``).
-It is converted to an upper case string and stored as such internally:
+It is converted to an upper case string and stored as such internally::
 
  >>> pds.Group(
  ...  "123 this is not valid",
@@ -364,7 +364,7 @@ There is no limit to the depth to which object statements may be nested::
  
 The identifier must be a valid PDS identifier
 (i.e. ``letter[letter|digit|_letter|_digit]*``).
-It is converted to an upper case string and stored as such internally:
+It is converted to an upper case string and stored as such internally::
 
  >>> pds.Object(
  ...  "123 this is not valid",
