@@ -459,12 +459,9 @@ an upper case string and set to the :attr:`Units.expression` attribute::
 When instantiating a numeric value with units, provide a :class:`Units` object
 as the last argument::
 
- >>> pds.Integer(1000, pds.Units("KM"))
- <pds.Integer object at 0x...>
- >>> pds.BasedInteger(2, "1111", pds.Units("BYTES"))
- <pds.BasedInteger object at 0x...>
- >>> pds.Real(10.29932232, pds.Units("SEC"))
- <pds.Real object at 0x...>
+ >>> test_int = pds.Integer(1000, pds.Units("KM"))
+ >>> test_based_int = pds.BasedInteger(2, "1111", pds.Units("BYTES"))
+ >>> test_real = pds.Real(10.29932232, pds.Units("SEC"))
  
 .. rubric:: Temporal
 
