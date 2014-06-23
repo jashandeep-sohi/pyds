@@ -552,7 +552,17 @@ or a <a class="reference internal" href="pds/pds.Real.html#pds.Real" title="pds.
 </pre></div>
 </div>
 <p>A <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-class docutils literal"><span class="pre">BasedInteger</span></tt></a> object is used to represent an integer specified in a
-particular radix/base (i.e. binary, hexadecimal, etc).</p>
+particular radix/base (i.e. binary, hexadecimal, etc). It is instantiated by
+providing the radix as the first argument and the digits as the second
+argument:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;1111&quot;</span><span class="p">)</span>
+<span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">)</span>
+<span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;16&quot;</span><span class="p">)</span>
+<span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
+</pre></div>
+</div>
 <p class="rubric">Temporal</p>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
