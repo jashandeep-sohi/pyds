@@ -229,7 +229,7 @@ respectively::
  <pds.Integer object at 0x...>
 
 To get the PDS serialized string representation of an :class:`Attribute` object,
-call the :func:`str` function on it::
+call the built-in :func:`str` function on it::
 
  >>> print(str(test_attr))
  TEST_ATTRIBUTE = 5
@@ -292,7 +292,7 @@ attributes respectively::
  True
  
 To get the PDS serialized string representation of a :class:`Group` object,
-call the :func:`str` function on it::
+call the built-in :func:`str` function on it::
 
  >>> print(str(test_group)) # doctest: +NORMALIZE_WHITESPACE
  GROUP     = TEST_GROUP
@@ -388,7 +388,7 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  True
 
 To get the PDS serialized string representation of an :class:`Object` object,
-call the :func:`str` function on it::
+call the built-in :func:`str` function on it::
 
  >>> print(str(test_object)) # doctest: +NORMALIZE_WHITESPACE
  OBJECT     = TEST_OBJECT
@@ -501,6 +501,22 @@ respectively::
  2
  >>> test_based_int.digits
  '1111'
+
+Numeric objects can also be converted to an :obj:`int` or :obj:`float` object
+by calling the built-in :func:`int` or :func:`float` functions on them::
+
+ >>> int(test_int)
+ 1000
+ >>> float(test_int)
+ 1000.0
+ >>> int(test_based_int)
+ 15
+ >>> float(test_based_int)
+ 15.0
+ >>> int(test_real)
+ 10
+ >>> float(test_real)
+ 10.29932232
 
 .. rubric:: Temporal
 
