@@ -566,6 +566,14 @@ day of the year instead of the day of the month::
  >>> test_date_doy.month == None
  True
 
+To get the PDS serialized string representation of a :class:`Date` object, call
+the  built-in :func:`str` function on it::
+
+ >>> str(test_date_ymd)
+ '2014-06-23'
+ >>> str(test_date_doy)
+ '2014-174'
+
 A :class:`Time` object represents a local time, UTC time, or a zoned time::
 
  >>> test_local_time = pds.Time(12, 32, 10) # local time
@@ -590,12 +598,11 @@ integer or a float::
  
 Similarly for a zoned time, providing the minutes of a time zone is optional::
 
- >>> pds.Time(6, 9, None, False, -8, None) # pds.Time(6, 9, None, False, -8)
+ >>> pds.Time(6, 9, None, False, -8, None) # or pds.Time(6, 9, None, False, -8)
  <pds.Time object at 0x...>
  
-
 To get the hours, minutes and seconds of a :class:`Time` object, use the
-attributes :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.seconds`::
+attributes :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.second`::
 
  >>> test_local_time.hour
  12
@@ -634,8 +641,43 @@ over the time zone info::
  True
  >>> t.zone_minute == None
  True
- 
 
+To get the PDS serialized string representation of a :class:`Time` object, call
+the built-in :func:`str` function on it::
+
+ >>> str(test_local_time)
+ '12:32:10'
+ >>> str(test_utc_time)
+ '09:32:10.9983Z'
+ >>> str(test_zoned_time)
+ '20:19-08:20'
+ 
+Finally, a :class:`DateTime` object represents a combined date and time::
+
+ >>> test_datetime_ymd_local = pds.DateTime(2014, 6, 23, 12, 45)
+ >>> test_datetime_ymd_local
+ <pds.DateTime object at 0x...>
+ >>> test_datetime_doy_utc = pds.DateTime(2014, None, 174, 12, 45, 1, True)
+ >>> test_datetime_doy_utc
+ <pds.DateTime object at 0x...>
+ >>> test_datetime_ymd_zoned = pds.DateTime(2014, 6, 23, 12, 0, 10.2, False, 8)
+ >>> test_datetime_ymd_zoned
+ <pds.DateTime object at 0x...>
+ 
+It simply creates a :class:`Date` and :class:`Time` object internally from the
+arguments provided to represent the date and the time. They can be accessed
+using the attributes :attr:`DateTime.date` and :attr:`DateTime.time`::
+
+ >>> test_datetime_ymd_local.date.month
+ 6
+ >>> test_datetime_ymd_local.time.utc
+ False
+ >>> test_datetime_doy_utc.time.utc
+ True
+ >>> test_datetime_doy_utc.date.month == None
+ True
+ >>> test_datetime_ymd_zoned.time.zone_hour
+ 8
 
 .. rubric:: Text
 
