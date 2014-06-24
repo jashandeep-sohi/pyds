@@ -415,7 +415,8 @@ Values
 An attribute assignment statement (i.e. an :class:`Attribute` object) can
 contain the following types of values.
 
-.. rubric:: Numeric
+Integer, BasedInteger & Real
+############################
 
 A numeric value is represented by an :class:`Integer`, a :class:`BasedInteger`,
 or a :class:`Real` object::
@@ -529,10 +530,8 @@ built-in :func:`str` function on it::
  '10.29932232 <SEC>'
 
 
-.. rubric:: Temporal
-
-A temporal value is represented by a :class:`Date`, a :class:`Time`, or a
-:class:`DateTime` object.
+Date
+####
 
 A :class:`Date` object can represent a date in two different formats.
 The first is the usual *year, month and day of month* format::
@@ -573,6 +572,9 @@ the  built-in :func:`str` function on it::
  '2014-06-23'
  >>> str(test_date_doy)
  '2014-174'
+
+Time
+####
 
 A :class:`Time` object represents a local time, UTC time, or a zoned time::
 
@@ -652,7 +654,10 @@ the built-in :func:`str` function on it::
  >>> str(test_zoned_time)
  '20:19-08:20'
  
-Finally, a :class:`DateTime` object represents a combined date and time::
+DateTime
+########
+
+A :class:`DateTime` object represents a combined date and time::
 
  >>> test_datetime_ymd_local = pds.DateTime(2014, 6, 23, 12, 45)
  >>> test_datetime_ymd_local
@@ -689,15 +694,20 @@ call the built-in :func:`str` function on it::
  >>> str(test_datetime_ymd_zoned)
  '2014-06-23T12:00:10.2+08'
 
-.. rubric:: Text
+Text
+####
 
-.. rubric:: Symbol
+Symbol
+######
 
-.. rubric:: Identifier
+Identifier
+##########
 
-.. rubric:: Set
+Set
+###
 
-.. rubric:: Sequence
+Sequence
+########
 
 
 .. _label:
