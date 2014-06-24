@@ -419,6 +419,11 @@ An attribute assignment statement (i.e. an :class:`Attribute` object) can
 contain various types of values. In this module they are represented by the
 following objects.
 
+.. contents::
+   :local:
+   :backlinks: top
+    
+
 Integer, BasedInteger & Real
 ############################
 
