@@ -780,7 +780,7 @@ call the built-in :func:`str` function on it::
 Identifier
 ##########
 An identifier is usually used as the name of an attribute (i.e. in an attribute 
-assignment statement), a group or a object.
+assignment statement), a group or an object.
 It can also be used as a value of an attribute assignment statement using an
 :class:`Identifier` object::
 
