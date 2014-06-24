@@ -720,7 +720,7 @@ A :class:`Text` object holds an arbitrary string of characters::
  >>> test_text
  <pds.Text object at 0x...>
  
-It can contain all *ascii* characters, including control characters like,
+It can contain all *ascii* characters, including control characters like
 the *line feed* (``\n``) or the **horizontal tab** (``\t``), except the 
 *double quote* (``"``) character::
 
