@@ -508,7 +508,7 @@ Attributes :attr:`Integer.value` and :attr:`BasedInteger.value` will always be
 The attribute :attr:`BasedInteger.value` gives the base-10 integer
 representation of the :class:`BasedInteger` object's value.
 To get the base/radix and the digits of a :class:`BasedInteger` object, use
-the attributes :attr:`BasedInteger.radix` and :attr:`BasedInteger.digits`
+the :attr:`BasedInteger.radix` and :attr:`BasedInteger.digits` attributes
 respectively::
 
  >>> test_based_int.radix
@@ -559,8 +559,8 @@ The second is the *year and day of year* format::
  >>> test_date_doy
  <pds.Date object at 0x...>
  
-To access the year, month or day of a :class:`Date` object use the attributes
-:attr:`Date.year`, :attr:`Date.month`, or :attr:`Date.day` respectively::
+To get the year, month or day of a :class:`Date` object use the
+:attr:`Date.year`, :attr:`Date.month`, or :attr:`Date.day` attributes::
 
  >>> test_date_ymd.year
  2014
@@ -617,7 +617,7 @@ Similarly for a zoned time, providing the minutes of a time zone is optional::
  <pds.Time object at 0x...>
  
 To get the hours, minutes and seconds of a :class:`Time` object, use the
-attributes :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.second`::
+:attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.second` attributes::
 
  >>> test_local_time.hour
  12
@@ -628,8 +628,8 @@ attributes :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.second`::
  >>> test_zoned_time.second == None
  True
  
-To get the hours and minutes of the time zone (if specified), use the attributes
-:attr:`Time.zone_hour` and :attr:`Time.zone_minute`::
+To get the hours and minutes of the time zone (if specified), use the
+:attr:`Time.zone_hour` and :attr:`Time.zone_minute` attributes::
 
  >>> test_zoned_time.zone_hour
  -8
@@ -646,7 +646,7 @@ To check whether a :class:`Time` object represents a UTC time, test the
  >>> test_zoned_time.utc
  False
  
-When creating a :class:`Time` object the UTC flag argument takes precedence
+When creating a :class:`Time` object, the UTC flag argument takes precedence
 over the time zone info::
 
  >>> t = pds.Time(12, 20, 9, True, 9, 20)
@@ -684,7 +684,7 @@ A :class:`DateTime` object represents a combined date and time::
  
 It simply creates a :class:`Date` and :class:`Time` object internally from the
 arguments provided to represent the date and the time. They can be accessed
-using the attributes :attr:`DateTime.date` and :attr:`DateTime.time`::
+using the :attr:`DateTime.date` and :attr:`DateTime.time` attributes::
 
  >>> test_datetime_ymd_local.date.month
  6
@@ -709,6 +709,42 @@ call the built-in :func:`str` function on it::
 
 Text
 ####
+A :class:`Text` object holds an arbitrary string of characters::
+
+ >>> test_text = pds.Text(
+ ... """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+ ... tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+ ... veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+ ... commodo consequat."""
+ ... )
+ >>> test_text
+ <pds.Text object at 0x...>
+ 
+It can contain all *ascii* characters, including control characters like,
+the *line feed* (``\n``) or the **horizontal tab** (``\t``), except the 
+*double quote* (``"``) character::
+
+ >>> pds.Text(' " ')
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid value ' " '
+ 
+To access the string, use the :attr:`Text.value` attribute::
+
+ >>> print(test_text.value)
+ Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+ veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+ commodo consequat.
+
+To get the PDS serialized string representation of a :class:`Text` object,
+call the built-in :func:`str` function on it::
+
+ >>> print(str(test_text))
+ "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+ tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+ veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+ commodo consequat."
 
 Symbol
 ######
