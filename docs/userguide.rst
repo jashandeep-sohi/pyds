@@ -593,7 +593,15 @@ Similarly for a zoned time, providing the minutes of a time zone is optional::
  >>> pds.Time(6, 9, None, False, -8, None)
  <pds.Time object at 0x...>
  
+To check whether a :class:`Time` object represents a UTC time, check the
+:attr:`Time.utc` attribute::
 
+ >>> test_utc_time.utc
+ True
+ >>> test_local_time.utc
+ False
+ >>> test_zoned_time.utc
+ False
 
 .. rubric:: Text
 
