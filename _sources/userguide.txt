@@ -490,7 +490,16 @@ The value of a numeric object can be accessed using the ``value`` attribute::
 Attributes :attr:`Integer.value` and :attr:`BasedInteger.value` will always be
 :obj:`int` objects, whereas the attribute :attr:`Real.value` will always be a
 :obj:`float` object.
+:attr:`BasedInteger.value` is the base-10 integer representation of the
+:class:`BasedInteger` object's value.
+The base/radix and the digits of a :class:`BasedInteger` object can be accessed
+using the attributes :attr:`BasedInteger.radix` and :attr:`BasedIntger.digits`
+respectively::
 
+ >>> test_based_int.radix
+ 2
+ >>> test_based_int.digits
+ '1111'
 
 .. rubric:: Temporal
 
