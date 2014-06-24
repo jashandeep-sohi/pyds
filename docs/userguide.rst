@@ -535,13 +535,13 @@ A temporal value is represented by a :class:`Date`, a :class:`Time`, or a
 :class:`DateTime` object.
 
 A :class:`Date` object can represent a date in two different formats.
-The first is the usual year, month and day of month format::
+The first is the usual *year, month and day of month* format::
 
  >>> test_date_ymd = pds.Date(2014, 6, 23)
  >>> test_date_ymd
  <pds.Date object at 0x...>
  
-The second is the year and day of year format::
+The second is the *year and day of year* format::
 
  >>> test_date_doy = pds.Date(2014, None, 174)
  >>> test_date_doy
@@ -561,7 +561,7 @@ To access the year, month or day of :class:`Date` object use the attributes
  >>> test_date_doy.day
  174
  
-If the :class:`Date` object is in the year and day of the year format, then
+If the :class:`Date` object is in the *year and day of the year* format, then
 :attr:`Date.month` will be :obj:`None` and :attr:`Date.day` will refer to the
 day of the year instead of the day of the month::
 
