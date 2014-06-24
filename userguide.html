@@ -686,15 +686,30 @@ day of the year instead of the day of the month:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>A <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object can represent a local time, UTC time, or a zoned time:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">10.9983</span><span class="p">)</span> <span class="c"># local time</span>
+<p>A <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a local time, UTC time, or a zoned time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># local time</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">10.9983</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span> <span class="c"># UTC time</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c"># zoned time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c"># zoned time</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Providing the seconds is optional, however when provided it can either be an
+integer or a float:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># or equivalently pds.Time(12, 20)</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">10.2233223</span><span class="p">)</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Similarly for a zoned time, providing the minutes of a time zone is optional:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 </pre></div>
 </div>
