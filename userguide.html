@@ -799,6 +799,16 @@ using the attributes <a class="reference internal" href="pds/pds.DateTime.html#p
 <span class="go">8</span>
 </pre></div>
 </div>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-class docutils literal"><span class="pre">DateTime</span></tt></a> object,
+call the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_datetime_ymd_local</span><span class="p">)</span>
+<span class="go">&#39;2014-06-23T12:45&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_datetime_doy_utc</span><span class="p">)</span>
+<span class="go">&#39;2014-174T12:45:01Z&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_datetime_ymd_zoned</span><span class="p">)</span>
+<span class="go">&#39;2014-06-23T12:00:10.2+08&#39;</span>
+</pre></div>
+</div>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
 <p class="rubric">Identifier</p>

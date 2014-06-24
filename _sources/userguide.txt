@@ -679,6 +679,16 @@ using the attributes :attr:`DateTime.date` and :attr:`DateTime.time`::
  >>> test_datetime_ymd_zoned.time.zone_hour
  8
 
+To get the PDS serialized string representation of a :class:`DateTime` object,
+call the built-in :func:`str` function on it::
+
+ >>> str(test_datetime_ymd_local)
+ '2014-06-23T12:45'
+ >>> str(test_datetime_doy_utc)
+ '2014-174T12:45:01Z'
+ >>> str(test_datetime_ymd_zoned)
+ '2014-06-23T12:00:10.2+08'
+
 .. rubric:: Text
 
 .. rubric:: Symbol
