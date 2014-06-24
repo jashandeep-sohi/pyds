@@ -494,7 +494,7 @@ Attributes :attr:`Integer.value` and :attr:`BasedInteger.value` will always be
 :attr:`BasedInteger.value` is the base-10 integer representation of the
 :class:`BasedInteger` object's value.
 The base/radix and the digits of a :class:`BasedInteger` object can be accessed
-using the attributes :attr:`BasedInteger.radix` and :attr:`BasedIntger.digits`
+using the attributes :attr:`BasedInteger.radix` and :attr:`BasedInteger.digits`
 respectively::
 
  >>> test_based_int.radix
