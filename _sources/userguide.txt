@@ -505,10 +505,10 @@ Attributes :attr:`Integer.value` and :attr:`BasedInteger.value` will always be
 :obj:`int` objects, whereas the attribute :attr:`Real.value` will always be a
 :obj:`float` object.
 
-:attr:`BasedInteger.value` is the base-10 integer representation of the
-:class:`BasedInteger` object's value.
-The base/radix and the digits of a :class:`BasedInteger` object can be accessed
-using the attributes :attr:`BasedInteger.radix` and :attr:`BasedInteger.digits`
+The attribute :attr:`BasedInteger.value` gives the base-10 integer
+representation of the :class:`BasedInteger` object's value.
+To get the base/radix and the digits of a :class:`BasedInteger` object, use
+the attributes :attr:`BasedInteger.radix` and :attr:`BasedInteger.digits`
 respectively::
 
  >>> test_based_int.radix
