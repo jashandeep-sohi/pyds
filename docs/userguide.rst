@@ -780,9 +780,9 @@ call the built-in :func:`str` function on it::
 Identifier
 ##########
 An identifier is usually used as the name of an attribute (i.e. in an attribute 
-assignment statement), a groups or a objects.
-It can also be used as a value of an attribute assignment statement.
-Such a value is represented by an :class:`Identifier` object::
+assignment statement), a group or a object.
+It can also be used as a value of an attribute assignment statement using an
+:class:`Identifier` object::
 
  >>> test_identifier = pds.Identifier("USA_NASA_PDS_1_0007")
  >>> test_identifier
