@@ -174,7 +174,8 @@ types.
 They are represented in this module by instances of an :class:`Attribute`,
 a :class:`Group`, or an :class:`Object`.
 
-.. rubric:: Attribute
+Attribute
+#########
 
 An *attribute assignment statement*, which assigns some value to an attribute,
 is represented by an :class:`Attribute` object.
@@ -235,7 +236,8 @@ call the built-in :func:`str` function on it::
  TEST_ATTRIBUTE = 5
 
 
-.. rubric:: Group
+Group
+#####
 
 A *group statement*, which groups other attribute assignment statements,
 is represented by a :class:`Group` object.
@@ -301,7 +303,8 @@ call the built-in :func:`str` function on it::
  END_GROUP = TEST_GROUP
  
 
-.. rubric:: Object
+Object
+######
 
 An *object statement*, which groups other statements (of all types), is 
 represented by an :class:`Object` object.
@@ -413,7 +416,18 @@ call the built-in :func:`str` function on it::
 Values
 ------
 An attribute assignment statement (i.e. an :class:`Attribute` object) can
-contain the following types of values.
+contain various types of values. In this module they are represented by
+an :class:`Integer`,
+a :class:`BasedInteger`,
+a :class:`Real`,
+a :class:`Date`,
+a :class:`Time`,
+a :class:`DateTime`,
+a :class:`Text`,
+a :class:`Symbol`,
+an :class:`Identifier`,
+a :class:`Set`,
+or a :class:`Sequence` object.
 
 Integer, BasedInteger & Real
 ############################
