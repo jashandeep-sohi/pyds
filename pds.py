@@ -888,6 +888,21 @@ class Units(object):
     
     self.expression = expression.upper()
   
+  def __eq__(self, other):
+    if isinstance(other, Units):
+      return self.expression == other.expression
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Units):
+      return self.expresion != other.expression
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash(self.expression)
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -916,7 +931,7 @@ class Numeric(Scalar):
       if not isinstance(units, Units):
         raise TypeError("units is not an instance of Units")
     self.units = units
-    
+   
   def __int__(self):
     """
     Return :attr:`value` as an :obj:`int`.
@@ -972,6 +987,21 @@ class Integer(Numeric):
         :obj:`None` or a :class:`Units` instance.
         Read-only.
   """
+  
+  def __eq__(self, other):
+    if isinstance(other, Integer):
+      return self.value == other.value and self.units == other.units
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Integer):
+      return self.value != other.value or self.units != other.units
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((self.value, self.units))
   
   def __init__(self, value, units = None):
     super().__init__(int(value), units)
@@ -1037,7 +1067,24 @@ class BasedInteger(Numeric):
     super().__init__(int(digits, radix), units)
     self.radix = radix
     self.digits = digits.upper()
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, BasedInteger):
+      return self.radix == other.radix and self.digits == other.digits and \
+        self.units == other.units
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, BasedInteger):
+      return self.radix != other.radix or self.digits != other.digits or \
+        self.units != other.units
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((self.radix, self.digits, self.units))  
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1085,7 +1132,21 @@ class Real(Numeric):
   
   def __init__(self, value, units = None):
     super().__init__(float(value), units)
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, Real):
+      return self.value == other.value and self.units == other.units
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Real):
+      return self.value != other.value or self.units != other.units
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((self.value, self.units))  
 
 class Text(Scalar):
   """
@@ -1120,7 +1181,22 @@ class Text(Scalar):
       raise ValueError("invalid value {!r}".format(value))
       
     self.value = value
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, Text):
+      return self.value == other.value
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Text):
+      return self.value != other.value
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash(self.value)  
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1163,7 +1239,22 @@ class Symbol(Scalar):
       raise ValueError("invalid value {!r}".format(value))
     
     self.value = value.upper()
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, Symbol):
+      return self.value == other.value
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Symbol):
+      return self.value != other.value
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash(self.value)  
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1205,7 +1296,22 @@ class Identifier(Scalar):
       raise ValueError("invalid value {!r}".format(value))
     
     self.value = value.upper()
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, Identifier):
+      return self.value == other.value
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Identifier):
+      return self.value != other.value
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash(self.value)  
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1318,6 +1424,34 @@ class Time(Scalar):
     self.zone_hour = zone_hour
     self.zone_minute = zone_minute
 
+  def __eq__(self, other):
+    if isinstance(other, Time):
+      return self.hour == other.hour and self.minute == other.minute and \
+        self.second == other.second and self.utc == other.utc and \
+        self.zone_hour == other.zone_hour and \
+        self.zone_minute == other.zone_minute
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Time):
+      return self.hour != other.hour or self.minute != other.minute or \
+        self.second != other.second or self.utc != other.utc or \
+        self.zone_hour != other.zone_hour or \
+        self.zone_minute != other.zone_minute
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((
+      self.hour,
+      self.minute,
+      self.second,
+      self.utc,
+      self.zone_hour,
+      self.zone_minute
+    ))
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1408,7 +1542,28 @@ class Date(Scalar):
     self.year = year
     self.month = month
     self.day = day
-    
+  
+  def __eq__(self, other):
+    if isinstance(other, Date):
+      return self.year == other.year and self.month == other.month and \
+        self.day == other.day
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, Date):
+      return self.year != other.year or self.month != other.month or \
+        self.day != other.day
+    else:
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((
+      self.year,
+      self.month,
+      self.day
+    ))  
+  
   def __str__(self):
     """
     Return a PDS serialized string (:obj:`str`) representing the object.
@@ -1492,6 +1647,21 @@ class DateTime(Scalar):
   ):
     self.date = Date(year, month, day)
     self.time = Time(hour, minute, second, utc, zone_hour, zone_minute)
+  
+  def __eq__(self, other):
+    if isinstance(other, DateTime):
+      return self.date == other.date and self.time == other.time
+    else:
+      return NotImplemented
+  
+  def __ne__(self, other):
+    if isinstance(other, DateTime):
+      return self.date != other.date or self.time != other.time
+    else: 
+      return NotImplemented
+  
+  def __hash__(self):
+    return hash((self.date, self.time))
   
   def __str__(self):
     """
