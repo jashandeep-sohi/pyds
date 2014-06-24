@@ -478,9 +478,7 @@ units::
  >>> pds.Integer(5).units == None
  True
  
-The value of an :class:`Integer`, :class:`BasedInteger` or :class:`Real` can be
-accessed using the :attr:`Integer.value`, :attr:`BasedInteger.value`, or
-:attr:`Real.value` attribute respectively::
+The value of a numeric object can be accessed using the ``value`` attribute::
 
  >>> test_int.value
  1000
@@ -489,6 +487,9 @@ accessed using the :attr:`Integer.value`, :attr:`BasedInteger.value`, or
  >>> test_real.value
  10.29932232
 
+Attributes :attr:`Integer.value` and :attr:`BasedInteger.value` will always be
+:obj:`int` objects, whereas the attribute :attr:`Real.value` will always be a
+:obj:`float` object.
 
 
 .. rubric:: Temporal

@@ -602,9 +602,7 @@ units:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
-<p>The value of an <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>, <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-class docutils literal"><span class="pre">BasedInteger</span></tt></a> or <a class="reference internal" href="pds/pds.Real.html#pds.Real" title="pds.Real"><tt class="xref py py-class docutils literal"><span class="pre">Real</span></tt></a> can be
-accessed using the <a class="reference internal" href="pds/pds.Integer.html#pds.Integer.value" title="pds.Integer.value"><tt class="xref py py-attr docutils literal"><span class="pre">Integer.value</span></tt></a>, <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger.value" title="pds.BasedInteger.value"><tt class="xref py py-attr docutils literal"><span class="pre">BasedInteger.value</span></tt></a>, or
-<a class="reference internal" href="pds/pds.Real.html#pds.Real.value" title="pds.Real.value"><tt class="xref py py-attr docutils literal"><span class="pre">Real.value</span></tt></a> attribute respectively:</p>
+<p>The value of a numeric object can be accessed using the <tt class="docutils literal"><span class="pre">value</span></tt> attribute:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span><span class="o">.</span><span class="n">value</span>
 <span class="go">1000</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_based_int</span><span class="o">.</span><span class="n">value</span>
@@ -613,6 +611,9 @@ accessed using the <a class="reference internal" href="pds/pds.Integer.html#pds.
 <span class="go">10.29932232</span>
 </pre></div>
 </div>
+<p>Attributes <a class="reference internal" href="pds/pds.Integer.html#pds.Integer.value" title="pds.Integer.value"><tt class="xref py py-attr docutils literal"><span class="pre">Integer.value</span></tt></a> and <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger.value" title="pds.BasedInteger.value"><tt class="xref py py-attr docutils literal"><span class="pre">BasedInteger.value</span></tt></a> will always be
+<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#int" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">int</span></tt></a> objects, whereas the attribute <a class="reference internal" href="pds/pds.Real.html#pds.Real.value" title="pds.Real.value"><tt class="xref py py-attr docutils literal"><span class="pre">Real.value</span></tt></a> will always be a
+<a class="reference external" href="https://docs.python.org/3.4/library/functions.html#float" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">float</span></tt></a> object.</p>
 <p class="rubric">Temporal</p>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
