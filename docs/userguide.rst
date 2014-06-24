@@ -416,18 +416,8 @@ call the built-in :func:`str` function on it::
 Values
 ------
 An attribute assignment statement (i.e. an :class:`Attribute` object) can
-contain various types of values. In this module they are represented by
-an :class:`Integer`,
-a :class:`BasedInteger`,
-a :class:`Real`,
-a :class:`Date`,
-a :class:`Time`,
-a :class:`DateTime`,
-a :class:`Text`,
-a :class:`Symbol`,
-an :class:`Identifier`,
-a :class:`Set`,
-or a :class:`Sequence` object.
+contain various types of values. In this module they are represented by the
+following objects.
 
 Integer, BasedInteger & Real
 ############################
