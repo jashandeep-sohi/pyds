@@ -547,9 +547,7 @@ The second is the *year and day of year* format::
  >>> test_date_doy
  <pds.Date object at 0x...>
  
-Both :class:`Date` objects above refer to the same day, but are just specified 
-a little differently.
-To access the year, month or day of :class:`Date` object use the attributes
+To access the year, month or day of a :class:`Date` object use the attributes
 :attr:`Date.year`, :attr:`Date.month`, or :attr:`Date.day` respectively::
 
  >>> test_date_ymd.year
@@ -561,12 +559,24 @@ To access the year, month or day of :class:`Date` object use the attributes
  >>> test_date_doy.day
  174
  
-If the :class:`Date` object is in the *year and day of the year* format, then
+When a :class:`Date` object is in the *year and day of the year* format, then
 :attr:`Date.month` will be :obj:`None` and :attr:`Date.day` will refer to the
 day of the year instead of the day of the month::
 
  >>> test_date_doy.month == None
  True
+
+A :class:`Time` object can represent a local time, UTC time, or a zoned time::
+
+ >>> test_local_time = pds.Time(12, 32, 10.9983) # local time
+ >>> test_local_time
+ <pds.Time object at 0x...>
+ >>> test_utc_time = pds.Time(9, 32, 10.9983, True) # UTC time
+ >>> test_utc_time
+ <pds.Time object at 0x...>
+ >>> test_zoned_time = pds.Time(20, 19, 20, False, -8, 20) # zoned time
+ >>> test_zoned_time
+ <pds.Time object at 0x...>
 
 .. rubric:: Text
 

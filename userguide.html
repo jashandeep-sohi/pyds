@@ -667,9 +667,7 @@ The first is the usual <em>year, month and day of month</em> format:</p>
 <span class="go">&lt;pds.Date object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>Both <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> objects above refer to the same day, but are just specified
-a little differently.
-To access the year, month or day of <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object use the attributes
+<p>To access the year, month or day of a <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object use the attributes
 <a class="reference internal" href="pds/pds.Date.html#pds.Date.year" title="pds.Date.year"><tt class="xref py py-attr docutils literal"><span class="pre">Date.year</span></tt></a>, <a class="reference internal" href="pds/pds.Date.html#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">Date.month</span></tt></a>, or <a class="reference internal" href="pds/pds.Date.html#pds.Date.day" title="pds.Date.day"><tt class="xref py py-attr docutils literal"><span class="pre">Date.day</span></tt></a> respectively:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span><span class="o">.</span><span class="n">year</span>
 <span class="go">2014</span>
@@ -681,11 +679,23 @@ To access the year, month or day of <a class="reference internal" href="pds/pds.
 <span class="go">174</span>
 </pre></div>
 </div>
-<p>If the <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object is in the <em>year and day of the year</em> format, then
+<p>When a <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object is in the <em>year and day of the year</em> format, then
 <a class="reference internal" href="pds/pds.Date.html#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">Date.month</span></tt></a> will be <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> and <a class="reference internal" href="pds/pds.Date.html#pds.Date.day" title="pds.Date.day"><tt class="xref py py-attr docutils literal"><span class="pre">Date.day</span></tt></a> will refer to the
 day of the year instead of the day of the month:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_doy</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="bp">None</span>
 <span class="go">True</span>
+</pre></div>
+</div>
+<p>A <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object can represent a local time, UTC time, or a zoned time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">10.9983</span><span class="p">)</span> <span class="c"># local time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mf">10.9983</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span> <span class="c"># UTC time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span> <span class="c"># zoned time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
 </pre></div>
 </div>
 <p class="rubric">Text</p>
