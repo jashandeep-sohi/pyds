@@ -921,6 +921,47 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 <div class="section" id="identifier">
 <h3><a class="toc-backref" href="#id3">Identifier</a><a class="headerlink" href="#identifier" title="Permalink to this headline">¶</a></h3>
+<p>An identifier is usually used as the name of an attributes (i.e. in an attribute
+assignment statement), a groups or a objects.
+It can also be used as a value of an attribute assignment statement.
+Such a value is represented by an <a class="reference internal" href="pds/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-class docutils literal"><span class="pre">Identifier</span></tt></a> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_identifier</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;USA_NASA_PDS_1_0007&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_identifier</span>
+<span class="go">&lt;pds.Identifier object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Identifiers are composed of letters, digits, and underscores.
+Underscores are used to separate words in an identifier.
+The first character of an identifier must be a letter.
+The last character may not be an underscore:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;VOYAGER&quot;</span><span class="p">)</span>
+<span class="go">&lt;pds.Identifier object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;VOYAGER_2&quot;</span><span class="p">)</span>
+<span class="go">&lt;pds.Identifier object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;1_VOYAGER&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid value &#39;1_VOYAGER&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;_VOYAGER&quot;</span><span class="p">)</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">ValueError</span>: <span class="n">invalid value &#39;_VOYAGER&#39;</span>
+</pre></div>
+</div>
+<p>The string is upper cased and stored as such internally.
+It is accessible using the <a class="reference internal" href="pds/pds.Identifier.html#pds.Identifier.value" title="pds.Identifier.value"><tt class="xref py py-attr docutils literal"><span class="pre">Identifier.value</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;voyager&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">&#39;VOYAGER&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_identifier</span><span class="o">.</span><span class="n">value</span>
+<span class="go">&#39;USA_NASA_PDS_1_0007&#39;</span>
+</pre></div>
+</div>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-class docutils literal"><span class="pre">Identifier</span></tt></a> object,
+call the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_identifier</span><span class="p">))</span>
+<span class="go">USA_NASA_PDS_1_0007</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="set">
 <h3><a class="toc-backref" href="#id3">Set</a><a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
