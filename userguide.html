@@ -652,6 +652,42 @@ built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</s
 </pre></div>
 </div>
 <p class="rubric">Temporal</p>
+<p>A temporal value is represented by a <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a>, a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a>, or a
+<a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-class docutils literal"><span class="pre">DateTime</span></tt></a> object.</p>
+<p>A <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object can represent a date in two different formats.
+The first is the usual year, month and day of month format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span>
+<span class="go">&lt;pds.Date object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>The second is the year and day of year format:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_doy</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">174</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_doy</span>
+<span class="go">&lt;pds.Date object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Both <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> objects above refer to the same day, but are just specified
+a little differently.
+To access the year, month or day of <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object use the attributes
+<a class="reference internal" href="pds/pds.Date.html#pds.Date.year" title="pds.Date.year"><tt class="xref py py-attr docutils literal"><span class="pre">Date.year</span></tt></a>, <a class="reference internal" href="pds/pds.Date.html#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">Date.month</span></tt></a>, or <a class="reference internal" href="pds/pds.Date.html#pds.Date.day" title="pds.Date.day"><tt class="xref py py-attr docutils literal"><span class="pre">Date.day</span></tt></a> respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span><span class="o">.</span><span class="n">year</span>
+<span class="go">2014</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span><span class="o">.</span><span class="n">month</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span><span class="o">.</span><span class="n">day</span>
+<span class="go">23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_doy</span><span class="o">.</span><span class="n">day</span>
+<span class="go">174</span>
+</pre></div>
+</div>
+<p>If the <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object is in the year and day of the year format, then
+<a class="reference internal" href="pds/pds.Date.html#pds.Date.month" title="pds.Date.month"><tt class="xref py py-attr docutils literal"><span class="pre">Date.month</span></tt></a> will be <a class="reference external" href="https://docs.python.org/3.4/library/constants.html#None" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">None</span></tt></a> and <a class="reference internal" href="pds/pds.Date.html#pds.Date.day" title="pds.Date.day"><tt class="xref py py-attr docutils literal"><span class="pre">Date.day</span></tt></a> will refer to the
+day of the year instead of the day of the month:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_doy</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
 <p class="rubric">Identifier</p>
