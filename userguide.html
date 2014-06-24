@@ -686,6 +686,14 @@ day of the year instead of the day of the month:</p>
 <span class="go">True</span>
 </pre></div>
 </div>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object, call
+the  built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_date_ymd</span><span class="p">)</span>
+<span class="go">&#39;2014-06-23&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_date_doy</span><span class="p">)</span>
+<span class="go">&#39;2014-174&#39;</span>
+</pre></div>
+</div>
 <p>A <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a local time, UTC time, or a zoned time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># local time</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span>
@@ -709,12 +717,12 @@ integer or a float:</p>
 </pre></div>
 </div>
 <p>Similarly for a zoned time, providing the minutes of a time zone is optional:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># pds.Time(6, 9, None, False, -8)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># or pds.Time(6, 9, None, False, -8)</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 </pre></div>
 </div>
 <p>To get the hours, minutes and seconds of a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object, use the
-attributes <a class="reference internal" href="pds/pds.Time.html#pds.Time.hour" title="pds.Time.hour"><tt class="xref py py-attr docutils literal"><span class="pre">Time.hour</span></tt></a>, <a class="reference internal" href="pds/pds.Time.html#pds.Time.minute" title="pds.Time.minute"><tt class="xref py py-attr docutils literal"><span class="pre">Time.minute</span></tt></a> and <tt class="xref py py-attr docutils literal"><span class="pre">Time.seconds</span></tt>:</p>
+attributes <a class="reference internal" href="pds/pds.Time.html#pds.Time.hour" title="pds.Time.hour"><tt class="xref py py-attr docutils literal"><span class="pre">Time.hour</span></tt></a>, <a class="reference internal" href="pds/pds.Time.html#pds.Time.minute" title="pds.Time.minute"><tt class="xref py py-attr docutils literal"><span class="pre">Time.minute</span></tt></a> and <a class="reference internal" href="pds/pds.Time.html#pds.Time.second" title="pds.Time.second"><tt class="xref py py-attr docutils literal"><span class="pre">Time.second</span></tt></a>:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">hour</span>
 <span class="go">12</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">minute</span>
@@ -752,6 +760,43 @@ over the time zone info:</p>
 <span class="go">True</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">zone_minute</span> <span class="o">==</span> <span class="bp">None</span>
 <span class="go">True</span>
+</pre></div>
+</div>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object, call
+the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_local_time</span><span class="p">)</span>
+<span class="go">&#39;12:32:10&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_utc_time</span><span class="p">)</span>
+<span class="go">&#39;09:32:10.9983Z&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_zoned_time</span><span class="p">)</span>
+<span class="go">&#39;20:19-08:20&#39;</span>
+</pre></div>
+</div>
+<p>Finally, a <a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-class docutils literal"><span class="pre">DateTime</span></tt></a> object represents a combined date and time:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span>
+<span class="go">&lt;pds.DateTime object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_doy_utc</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="mi">174</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_doy_utc</span>
+<span class="go">&lt;pds.DateTime object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_zoned</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">10.2</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_zoned</span>
+<span class="go">&lt;pds.DateTime object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>It simply creates a <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> and <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object internally from the
+arguments provided to represent the date and the time. They can be accessed
+using the attributes <a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime.date" title="pds.DateTime.date"><tt class="xref py py-attr docutils literal"><span class="pre">DateTime.date</span></tt></a> and <a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime.time" title="pds.DateTime.time"><tt class="xref py py-attr docutils literal"><span class="pre">DateTime.time</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">month</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_doy_utc</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_doy_utc</span><span class="o">.</span><span class="n">date</span><span class="o">.</span><span class="n">month</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_zoned</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">zone_hour</span>
+<span class="go">8</span>
 </pre></div>
 </div>
 <p class="rubric">Text</p>
