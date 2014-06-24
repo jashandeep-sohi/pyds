@@ -1314,7 +1314,7 @@ class Time(Scalar):
     self.hour = hour
     self.minute = minute
     self.second = second
-    self.utc = utc
+    self.utc = bool(utc)
     self.zone_hour = zone_hour
     self.zone_minute = zone_minute
 
