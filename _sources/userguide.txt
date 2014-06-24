@@ -669,7 +669,6 @@ the built-in :func:`str` function on it::
  
 DateTime
 ########
-
 A :class:`DateTime` object represents a combined date and time::
 
  >>> test_datetime_ymd_local = pds.DateTime(2014, 6, 23, 12, 45)
@@ -709,7 +708,7 @@ call the built-in :func:`str` function on it::
 
 Text
 ####
-A :class:`Text` object holds an arbitrary string of characters::
+A :class:`Text` object represents an arbitrary string of characters::
 
  >>> test_text = pds.Text(
  ... """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -748,6 +747,35 @@ call the built-in :func:`str` function on it::
 
 Symbol
 ######
+A :class:`Symbol` object represents a string of characters used to represent
+a symbolic value::
+
+ >>> test_symbol = pds.Symbol("BLHA-BLHA#BLHA BLHA")
+ >>> test_symbol
+ <pds.Symbol object at 0x...>
+ 
+It can contain all **printable** *ascii* characters, except for the single quote
+(``'``). That means it also cannot contain control characters 
+(e.g. ``\n``, ``\t``, etc)::
+
+ >>> pds.Symbol("This is boooring\n But it must be done...")
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid value 'This is boooring\n But it must be done...'
+
+The string is upper cased and stored as such internally.
+It is accessible using the :attr:`Symbol.value` attribute::
+
+ >>> pds.Symbol("this should be upper cased").value
+ 'THIS SHOULD BE UPPER CASED'
+ >>> test_symbol.value
+ 'BLHA-BLHA#BLHA BLHA'
+ 
+To get the PDS serialized string representation of a :class:`Symbol` object,
+call the built-in :func:`str` function on it::
+
+ >>> print(str(test_symbol))
+ 'BLHA-BLHA#BLHA BLHA'
 
 Identifier
 ##########
