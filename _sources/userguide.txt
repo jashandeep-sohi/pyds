@@ -581,7 +581,7 @@ A :class:`Time` object represents a local time, UTC time, or a zoned time::
 Providing the seconds is optional, however when provided it can either be an
 integer or a float::
 
- >>> pds.Time(12, 20, None) # or equivalently pds.Time(12, 20)
+ >>> pds.Time(12, 20, None) # or pds.Time(12, 20)
  <pds.Time object at 0x...>
  >>> pds.Time(12, 20, 10)
  <pds.Time object at 0x...>
@@ -590,10 +590,31 @@ integer or a float::
  
 Similarly for a zoned time, providing the minutes of a time zone is optional::
 
- >>> pds.Time(6, 9, None, False, -8, None)
+ >>> pds.Time(6, 9, None, False, -8, None) # pds.Time(6, 9, None, False, -8)
  <pds.Time object at 0x...>
  
-To check whether a :class:`Time` object represents a UTC time, check the
+
+To get the hours, minutes and seconds of a :class:`Time` object, use the
+attributes :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.seconds`::
+
+ >>> test_local_time.hour
+ 12
+ >>> test_local_time.minute
+ 32
+ >>> test_local_time.second
+ 10.0
+ >>> test_zoned_time.second == None
+ True
+ 
+To get the hours and minutes of the time zone (if specified), use the attributes
+:attr:`Time.zone_hour` and :attr:`Time.zone_minute`::
+
+ >>> test_zoned_time.zone_hour
+ -8
+ >>> test_zoned_time.zone_minute
+ 20
+
+To check whether a :class:`Time` object represents a UTC time, test the
 :attr:`Time.utc` attribute::
 
  >>> test_utc_time.utc
@@ -602,6 +623,19 @@ To check whether a :class:`Time` object represents a UTC time, check the
  False
  >>> test_zoned_time.utc
  False
+ 
+When creating a :class:`Time` object the UTC flag argument takes precedence
+over the time zone info::
+
+ >>> t = pds.Time(12, 20, 9, True, 9, 20)
+ >>> t.utc
+ True
+ >>> t.zone_hour == None
+ True
+ >>> t.zone_minute == None
+ True
+ 
+
 
 .. rubric:: Text
 

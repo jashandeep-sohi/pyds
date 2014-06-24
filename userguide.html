@@ -700,7 +700,7 @@ day of the year instead of the day of the month:</p>
 </div>
 <p>Providing the seconds is optional, however when provided it can either be an
 integer or a float:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># or equivalently pds.Time(12, 20)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># or pds.Time(12, 20)</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
@@ -709,11 +709,31 @@ integer or a float:</p>
 </pre></div>
 </div>
 <p>Similarly for a zoned time, providing the minutes of a time zone is optional:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="bp">False</span><span class="p">,</span> <span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="c"># pds.Time(6, 9, None, False, -8)</span>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>To check whether a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a UTC time, check the
+<p>To get the hours, minutes and seconds of a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object, use the
+attributes <a class="reference internal" href="pds/pds.Time.html#pds.Time.hour" title="pds.Time.hour"><tt class="xref py py-attr docutils literal"><span class="pre">Time.hour</span></tt></a>, <a class="reference internal" href="pds/pds.Time.html#pds.Time.minute" title="pds.Time.minute"><tt class="xref py py-attr docutils literal"><span class="pre">Time.minute</span></tt></a> and <tt class="xref py py-attr docutils literal"><span class="pre">Time.seconds</span></tt>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">hour</span>
+<span class="go">12</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">minute</span>
+<span class="go">32</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">second</span>
+<span class="go">10.0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span><span class="o">.</span><span class="n">second</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>To get the hours and minutes of the time zone (if specified), use the attributes
+<a class="reference internal" href="pds/pds.Time.html#pds.Time.zone_hour" title="pds.Time.zone_hour"><tt class="xref py py-attr docutils literal"><span class="pre">Time.zone_hour</span></tt></a> and <a class="reference internal" href="pds/pds.Time.html#pds.Time.zone_minute" title="pds.Time.zone_minute"><tt class="xref py py-attr docutils literal"><span class="pre">Time.zone_minute</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span><span class="o">.</span><span class="n">zone_hour</span>
+<span class="go">-8</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span><span class="o">.</span><span class="n">zone_minute</span>
+<span class="go">20</span>
+</pre></div>
+</div>
+<p>To check whether a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a UTC time, test the
 <a class="reference internal" href="pds/pds.Time.html#pds.Time.utc" title="pds.Time.utc"><tt class="xref py py-attr docutils literal"><span class="pre">Time.utc</span></tt></a> attribute:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span><span class="o">.</span><span class="n">utc</span>
 <span class="go">True</span>
@@ -721,6 +741,17 @@ integer or a float:</p>
 <span class="go">False</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span><span class="o">.</span><span class="n">utc</span>
 <span class="go">False</span>
+</pre></div>
+</div>
+<p>When creating a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object the UTC flag argument takes precedence
+over the time zone info:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">t</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="bp">True</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">zone_hour</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">t</span><span class="o">.</span><span class="n">zone_minute</span> <span class="o">==</span> <span class="bp">None</span>
+<span class="go">True</span>
 </pre></div>
 </div>
 <p class="rubric">Text</p>
