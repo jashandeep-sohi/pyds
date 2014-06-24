@@ -779,6 +779,46 @@ call the built-in :func:`str` function on it::
 
 Identifier
 ##########
+An identifier is usually used as the name of an attributes (i.e. in an attribute 
+assignment statement), a groups or a objects.
+It can also be used as a value of an attribute assignment statement.
+Such a value is represented by an :class:`Identifier` object::
+
+ >>> test_identifier = pds.Identifier("USA_NASA_PDS_1_0007")
+ >>> test_identifier
+ <pds.Identifier object at 0x...>
+ 
+Identifiers are composed of letters, digits, and underscores. 
+Underscores are used to separate words in an identifier.
+The first character of an identifier must be a letter.
+The last character may not be an underscore::
+
+ >>> pds.Identifier("VOYAGER")
+ <pds.Identifier object at 0x...>
+ >>> pds.Identifier("VOYAGER_2")
+ <pds.Identifier object at 0x...>
+ >>> pds.Identifier("1_VOYAGER")
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid value '1_VOYAGER'
+ >>> pds.Identifier("_VOYAGER")
+ Traceback (most recent call last):
+  ...
+ ValueError: invalid value '_VOYAGER'
+ 
+The string is upper cased and stored as such internally.
+It is accessible using the :attr:`Identifier.value` attribute::
+
+ >>> pds.Identifier("voyager").value
+ 'VOYAGER'
+ >>> test_identifier.value
+ 'USA_NASA_PDS_1_0007'
+ 
+To get the PDS serialized string representation of a :class:`Identifier` object,
+call the built-in :func:`str` function on it::
+
+ >>> print(str(test_identifier))
+ USA_NASA_PDS_1_0007
 
 Set
 ###
