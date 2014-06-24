@@ -708,7 +708,7 @@ call the built-in :func:`str` function on it::
 
 Text
 ####
-A :class:`Text` object represents an arbitrary string of characters::
+A :class:`Text` object contains an arbitrary string of characters::
 
  >>> test_text = pds.Text(
  ... """Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
@@ -747,7 +747,7 @@ call the built-in :func:`str` function on it::
 
 Symbol
 ######
-A :class:`Symbol` object represents a string of characters used to represent
+A :class:`Symbol` object contains a string of characters used to represent
 a symbolic value::
 
  >>> test_symbol = pds.Symbol("BLHA-BLHA#BLHA BLHA")
@@ -814,7 +814,7 @@ It is accessible using the :attr:`Identifier.value` attribute::
  >>> test_identifier.value
  'USA_NASA_PDS_1_0007'
  
-To get the PDS serialized string representation of a :class:`Identifier` object,
+To get the PDS serialized string representation of an :class:`Identifier` object,
 call the built-in :func:`str` function on it::
 
  >>> print(str(test_identifier))
