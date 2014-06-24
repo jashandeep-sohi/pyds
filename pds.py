@@ -1297,18 +1297,22 @@ class Time(Scalar):
       if second < 0 or second > 59:
         raise ValueError("second is not between 0 and 59")
     
-    if zone_hour is not None:
-      zone_hour = int(zone_hour)
-      if zone_hour < -12 or zone_hour > 12:
-        raise ValueError("zone hour is not between -12 and 12")
-      
-      if zone_minute is not None:
-        zone_minute = int(zone_minute)
-        if zone_minute < 0 or zone_minute > 59:
-          raise ValueError("zone minute is not between 0 and 59")
+    if not utc:
+      if zone_hour is not None:
+        zone_hour = int(zone_hour)
+        if zone_hour < -12 or zone_hour > 12:
+          raise ValueError("zone hour is not between -12 and 12")
+        
+        if zone_minute is not None:
+          zone_minute = int(zone_minute)
+          if zone_minute < 0 or zone_minute > 59:
+            raise ValueError("zone minute is not between 0 and 59")
+    else:
+      zone_hour = None
+      zone_minute = None
     
     self.hour = hour
-    self.minute = hour
+    self.minute = minute
     self.second = second
     self.utc = utc
     self.zone_hour = zone_hour
