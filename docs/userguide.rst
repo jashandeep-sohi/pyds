@@ -566,17 +566,34 @@ day of the year instead of the day of the month::
  >>> test_date_doy.month == None
  True
 
-A :class:`Time` object can represent a local time, UTC time, or a zoned time::
+A :class:`Time` object represents a local time, UTC time, or a zoned time::
 
- >>> test_local_time = pds.Time(12, 32, 10.9983) # local time
+ >>> test_local_time = pds.Time(12, 32, 10) # local time
  >>> test_local_time
  <pds.Time object at 0x...>
  >>> test_utc_time = pds.Time(9, 32, 10.9983, True) # UTC time
  >>> test_utc_time
  <pds.Time object at 0x...>
- >>> test_zoned_time = pds.Time(20, 19, 20, False, -8, 20) # zoned time
+ >>> test_zoned_time = pds.Time(20, 19, None, False, -8, 20) # zoned time
  >>> test_zoned_time
  <pds.Time object at 0x...>
+ 
+Providing the seconds is optional, however when provided it can either be an
+integer or a float::
+
+ >>> pds.Time(12, 20, None) # or equivalently pds.Time(12, 20)
+ <pds.Time object at 0x...>
+ >>> pds.Time(12, 20, 10)
+ <pds.Time object at 0x...>
+ >>> pds.Time(12, 20, 10.2233223)
+ <pds.Time object at 0x...>
+ 
+Similarly for a zoned time, providing the minutes of a time zone is optional::
+
+ >>> pds.Time(6, 9, None, False, -8, None)
+ <pds.Time object at 0x...>
+ 
+
 
 .. rubric:: Text
 
