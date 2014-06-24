@@ -518,6 +518,16 @@ by calling the built-in :func:`int` or :func:`float` functions on them::
  >>> float(test_real)
  10.29932232
 
+To get the PDS serialized string representation of numeric object, call the 
+built-in :func:`str` function on it::
+
+ >>> str(test_int)
+ '1000 <KM>'
+ >>> str(test_based_int)
+ '2#1111# <BYTES>'
+ >>> str(test_real)
+ '10.29932232 <SEC>'
+
 .. rubric:: Temporal
 
 .. rubric:: Text

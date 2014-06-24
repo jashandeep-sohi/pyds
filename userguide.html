@@ -641,6 +641,16 @@ by calling the built-in <a class="reference external" href="https://docs.python.
 <span class="go">10.29932232</span>
 </pre></div>
 </div>
+<p>To get the PDS serialized string representation of numeric object, call the
+built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_int</span><span class="p">)</span>
+<span class="go">&#39;1000 &lt;KM&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_based_int</span><span class="p">)</span>
+<span class="go">&#39;2#1111# &lt;BYTES&gt;&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_real</span><span class="p">)</span>
+<span class="go">&#39;10.29932232 &lt;SEC&gt;&#39;</span>
+</pre></div>
+</div>
 <p class="rubric">Temporal</p>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
