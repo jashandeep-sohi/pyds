@@ -436,7 +436,7 @@ argument::
  <pds.BasedInteger object at 0x...>
  >>> pds.BasedInteger(16, "f")
  <pds.BasedInteger object at 0x...>
- >>> pds.BasedInteger(10, "16")
+ >>> pds.BasedInteger(10, "15")
  <pds.BasedInteger object at 0x...>
  
 All three types of numeric values can also have units.
@@ -478,7 +478,16 @@ units::
  >>> pds.Integer(5).units == None
  True
  
+The value of an :class:`Integer`, :class:`BasedInteger` or :class:`Real` can be
+accessed using the :attr:`Integer.value`, :attr:`BasedInteger.value`, or
+:attr:`Real.value` attribute respectively::
 
+ >>> test_int.value
+ 1000
+ >>> test_based_int.value
+ 15
+ >>> test_real.value
+ 10.29932232
 
 
 

@@ -559,7 +559,7 @@ argument:</p>
 <span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="s">&quot;f&quot;</span><span class="p">)</span>
 <span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;16&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;15&quot;</span><span class="p">)</span>
 <span class="go">&lt;pds.BasedInteger object at 0x...&gt;</span>
 </pre></div>
 </div>
@@ -600,6 +600,17 @@ as the last argument:</p>
 units:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">units</span> <span class="o">==</span> <span class="bp">None</span>
 <span class="go">True</span>
+</pre></div>
+</div>
+<p>The value of an <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>, <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-class docutils literal"><span class="pre">BasedInteger</span></tt></a> or <a class="reference internal" href="pds/pds.Real.html#pds.Real" title="pds.Real"><tt class="xref py py-class docutils literal"><span class="pre">Real</span></tt></a> can be
+accessed using the <a class="reference internal" href="pds/pds.Integer.html#pds.Integer.value" title="pds.Integer.value"><tt class="xref py py-attr docutils literal"><span class="pre">Integer.value</span></tt></a>, <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger.value" title="pds.BasedInteger.value"><tt class="xref py py-attr docutils literal"><span class="pre">BasedInteger.value</span></tt></a>, or
+<a class="reference internal" href="pds/pds.Real.html#pds.Real.value" title="pds.Real.value"><tt class="xref py py-attr docutils literal"><span class="pre">Real.value</span></tt></a> attribute respectively:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_int</span><span class="o">.</span><span class="n">value</span>
+<span class="go">1000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_based_int</span><span class="o">.</span><span class="n">value</span>
+<span class="go">15</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_real</span><span class="o">.</span><span class="n">value</span>
+<span class="go">10.29932232</span>
 </pre></div>
 </div>
 <p class="rubric">Temporal</p>
