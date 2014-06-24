@@ -848,7 +848,7 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 <div class="section" id="text">
 <h3><a class="toc-backref" href="#id3">Text</a><a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="pds/pds.Text.html#pds.Text" title="pds.Text"><tt class="xref py py-class docutils literal"><span class="pre">Text</span></tt></a> object represents an arbitrary string of characters:</p>
+<p>A <a class="reference internal" href="pds/pds.Text.html#pds.Text" title="pds.Text"><tt class="xref py py-class docutils literal"><span class="pre">Text</span></tt></a> object contains an arbitrary string of characters:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_text</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span>
 <span class="gp">... </span><span class="sd">&quot;&quot;&quot;Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</span>
 <span class="gp">... </span><span class="sd">tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim</span>
@@ -888,7 +888,7 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 <div class="section" id="symbol">
 <h3><a class="toc-backref" href="#id3">Symbol</a><a class="headerlink" href="#symbol" title="Permalink to this headline">¶</a></h3>
-<p>A <a class="reference internal" href="pds/pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-class docutils literal"><span class="pre">Symbol</span></tt></a> object represents a string of characters used to represent
+<p>A <a class="reference internal" href="pds/pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-class docutils literal"><span class="pre">Symbol</span></tt></a> object contains a string of characters used to represent
 a symbolic value:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_symbol</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s">&quot;BLHA-BLHA#BLHA BLHA&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_symbol</span>
@@ -956,7 +956,7 @@ It is accessible using the <a class="reference internal" href="pds/pds.Identifie
 <span class="go">&#39;USA_NASA_PDS_1_0007&#39;</span>
 </pre></div>
 </div>
-<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-class docutils literal"><span class="pre">Identifier</span></tt></a> object,
+<p>To get the PDS serialized string representation of an <a class="reference internal" href="pds/pds.Identifier.html#pds.Identifier" title="pds.Identifier"><tt class="xref py py-class docutils literal"><span class="pre">Identifier</span></tt></a> object,
 call the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_identifier</span><span class="p">))</span>
 <span class="go">USA_NASA_PDS_1_0007</span>
