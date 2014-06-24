@@ -174,6 +174,10 @@ types.
 They are represented in this module by instances of an :class:`Attribute`,
 a :class:`Group`, or an :class:`Object`.
 
+.. contents:: Contents
+   :local:
+   :backlinks: top
+
 Attribute
 #########
 

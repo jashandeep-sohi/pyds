@@ -306,8 +306,16 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
 types.
 They are represented in this module by instances of an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a>,
 a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a>, or an <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a>.</p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#attribute" id="id5">Attribute</a></li>
+<li><a class="reference internal" href="#group" id="id6">Group</a></li>
+<li><a class="reference internal" href="#object" id="id7">Object</a></li>
+</ul>
+</div>
 <div class="section" id="attribute">
-<h3>Attribute<a class="headerlink" href="#attribute" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Attribute</a><a class="headerlink" href="#attribute" title="Permalink to this headline">¶</a></h3>
 <p>An <em>attribute assignment statement</em>, which assigns some value to an attribute,
 is represented by an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object.
 It is instantiated with an identifier and a value:</p>
@@ -369,7 +377,7 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 </div>
 <div class="section" id="group">
-<h3>Group<a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Group</a><a class="headerlink" href="#group" title="Permalink to this headline">¶</a></h3>
 <p>A <em>group statement</em>, which groups other attribute assignment statements,
 is represented by a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> object.
 It is instantiated with an identifier and a <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> object:</p>
@@ -435,7 +443,7 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 </div>
 <div class="section" id="object">
-<h3>Object<a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Object</a><a class="headerlink" href="#object" title="Permalink to this headline">¶</a></h3>
 <p>An <em>object statement</em>, which groups other statements (of all types), is
 represented by an <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> object.
 It is instantiated with an identifier and a <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> object:</p>
@@ -547,22 +555,22 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 <p>An attribute assignment statement (i.e. an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> object) can
 contain various types of values. In this module they are represented by the
 following objects.</p>
-<div class="contents local topic" id="contents">
+<div class="contents local topic" id="id3">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#integer-basedinteger-real" id="id4">Integer, BasedInteger &amp; Real</a></li>
-<li><a class="reference internal" href="#date" id="id5">Date</a></li>
-<li><a class="reference internal" href="#time" id="id6">Time</a></li>
-<li><a class="reference internal" href="#datetime" id="id7">DateTime</a></li>
-<li><a class="reference internal" href="#text" id="id8">Text</a></li>
-<li><a class="reference internal" href="#symbol" id="id9">Symbol</a></li>
-<li><a class="reference internal" href="#identifier" id="id10">Identifier</a></li>
-<li><a class="reference internal" href="#set" id="id11">Set</a></li>
-<li><a class="reference internal" href="#sequence" id="id12">Sequence</a></li>
+<li><a class="reference internal" href="#integer-basedinteger-real" id="id8">Integer, BasedInteger &amp; Real</a></li>
+<li><a class="reference internal" href="#date" id="id9">Date</a></li>
+<li><a class="reference internal" href="#time" id="id10">Time</a></li>
+<li><a class="reference internal" href="#datetime" id="id11">DateTime</a></li>
+<li><a class="reference internal" href="#text" id="id12">Text</a></li>
+<li><a class="reference internal" href="#symbol" id="id13">Symbol</a></li>
+<li><a class="reference internal" href="#identifier" id="id14">Identifier</a></li>
+<li><a class="reference internal" href="#set" id="id15">Set</a></li>
+<li><a class="reference internal" href="#sequence" id="id16">Sequence</a></li>
 </ul>
 </div>
 <div class="section" id="integer-basedinteger-real">
-<h3><a class="toc-backref" href="#contents">Integer, BasedInteger &amp; Real</a><a class="headerlink" href="#integer-basedinteger-real" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Integer, BasedInteger &amp; Real</a><a class="headerlink" href="#integer-basedinteger-real" title="Permalink to this headline">¶</a></h3>
 <p>A numeric value is represented by an <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>, a <a class="reference internal" href="pds/pds.BasedInteger.html#pds.BasedInteger" title="pds.BasedInteger"><tt class="xref py py-class docutils literal"><span class="pre">BasedInteger</span></tt></a>,
 or a <a class="reference internal" href="pds/pds.Real.html#pds.Real" title="pds.Real"><tt class="xref py py-class docutils literal"><span class="pre">Real</span></tt></a> object:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -675,7 +683,7 @@ built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</s
 </div>
 </div>
 <div class="section" id="date">
-<h3><a class="toc-backref" href="#contents">Date</a><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Date</a><a class="headerlink" href="#date" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a> object can represent a date in two different formats.
 The first is the usual <em>year, month and day of month</em> format:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_date_ymd</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">)</span>
@@ -718,7 +726,7 @@ the  built-in <tt class="xref py py-func docutils literal"><span class="pre">str
 </div>
 </div>
 <div class="section" id="time">
-<h3><a class="toc-backref" href="#contents">Time</a><a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Time</a><a class="headerlink" href="#time" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a local time, UTC time, or a zoned time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="c"># local time</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span>
@@ -799,7 +807,7 @@ the built-in <tt class="xref py py-func docutils literal"><span class="pre">str(
 </div>
 </div>
 <div class="section" id="datetime">
-<h3><a class="toc-backref" href="#contents">DateTime</a><a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">DateTime</a><a class="headerlink" href="#datetime" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="pds/pds.DateTime.html#pds.DateTime" title="pds.DateTime"><tt class="xref py py-class docutils literal"><span class="pre">DateTime</span></tt></a> object represents a combined date and time:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">DateTime</span><span class="p">(</span><span class="mi">2014</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">45</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">test_datetime_ymd_local</span>
@@ -839,23 +847,23 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </div>
 </div>
 <div class="section" id="text">
-<h3><a class="toc-backref" href="#contents">Text</a><a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Text</a><a class="headerlink" href="#text" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="symbol">
-<h3><a class="toc-backref" href="#contents">Symbol</a><a class="headerlink" href="#symbol" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Symbol</a><a class="headerlink" href="#symbol" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="identifier">
-<h3><a class="toc-backref" href="#contents">Identifier</a><a class="headerlink" href="#identifier" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Identifier</a><a class="headerlink" href="#identifier" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="set">
-<h3><a class="toc-backref" href="#contents">Set</a><a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Set</a><a class="headerlink" href="#set" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="sequence">
-<h3><a class="toc-backref" href="#contents">Sequence</a><a class="headerlink" href="#sequence" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id3">Sequence</a><a class="headerlink" href="#sequence" title="Permalink to this headline">¶</a></h3>
 </div>
 </div>
 <div class="section" id="label">
-<span id="id3"></span><h2>Label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h2>
+<span id="id4"></span><h2>Label<a class="headerlink" href="#label" title="Permalink to this headline">¶</a></h2>
 <p>A <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object is analogous to a PDS label.
 You can either instantiate one directly, if you want to create a new PDS label
 or, as discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to
