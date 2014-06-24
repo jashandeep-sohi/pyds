@@ -713,6 +713,16 @@ integer or a float:</p>
 <span class="go">&lt;pds.Time object at 0x...&gt;</span>
 </pre></div>
 </div>
+<p>To check whether a <a class="reference internal" href="pds/pds.Time.html#pds.Time" title="pds.Time"><tt class="xref py py-class docutils literal"><span class="pre">Time</span></tt></a> object represents a UTC time, check the
+<a class="reference internal" href="pds/pds.Time.html#pds.Time.utc" title="pds.Time.utc"><tt class="xref py py-attr docutils literal"><span class="pre">Time.utc</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_utc_time</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_local_time</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_zoned_time</span><span class="o">.</span><span class="n">utc</span>
+<span class="go">False</span>
+</pre></div>
+</div>
 <p class="rubric">Text</p>
 <p class="rubric">Symbol</p>
 <p class="rubric">Identifier</p>
