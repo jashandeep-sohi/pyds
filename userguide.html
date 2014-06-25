@@ -1005,6 +1005,55 @@ the built-in <tt class="xref py py-func docutils literal"><span class="pre">str(
 </div>
 <div class="section" id="sequence1d-seqeuence2d">
 <h3><a class="toc-backref" href="#id3">Sequence1D &amp; Seqeuence2D</a><a class="headerlink" href="#sequence1d-seqeuence2d" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> object represents a one dimensional sequence of values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_1d</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s">&quot;Blha Blha&quot;</span><span class="p">),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Date</span><span class="p">(</span><span class="mi">2012</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Time</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_1d</span>
+<span class="go">&lt;pds.Sequence1D object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>It can contain any of the value objects discussed above (e.g. <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>,
+<a class="reference internal" href="pds/pds.Date.html#pds.Date" title="pds.Date"><tt class="xref py py-class docutils literal"><span class="pre">Date</span></tt></a>, <a class="reference internal" href="pds/pds.Text.html#pds.Text" title="pds.Text"><tt class="xref py py-class docutils literal"><span class="pre">Text</span></tt></a>, etc.), except for a <a class="reference internal" href="pds/pds.Set.html#pds.Set" title="pds.Set"><tt class="xref py py-class docutils literal"><span class="pre">Set</span></tt></a> object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Set</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">TypeError</span>: <span class="n">value is not an instance of Scalar</span>
+</pre></div>
+</div>
+<p>Other than that, it behaves just like the built-in <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#list" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">list</span></tt></a> object,
+supporting all the methods and operators it supports:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_1d</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">&lt;pds.Integer object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">test_sequence_1d</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="go">&#39;12:32:16&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_1d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">BasedInteger</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s">&quot;111&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_sequence_1d</span><span class="p">)</span>
+<span class="go">6</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="ow">in</span> <span class="n">test_sequence_1d</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> object,
+call the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_sequence_1d</span><span class="p">))</span>
+<span class="go">(5, 10.0, &quot;Blha Blha&quot;, 2012-12-09, 12:32:16, 2#111#)</span>
+</pre></div>
+</div>
+<p>Although a <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> object may become empty while manipulating it,
+it should not be empty when serializing it to a PDS formated string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">())</span>
+<span class="go">0</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">str</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">())</span>
+<span class="gt">Traceback (most recent call last):</span>
+ <span class="c">...</span>
+<span class="gr">RuntimeError</span>: <span class="n">sequence does not contain at least 1 value</span>
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="label">
