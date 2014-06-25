@@ -829,7 +829,7 @@ A :class:`Set` object represents a set of values::
  <pds.Set object at 0x...>
  
 It behaves just like the built-in :obj:`set` object, supporting all the methods
-and operators it supports, expect that it can only contain :class:`Integer` 
+and operators it supports, except it can only contain :class:`Integer` 
 and :class:`Symbol` objects::
 
  >>> test_set.add(pds.Real(5.0))
