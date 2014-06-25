@@ -854,6 +854,8 @@ An empty :class:`Set` object is also allowed::
 To get the PDS serialized string representation of a :class:`Set` object, call
 the built-in :func:`str` function on it::
 
+ >>> print(str(pds.Set()))
+ {}
  >>> print(str(test_set)) # doctest: +SKIP
  {'BLUE', 5000, 5, 'MARS'}
  
