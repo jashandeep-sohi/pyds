@@ -814,17 +814,52 @@ It is accessible using the :attr:`Identifier.value` attribute::
  >>> test_identifier.value
  'USA_NASA_PDS_1_0007'
  
-To get the PDS serialized string representation of an :class:`Identifier` object,
-call the built-in :func:`str` function on it::
+To get the PDS serialized string representation of an :class:`Identifier`
+object, call the built-in :func:`str` function on it::
 
  >>> print(str(test_identifier))
  USA_NASA_PDS_1_0007
 
 Set
 ###
+A :class:`Set` object represents a set of values::
 
-Sequence
-########
+ >>> test_set = pds.Set(pds.Integer(5), pds.Symbol("MARS"))
+ >>> test_set
+ <pds.Set object at 0x...>
+ 
+It behaves just like the built-in :obj:`set` object, supporting all the methods
+and operators it supports, expect that it can only contain :class:`Integer` 
+and :class:`Symbol` objects::
+
+ >>> test_set.add(pds.Real(5.0))
+ Traceback (most recent call last):
+  ...
+ TypeError: value is not an instance of Symbol or Integer
+ >>> test_set.add(pds.Integer(5000))
+ >>> test_set.add(pds.Integer(5000))
+ >>> len(test_set)
+ 3
+ >>> test_set.add(pds.Symbol("Blue"))
+ >>> test_set.add(pds.Integer(299))
+ >>> test_set.discard(pds.Integer(299))
+ >>> len(test_set)
+ 4
+ 
+An empty :class:`Set` object is also allowed::
+ 
+ >>> pds.Set()
+ <pds.Set object at 0x...>
+ 
+To get the PDS serialized string representation of a :class:`Set` object, call
+the built-in :func:`str` function on it::
+
+ >>> print(str(test_set)) # doctest: +SKIP
+ {'BLUE', 5000, 5, 'MARS'}
+ 
+
+Sequence1D & Seqeuence2D
+########################
 
 
 .. _label:
