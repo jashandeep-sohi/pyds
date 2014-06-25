@@ -860,8 +860,8 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 </pre></div>
 </div>
 <p>It can contain all <em>ascii</em> characters, including control
-characters (e.g. <tt class="docutils literal"><span class="pre">\n</span></tt>, <tt class="docutils literal"><span class="pre">\t</span></tt>, etc), except for the <em>double quote</em> (<tt class="docutils literal"><span class="pre">&quot;</span></tt>)
-character.</p>
+characters (e.g. <tt class="docutils literal"><span class="pre">\n</span></tt>, <tt class="docutils literal"><span class="pre">\t</span></tt>, etc), except the <em>double quote</em> (<tt class="docutils literal"><span class="pre">&quot;</span></tt>)
+character:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Text</span><span class="p">(</span><span class="s">&#39; &quot; &#39;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
@@ -895,8 +895,8 @@ a symbolic value:</p>
 <span class="go">&lt;pds.Symbol object at 0x...&gt;</span>
 </pre></div>
 </div>
-<p>It can contain all <strong>printable</strong> <em>ascii</em> characters, except for the single quote
-(<tt class="docutils literal"><span class="pre">'</span></tt>). That means it also cannot contain control characters
+<p>It can contain all <strong>printable</strong> <em>ascii</em> characters except the single quote
+(<tt class="docutils literal"><span class="pre">'</span></tt>) character. That means it also cannot contain control characters
 (e.g. <tt class="docutils literal"><span class="pre">\n</span></tt>, <tt class="docutils literal"><span class="pre">\t</span></tt>, etc):</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Symbol</span><span class="p">(</span><span class="s">&quot;This is boooring</span><span class="se">\n</span><span class="s"> But it must be done...&quot;</span><span class="p">)</span>
 <span class="gt">Traceback (most recent call last):</span>
@@ -972,7 +972,7 @@ object, call the built-in <tt class="xref py py-func docutils literal"><span cla
 </pre></div>
 </div>
 <p>It behaves just like the built-in <a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#set" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">set</span></tt></a> object, supporting all the methods
-and operators it supports, except it can only contain <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>
+and operators it supports, except that it can only contain <a class="reference internal" href="pds/pds.Integer.html#pds.Integer" title="pds.Integer"><tt class="xref py py-class docutils literal"><span class="pre">Integer</span></tt></a>
 and <a class="reference internal" href="pds/pds.Symbol.html#pds.Symbol" title="pds.Symbol"><tt class="xref py py-class docutils literal"><span class="pre">Symbol</span></tt></a> objects:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">5.0</span><span class="p">))</span>
 <span class="gt">Traceback (most recent call last):</span>
