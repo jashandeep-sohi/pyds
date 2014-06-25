@@ -860,8 +860,8 @@ the built-in :func:`str` function on it::
  {'BLUE', 5000, 5, 'MARS'}
  
 
-Sequence1D & Seqeuence2D
-########################
+Sequence1D
+##########
 A :class:`Sequence1D` object represents a one dimensional sequence of values::
 
  >>> test_sequence_1d = pds.Sequence1D(
@@ -911,7 +911,27 @@ it should not be empty when serializing it to a PDS formated string::
   ...
  RuntimeError: sequence does not contain at least 1 value
 
+Sequence2D
+##########
+A :class:`Sequence2D` object represents a two dimensional sequence of values.
+It does so by containing a sequence of :class:`Sequence1D` objects.::
+ 
+ >>> test_sequence_2d =  pds.Sequence2D(
+ ...  pds.Sequence1D(pds.Integer(1), pds.Integer(2), pds.Integer(3)),
+ ...  pds.Sequence1D(pds.Integer(4), pds.Integer(5), pds.Integer(6)),
+ ...  pds.Sequence1D(pds.Integer(7), pds.Integer(8), pds.Integer(9))
+ ... )
+ >>> test_sequence_2d
+ <pds.Sequence2D object at 0x...>
 
+It can only contain :class:`Sequence1D` objects. Other than that, it behaves
+just like a :class:`Sequence1D` object.
+
+To get the PDS serialized string representation of a :class:`Sequence2D` object,
+call the built-in :func:`str` function on it::
+
+ >>> print(str(test_sequence_2d))
+ ((1, 2, 3), (4, 5, 6), (7, 8, 9))
 
 .. _label:
 

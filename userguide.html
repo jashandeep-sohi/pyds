@@ -566,7 +566,8 @@ following objects.</p>
 <li><a class="reference internal" href="#symbol" id="id13">Symbol</a></li>
 <li><a class="reference internal" href="#identifier" id="id14">Identifier</a></li>
 <li><a class="reference internal" href="#set" id="id15">Set</a></li>
-<li><a class="reference internal" href="#sequence1d-seqeuence2d" id="id16">Sequence1D &amp; Seqeuence2D</a></li>
+<li><a class="reference internal" href="#sequence1d" id="id16">Sequence1D</a></li>
+<li><a class="reference internal" href="#sequence2d" id="id17">Sequence2D</a></li>
 </ul>
 </div>
 <div class="section" id="integer-basedinteger-real">
@@ -1003,8 +1004,8 @@ the built-in <tt class="xref py py-func docutils literal"><span class="pre">str(
 </pre></div>
 </div>
 </div>
-<div class="section" id="sequence1d-seqeuence2d">
-<h3><a class="toc-backref" href="#id3">Sequence1D &amp; Seqeuence2D</a><a class="headerlink" href="#sequence1d-seqeuence2d" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="sequence1d">
+<h3><a class="toc-backref" href="#id3">Sequence1D</a><a class="headerlink" href="#sequence1d" title="Permalink to this headline">¶</a></h3>
 <p>A <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> object represents a one dimensional sequence of values:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_1d</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span>
@@ -1052,6 +1053,28 @@ it should not be empty when serializing it to a PDS formated string:</p>
 <span class="gt">Traceback (most recent call last):</span>
  <span class="c">...</span>
 <span class="gr">RuntimeError</span>: <span class="n">sequence does not contain at least 1 value</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sequence2d">
+<h3><a class="toc-backref" href="#id3">Sequence2D</a><a class="headerlink" href="#sequence2d" title="Permalink to this headline">¶</a></h3>
+<p>A <a class="reference internal" href="pds/pds.Sequence2D.html#pds.Sequence2D" title="pds.Sequence2D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence2D</span></tt></a> object represents a two dimensional sequence of values.
+It does so by containing a sequence of <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> objects.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_2d</span> <span class="o">=</span>  <span class="n">pds</span><span class="o">.</span><span class="n">Sequence2D</span><span class="p">(</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">3</span><span class="p">)),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">6</span><span class="p">)),</span>
+<span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Sequence1D</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">7</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">8</span><span class="p">),</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">9</span><span class="p">))</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_sequence_2d</span>
+<span class="go">&lt;pds.Sequence2D object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>It can only contain <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> objects. Other than that, it behaves
+just like a <a class="reference internal" href="pds/pds.Sequence1D.html#pds.Sequence1D" title="pds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a> object.</p>
+<p>To get the PDS serialized string representation of a <a class="reference internal" href="pds/pds.Sequence2D.html#pds.Sequence2D" title="pds.Sequence2D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence2D</span></tt></a> object,
+call the built-in <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_sequence_2d</span><span class="p">))</span>
+<span class="go">((1, 2, 3), (4, 5, 6), (7, 8, 9))</span>
 </pre></div>
 </div>
 </div>
