@@ -10,7 +10,7 @@ To work with an existing PDS label, first parse it into a :class:`Label` object
 using the :func:`parse` function::
 
  >>> import pds
- >>> test_label = pds.parse(
+ >>> test_parsed_label = pds.parse(
  ... b"""
  ... PDS_VERSION_ID = PDS3
  ... 
@@ -92,7 +92,7 @@ using the :func:`parse` function::
  ... END
  ... """
  ... )
- >>> test_label
+ >>> test_parsed_label
  <pds.Label object at 0x...>
 
 
@@ -166,6 +166,8 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  >>> pds.parse(mmap_file)
  <pds.Label object at 0x...>
 
+
+.. _statements:
 
 Statements
 ----------
@@ -937,39 +939,23 @@ call the built-in :func:`str` function on it::
 Label
 -----
 A :class:`Label` object is analogous to a PDS label.
-You can either instantiate one directly, if you want to create a new PDS label
-or, as discussed :ref:`above <parsing>`, use the :func:`parse` function to
-create one from an existing PDS label.
+It's a container for a sequence of :ref:`statement objects <statements>`, which
+represent the statements of a PDS label.
+As discussed :ref:`above <parsing>`, use the :func:`parse` function to parse
+an existing PDS label into a :class:`Label` object, or instantiate one directly
+to create a new PDS label::
 
-A :class:`Label` is a container for a sequence of statements.
-
-:class:`Label` implements a list like interface for manipulating the statements
-it contains.
-For example, you can add statements to it using :meth:`Label.insert`
-and :meth:`Label.append`::
- 
- >>> test_stmt_1 = pds.Attribute("test1", pds.Integer(5))
- >>> test_stmt_2 = pds.Attribute("test2", pds.Real(10))
- >>> test_label.insert(0, test_stmt_1)
- >>> test_label.append(test_stmt_2)
-
-Or retrieve statements from it using :meth:`Label.get`::
-
- >>> test_label.get(0) == test_stmt_1
- True
- >>> test_label.get(-1) == test_stmt_2
- True
- 
-And remove statements from it using :meth:`Label.pop`::
- 
- >>> test_label.pop(0) == test_stmt_1
- True
- >>> test_label.get(0) == test_stmt_1
- False
- >>> test_label.pop(-1) == test_stmt_2
- True
- >>> test_label.get(-1) == test_stmt_2
- False
+ >>> test_parsed_label # from above
+ <pds.Label object at 0x...>
+ >>> pds.Label(
+ ...  pds.Attribute("PDS_VERSION_ID", pds.Identifier("PDS3")),
+ ...  pds.Attribute("NUMBER_OF_DAYS", pds.Integer(500)),
+ ...  pds.Group("ROVER_IDS", pds.GroupStatements(
+ ...   pds.Attribute("MER1", pds.Identifier("D24KJHJ2K3H1JH22HHKSDD")),
+ ...   pds.Attribute("MER2", pds.Identifier("DLK3J658978XLK213KJH87")),
+ ...  ))
+ ... )
+ <pds.Label object at 0x...>
 
 
 Serializing
