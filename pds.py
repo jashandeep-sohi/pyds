@@ -1779,7 +1779,7 @@ class Sequence1D(Value, _MutableSequence):
     
   def __iter__(self):
     """
-    Return an :obj:`interator` that iterates over the values in the sequence.
+    Return an :obj:`iterator` that iterates over the values in the sequence.
     """
     return iter(self._list)
     
