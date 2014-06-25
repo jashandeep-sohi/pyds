@@ -720,8 +720,8 @@ A :class:`Text` object contains an arbitrary string of characters::
  <pds.Text object at 0x...>
  
 It can contain all *ascii* characters, including control 
-characters (e.g. ``\n``, ``\t``, etc), except for the *double quote* (``"``)
-character.
+characters (e.g. ``\n``, ``\t``, etc), except the *double quote* (``"``) 
+character::
 
  >>> pds.Text(' " ')
  Traceback (most recent call last):
@@ -754,8 +754,8 @@ a symbolic value::
  >>> test_symbol
  <pds.Symbol object at 0x...>
  
-It can contain all **printable** *ascii* characters, except for the single quote
-(``'``). That means it also cannot contain control characters 
+It can contain all **printable** *ascii* characters except the single quote
+(``'``) character. That means it also cannot contain control characters 
 (e.g. ``\n``, ``\t``, etc)::
 
  >>> pds.Symbol("This is boooring\n But it must be done...")
@@ -829,7 +829,7 @@ A :class:`Set` object represents a set of values::
  <pds.Set object at 0x...>
  
 It behaves just like the built-in :obj:`set` object, supporting all the methods
-and operators it supports, except it can only contain :class:`Integer` 
+and operators it supports, except that it can only contain :class:`Integer` 
 and :class:`Symbol` objects::
 
  >>> test_set.add(pds.Real(5.0))
