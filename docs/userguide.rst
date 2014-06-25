@@ -862,6 +862,55 @@ the built-in :func:`str` function on it::
 
 Sequence1D & Seqeuence2D
 ########################
+A :class:`Sequence1D` object represents a one dimensional sequence of values::
+
+ >>> test_sequence_1d = pds.Sequence1D(
+ ...  pds.Integer(5),
+ ...  pds.Real(10), 
+ ...  pds.Text("Blha Blha"),
+ ...  pds.Date(2012, 12, 9),
+ ...  pds.Time(12, 32, 16)
+ ... )
+ >>> test_sequence_1d
+ <pds.Sequence1D object at 0x...>
+ 
+It can contain any of the value objects discussed above (e.g. :class:`Integer`,
+:class:`Date`, :class:`Text`, etc.), except for a :class:`Set` object::
+
+ >>> pds.Sequence1D(pds.Set(pds.Integer(5)))
+ Traceback (most recent call last):
+  ...
+ TypeError: value is not an instance of Scalar
+ 
+Other than that, it behaves just like the built-in :obj:`list` object,
+supporting all the methods and operators it supports::
+
+ >>> test_sequence_1d[0]
+ <pds.Integer object at 0x...>
+ >>> str(test_sequence_1d[-1])
+ '12:32:16'
+ >>> test_sequence_1d.append(pds.BasedInteger(2, "111"))
+ >>> len(test_sequence_1d)
+ 6
+ >>> pds.Integer(5) in test_sequence_1d
+ True
+ 
+To get the PDS serialized string representation of a :class:`Sequence1D` object,
+call the built-in :func:`str` function on it::
+
+ >>> print(str(test_sequence_1d))
+ (5, 10.0, "Blha Blha", 2012-12-09, 12:32:16, 2#111#)
+ 
+Although a :class:`Sequence1D` object may become empty while manipulating it,
+it should not be empty when serializing it to a PDS formated string::
+
+ >>> len(pds.Sequence1D())
+ 0
+ >>> str(pds.Sequence1D())
+ Traceback (most recent call last):
+  ...
+ RuntimeError: sequence does not contain at least 1 value
+
 
 
 .. _label:
