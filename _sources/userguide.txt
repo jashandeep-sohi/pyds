@@ -913,8 +913,7 @@ it should not be empty when serializing it to a PDS formated string::
 
 Sequence2D
 ##########
-A :class:`Sequence2D` object represents a two dimensional sequence of values.
-It does so by containing a sequence of :class:`Sequence1D` objects.::
+A :class:`Sequence2D` object represents a two dimensional sequence of values::
  
  >>> test_sequence_2d =  pds.Sequence2D(
  ...  pds.Sequence1D(pds.Integer(1), pds.Integer(2), pds.Integer(3)),
@@ -924,8 +923,8 @@ It does so by containing a sequence of :class:`Sequence1D` objects.::
  >>> test_sequence_2d
  <pds.Sequence2D object at 0x...>
 
-It can only contain :class:`Sequence1D` objects. Other than that, it behaves
-just like a :class:`Sequence1D` object.
+It does so by containing a sequence of :class:`Sequence1D` objects.
+Other than that, it behaves just like a :class:`Sequence1D` object.
 
 To get the PDS serialized string representation of a :class:`Sequence2D` object,
 call the built-in :func:`str` function on it::
