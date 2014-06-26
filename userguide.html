@@ -1211,6 +1211,83 @@ sequence:</p>
 </div>
 <div class="section" id="serializing">
 <h2>Serializing<a class="headerlink" href="#serializing" title="Permalink to this headline">¶</a></h2>
+<p>You can serialize a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object into a string by calling the built-in
+<tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt> function on it:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">))</span> 
+<span class="go">PDS_VERSION_ID     = PDS3</span>
+<span class="go">INSERTED_ATTR      = 5</span>
+<span class="go">ATTR_BLHA          = 2000</span>
+<span class="go">NUMBER_OF_DAYS     = 2</span>
+<span class="go">RATIO_OF_X         = 2.0</span>
+<span class="go">ID                 = &quot;lk32j4kajsdk1asdadd8asd8&quot;</span>
+<span class="go">NAMESPACED:ATTR    = 200</span>
+<span class="go">^POINT_TO_X        = 500</span>
+<span class="go">^POINT_TO_Y        = &quot;blha.txt&quot;</span>
+<span class="go">GROUP              = INTEGERS</span>
+<span class="go"> ONE   = 0</span>
+<span class="go"> TWO   = 123</span>
+<span class="go"> THREE = 440</span>
+<span class="go"> FOUR  = -1500000</span>
+<span class="go">END_GROUP          = INTEGERS</span>
+<span class="go">GROUP              = BASED_INTEGERS</span>
+<span class="go"> ONE   = 2#1001011#</span>
+<span class="go"> TWO   = 8#113#</span>
+<span class="go"> THREE = 10#75#</span>
+<span class="go"> FOUR  = 16#+4B#</span>
+<span class="go"> FIVE  = 16#-4B#</span>
+<span class="go">END_GROUP          = BASED_INTEGERS</span>
+<span class="go">GROUP              = REAL_NUMBERS</span>
+<span class="go"> ONE   = 0.0</span>
+<span class="go"> TWO   = 123.0</span>
+<span class="go"> THREE = 1234.56</span>
+<span class="go"> FOUR  = -0.9981</span>
+<span class="go"> FIVE  = -0.001</span>
+<span class="go"> SIX   = 314590.0</span>
+<span class="go">END_GROUP          = REAL_NUMBERS</span>
+<span class="go">GROUP              = NUMBERS_WITH_UNITS</span>
+<span class="go"> INT           = 5 &lt;KM/SEC/SEC&gt;</span>
+<span class="go"> REAL          = 5.11 &lt;M/SEC&gt;</span>
+<span class="go"> BASED_INTEGER = 2#1001011# &lt;APPLES&gt;</span>
+<span class="go">END_GROUP          = NUMBERS_WITH_UNITS</span>
+<span class="go">OBJECT             = DATES_AND_TIMES</span>
+<span class="go"> GROUP      = DATES</span>
+<span class="go">  ONE   = 1990-07-04</span>
+<span class="go">  TWO   = 1990-158</span>
+<span class="go">  THREE = 2001-01</span>
+<span class="go"> END_GROUP  = DATES</span>
+<span class="go"> OBJECT     = TIMES</span>
+<span class="go">  TWO        = 15:24:12Z</span>
+<span class="go">  THREE      = 01:10:39.4575+07</span>
+<span class="go"> END_OBJECT = TIMES</span>
+<span class="go"> GROUP      = DATE_TIMES</span>
+<span class="go">  ONE   = 1990-07-04T12:00</span>
+<span class="go">  TWO   = 1990-158T15:24:12Z</span>
+<span class="go">  THREE = 2001-01T01:10:39.457591+07</span>
+<span class="go"> END_GROUP  = DATE_TIMES</span>
+<span class="go">END_OBJECT         = DATES_AND_TIMES</span>
+<span class="go">TEXT1              = &quot;blha blha BLHA BLHA                blha</span>
+<span class="go">         blha blha blha&quot;</span>
+<span class="go">TEXT2              = &quot;blha blha blha. Any character but a quotation mark.&quot;</span>
+<span class="go">TEXT3              = &quot;&quot;</span>
+<span class="go">SYMBOL1            = &#39;ONE-OR-MORE-CHARS EXCEPT THE APOSTROPHE ON ONE LINE&#39;</span>
+<span class="go">ATTR_IDENTIFIER    = ATTR_IDENTIFIER_VALUE</span>
+<span class="go">A_1D_SEQUENCE      = (0.2056, 0.0068, 0.0167, 0.0934, 0.0483, 0.056)</span>
+<span class="go">A_2D_SEQUENCE      = ((0, 1008), (1009, 1025), (1026, 1043))</span>
+<span class="go">A_SET              = {&#39;RED&#39;, &#39;BLUE&#39;, &#39;HAZEL&#39;, &#39;GREEN&#39;}</span>
+<span class="go">END</span>
+</pre></div>
+</div>
+<p>You can also call the built-in <a class="reference external" href="https://docs.python.org/3.4/library/functions.html#bytes" title="(in Python v3.4)"><tt class="xref py py-func docutils literal"><span class="pre">bytes()</span></tt></a> function on it to get an ascii byte
+string instead of a Unicode string:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;ascii&quot;</span><span class="p">)</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The serialized string is a valid PDS label that other readers can parse:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">bytes</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="nb">bytes</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)))</span> <span class="o">==</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span> 
+<span class="go">True</span>
+</pre></div>
+</div>
 </div>
 </div>
 
