@@ -1,12 +1,12 @@
-pds.Group
+pyds.Time
 =========
-.. currentmodule:: pds
-.. autoclass:: pds.Group
+.. currentmodule:: pyds
+.. autoclass:: pyds.Time
    :show-inheritance:
 
 ----
 
 .. rubric:: Special Methods
-.. automethod:: pds.Group.__str__
+.. automethod:: pyds.Time.__str__
 
 .. vim: tabstop=1 expandtab

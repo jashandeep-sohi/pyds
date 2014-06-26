@@ -1,12 +1,12 @@
-pds.Symbol
+pyds.Group
 ==========
-.. currentmodule:: pds
-.. autoclass:: pds.Symbol
+.. currentmodule:: pyds
+.. autoclass:: pyds.Group
    :show-inheritance:
 
 ----
 
 .. rubric:: Special Methods
-.. automethod:: pds.Symbol.__str__
+.. automethod:: pyds.Group.__str__
 
 .. vim: tabstop=1 expandtab

@@ -1,12 +1,12 @@
-pds.Object
+pyds.Units
 ==========
-.. currentmodule:: pds
-.. autoclass:: pds.Object
+.. currentmodule:: pyds
+.. autoclass:: pyds.Units
    :show-inheritance:
 
 ----
 
 .. rubric:: Special Methods
-.. automethod:: pds.Object.__str__
+.. automethod:: pyds.Units.__str__
 
 .. vim: tabstop=1 expandtab

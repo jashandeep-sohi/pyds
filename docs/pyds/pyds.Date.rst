@@ -1,12 +1,12 @@
-pds.Units
+pyds.Date
 =========
-.. currentmodule:: pds
-.. autoclass:: pds.Units
+.. currentmodule:: pyds
+.. autoclass:: pyds.Date
    :show-inheritance:
 
 ----
 
 .. rubric:: Special Methods
-.. automethod:: pds.Units.__str__
+.. automethod:: pyds.Date.__str__
 
 .. vim: tabstop=1 expandtab

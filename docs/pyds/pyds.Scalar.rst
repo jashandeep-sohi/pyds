@@ -1,7 +1,7 @@
-pds.Numeric
+pyds.Scalar
 ===========
-.. currentmodule:: pds
-.. autoclass:: pds.Numeric
+.. currentmodule:: pyds
+.. autoclass:: pyds.Scalar
    :show-inheritance:
 
 .. vim: tabstop=1 expandtab
