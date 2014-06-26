@@ -1,4 +1,4 @@
-# pds
+# pyds
 # Copyright (C) 2014 Jashandeep Sohi
 #
 # This program is free software: you can redistribute it and/or modify
@@ -18,13 +18,13 @@ from distutils.core import setup
 
 if __name__ == "__main__":
   setup(
-    name = "pds",
+    name = "pyds",
     version = "0.2.0",
     description = "A Python module to read, write and manipulate PDS labels.",
     author = "Jashandeep Sohi",
     author_email = "jashandeep.s.sohi@gmail.com",
-    url = "https://github.com/jashandeep-sohi/pds",
+    url = "https://github.com/jashandeep-sohi/pyds",
     license = "GPLv3",
-    py_modules = ["pds"]
+    py_modules = ["pyds"]
   )
 # vim: tabstop=2 expandtab
