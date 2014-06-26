@@ -1069,6 +1069,81 @@ A statement can also be removed using it's identifier::
 
 Serializing
 -----------
+You can serialize a :class:`Label` object into a string by calling the built-in 
+:func:`str` function on it::
 
+ >>> print(str(test_parsed_label)) # doctest: +SKIP
+ PDS_VERSION_ID     = PDS3
+ INSERTED_ATTR      = 5
+ ATTR_BLHA          = 2000
+ NUMBER_OF_DAYS     = 2
+ RATIO_OF_X         = 2.0
+ ID                 = "lk32j4kajsdk1asdadd8asd8"
+ NAMESPACED:ATTR    = 200
+ ^POINT_TO_X        = 500
+ ^POINT_TO_Y        = "blha.txt"
+ GROUP              = INTEGERS
+  ONE   = 0
+  TWO   = 123
+  THREE = 440
+  FOUR  = -1500000
+ END_GROUP          = INTEGERS
+ GROUP              = BASED_INTEGERS
+  ONE   = 2#1001011#
+  TWO   = 8#113#
+  THREE = 10#75#
+  FOUR  = 16#+4B#
+  FIVE  = 16#-4B#
+ END_GROUP          = BASED_INTEGERS
+ GROUP              = REAL_NUMBERS
+  ONE   = 0.0
+  TWO   = 123.0
+  THREE = 1234.56
+  FOUR  = -0.9981
+  FIVE  = -0.001
+  SIX   = 314590.0
+ END_GROUP          = REAL_NUMBERS
+ GROUP              = NUMBERS_WITH_UNITS
+  INT           = 5 <KM/SEC/SEC>
+  REAL          = 5.11 <M/SEC>
+  BASED_INTEGER = 2#1001011# <APPLES>
+ END_GROUP          = NUMBERS_WITH_UNITS
+ OBJECT             = DATES_AND_TIMES
+  GROUP      = DATES
+   ONE   = 1990-07-04
+   TWO   = 1990-158
+   THREE = 2001-01
+  END_GROUP  = DATES
+  OBJECT     = TIMES
+   TWO        = 15:24:12Z
+   THREE      = 01:10:39.4575+07
+  END_OBJECT = TIMES
+  GROUP      = DATE_TIMES
+   ONE   = 1990-07-04T12:00
+   TWO   = 1990-158T15:24:12Z
+   THREE = 2001-01T01:10:39.457591+07
+  END_GROUP  = DATE_TIMES
+ END_OBJECT         = DATES_AND_TIMES
+ TEXT1              = "blha blha BLHA BLHA                blha
+          blha blha blha"
+ TEXT2              = "blha blha blha. Any character but a quotation mark."
+ TEXT3              = ""
+ SYMBOL1            = 'ONE-OR-MORE-CHARS EXCEPT THE APOSTROPHE ON ONE LINE'
+ ATTR_IDENTIFIER    = ATTR_IDENTIFIER_VALUE
+ A_1D_SEQUENCE      = (0.2056, 0.0068, 0.0167, 0.0934, 0.0483, 0.056)
+ A_2D_SEQUENCE      = ((0, 1008), (1009, 1025), (1026, 1043))
+ A_SET              = {'RED', 'BLUE', 'HAZEL', 'GREEN'}
+ END  
+
+You can also call the built-in :func:`bytes` function on it to get an ascii byte
+string instead of a Unicode string::
+
+ >>> bytes(test_parsed_label) == str(test_parsed_label).encode("ascii")
+ True
+
+The serialized string is a valid PDS label that other readers can parse::
+ 
+ >>> bytes(pds.parse(bytes(test_parsed_label))) == bytes(test_parsed_label) # doctest: +SKIP
+ True
 
 .. vim: tabstop=1 expandtab
