@@ -1,58 +1,58 @@
 Reference
 =========
-.. currentmodule:: pds
+.. currentmodule:: pyds
 
 .. rubric:: Functions
 .. autosummary::
-   :toctree: pds
+   :toctree: pyds
    
-   pds.parse
+   pyds.parse
 
 .. rubric:: Abstract Base Classes
 .. autosummary::
-   :toctree: pds
+   :toctree: pyds
    :nosignatures:
    
-   pds.Statements
-   pds.Statement
-   pds.Value
-   pds.Scalar
-   pds.Numeric
+   pyds.Statements
+   pyds.Statement
+   pyds.Value
+   pyds.Scalar
+   pyds.Numeric
    
 .. rubric:: Classes
 .. autosummary::
-   :toctree: pds
+   :toctree: pyds
    
-   pds.Label
-   pds.GroupStatements
-   pds.ObjectStatements
+   pyds.Label
+   pyds.GroupStatements
+   pyds.ObjectStatements
    
-   pds.Attribute
-   pds.Group
-   pds.Object
+   pyds.Attribute
+   pyds.Group
+   pyds.Object
    
-   pds.Units
+   pyds.Units
    
-   pds.Integer
-   pds.BasedInteger
-   pds.Real
+   pyds.Integer
+   pyds.BasedInteger
+   pyds.Real
    
-   pds.Date
-   pds.Time
-   pds.DateTime
+   pyds.Date
+   pyds.Time
+   pyds.DateTime
    
-   pds.Text
-   pds.Symbol
-   pds.Identifier
+   pyds.Text
+   pyds.Symbol
+   pyds.Identifier
    
-   pds.Set
+   pyds.Set
    
-   pds.Sequence1D
-   pds.Sequence2D
+   pyds.Sequence1D
+   pyds.Sequence2D
 
 .. rubric:: Exceptions
 .. autosummary::
-   :toctree: pds
+   :toctree: pyds
    
-   pds.ParsingError
+   pyds.ParsingError
 .. vim: tabstop=1 expandtab

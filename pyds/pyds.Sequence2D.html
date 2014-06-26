@@ -1,0 +1,281 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>pyds.Sequence2D &mdash; pyds 0.2.0 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="pyds 0.2.0 documentation" href="../index.html"/>
+        <link rel="up" title="Reference" href="../reference.html"/>
+        <link rel="next" title="pyds.ParsingError" href="pyds.ParsingError.html"/>
+        <link rel="prev" title="pyds.Sequence1D" href="pyds.Sequence1D.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        <a href="../index.html" class="fa fa-home"> pyds</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#pip">pip</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#source">Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#git">Git</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../installation.html#pip-git">pip + Git</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../userguide.html">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../userguide.html#parsing">Parsing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../userguide.html#statements">Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../userguide.html#values">Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../userguide.html#label">Label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../userguide.html#serializing">Serializing</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="../reference.html">Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="pyds.parse.html">pyds.parse</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Statements.html">pyds.Statements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Statement.html">pyds.Statement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Value.html">pyds.Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Scalar.html">pyds.Scalar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Numeric.html">pyds.Numeric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Label.html">pyds.Label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.GroupStatements.html">pyds.GroupStatements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.ObjectStatements.html">pyds.ObjectStatements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Attribute.html">pyds.Attribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Group.html">pyds.Group</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Object.html">pyds.Object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Units.html">pyds.Units</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Integer.html">pyds.Integer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.BasedInteger.html">pyds.BasedInteger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Real.html">pyds.Real</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Date.html">pyds.Date</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Time.html">pyds.Time</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.DateTime.html">pyds.DateTime</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Text.html">pyds.Text</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Symbol.html">pyds.Symbol</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Identifier.html">pyds.Identifier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Set.html">pyds.Set</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.Sequence1D.html">pyds.Sequence1D</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">pyds.Sequence2D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="pyds.ParsingError.html">pyds.ParsingError</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">pyds</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../reference.html">Reference</a> &raquo;</li>
+      
+    <li>pyds.Sequence2D</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/pyds/pyds.Sequence2D.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="pyds-sequence2d">
+<h1>pyds.Sequence2D<a class="headerlink" href="#pyds-sequence2d" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="pyds.Sequence2D">
+<em class="property">class </em><tt class="descclassname">pyds.</tt><tt class="descname">Sequence2D</tt><big>(</big><em>*values</em><big>)</big><a class="headerlink" href="#pyds.Sequence2D" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="pyds.Sequence1D.html#pyds.Sequence1D" title="pyds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">pyds.Sequence1D</span></tt></a></p>
+<p>Represents a 2D PDS sequence value.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<p class="rubric">Methods</p>
+<dl class="method">
+<dt id="pyds.Sequence2D.insert">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">insert</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pyds.Sequence2D.insert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Insert value <cite>value</cite> at index <cite>index</cite>.</p>
+<p><cite>value</cite> must be an instance of <a class="reference internal" href="pyds.Sequence1D.html#pyds.Sequence1D" title="pyds.Sequence1D"><tt class="xref py py-class docutils literal"><span class="pre">Sequence1D</span></tt></a>, otherwise raise
+<a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#TypeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">TypeError</span></tt></a>.</p>
+</dd></dl>
+
+<hr class="docutils" />
+<p class="rubric">Special Methods</p>
+<dl class="method">
+<dt id="pyds.Sequence2D.__getitem__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__getitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__getitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return value at index <cite>index</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyds.Sequence2D.__setitem__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__setitem__</tt><big>(</big><em>index</em>, <em>value</em><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__setitem__" title="Permalink to this definition">¶</a></dt>
+<dd><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">See <a class="reference internal" href="#pyds.Sequence2D.insert" title="pyds.Sequence2D.insert"><tt class="xref py py-meth docutils literal"><span class="pre">insert()</span></tt></a>.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyds.Sequence2D.__delitem__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__delitem__</tt><big>(</big><em>index</em><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__delitem__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove the value at index <cite>index</cite>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyds.Sequence2D.__len__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__len__</tt><big>(</big><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__len__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the number of values in the sequence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyds.Sequence2D.__iter__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__iter__</tt><big>(</big><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__iter__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return an <tt class="xref py py-obj docutils literal"><span class="pre">iterator</span></tt> that iterates over the values in the sequence.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyds.Sequence2D.__str__">
+<tt class="descclassname">Sequence2D.</tt><tt class="descname">__str__</tt><big>(</big><big>)</big><a class="headerlink" href="#pyds.Sequence2D.__str__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a PDS serialized string (<a class="reference external" href="https://docs.python.org/3.4/library/stdtypes.html#str" title="(in Python v3.4)"><tt class="xref py py-obj docutils literal"><span class="pre">str</span></tt></a>) representing the object.</p>
+<p>Called by <tt class="xref py py-func docutils literal"><span class="pre">str()</span></tt>.</p>
+<dl class="docutils">
+<dt>Raises</dt>
+<dd><ul class="first last">
+<li><p class="first"><a class="reference external" href="https://docs.python.org/3.4/library/exceptions.html#RuntimeError" title="(in Python v3.4)"><tt class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></tt></a></p>
+<p>If the sequence does not contain at least 1 value.</p>
+</li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pyds.ParsingError.html" class="btn btn-neutral float-right" title="pyds.ParsingError">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="pyds.Sequence1D.html" class="btn btn-neutral" title="pyds.Sequence1D"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2014, Jashandeep Sohi.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.2.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
