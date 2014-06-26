@@ -1131,6 +1131,36 @@ methods:</p>
 <span class="go">22</span>
 </pre></div>
 </div>
+<p>Since each statement in a PDS label has a unique identifier, a statement&#8217;s
+value can be retreived using it&#8217;s identifier:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;inserted_attr&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.Integer object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;integers&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.GroupStatements object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.ObjectStatements object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>Although identifiers are stored internally as upper cased string, they are
+case-insensitive:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;inserted_attr&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;InSeRtEd_AtTr&quot;</span><span class="p">]</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<p>The type of value returned depends on the type of the statement that the
+identifier refers to.
+If it&#8217;s an <a class="reference internal" href="pds/pds.Attribute.html#pds.Attribute" title="pds.Attribute"><tt class="xref py py-class docutils literal"><span class="pre">Attribute</span></tt></a> assignment statement, then one of the value
+objects discussed <a class="reference internal" href="#values"><em>above</em></a> is returned.
+If it&#8217;s a <a class="reference internal" href="pds/pds.Group.html#pds.Group" title="pds.Group"><tt class="xref py py-class docutils literal"><span class="pre">Group</span></tt></a> statement, then a <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> object is
+returned.
+And if it&#8217;s a <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> statement, then an <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>
+object is returned.</p>
+<p>Since <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> and <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> objects also behave
+like <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> objects, it&#8217;s relatively easy to access nested values:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;dates&quot;</span><span class="p">][</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.Date object at 0x...&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="serializing">
 <h2>Serializing<a class="headerlink" href="#serializing" title="Permalink to this headline">¶</a></h2>

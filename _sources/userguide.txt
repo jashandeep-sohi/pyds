@@ -989,7 +989,39 @@ To remove statements, use the :meth:`Label.pop` method::
  >>> len(test_parsed_label)
  22
  
+Since each statement in a PDS label has a unique identifier, a statement's
+value can be retreived using it's identifier::
 
+ >>> test_parsed_label["inserted_attr"]
+ <pds.Integer object at 0x...>
+ >>> test_parsed_label["integers"]
+ <pds.GroupStatements object at 0x...>
+ >>> test_parsed_label["dates_and_times"]
+ <pds.ObjectStatements object at 0x...>
+ 
+Although identifiers are stored internally as upper cased string, they are
+case-insensitive::
+ 
+ >>> test_parsed_label["inserted_attr"] == test_parsed_label["InSeRtEd_AtTr"]
+ True
+
+The type of value returned depends on the type of the statement that the 
+identifier refers to.
+If it's an :class:`Attribute` assignment statement, then one of the value
+objects discussed :ref:`above <values>` is returned.
+If it's a :class:`Group` statement, then a :class:`GroupStatements` object is
+returned.
+And if it's a :class:`Object` statement, then an :class:`ObjectStatements` 
+object is returned.
+
+Since :class:`GroupStatements` and :class:`ObjectStatements` objects also behave
+like :class:`Label` objects, it's relatively easy to access nested values::
+
+ >>> test_parsed_label["dates_and_times"]["dates"]["one"]
+ <pds.Date object at 0x...>
+ 
+
+ 
 
 Serializing
 -----------
