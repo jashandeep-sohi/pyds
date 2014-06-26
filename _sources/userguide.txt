@@ -942,10 +942,10 @@ A :class:`Label` object is analogous to a PDS label.
 It's a container for a sequence of :ref:`statement objects <statements>`, which
 represent the statements of a PDS label.
 As discussed :ref:`above <parsing>`, use the :func:`parse` function to parse
-an existing PDS label into a :class:`Label` object, or instantiate one directly
+a :class:`Label` object from a PDS label string, or instantiate one directly
 to create a new PDS label::
 
- >>> test_parsed_label # from above
+ >>> test_parsed_label # see above
  <pds.Label object at 0x...>
  >>> pds.Label(
  ...  pds.Attribute("PDS_VERSION_ID", pds.Identifier("PDS3")),
@@ -956,6 +956,39 @@ to create a new PDS label::
  ...  ))
  ... )
  <pds.Label object at 0x...>
+
+It implements a list like interface for manipulating and querying the statements
+it contains.
+To add statements, use the :meth:`Label.insert` and :meth:`Label.append`
+methods::
+
+ >>> len(test_parsed_label)
+ 21
+ >>> test_parsed_label.insert(1, pds.Attribute("inserted_attr", pds.Integer(5)))
+ >>> len(test_parsed_label)
+ 22
+ >>> test_parsed_label.append(pds.Attribute("appended_attr", pds.Real(3.14)))
+ >>> len(test_parsed_label)
+ 23
+ 
+To retrieve statements, use the :meth:`Label.get` method::
+
+ >>> test_parsed_label.get(1)
+ <pds.Attribute object at 0x...>
+ >>> print(str(test_parsed_label.get(1)))
+ INSERTED_ATTR = 5
+ >>> print(str(test_parsed_label.get(-1)))
+ APPENDED_ATTR = 3.14
+ 
+To remove statements, use the :meth:`Label.pop` method::
+ 
+ >>> len(test_parsed_label)
+ 23
+ >>> test_parsed_label.pop(-1)
+ <pds.Attribute object at 0x...>
+ >>> len(test_parsed_label)
+ 22
+ 
 
 
 Serializing

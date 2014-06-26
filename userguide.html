@@ -1084,9 +1084,9 @@ call the built-in <tt class="xref py py-func docutils literal"><span class="pre"
 It&#8217;s a container for a sequence of <a class="reference internal" href="#statements"><em>statement objects</em></a>, which
 represent the statements of a PDS label.
 As discussed <a class="reference internal" href="#parsing"><em>above</em></a>, use the <a class="reference internal" href="pds/pds.parse.html#pds.parse" title="pds.parse"><tt class="xref py py-func docutils literal"><span class="pre">parse()</span></tt></a> function to parse
-an existing PDS label into a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object, or instantiate one directly
+a <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> object from a PDS label string, or instantiate one directly
 to create a new PDS label:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span> <span class="c"># from above</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span> <span class="c"># see above</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pds</span><span class="o">.</span><span class="n">Label</span><span class="p">(</span>
 <span class="gp">... </span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;PDS_VERSION_ID&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Identifier</span><span class="p">(</span><span class="s">&quot;PDS3&quot;</span><span class="p">)),</span>
@@ -1097,6 +1097,38 @@ to create a new PDS label:</p>
 <span class="gp">... </span> <span class="p">))</span>
 <span class="gp">... </span><span class="p">)</span>
 <span class="go">&lt;pds.Label object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>It implements a list like interface for manipulating and querying the statements
+it contains.
+To add statements, use the <a class="reference internal" href="pds/pds.Label.html#pds.Label.insert" title="pds.Label.insert"><tt class="xref py py-meth docutils literal"><span class="pre">Label.insert()</span></tt></a> and <a class="reference internal" href="pds/pds.Label.html#pds.Label.append" title="pds.Label.append"><tt class="xref py py-meth docutils literal"><span class="pre">Label.append()</span></tt></a>
+methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">21</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;inserted_attr&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">22</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pds</span><span class="o">.</span><span class="n">Attribute</span><span class="p">(</span><span class="s">&quot;appended_attr&quot;</span><span class="p">,</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">3.14</span><span class="p">)))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">23</span>
+</pre></div>
+</div>
+<p>To retrieve statements, use the <a class="reference internal" href="pds/pds.Label.html#pds.Label.get" title="pds.Label.get"><tt class="xref py py-meth docutils literal"><span class="pre">Label.get()</span></tt></a> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">1</span><span class="p">)))</span>
+<span class="go">INSERTED_ATTR = 5</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)))</span>
+<span class="go">APPENDED_ATTR = 3.14</span>
+</pre></div>
+</div>
+<p>To remove statements, use the <a class="reference internal" href="pds/pds.Label.html#pds.Label.pop" title="pds.Label.pop"><tt class="xref py py-meth docutils literal"><span class="pre">Label.pop()</span></tt></a> method:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">23</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">&lt;pds.Attribute object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">22</span>
 </pre></div>
 </div>
 </div>
