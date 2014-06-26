@@ -1155,10 +1155,57 @@ If it&#8217;s a <a class="reference internal" href="pds/pds.Group.html#pds.Group
 returned.
 And if it&#8217;s a <a class="reference internal" href="pds/pds.Object.html#pds.Object" title="pds.Object"><tt class="xref py py-class docutils literal"><span class="pre">Object</span></tt></a> statement, then an <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a>
 object is returned.</p>
-<p>Since <a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> and <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> objects also behave
-like <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> objects, it&#8217;s relatively easy to access nested values:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;dates&quot;</span><span class="p">][</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p><a class="reference internal" href="pds/pds.GroupStatements.html#pds.GroupStatements" title="pds.GroupStatements"><tt class="xref py py-class docutils literal"><span class="pre">GroupStatements</span></tt></a> and <a class="reference internal" href="pds/pds.ObjectStatements.html#pds.ObjectStatements" title="pds.ObjectStatements"><tt class="xref py py-class docutils literal"><span class="pre">ObjectStatements</span></tt></a> objects also behave
+like <a class="reference internal" href="pds/pds.Label.html#pds.Label" title="pds.Label"><tt class="xref py py-class docutils literal"><span class="pre">Label</span></tt></a> objects. This makes it simple to retrieve nested
+values:</p>
+<div class="last highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;dates&quot;</span><span class="p">][</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
 <span class="go">&lt;pds.Date object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;times&quot;</span><span class="p">][</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.Time object at 0x...&gt;</span>
+</pre></div>
+</div>
+</div>
+<p>A statement can also be added using a similar approach:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">22</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Integer</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_group&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">GroupStatements</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_object&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">ObjectStatements</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">len</span><span class="p">(</span><span class="n">test_parsed_label</span><span class="p">)</span>
+<span class="go">25</span>
+</pre></div>
+</div>
+<p>If a statement with the provided identifier does not exist, then a new
+statement is created using the provided identifier and value and then it&#8217;s
+appended to the sequence. If, however, a statement does exist with the provided
+identifier, then it&#8217;s removed and the new statement takes it&#8217;s place in the
+sequence:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_parsed_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.Integer object at 0x...&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pds</span><span class="o">.</span><span class="n">Real</span><span class="p">(</span><span class="mf">5.62</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">test_parsed_label</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">22</span><span class="p">)</span><span class="o">.</span><span class="n">value</span>
+<span class="go">True</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span>
+<span class="go">&lt;pds.Real object at 0x...&gt;</span>
+</pre></div>
+</div>
+<p>A statement can also be removed using it&#8217;s identifier:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;times&quot;</span><span class="p">][</span><span class="s">&quot;one&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_age&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_group&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">del</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;monkey_object&quot;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;one&quot;</span> <span class="ow">in</span> <span class="n">test_parsed_label</span><span class="p">[</span><span class="s">&quot;dates_and_times&quot;</span><span class="p">][</span><span class="s">&quot;times&quot;</span><span class="p">]</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;monkey_age&quot;</span> <span class="ow">in</span> <span class="n">test_parsed_label</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;monkey_group&quot;</span> <span class="ow">in</span> <span class="n">test_parsed_label</span>
+<span class="go">False</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="s">&quot;monkey_object&quot;</span> <span class="ow">in</span> <span class="n">test_parsed_label</span>
+<span class="go">False</span>
 </pre></div>
 </div>
 </div>

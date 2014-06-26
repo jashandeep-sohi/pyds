@@ -1014,16 +1014,61 @@ returned.
 And if it's a :class:`Object` statement, then an :class:`ObjectStatements` 
 object is returned.
 
-Since :class:`GroupStatements` and :class:`ObjectStatements` objects also behave
-like :class:`Label` objects, it's relatively easy to access nested values::
+.. note::
+   :class:`GroupStatements` and :class:`ObjectStatements` objects also behave
+   like :class:`Label` objects. This makes it simple to retrieve nested
+   values::
 
- >>> test_parsed_label["dates_and_times"]["dates"]["one"]
- <pds.Date object at 0x...>
+    >>> test_parsed_label["dates_and_times"]["dates"]["one"]
+    <pds.Date object at 0x...>
+    >>> test_parsed_label["dates_and_times"]["times"]["one"]
+    <pds.Time object at 0x...>
  
 
+A statement can also be added using a similar approach::
+
+ >>> len(test_parsed_label)
+ 22
+ >>> test_parsed_label["monkey_age"] = pds.Integer(5)
+ >>> test_parsed_label["monkey_group"] = pds.GroupStatements()
+ >>> test_parsed_label["monkey_object"] = pds.ObjectStatements()
+ >>> len(test_parsed_label)
+ 25
+
+If a statement with the provided identifier does not exist, then a new
+statement is created using the provided identifier and value and then it's
+appended to the sequence. If, however, a statement does exist with the provided
+identifier, then it's removed and the new statement takes it's place in the 
+sequence::
+
+ >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
+ True
+ >>> test_parsed_label["monkey_age"]
+ <pds.Integer object at 0x...>
+ >>> test_parsed_label["monkey_age"] = pds.Real(5.62)
+ >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
+ True
+ >>> test_parsed_label["monkey_age"]
+ <pds.Real object at 0x...>
+
+A statement can also be removed using it's identifier::
+
+ >>> del test_parsed_label["dates_and_times"]["times"]["one"]
+ >>> del test_parsed_label["monkey_age"]
+ >>> del test_parsed_label["monkey_group"]
+ >>> del test_parsed_label["monkey_object"]
+ >>> "one" in test_parsed_label["dates_and_times"]["times"]
+ False
+ >>> "monkey_age" in test_parsed_label
+ False
+ >>> "monkey_group" in test_parsed_label
+ False
+ >>> "monkey_object" in test_parsed_label
+ False
  
 
 Serializing
 -----------
+
 
 .. vim: tabstop=1 expandtab
