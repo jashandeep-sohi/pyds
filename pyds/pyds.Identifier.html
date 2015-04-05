@@ -35,6 +35,45 @@
 
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+  <script>
+    //Simple Google Analytics pageviews tracker using the Measurement Protocol.
+    (function(tid, undefined){
+
+     if(cid_match = /ga_cid=([^;])/.exec(document.cookie)) {
+      var cid = cid_match[1];
+     } else {
+      var cid = [
+       Math.random().toString(36).substring(2),
+       Math.random().toString(36).substring(2),
+       Math.random().toString(36).substring(2),
+      ].join("");
+     }
+
+     var cid_expires = new Date(new Date().getTime() + 2592000000);
+     document.cookie = [
+     "ga_cid=" + cid,
+     "expires=" + cid_expires.toUTCString()
+     ].join(";");
+
+     var params = {
+      v: 1,
+      tid: tid,
+      cid: cid,
+      t: "pageview",
+      dl: encodeURIComponent(document.location.href),
+      dr: encodeURIComponent(document.referrer),
+      de: encodeURIComponent(document.characterSet),
+      dt: encodeURIComponent(document.title)
+     };
+     var xhrReq = new XMLHttpRequest();
+     xhrReq.open("POST", "https://ssl.google-analytics.com/collect");
+     xhrReq.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+     xhrReq.send(Object.keys(params).map(function(value) {
+      return value + "=" + params[value];
+     }).join("&"));
+
+    })("UA-54890133-3");
+  </script>
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -249,17 +288,6 @@
       });
   </script>
    
-  
-  <script type="text/javascript">
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-54890133-3', 'auto');
-  ga('send', 'pageview');
-
-  </script>
 
 </body>
 </html>
