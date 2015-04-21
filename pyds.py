@@ -14,11 +14,16 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-from weakref import WeakValueDictionary as _WeakValueDict, ref as _weak_ref
-from weakref import ref as _weak_ref, proxy as _weak_proxy
 from re import compile as _re_compile
-from collections.abc import MutableSet as _MutableSet
-from collections.abc import MutableSequence as _MutableSequence
+from weakref import (
+  WeakValueDictionary as _WeakValueDict,
+  ref as _weak_ref,
+  proxy as _weak_proxy
+)
+from collections.abc import (
+  MutableSet as _MutableSet,
+  MutableSequence as _MutableSequence
+)
 from datetime import date as _date, time as _time, datetime as _datetime
 import abc
 
