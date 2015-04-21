@@ -16,6 +16,12 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
+"""
+Read, write and manipulate NASA's PDS (Planetary Data System) labels.
+"""
+
+__version__ = "0.3.0"
+
 from re import compile as _re_compile
 from weakref import (
   WeakValueDictionary as _WeakValueDict,

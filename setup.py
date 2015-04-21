@@ -17,12 +17,13 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from distutils.core import setup
+from pyds import __version__, __doc__
 
 if __name__ == "__main__":
   setup(
     name = "pyds",
-    version = "0.3.0",
-    description = "A Python module to read, write and manipulate PDS labels.",
+    version = __version__,
+    description = __doc__,
     author = "Jashandeep Sohi",
     author_email = "jashandeep.s.sohi@gmail.com",
     url = "https://github.com/jashandeep-sohi/pyds",
