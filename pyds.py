@@ -1,3 +1,5 @@
+# vim: filetype=python3 tabstop=2 expandtab
+
 # pyds - A Python module to read & write Planetary Data System (PDS) labels. 
 # Copyright (C) 2014 Jashandeep Sohi
 #
@@ -2358,5 +2360,4 @@ def parse(byte_string):
   """
   tokens = _generate_tokens(byte_string)
   return _parse_label(tokens)
-        
-# vim: tabstop=2 expandtab
+

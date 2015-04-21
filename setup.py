@@ -1,3 +1,5 @@
+# vim: filetype=python3 tabstop=2 expandtab
+
 # pyds
 # Copyright (C) 2014 Jashandeep Sohi
 #
@@ -27,4 +29,4 @@ if __name__ == "__main__":
     license = "GPLv3",
     py_modules = ["pyds"]
   )
-# vim: tabstop=2 expandtab
+

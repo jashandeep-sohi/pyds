@@ -1,4 +1,7 @@
 #! /usr/bin/python3
+
+# vim: filetype=python3 tabstop=2 expandtab
+
 import doctest
 import sys
 
