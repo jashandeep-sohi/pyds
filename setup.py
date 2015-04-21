@@ -24,10 +24,25 @@ if __name__ == "__main__":
     name = "pyds",
     version = __version__,
     description = __doc__,
+    long_description = open("./README.rst", "r").read(),
     author = "Jashandeep Sohi",
     author_email = "jashandeep.s.sohi@gmail.com",
     url = "https://github.com/jashandeep-sohi/pyds",
     license = "GPLv3",
-    py_modules = ["pyds"]
+    py_modules = ["pyds"],
+    classifiers = [
+     "Development Status :: 5 - Production/Stable",
+     "Intended Audience :: Developers",
+     "Intended Audience :: Science/Research",
+     "Intended Audience :: Education",
+     "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+     "Programming Language :: Python :: 3.4",
+     "Programming Language :: Python :: 3 :: Only",
+     "Topic :: Software Development :: Libraries :: Python Modules",
+     "Topic :: Scientific/Engineering :: Astronomy",
+     "Topic :: Scientific/Engineering :: Physics",
+     "Topic :: Scientific/Engineering :: Atmospheric Science",
+     "Topic :: Text Processing"
+    ],
   )
 
