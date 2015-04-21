@@ -1,7 +1,7 @@
 # vim: filetype=python3 tabstop=2 expandtab
 
 # pyds
-# Copyright (C) 2014 Jashandeep Sohi
+# Copyright (C) 2015 Jashandeep Sohi
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
