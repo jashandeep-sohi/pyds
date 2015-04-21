@@ -32,7 +32,6 @@ from collections.abc import (
   MutableSet as _MutableSet,
   MutableSequence as _MutableSequence
 )
-from datetime import date as _date, time as _time, datetime as _datetime
 import abc
 
 ################
