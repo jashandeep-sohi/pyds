@@ -4,10 +4,12 @@
 
 import doctest
 import sys
+import os
 
 if __name__ == "__main__":
+  os.chdir("./docs")
   failed, tested = doctest.testfile(
-    "./docs/userguide.rst",
+    "./userguide.rst",
     verbose = True,
     optionflags = doctest.ELLIPSIS
   )
