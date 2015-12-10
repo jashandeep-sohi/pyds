@@ -167,6 +167,139 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  <pyds.statements.Label object at 0x...>
 
 
+.. _label:
+
+Label
+-----
+A :class:`Label` object is analogous to a PDS label.
+It's a container for a sequence of :ref:`statement objects <statements>`, which
+represent the statements of a PDS label.
+As discussed :ref:`above <parsing>`, use the :func:`parse` function to parse
+a :class:`Label` object from a PDS label string, or instantiate one directly
+to create a new PDS label::
+
+ >>> test_parsed_label # see above
+ <pyds.statements.Label object at 0x...>
+ >>> pyds.Label(
+ ...  pyds.Attribute("PDS_VERSION_ID", pyds.Identifier("PDS3")),
+ ...  pyds.Attribute("NUMBER_OF_DAYS", pyds.Integer(500)),
+ ...  pyds.Group("ROVER_IDS", pyds.GroupStatements(
+ ...   pyds.Attribute("MER1", pyds.Identifier("D24KJHJ2K3H1JH22HHKSDD")),
+ ...   pyds.Attribute("MER2", pyds.Identifier("DLK3J658978XLK213KJH87")),
+ ...  ))
+ ... )
+ <pyds.statements.Label object at 0x...>
+
+It implements a list like interface for manipulating and querying the statements
+it contains.
+To add statements, use the :meth:`Label.insert` and :meth:`Label.append`
+methods::
+
+ >>> len(test_parsed_label)
+ 21
+ >>> test_parsed_label.insert(1, pyds.Attribute("inserted_attr", pyds.Integer(5)))
+ >>> len(test_parsed_label)
+ 22
+ >>> test_parsed_label.append(pyds.Attribute("appended_attr", pyds.Real(3.14)))
+ >>> len(test_parsed_label)
+ 23
+ 
+To retrieve statements, use the :meth:`Label.get` method::
+
+ >>> test_parsed_label.get(1)
+ <pyds.statements.Attribute object at 0x...>
+ >>> print(str(test_parsed_label.get(1)))
+ INSERTED_ATTR = 5
+ >>> print(str(test_parsed_label.get(-1)))
+ APPENDED_ATTR = 3.14
+ 
+To remove statements, use the :meth:`Label.pop` method::
+ 
+ >>> len(test_parsed_label)
+ 23
+ >>> test_parsed_label.pop(-1)
+ <pyds.statements.Attribute object at 0x...>
+ >>> len(test_parsed_label)
+ 22
+ 
+Since each statement in a PDS label has a unique identifier, a statement's
+value can be retreived using it's identifier::
+
+ >>> test_parsed_label["inserted_attr"]
+ <pyds.values.Integer object at 0x...>
+ >>> test_parsed_label["integers"]
+ <pyds.statements.GroupStatements object at 0x...>
+ >>> test_parsed_label["dates_and_times"]
+ <pyds.statements.ObjectStatements object at 0x...>
+ 
+Although identifiers are stored internally as upper cased string, they are
+case-insensitive::
+ 
+ >>> test_parsed_label["inserted_attr"] == test_parsed_label["InSeRtEd_AtTr"]
+ True
+
+The type of value returned depends on the type of the statement that the 
+identifier refers to.
+If it's an :class:`Attribute` assignment statement, then one of the
+:ref:`value <values>` objects is returned.
+If it's a :class:`Group` statement, then a :class:`GroupStatements` object is
+returned.
+And if it's a :class:`Object` statement, then an :class:`ObjectStatements` 
+object is returned.
+
+.. note::
+   :class:`GroupStatements` and :class:`ObjectStatements` objects also behave
+   like :class:`Label` objects. This makes it simple to retrieve nested
+   values::
+
+    >>> test_parsed_label["dates_and_times"]["dates"]["one"]
+    <pyds.values.Date object at 0x...>
+    >>> test_parsed_label["dates_and_times"]["times"]["one"]
+    <pyds.values.Time object at 0x...>
+ 
+
+A statement can also be added using a similar approach::
+
+ >>> len(test_parsed_label)
+ 22
+ >>> test_parsed_label["monkey_age"] = pyds.Integer(5)
+ >>> test_parsed_label["monkey_group"] = pyds.GroupStatements()
+ >>> test_parsed_label["monkey_object"] = pyds.ObjectStatements()
+ >>> len(test_parsed_label)
+ 25
+
+If a statement with the provided identifier does not exist, then a new
+statement is created using the provided identifier and value and then it's
+appended to the sequence. If, however, a statement does exist with the provided
+identifier, then it's removed and the new statement takes it's place in the 
+sequence::
+
+ >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
+ True
+ >>> test_parsed_label["monkey_age"]
+ <pyds.values.Integer object at 0x...>
+ >>> test_parsed_label["monkey_age"] = pyds.Real(5.62)
+ >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
+ True
+ >>> test_parsed_label["monkey_age"]
+ <pyds.values.Real object at 0x...>
+
+A statement can also be removed using it's identifier::
+
+ >>> del test_parsed_label["dates_and_times"]["times"]["one"]
+ >>> del test_parsed_label["monkey_age"]
+ >>> del test_parsed_label["monkey_group"]
+ >>> del test_parsed_label["monkey_object"]
+ >>> "one" in test_parsed_label["dates_and_times"]["times"]
+ False
+ >>> "monkey_age" in test_parsed_label
+ False
+ >>> "monkey_group" in test_parsed_label
+ False
+ >>> "monkey_object" in test_parsed_label
+ False
+
+
 .. _statements:
 
 Statements
@@ -933,138 +1066,6 @@ call the built-in :func:`str` function on it::
 
  >>> print(str(test_sequence_2d))
  ((1, 2, 3), (4, 5, 6), (7, 8, 9))
-
-.. _label:
-
-Label
------
-A :class:`Label` object is analogous to a PDS label.
-It's a container for a sequence of :ref:`statement objects <statements>`, which
-represent the statements of a PDS label.
-As discussed :ref:`above <parsing>`, use the :func:`parse` function to parse
-a :class:`Label` object from a PDS label string, or instantiate one directly
-to create a new PDS label::
-
- >>> test_parsed_label # see above
- <pyds.statements.Label object at 0x...>
- >>> pyds.Label(
- ...  pyds.Attribute("PDS_VERSION_ID", pyds.Identifier("PDS3")),
- ...  pyds.Attribute("NUMBER_OF_DAYS", pyds.Integer(500)),
- ...  pyds.Group("ROVER_IDS", pyds.GroupStatements(
- ...   pyds.Attribute("MER1", pyds.Identifier("D24KJHJ2K3H1JH22HHKSDD")),
- ...   pyds.Attribute("MER2", pyds.Identifier("DLK3J658978XLK213KJH87")),
- ...  ))
- ... )
- <pyds.statements.Label object at 0x...>
-
-It implements a list like interface for manipulating and querying the statements
-it contains.
-To add statements, use the :meth:`Label.insert` and :meth:`Label.append`
-methods::
-
- >>> len(test_parsed_label)
- 21
- >>> test_parsed_label.insert(1, pyds.Attribute("inserted_attr", pyds.Integer(5)))
- >>> len(test_parsed_label)
- 22
- >>> test_parsed_label.append(pyds.Attribute("appended_attr", pyds.Real(3.14)))
- >>> len(test_parsed_label)
- 23
- 
-To retrieve statements, use the :meth:`Label.get` method::
-
- >>> test_parsed_label.get(1)
- <pyds.statements.Attribute object at 0x...>
- >>> print(str(test_parsed_label.get(1)))
- INSERTED_ATTR = 5
- >>> print(str(test_parsed_label.get(-1)))
- APPENDED_ATTR = 3.14
- 
-To remove statements, use the :meth:`Label.pop` method::
- 
- >>> len(test_parsed_label)
- 23
- >>> test_parsed_label.pop(-1)
- <pyds.statements.Attribute object at 0x...>
- >>> len(test_parsed_label)
- 22
- 
-Since each statement in a PDS label has a unique identifier, a statement's
-value can be retreived using it's identifier::
-
- >>> test_parsed_label["inserted_attr"]
- <pyds.values.Integer object at 0x...>
- >>> test_parsed_label["integers"]
- <pyds.statements.GroupStatements object at 0x...>
- >>> test_parsed_label["dates_and_times"]
- <pyds.statements.ObjectStatements object at 0x...>
- 
-Although identifiers are stored internally as upper cased string, they are
-case-insensitive::
- 
- >>> test_parsed_label["inserted_attr"] == test_parsed_label["InSeRtEd_AtTr"]
- True
-
-The type of value returned depends on the type of the statement that the 
-identifier refers to.
-If it's an :class:`Attribute` assignment statement, then one of the value
-objects discussed :ref:`above <values>` is returned.
-If it's a :class:`Group` statement, then a :class:`GroupStatements` object is
-returned.
-And if it's a :class:`Object` statement, then an :class:`ObjectStatements` 
-object is returned.
-
-.. note::
-   :class:`GroupStatements` and :class:`ObjectStatements` objects also behave
-   like :class:`Label` objects. This makes it simple to retrieve nested
-   values::
-
-    >>> test_parsed_label["dates_and_times"]["dates"]["one"]
-    <pyds.values.Date object at 0x...>
-    >>> test_parsed_label["dates_and_times"]["times"]["one"]
-    <pyds.values.Time object at 0x...>
- 
-
-A statement can also be added using a similar approach::
-
- >>> len(test_parsed_label)
- 22
- >>> test_parsed_label["monkey_age"] = pyds.Integer(5)
- >>> test_parsed_label["monkey_group"] = pyds.GroupStatements()
- >>> test_parsed_label["monkey_object"] = pyds.ObjectStatements()
- >>> len(test_parsed_label)
- 25
-
-If a statement with the provided identifier does not exist, then a new
-statement is created using the provided identifier and value and then it's
-appended to the sequence. If, however, a statement does exist with the provided
-identifier, then it's removed and the new statement takes it's place in the 
-sequence::
-
- >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
- True
- >>> test_parsed_label["monkey_age"]
- <pyds.values.Integer object at 0x...>
- >>> test_parsed_label["monkey_age"] = pyds.Real(5.62)
- >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
- True
- >>> test_parsed_label["monkey_age"]
- <pyds.values.Real object at 0x...>
-
-A statement can also be removed using it's identifier::
-
- >>> del test_parsed_label["dates_and_times"]["times"]["one"]
- >>> del test_parsed_label["monkey_age"]
- >>> del test_parsed_label["monkey_group"]
- >>> del test_parsed_label["monkey_object"]
- >>> "one" in test_parsed_label["dates_and_times"]["times"]
- False
- >>> "monkey_age" in test_parsed_label
- False
- >>> "monkey_group" in test_parsed_label
- False
- >>> "monkey_object" in test_parsed_label
- False
  
 
 Serializing
