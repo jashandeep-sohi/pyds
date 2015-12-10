@@ -1,5 +1,6 @@
 Reference
 =========
+.. module:: pyds
 .. currentmodule:: pyds
 
 .. rubric:: Functions
