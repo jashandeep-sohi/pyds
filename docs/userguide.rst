@@ -93,7 +93,7 @@ using the :func:`parse` function::
  ... """
  ... )
  >>> test_parsed_label
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
 
 
 You can then interact with the :class:`Label` object to read or manipulate
@@ -105,12 +105,12 @@ it's argument or otherwise it will raise a :exc:`ParsingError`::
  >>> pyds.parse(b"")
  Traceback (most recent call last):
    ...
- pyds.ParsingError: unexpected end
+ pyds.parser.ParsingError: unexpected end
  
  >>> pyds.parse(b"blha blha blha")
  Traceback (most recent call last):
    ...
- pyds.ParsingError: expected equal sign instead of 'blha'
+ pyds.parser.ParsingError: expected equal sign instead of 'blha'
 
 Additional data may **follow** the PDS label in the string.
 This is useful when PDS labels are prepended to the data products they 
@@ -125,7 +125,7 @@ describe::
  ...  All of this is ignored. It could be the data product, etc.
  ...  """
  ... )
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
 
 
 .. note::
@@ -133,7 +133,7 @@ describe::
    The :func:`parse` function can only operate on :obj:`bytes` objects.
    Providing a :obj:`str` object will raise an error::
 
-    >>> pyds.parse(
+    >>> pyds.parse( # doctest: +IGNORE_EXCEPTION_DETAIL
     ...  """
     ...  PDS_VERSION_ID = PDS3
     ...  TEST = 5
@@ -141,8 +141,8 @@ describe::
     ...  """
     ... )
     Traceback (most recent call last):
-      ...
-    TypeError: can't use a bytes pattern on a string-like object
+     ...
+    TypeError: cannot use a bytes pattern on a string-like object
 
 
 In the examples above, we have been parsing PDS labels provided explicitly in a
@@ -152,7 +152,7 @@ We could parse a PDS label stored in a file using the same approach as above::
  >>> file_obj = open("../data/test.img", "r+b")
  >>> file_bytes = file_obj.read()
  >>> pyds.parse(file_bytes)
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
 
 However, this is extremely inefficient and results in high memory usage because
 the entire file is first read into memory and then parsed. This is especially
@@ -164,7 +164,7 @@ A more efficient way of parsing a PDS label stored in a file, is to use a
  >>> file_obj = open("../data/test.img", "r+b")
  >>> mmap_file = mmap.mmap(file_obj.fileno(), 0)
  >>> pyds.parse(mmap_file)
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
 
 
 .. _statements:
@@ -189,7 +189,7 @@ It is instantiated with an identifier and a value::
 
  >>> test_attr = pyds.Attribute("test_attribute", pyds.Integer(5))
  >>> test_attr
- <pyds.Attribute object at 0x...>
+ <pyds.statements.Attribute object at 0x...>
 
 The value must be an instance of one of the value types discussed
 :ref:`below<values>`::
@@ -208,13 +208,13 @@ It is converted to an upper case string and stored as such internally::
   ...
  ValueError: invalid identifier '12_not_valid'
  >>> pyds.Attribute("THIS_is_VaLiD", pyds.Integer(5))
- <pyds.Attribute object at 0x...>
+ <pyds.statements.Attribute object at 0x...>
 
 The identifier can also be *namespaced* by preceding it with another
 identifier and a colon::
 
  >>> pyds.Attribute("namespace_identifier:test_attribute", pyds.Integer(5))
- <pyds.Attribute object at 0x...>
+ <pyds.statements.Attribute object at 0x...>
 
 .. note ::
 
@@ -224,7 +224,7 @@ identifier and a colon::
    preceding the identifier with a caret (``^``)::
 
     >>> pyds.Attribute("^THIS_POINT_TO_SOMETHING", pyds.Integer(5))
-    <pyds.Attribute object at 0x...>
+    <pyds.statements.Attribute object at 0x...>
  
 To access the identifier and value of an :class:`Attribute` object, use the
 :attr:`Attribute.identifier` and :attr:`Attribute.value` attributes
@@ -233,7 +233,7 @@ respectively::
  >>> test_attr.identifier
  'TEST_ATTRIBUTE'
  >>> test_attr.value
- <pyds.Integer object at 0x...>
+ <pyds.values.Integer object at 0x...>
 
 To get the PDS serialized string representation of an :class:`Attribute` object,
 call the built-in :func:`str` function on it::
@@ -257,14 +257,14 @@ It is instantiated with an identifier and a :class:`GroupStatements` object::
  ...  )
  ... )
  >>> test_group
- <pyds.Group object at 0x...>
+ <pyds.statements.Group object at 0x...>
  
 A :class:`GroupStatements` object is a container for the nested statements of
 a group statement. It behaves just like a :class:`Label` object, except that it
 can only contain :class:`Attribute` objects::
 
  >>> pyds.GroupStatements(pyds.Attribute("test", pyds.Integer(5)))
- <pyds.GroupStatements object at 0x...>
+ <pyds.statements.GroupStatements object at 0x...>
  >>> pyds.GroupStatements(pyds.Group("test", pyds.GroupStatements()))
  Traceback (most recent call last):
   ...
@@ -295,7 +295,7 @@ attributes respectively::
  >>> test_group.identifier
  'TEST_GROUP'
  >>> test_group.statements
- <pyds.GroupStatements object at 0x...>
+ <pyds.statements.GroupStatements object at 0x...>
  >>> test_group.statements == test_group.value
  True
  
@@ -344,7 +344,7 @@ It is instantiated with an identifier and a :class:`ObjectStatements` object::
  ...  )
  ... )
  >>> test_object
- <pyds.Object object at 0x...>
+ <pyds.statements.Object object at 0x...>
  
 An :class:`ObjectStatements` object is a container for the nested statements of
 an object statement.
@@ -353,9 +353,9 @@ types of statements, including other object statements.
 There is no limit to the depth to which object statements may be nested::
 
  >>> pyds.ObjectStatements(pyds.Attribute("test", pyds.Integer(5)))
- <pyds.ObjectStatements object at 0x...>
+ <pyds.statements.ObjectStatements object at 0x...>
  >>> pyds.ObjectStatements(pyds.Group("test", pyds.GroupStatements()))
- <pyds.ObjectStatements object at 0x...>
+ <pyds.statements.ObjectStatements object at 0x...>
  >>> pyds.ObjectStatements(
  ...  pyds.Object(
  ...   "test", 
@@ -369,7 +369,7 @@ There is no limit to the depth to which object statements may be nested::
  ...   )
  ...  )
  ... )
- <pyds.ObjectStatements object at 0x...>
+ <pyds.statements.ObjectStatements object at 0x...>
  
 The identifier must be a valid PDS identifier
 (i.e. ``letter[letter|digit|_letter|_digit]*``).
@@ -392,7 +392,7 @@ the :attr:`Object.identifier` and :attr:`Object.statements` or
  >>> test_object.identifier
  'TEST_OBJECT'
  >>> test_object.statements
- <pyds.ObjectStatements object at 0x...>
+ <pyds.statements.ObjectStatements object at 0x...>
  >>> test_object.statements == test_object.value
  True
 
@@ -437,11 +437,11 @@ A numeric value is represented by an :class:`Integer`, a :class:`BasedInteger`,
 or a :class:`Real` object::
 
  >>> pyds.Integer(1000)
- <pyds.Integer object at 0x...>
+ <pyds.values.Integer object at 0x...>
  >>> pyds.BasedInteger(2, "1111")
- <pyds.BasedInteger object at 0x...>
+ <pyds.values.BasedInteger object at 0x...>
  >>> pyds.Real(10.29932232)
- <pyds.Real object at 0x...>
+ <pyds.values.Real object at 0x...>
  
 A :class:`BasedInteger` object is used to represent an integer specified in a
 particular radix/base (i.e. binary, hexadecimal, etc). It is instantiated by
@@ -449,11 +449,11 @@ providing the radix as the first argument and the digits as the second
 argument::
 
  >>> pyds.BasedInteger(2, "1111")
- <pyds.BasedInteger object at 0x...>
+ <pyds.values.BasedInteger object at 0x...>
  >>> pyds.BasedInteger(16, "f")
- <pyds.BasedInteger object at 0x...>
+ <pyds.values.BasedInteger object at 0x...>
  >>> pyds.BasedInteger(10, "15")
- <pyds.BasedInteger object at 0x...>
+ <pyds.values.BasedInteger object at 0x...>
  
 All three types of numeric values can also have units.
 Units are represented by a :class:`Units` object, which is instantiated
@@ -464,7 +464,7 @@ where *units_factor* is ``units_identifier[**integer]``. It is converted to
 an upper case string and set to the :attr:`Units.expression` attribute::
 
  >>> pyds.Units("km")
- <pyds.Units object at 0x...>
+ <pyds.values.Units object at 0x...>
  >>> pyds.Units("km**2").expression
  'KM**2'
  >>> pyds.Units("Km**2*sec**-1").expression
@@ -553,13 +553,13 @@ The first is the usual *year, month and day of month* format::
 
  >>> test_date_ymd = pyds.Date(2014, 6, 23)
  >>> test_date_ymd
- <pyds.Date object at 0x...>
+ <pyds.values.Date object at 0x...>
  
 The second is the *year and day of year* format::
 
  >>> test_date_doy = pyds.Date(2014, None, 174)
  >>> test_date_doy
- <pyds.Date object at 0x...>
+ <pyds.values.Date object at 0x...>
  
 To get the year, month or day of a :class:`Date` object use the
 :attr:`Date.year`, :attr:`Date.month`, or :attr:`Date.day` attributes::
@@ -595,28 +595,28 @@ A :class:`Time` object represents a local time, UTC time, or a zoned time::
 
  >>> test_local_time = pyds.Time(12, 32, 10) # local time
  >>> test_local_time
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  >>> test_utc_time = pyds.Time(9, 32, 10.9983, True) # UTC time
  >>> test_utc_time
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  >>> test_zoned_time = pyds.Time(20, 19, None, False, -8, 20) # zoned time
  >>> test_zoned_time
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  
 Providing the seconds is optional, however when provided it can either be an
 integer or a float::
 
  >>> pyds.Time(12, 20, None) # or pyds.Time(12, 20)
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  >>> pyds.Time(12, 20, 10)
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  >>> pyds.Time(12, 20, 10.2233223)
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  
 Similarly for a zoned time, providing the minutes of a time zone is optional::
 
  >>> pyds.Time(6, 9, None, False, -8, None) # or pyds.Time(6, 9, None, False, -8)
- <pyds.Time object at 0x...>
+ <pyds.values.Time object at 0x...>
  
 To get the hours, minutes and seconds of a :class:`Time` object, use the
 :attr:`Time.hour`, :attr:`Time.minute` and :attr:`Time.second` attributes::
@@ -675,13 +675,13 @@ A :class:`DateTime` object represents a combined date and time::
 
  >>> test_datetime_ymd_local = pyds.DateTime(2014, 6, 23, 12, 45)
  >>> test_datetime_ymd_local
- <pyds.DateTime object at 0x...>
+ <pyds.values.DateTime object at 0x...>
  >>> test_datetime_doy_utc = pyds.DateTime(2014, None, 174, 12, 45, 1, True)
  >>> test_datetime_doy_utc
- <pyds.DateTime object at 0x...>
+ <pyds.values.DateTime object at 0x...>
  >>> test_datetime_ymd_zoned = pyds.DateTime(2014, 6, 23, 12, 0, 10.2, False, 8)
  >>> test_datetime_ymd_zoned
- <pyds.DateTime object at 0x...>
+ <pyds.values.DateTime object at 0x...>
  
 It simply creates a :class:`Date` and :class:`Time` object internally from the
 arguments provided to represent the date and the time. They can be accessed
@@ -719,7 +719,7 @@ A :class:`Text` object contains an arbitrary string of characters::
  ... commodo consequat."""
  ... )
  >>> test_text
- <pyds.Text object at 0x...>
+ <pyds.values.Text object at 0x...>
  
 It can contain all *ascii* characters, including control 
 characters (e.g. ``\n``, ``\t``, etc), except the *double quote* (``"``) 
@@ -754,7 +754,7 @@ a symbolic value::
 
  >>> test_symbol = pyds.Symbol("BLHA-BLHA#BLHA BLHA")
  >>> test_symbol
- <pyds.Symbol object at 0x...>
+ <pyds.values.Symbol object at 0x...>
  
 It can contain all **printable** *ascii* characters except the single quote
 (``'``) character. That means it also cannot contain control characters 
@@ -788,7 +788,7 @@ It can also be used as a value of an attribute assignment statement using an
 
  >>> test_identifier = pyds.Identifier("USA_NASA_PDS_1_0007")
  >>> test_identifier
- <pyds.Identifier object at 0x...>
+ <pyds.values.Identifier object at 0x...>
  
 Identifiers are composed of letters, digits, and underscores. 
 Underscores are used to separate words in an identifier.
@@ -796,9 +796,9 @@ The first character of an identifier must be a letter.
 The last character may not be an underscore::
 
  >>> pyds.Identifier("VOYAGER")
- <pyds.Identifier object at 0x...>
+ <pyds.values.Identifier object at 0x...>
  >>> pyds.Identifier("VOYAGER_2")
- <pyds.Identifier object at 0x...>
+ <pyds.values.Identifier object at 0x...>
  >>> pyds.Identifier("1_VOYAGER")
  Traceback (most recent call last):
   ...
@@ -828,7 +828,7 @@ A :class:`Set` object represents a set of values::
 
  >>> test_set = pyds.Set(pyds.Integer(5), pyds.Symbol("MARS"))
  >>> test_set
- <pyds.Set object at 0x...>
+ <pyds.values.Set object at 0x...>
  
 It behaves just like the built-in :obj:`set` object, supporting all the methods
 and operators it supports, except that it can only contain :class:`Integer` 
@@ -851,7 +851,7 @@ and :class:`Symbol` objects::
 An empty :class:`Set` object is also allowed::
  
  >>> pyds.Set()
- <pyds.Set object at 0x...>
+ <pyds.values.Set object at 0x...>
  
 To get the PDS serialized string representation of a :class:`Set` object, call
 the built-in :func:`str` function on it::
@@ -874,7 +874,7 @@ A :class:`Sequence1D` object represents a one dimensional sequence of values::
  ...  pyds.Time(12, 32, 16)
  ... )
  >>> test_sequence_1d
- <pyds.Sequence1D object at 0x...>
+ <pyds.values.Sequence1D object at 0x...>
  
 It can contain any of the value objects discussed above (e.g. :class:`Integer`,
 :class:`Date`, :class:`Text`, etc.), except for a :class:`Set` object::
@@ -888,7 +888,7 @@ Other than that, it behaves just like the built-in :obj:`list` object,
 supporting all the methods and operators it supports::
 
  >>> test_sequence_1d[0]
- <pyds.Integer object at 0x...>
+ <pyds.values.Integer object at 0x...>
  >>> str(test_sequence_1d[-1])
  '12:32:16'
  >>> test_sequence_1d.append(pyds.BasedInteger(2, "111"))
@@ -923,7 +923,7 @@ A :class:`Sequence2D` object represents a two dimensional sequence of values::
  ...  pyds.Sequence1D(pyds.Integer(7), pyds.Integer(8), pyds.Integer(9))
  ... )
  >>> test_sequence_2d
- <pyds.Sequence2D object at 0x...>
+ <pyds.values.Sequence2D object at 0x...>
 
 It does so by containing a sequence of :class:`Sequence1D` objects.
 Other than that, it behaves just like a :class:`Sequence1D` object.
@@ -946,7 +946,7 @@ a :class:`Label` object from a PDS label string, or instantiate one directly
 to create a new PDS label::
 
  >>> test_parsed_label # see above
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
  >>> pyds.Label(
  ...  pyds.Attribute("PDS_VERSION_ID", pyds.Identifier("PDS3")),
  ...  pyds.Attribute("NUMBER_OF_DAYS", pyds.Integer(500)),
@@ -955,7 +955,7 @@ to create a new PDS label::
  ...   pyds.Attribute("MER2", pyds.Identifier("DLK3J658978XLK213KJH87")),
  ...  ))
  ... )
- <pyds.Label object at 0x...>
+ <pyds.statements.Label object at 0x...>
 
 It implements a list like interface for manipulating and querying the statements
 it contains.
@@ -974,7 +974,7 @@ methods::
 To retrieve statements, use the :meth:`Label.get` method::
 
  >>> test_parsed_label.get(1)
- <pyds.Attribute object at 0x...>
+ <pyds.statements.Attribute object at 0x...>
  >>> print(str(test_parsed_label.get(1)))
  INSERTED_ATTR = 5
  >>> print(str(test_parsed_label.get(-1)))
@@ -985,7 +985,7 @@ To remove statements, use the :meth:`Label.pop` method::
  >>> len(test_parsed_label)
  23
  >>> test_parsed_label.pop(-1)
- <pyds.Attribute object at 0x...>
+ <pyds.statements.Attribute object at 0x...>
  >>> len(test_parsed_label)
  22
  
@@ -993,11 +993,11 @@ Since each statement in a PDS label has a unique identifier, a statement's
 value can be retreived using it's identifier::
 
  >>> test_parsed_label["inserted_attr"]
- <pyds.Integer object at 0x...>
+ <pyds.values.Integer object at 0x...>
  >>> test_parsed_label["integers"]
- <pyds.GroupStatements object at 0x...>
+ <pyds.statements.GroupStatements object at 0x...>
  >>> test_parsed_label["dates_and_times"]
- <pyds.ObjectStatements object at 0x...>
+ <pyds.statements.ObjectStatements object at 0x...>
  
 Although identifiers are stored internally as upper cased string, they are
 case-insensitive::
@@ -1020,9 +1020,9 @@ object is returned.
    values::
 
     >>> test_parsed_label["dates_and_times"]["dates"]["one"]
-    <pyds.Date object at 0x...>
+    <pyds.values.Date object at 0x...>
     >>> test_parsed_label["dates_and_times"]["times"]["one"]
-    <pyds.Time object at 0x...>
+    <pyds.values.Time object at 0x...>
  
 
 A statement can also be added using a similar approach::
@@ -1044,12 +1044,12 @@ sequence::
  >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
  True
  >>> test_parsed_label["monkey_age"]
- <pyds.Integer object at 0x...>
+ <pyds.values.Integer object at 0x...>
  >>> test_parsed_label["monkey_age"] = pyds.Real(5.62)
  >>> test_parsed_label["monkey_age"] == test_parsed_label.get(22).value
  True
  >>> test_parsed_label["monkey_age"]
- <pyds.Real object at 0x...>
+ <pyds.values.Real object at 0x...>
 
 A statement can also be removed using it's identifier::
 

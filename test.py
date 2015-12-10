@@ -10,7 +10,7 @@ if __name__ == "__main__":
   os.chdir("./docs")
   failed, tested = doctest.testfile(
     "./userguide.rst",
-    verbose = True,
+    verbose = False,
     optionflags = doctest.ELLIPSIS
   )
   sys.exit(failed)
