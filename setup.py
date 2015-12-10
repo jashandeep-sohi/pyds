@@ -29,7 +29,7 @@ if __name__ == "__main__":
     author_email = "jashandeep.s.sohi@gmail.com",
     url = "https://github.com/jashandeep-sohi/pyds",
     license = "GPLv3",
-    py_modules = ["pyds"],
+    packages = ["pyds"],
     classifiers = [
      "Development Status :: 5 - Production/Stable",
      "Intended Audience :: Developers",
