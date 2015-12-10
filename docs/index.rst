@@ -7,7 +7,7 @@ labels.
 
 .. toctree::
    
-   introduction
+   about
    installation
    userguide
    reference
